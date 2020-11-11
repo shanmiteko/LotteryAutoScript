@@ -1,5 +1,5 @@
-const { request } = require('http');
-const { stringify } = require('querystring');
+import { request } from 'http';
+import { stringify } from 'querystring';
 /**
  * 简化nodejs发送http请求的步骤
  * @param {object} obj

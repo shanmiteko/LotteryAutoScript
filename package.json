@@ -1,0 +1,24 @@
+{
+  "name": "autoscript",
+  "version": "1.0.0",
+  "description": "run javascript in github",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanmite/AutoScript.git"
+  },
+  "keywords": [
+    "auto",
+    "nodejs"
+  ],
+  "author": "shanmite",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/shanmite/AutoScript/issues"
+  },
+  "homepage": "https://github.com/shanmite/AutoScript#readme"
+}

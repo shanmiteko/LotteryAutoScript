@@ -1,4 +1,4 @@
-import {HttpRequest} from './node/HttpRequest';
+import {HttpRequest} from './node/HttpRequest.js';
 const COOKIE = (process.argv.slice(2))[0].substr(7);
 HttpRequest({
     type: 'POST',

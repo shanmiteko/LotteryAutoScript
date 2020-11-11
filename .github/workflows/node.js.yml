@@ -5,7 +5,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '5 0-23 * * *'
+    - cron: '31 0-23 * * *'
 jobs:
   Start:
     runs-on: ubuntu-latest
