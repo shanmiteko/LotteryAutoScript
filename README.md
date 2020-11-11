@@ -1,2 +1,2 @@
 # AutoScript
-挂载js脚本
+动态抽奖

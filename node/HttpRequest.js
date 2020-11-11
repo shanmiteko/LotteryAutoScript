@@ -18,7 +18,7 @@ import { stringify } from 'querystring';
  * @member error
  * 请求失败执行的方法
  */
-export const HttpRequest = obj => {
+const HttpRequest = obj => {
     const type = obj.type;
     const _url = obj._url;
     const headers = obj.headers;
@@ -112,3 +112,4 @@ function formatContents(contentstype,contents) {
     }
     return stringify(contents);
 }
+export { HttpRequest }
