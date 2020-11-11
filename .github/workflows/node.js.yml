@@ -18,6 +18,6 @@ jobs:
       - name: 'Run in Nodejs'
         shell: bash
         env:
-          COOKIE: ${{ secrets.COOKIE }}
+          COOKIE: "${{ secrets.COOKIE }}"
         run:
           node main.js COOKIE=$COOKIE
