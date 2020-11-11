@@ -2,10 +2,9 @@ name: 'Automatic sweepstakes'
 on:
   push:
     branches:
-      - test
-  #schedule:
-    #At minute 0 past every hour from 0 through 23.
-    #- cron: '0 */2 * * *'
+      - main
+  schedule:
+    - cron: '0 */2 * * *'
 jobs:
   lottery:
     runs-on: ubuntu-latest

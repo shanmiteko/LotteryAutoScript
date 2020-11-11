@@ -1,4 +1,3 @@
-import fs from 'fs';
 import {EventEmitter} from 'events';
 import { HttpRequest } from './node/HttpRequest.js';
 const Script = {
@@ -31,7 +30,7 @@ let config = {
     chatmodel: '11',/* both */
     maxday: '-1', /* 不限 */
     scan_time: '1800000', /* 30min */
-    wait: '20000', /* 20s */
+    wait: '30000', /* 20s */
     minfollower: '500',/* 最少500人关注 */
     blacklist: '',
     whiteklist: '',
@@ -114,40 +113,6 @@ const Base = {
     getRandomStr: arr => {
         return arr[parseInt(Math.random() * arr.length)]
     },
-    storage: {
-        /**
-         * 获取本地值
-         * @param {string} key
-         * @returns {Promise<string>}
-         */
-        get: key => {
-            return new Promise((resolve, reject) => {
-                fs.readFile('lottery.json','utf8',(e,data)=>{
-                    if (e) {
-                        console.error(e);
-                        reject();
-                    } else {
-                        const json = JSON.parse(data);
-                    }
-                })
-            });
-        },
-        /**
-         * 存储本地值
-         * @param {string} key
-         * @param {string} value 
-         */
-        set: async (key, value) => {
-            if (typeof GM === 'undefined') {
-                localStorage.setItem(key, value);
-                return;
-            } else {
-                // eslint-disable-next-line no-undef
-                await GM.setValue(key, value)
-                return;
-            }
-        },
-    }
 }
 /**
  * 事件总线
@@ -168,6 +133,7 @@ const eventBus = (() => {
  * 贮存全局变量
  */
 const GlobalVar = {
+    cookie:'',
     /**自己的UID*/
     myUID: '',
     /**防跨站请求伪造*/
@@ -179,56 +145,6 @@ const GlobalVar = {
     Lottery: (() => {
         return Script.UIDs.concat(Script.TAGs);
     })(),
-    /**
-     * 获取本地存储信息
-     */
-    getAllMyLotteryInfo: async () => {
-        const allMyLotteryInfo = await Base.storage.get(myUID);
-        if (typeof allMyLotteryInfo === 'undefined') {
-            console.log('第一次使用,初始化中...');
-            let alldy = await Public.prototype.checkAllDynamic(myUID, 50);
-            let obj = {};
-            for (let index = 0; index < alldy.length; index++) {
-                const { dynamic_id, origin_dynamic_id } = alldy[index];
-                if (typeof origin_dynamic_id === 'string') {
-                    obj[origin_dynamic_id] = [dynamic_id, 0]
-                }
-            }
-            await Base.storage.set(myUID, JSON.stringify(obj));
-            console.log('初始化成功');
-        } else {
-            return allMyLotteryInfo
-        }
-    },
-    /**
-     * 增加动态信息
-     * @param {string|''} dyid
-     * @param {string} odyid
-     * @param {number|0} ts
-     */
-    addLotteryInfo: async (dyid, odyid, ts) => {
-        const allMyLotteryInfo = await module.getAllMyLotteryInfo();
-        let obj = JSON.parse(allMyLotteryInfo);
-        Object.prototype.hasOwnProperty.call(obj, odyid) ? void 0 : obj[odyid] = [];
-        const [_dyid, _ts] = [obj[odyid][0], obj[odyid][1]];
-        obj[odyid][0] = typeof _dyid === 'undefined' ? dyid : dyid === '' ? _dyid : dyid;
-        obj[odyid][1] = typeof _ts === 'undefined' ? ts : ts === 0 ? _ts : ts;
-        await Base.storage.set(myUID, JSON.stringify(obj));
-        console.log('新增数据存储至本地');
-        return;
-    },
-    /**
-     * 移除一条动态信息
-     * @param {string} odyid
-     */
-    deleteLotteryInfo: async (odyid) => {
-        const allMyLotteryInfo = await module.getAllMyLotteryInfo();
-        let obj = JSON.parse(allMyLotteryInfo);
-        delete obj[odyid];
-        await Base.storage.set(myUID, JSON.stringify(obj));
-        console.log('本地移除一条动态数据');
-        return;
-    }
 };
 /**
  * Ajax请求对象
@@ -246,9 +162,12 @@ const Ajax = (() => {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
                 Accept: 'application/json, text/plain, */*',
-                Cookie: '',
+                Cookie: GlobalVar.cookie,
             },
-            success: success
+            success: success,
+            error: (res)=>{
+                console.log(res);
+            }
         })
     };
     const post = ({
@@ -264,9 +183,12 @@ const Ajax = (() => {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
                 Accept: 'application/json, text/plain, */*',
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-                Cookie: '',
+                Cookie: GlobalVar.cookie,
             },
-            success: success
+            success: success,
+            error: (res)=>{
+                console.log(res);
+            }
         })
     };
     return { get, post };
@@ -494,7 +416,6 @@ const BiliAPI = {
                     fid: uid,
                     act: 1,
                     re_src: 11,
-                    jsonp: 'jsonp',
                     csrf: GlobalVar.csrf
                 },
                 success: responseText => {
@@ -517,7 +438,7 @@ const BiliAPI = {
      */
     movePartition: (uid, tagid) => {
         Ajax.post({
-            url: 'https://api.bilibili.com/x/relation/tags/addUsers?cross_domain=true',
+            url: 'https://api.bilibili.com/x/relation/tags/addUsers',
             hasCookies: true,
             dataType: 'application/x-www-form-urlencoded',
             data: {
@@ -683,8 +604,8 @@ const BiliAPI = {
             Ajax.get({
                 url: 'https://api.bilibili.com/x/relation/tags',
                 queryStringsObj: {
-                    jsonp: 'jsonp',
-                    callback: '__jp14'
+                    // jsonp: 'jsonp',
+                    // callback: '__jp14'
                 },
                 hasCookies: true,
                 success: responseText => {
@@ -858,9 +779,9 @@ class Public {
                     obj.origin_uid = desc.origin.uid; /* 被转发者的UID */
                     obj.origin_rid_str = desc.origin.rid_str /* 被转发者的rid(用于发评论) */
                     obj.origin_dynamic_id = desc.orig_dy_id_str; /* 被转发者的动态的ID !!!!此为大数需使用字符串值,不然JSON.parse()会有丢失精度 */
-                    const { origin_extension } = cardToJson || {};
+                    const { origin,origin_extension } = cardToJson || {};
                     obj.origin_hasOfficialLottery = typeof origin_extension === 'undefined' ? false : typeof origin_extension.lott === 'undefined' ? false : true; /* 是否有官方抽奖 */
-                    const { user, item } = strToJson(cardToJson.origin) || {};
+                    const { user, item } = typeof origin === 'undefined' ? {} : strToJson(origin);
                     obj.origin_uname = typeof user === 'undefined' ? '' : user.name || user.uname || ''; /* 被转发者的name */
                     obj.origin_description = typeof item === 'undefined' ? '' : item.content || item.description || ''; /* 被转发者的描述 */
                 }
@@ -976,20 +897,16 @@ class Monitor extends Public {
         if (GlobalVar.Lottery.length === 0) { console.log('抽奖信息为空'); return }
         this.tagid = await BiliAPI.checkMyPartition(); /* 检查关注分区 */
         this.attentionList = await BiliAPI.getAttentionList(GlobalVar.myUID);
-        const isAdd = await this.startLottery();
-        if (isAdd) {
-            let cADynamic = await this.checkAllDynamic(GlobalVar.myUID, 2); /* 检查我的所有动态 */
-            /**
-             * 储存转发过的动态信息
-             */
-            for (let index = 0; index < cADynamic.length; index++) {
-                const { type, dynamic_id, origin_dynamic_id, origin_description } = cADynamic[index];
-                if (type === 1 && typeof origin_description !== 'undefined') {
-                    await GlobalVar.addLotteryInfo(dynamic_id, origin_dynamic_id, 0)
-                }
+        const AllDynamic = await this.checkAllDynamic(GlobalVar.myUID,5);
+        let string = ''
+        for (let index = 0; index < AllDynamic.length; index++) {
+            const oneDynamicObj = AllDynamic[index];
+            if (typeof oneDynamicObj.origin_dynamic_id === 'string') {
+                string += oneDynamicObj.origin_dynamic_id;
             }
-            this.clearDynamic();
         }
+        this.AllMyLotteryInfo = string;
+        this.startLottery()
     }
     /**
      * 启动
@@ -1012,21 +929,6 @@ class Monitor extends Public {
                 } else {
                     void 0;
                 }
-            }
-        }
-    }
-    /**
-     * 保持800条动态
-     */
-    async clearDynamic() {
-        const AllMyLotteryInfo = JSON.parse(await GlobalVar.getAllMyLotteryInfo());
-        const keyArr = Object.keys(AllMyLotteryInfo);
-        if (keyArr.length > 800) {
-            console.log('已储存800条消息,开始删除最初转发的内容');
-            for (let i = 0; i < keyArr.length - 1500; i++) {
-                let dyid = AllMyLotteryInfo[keyArr[i]][0];
-                GlobalVar.deleteLotteryInfo(keyArr[i]);
-                BiliAPI.rmDynamic(dyid);
             }
         }
     }
@@ -1072,13 +974,12 @@ class Monitor extends Public {
                 /* 判断是否关注过 */
                 reg1.test(self.attentionList) ? void 0 : onelotteryinfo.uid = uid;
                 /* 判断是否转发过 */
-                reg2.test(await GlobalVar.getAllMyLotteryInfo()) ? void 0 : onelotteryinfo.dyid = dyid;
+                reg2.test(self.AllMyLotteryInfo) ? void 0 : onelotteryinfo.dyid = dyid;
                 /* 根据动态的类型决定评论的类型 */
                 onelotteryinfo.type = (type === 2) ? 11 : (type === 4) ? 17 : 0;
                 /* 是否评论 */
                 isSendChat ? onelotteryinfo.rid = rid : void 0;
                 if (typeof onelotteryinfo.uid === 'undefined' && typeof onelotteryinfo.dyid === 'undefined') continue;
-                await GlobalVar.addLotteryInfo('', dyid, ts);
                 alllotteryinfo.push(onelotteryinfo);
             }
         }
@@ -1117,7 +1018,8 @@ class Monitor extends Public {
     }
 }
 /**主函数 */
-export async function main(cookie) {
+async function main(cookie) {
+    GlobalVar.cookie = cookie;
     const [myUID, csrf] = (() => {
         const a = /((?<=DedeUserID=)\d+).*((?<=bili_jct=)\w+)/g.exec(cookie);
         return [a[1], a[2]]
@@ -1141,5 +1043,7 @@ export async function main(cookie) {
             (new Monitor(GlobalVar.Lottery[i++])).init();
         });
     }
-    BiliAPI.sendChat('453380690548954982', (new Date(Date.now())).toLocaleString() + Script.version, 17, false);
+    eventBus.emit('Turn_on_the_Monitor');
+    BiliAPI.sendChat('456295362727813281', (new Date(Date.now())).toLocaleString() + Script.version, 17, false);
 }
+export { main }
