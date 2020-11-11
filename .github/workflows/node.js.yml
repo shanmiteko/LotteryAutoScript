@@ -1,22 +1,22 @@
-name: Node.js CI
+name: 'Automatic sweepstakes'
 on:
   push:
-    branches: 
-      - main
-      - master
-  schedule:
-    - cron: '31 0-23 * * *'
+    branches:
+      - test
+  #schedule:
+    #At minute 0 past every hour from 0 through 23.
+    #- cron: '0 */2 * * *'
 jobs:
-  Start:
+  lottery:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: 'Nodejs run'
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
         shell: bash
         env:
           COOKIE: ${{ secrets.COOKIE }}
