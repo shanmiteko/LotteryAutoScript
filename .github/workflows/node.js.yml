@@ -24,4 +24,4 @@ jobs:
         env:
           COOKIE: ${{ secret.COOKIE }}
         run:
-          node main.js "COOKIE=$COOKIE"
+          node main.js COOKIE=$COOKIE
