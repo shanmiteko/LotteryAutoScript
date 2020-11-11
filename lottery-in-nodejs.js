@@ -30,7 +30,7 @@ let config = {
     chatmodel: '11',/* both */
     maxday: '-1', /* 不限 */
     scan_time: '1800000', /* 30min */
-    wait: '30000', /* 20s */
+    wait: '30000', /* 30s */
     minfollower: '500',/* 最少500人关注 */
     blacklist: '',
     whiteklist: '',
