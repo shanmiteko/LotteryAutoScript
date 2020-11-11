@@ -1,0 +1,125 @@
+{
+	"HttpRequest-get": {
+		"scope": "javascript,typescript",
+		"prefix": "hrget",
+		"body": [
+			"HttpRequest({",
+			"    type: 'GET',",
+			"    _url: '$1',",
+			"    _query_string: {",
+			"        $2",
+			"    },",
+			"    headers: {",
+			"        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',",
+			"        Accept: 'application/json, text/plain, */*',",
+			"        Cookie: '$3',",
+			"    },",
+			"    success: chunk => {",
+			"        $4",
+			"    },",
+			"    error: err => {",
+			"        $5",
+			"    }",
+			"})$6"
+		],
+		"description": "简化http-get请求"
+	},
+	"HttpRequest-post": {
+		"scope": "javascript,typescript",
+		"prefix": "hrpost",
+		"body": [
+			"HttpRequest({",
+			"    type: 'POST',",
+			"    _url: '$1',",
+			"    contents: {",
+			"        $2",
+			"    },",
+			"    headers: {",
+			"        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',",
+			"        Accept: 'application/json, text/plain, */*',",
+			"        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',",
+			"        Cookie: '$3',",
+			"    },",
+			"    success: chunk => {",
+			"        $4",
+			"    },",
+			"    error: err => {",
+			"        $5",
+			"    }",
+			"})$6"
+		],
+		"description": "简化http-post请求"
+	},
+	"CORSajax-get": {
+		"scope": "javascript,typescript",
+		"prefix": "corsget",
+		"body": [
+			"CORSajax.get({",
+			"    proxy_link: '$1',",
+			"    proxy_querystring: {",
+			"        $2",
+			"    },",
+			"    proxy_headers: {",
+			"        Cookie: '$3'",
+			"    },",
+			"},chunk => {",
+			"    $4",
+			"})$5"
+		],
+		"description": "简化跨域Ajax本地nodejsのget代理"
+	},
+	"CORSajax-post": {
+		"scope": "javascript,typescript",
+		"prefix": "corspost",
+		"body": [
+			"CORSajax.post({",
+			"    proxy_link: '$1',",
+			"    proxy_headers: {",
+			"        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',",
+			"        Cookie: '$2'",
+			"    },",
+			"    proxy_body: {",
+			"        $3",
+			"    },",
+			"},chunk => {",
+			"    $4",
+			"})$5"
+		],
+		"description": "简化跨域Ajax本地nodejsのpost代理"
+	},
+	"Ajax-get": {
+		"scope": "javascript,typescript",
+		"prefix": "myget",
+		"body": [
+			"Ajax.get({",
+			"    url: '$1',",
+			"    queryStringsObj: {",
+			"        $2",
+			"    },",
+			"    hasCookies: true,",
+			"    success: responseText => {",
+			"        $3",
+			"    }",
+			"})",
+		],
+		"description": "简化AjaxのGet请求"
+	},
+	"Ajax-post": {
+		"scope": "javascript,typescript",
+		"prefix": "mypost",
+		"body": [
+			"Ajax.post({",
+			"    url: '$1',",
+			"    hasCookies: true,",
+			"    dataType: 'application/x-www-form-urlencoded',",
+			"    data: {",
+			"        $2",
+			"    },",
+			"    success: responseText => {",
+			"        $3",
+			"    }",
+			"})",
+		],
+		"description": "简化Ajaxのpost请求"
+	},
+}

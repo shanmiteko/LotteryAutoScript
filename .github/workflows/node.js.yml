@@ -5,13 +5,10 @@ on:
       - main
       - master
   schedule:
-    - cron: '51 0-23 * * *'
+    - cron: '5 0-23 * * *'
 jobs:
   Start:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v2
