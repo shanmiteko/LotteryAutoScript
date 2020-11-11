@@ -5,7 +5,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '0 0-23 * * *'
+    - cron: '51 0-23 * * *'
 jobs:
   Start:
     runs-on: ubuntu-latest
@@ -22,6 +22,6 @@ jobs:
       - name: 'Nodejs run'
         shell: bash
         env:
-          COOKIE: ${{ secret.COOKIE }}
+          COOKIE: ${{ secrets.COOKIE }}
         run:
           node main.js COOKIE=$COOKIE
