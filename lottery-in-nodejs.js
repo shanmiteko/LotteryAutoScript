@@ -18,7 +18,7 @@ let config = {
     model: '01',/* both */
     chatmodel: '01',/* both */
     maxday: '-1', /* 不限 */
-    wait: '30000', /* 30s */
+    wait: '120000', /* 120s */
     minfollower: '500',/* 最少500人关注 */
     blacklist: '',
     whiteklist: '',
