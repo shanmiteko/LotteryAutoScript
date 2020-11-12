@@ -1,3 +1,4 @@
+import { error } from 'console';
 import {EventEmitter} from 'events';
 import { HttpRequest } from './node/HttpRequest.js';
 const Script = {
@@ -18,7 +19,7 @@ let config = {
     model: '01',/* both */
     chatmodel: '01',/* both */
     maxday: '-1', /* 不限 */
-    wait: '120000', /* 120s */
+    wait: '60000', /* 60s */
     minfollower: '500',/* 最少500人关注 */
     blacklist: '',
     whiteklist: '',
@@ -113,6 +114,9 @@ const eventBus = (() => {
             },
             emit: (type) => {
                 eTarget.emit(type);
+            },
+            off: ()=>{
+                eTarget.off()
             }
         }
     return module;
@@ -392,10 +396,10 @@ const BiliAPI = {
      * 并转移分组
      * @param {Number} uid
      * 被关注者的UID
-     * @returns {Promise<null>}
+     * @returns {Promise<1|0>}
      */
     autoAttention: uid => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             Ajax.post({
                 url: 'https://api.bilibili.com/x/relation/modify',
                 hasCookies: true,
@@ -410,10 +414,10 @@ const BiliAPI = {
                     /* 重复关注code also equal 0  */
                     if (/^{"code":0/.test(responseText)) {
                         console.log('[自动关注]关注+1');
-                        resolve()
+                        resolve(1)
                     } else {
                         console.log(`[自动关注]失败\n${responseText}`);
-                        reject()
+                        resolve(0)
                     }
                 }
             })
@@ -423,26 +427,32 @@ const BiliAPI = {
      * 移动分区
      * @param {number} uid
      * @param {number} tagid 关注分区的ID
+     * @returns {Promise<1|0>}
      */
     movePartition: (uid, tagid) => {
-        Ajax.post({
-            url: 'https://api.bilibili.com/x/relation/tags/addUsers',
-            hasCookies: true,
-            dataType: 'application/x-www-form-urlencoded',
-            data: {
-                fids: uid,
-                tagids: tagid,
-                csrf: GlobalVar.csrf
-            },
-            success: responseText => {
-                /* 重复移动code also equal 0 */
-                if (/^{"code":0/.test(responseText)) {
-                    console.log('[移动分区]up主分区移动成功');
-                } else {
-                    console.log(`[移动分区]up主分区移动失败\n${responseText}`);
+        return new Promise((resolve) => {
+            Ajax.post({
+                url: 'https://api.bilibili.com/x/relation/tags/addUsers',
+                hasCookies: true,
+                dataType: 'application/x-www-form-urlencoded',
+                data: {
+                    fids: uid,
+                    tagids: tagid,
+                    csrf: GlobalVar.csrf
+                },
+                success: responseText => {
+                    /* 重复移动code also equal 0 */
+                    if (/^{"code":0/.test(responseText)) {
+                        console.log('[移动分区]up主分区移动成功');
+                        resolve(1)
+                    } else {
+                        console.log(`[移动分区]up主分区移动失败\n${responseText}`);
+                        resolve(0)
+                    }
                 }
-            }
-        })
+            })
+        });
+
     },
     /**
      * 取消关注
@@ -474,27 +484,31 @@ const BiliAPI = {
     /**
      * 动态自动点赞
      * @param {string} dyid
-     * @returns {void}
+     * @returns {Promise<1|0>}
      */
     autolike: dyid => {
-        Ajax.post({
-            url: 'https://api.vc.bilibili.com/dynamic_like/v1/dynamic_like/thumb',
-            hasCookies: true,
-            dataType: 'application/x-www-form-urlencoded',
-            data: {
-                uid: GlobalVar.myUID,
-                dynamic_id: dyid,
-                up: 1,
-                csrf: GlobalVar.csrf
-            },
-            success: responseText => {
-                if (/^{"code":0/.test(responseText)) {
-                    console.log('[自动点赞]点赞成功');
-                } else {
-                    console.log(`[转发动态]点赞失败\n${responseText}`);
+        return new Promise((resolve) => {
+            Ajax.post({
+                url: 'https://api.vc.bilibili.com/dynamic_like/v1/dynamic_like/thumb',
+                hasCookies: true,
+                dataType: 'application/x-www-form-urlencoded',
+                data: {
+                    uid: GlobalVar.myUID,
+                    dynamic_id: dyid,
+                    up: 1,
+                    csrf: GlobalVar.csrf
+                },
+                success: responseText => {
+                    if (/^{"code":0/.test(responseText)) {
+                        console.log('[自动点赞]点赞成功');
+                        resolve(1);
+                    } else {
+                        console.log(`[转发动态]点赞失败\n${responseText}`);
+                        resolve(0);
+                    }
                 }
-            }
-        })
+            })
+        });
     },
     /**
      * 转发前因查看是否重复转发
@@ -503,28 +517,32 @@ const BiliAPI = {
      * 自己的UID
      * @param {string} dyid
      * 动态的ID
-     * @returns {void}
+     * @returns {Promise<1|0>}
      */
     autoRelay: (uid, dyid) => {
-        Ajax.post({
-            url: 'https://api.vc.bilibili.com/dynamic_repost/v1/dynamic_repost/repost',
-            hasCookies: true,
-            dataType: 'application/x-www-form-urlencoded',
-            data: {
-                uid: `${uid}`,
-                dynamic_id: dyid,
-                content: Base.getRandomStr(config.relay),
-                extension: '{"emoji_type":1}',
-                csrf: GlobalVar.csrf
-            },
-            success: responseText => {
-                if (/^{"code":0/.test(responseText)) {
-                    console.log('[转发动态]成功转发一条动态');
-                } else {
-                    console.log(`[转发动态]转发动态失败\n${responseText}`);
+        return new Promise((resolve) => {
+            Ajax.post({
+                url: 'https://api.vc.bilibili.com/dynamic_repost/v1/dynamic_repost/repost',
+                hasCookies: true,
+                dataType: 'application/x-www-form-urlencoded',
+                data: {
+                    uid: `${uid}`,
+                    dynamic_id: dyid,
+                    content: Base.getRandomStr(config.relay),
+                    extension: '{"emoji_type":1}',
+                    csrf: GlobalVar.csrf
+                },
+                success: responseText => {
+                    if (/^{"code":0/.test(responseText)) {
+                        console.log('[转发动态]成功转发一条动态');
+                        resolve(1)
+                    } else {
+                        console.log(`[转发动态]转发动态失败\n${responseText}`);
+                        resolve(0)
+                    }
                 }
-            }
-        })
+            })
+        });
     },
     /**
      * 移除动态
@@ -558,28 +576,32 @@ const BiliAPI = {
      * 1(视频)  
      * 11(有图)  
      * 17(无图)  
-     * @returns {void}
+     * @returns {Promise<1|0>}
      */
     sendChat: (rid, msg, type, show = true) => {
-        Ajax.post({
-            url: 'https://api.bilibili.com/x/v2/reply/add',
-            hasCookies: true,
-            dataType: 'application/x-www-form-urlencoded',
-            data: {
-                oid: rid,
-                type: type,
-                message: msg,
-                jsonp: 'jsonp',
-                csrf: GlobalVar.csrf
-            },
-            success: responseText => {
-                if (/^{"code":0/.test(responseText)) {
-                    show ? console.log('[自动评论]评论成功') : void 0;
-                } else {
-                    show ? console.log('[自动评论]评论失败') : void 0;
+        return new Promise((resolve) => {
+            Ajax.post({
+                url: 'https://api.bilibili.com/x/v2/reply/add',
+                hasCookies: true,
+                dataType: 'application/x-www-form-urlencoded',
+                data: {
+                    oid: rid,
+                    type: type,
+                    message: msg,
+                    jsonp: 'jsonp',
+                    csrf: GlobalVar.csrf
+                },
+                success: responseText => {
+                    if (/^{"code":0/.test(responseText)) {
+                        show ? console.log('[自动评论]评论成功') : void 0;
+                        resolve(1)
+                    } else {
+                        show ? console.log('[自动评论]评论失败') : void 0;
+                        resolve(0)
+                    }
                 }
-            }
-        })
+            })
+        });
     },
     /**
      * 检查分区  
@@ -909,13 +931,12 @@ class Monitor extends Public {
             return false;
         } else {
             for (const Lottery of allLottery) {
-                await this.go(Lottery);
+                const a = await this.go(Lottery);
+                if (a === 0) return;
                 if (index++ === len - 1) {
                     console.log('开始转发下一组动态');
                     eventBus.emit('Turn_on_the_Monitor');
-                    return true;
-                } else {
-                    void 0;
+                    return;
                 }
             }
         }
@@ -986,23 +1007,21 @@ class Monitor extends Public {
      */
     async go(obj) {
         const { uid, dyid, type, rid } = obj;
+        let ret = '';
         if (typeof dyid === 'string') {
-            BiliAPI.autoRelay(GlobalVar.myUID, dyid);
+            ret += await BiliAPI.autoRelay(GlobalVar.myUID, dyid);
             BiliAPI.autolike(dyid);
             if (typeof uid === 'number') {
-                BiliAPI.autoAttention(uid).then(() => {
-                    BiliAPI.movePartition(uid, this.tagid)
-                }, () => {
-                    console.log('未关注无法移动分区');
-                })
+                ret += await BiliAPI.autoAttention(uid);
+                ret += await BiliAPI.movePartition(uid, this.tagid)
             }
             if (typeof rid === 'string' && type !== 0) {
-                BiliAPI.sendChat(rid, Base.getRandomStr(config.chat), type);
+                ret += await BiliAPI.sendChat(rid, Base.getRandomStr(config.chat), type);
             }
             await Base.delay(Number(config.wait));
-            return;
         }
-        return;
+        if (ret === '' || ret.indexOf('0') === -1) return 1
+        return 0;
     }
 }
 /**主函数 */
