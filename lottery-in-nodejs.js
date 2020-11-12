@@ -3,18 +3,7 @@ import { HttpRequest } from './node/HttpRequest.js';
 const Script = {
     version: '|version: 3.6.5|in nodejs',
     author: '@shanmite',
-    UIDs: [
-        213931643,
-        15363359,
-        31252386,
-        80158015,
-        678772444,
-        35719643,
-        223748830,
-        420788931,
-        689949971,
-        38970985
-    ],
+    UIDs: [],
     TAGs: [
         '抽奖',
         '互动抽奖',
@@ -26,10 +15,9 @@ const Script = {
  * 默认设置
  */
 let config = {
-    model: '11',/* both */
-    chatmodel: '11',/* both */
+    model: '01',/* both */
+    chatmodel: '01',/* both */
     maxday: '-1', /* 不限 */
-    scan_time: '1800000', /* 30min */
     wait: '30000', /* 30s */
     minfollower: '500',/* 最少500人关注 */
     blacklist: '',
@@ -216,7 +204,7 @@ const BiliAPI = {
                         console.log('[获取关注列表]成功');
                         resolve(res.data.list.toString())
                     } else {
-                        console.warn(`[获取关注列表]失败\n${responseText}`);
+                        console.log(`[获取关注列表]失败\n${responseText}`);
                         resolve(null)
                     }
                 }
@@ -268,7 +256,7 @@ const BiliAPI = {
                 success: responseText => {
                     const res = Base.strToJson(responseText);
                     if (res.code !== 0) {
-                        console.warn('获取TagID失败');
+                        console.log('获取TagID失败');
                         resolve(-1)
                     }
                     resolve(res.data.tag_id)
@@ -335,7 +323,7 @@ const BiliAPI = {
                     if (res.code === 0) {
                         resolve(res.data.follower)
                     } else {
-                        console.warn('获取关注数出错,可能是访问过频繁');
+                        console.log('获取关注数出错,可能是访问过频繁');
                         resolve(0)
                     }
                 }
@@ -386,7 +374,7 @@ const BiliAPI = {
                             isMe: isMe
                         });
                     } else {
-                        console.warn(`获取开奖信息失败\n${responseText}`);
+                        console.log(`获取开奖信息失败\n${responseText}`);
                         resolve({
                             ts: 0,
                             text: '获取开奖信息失败',
@@ -424,7 +412,7 @@ const BiliAPI = {
                         console.log('[自动关注]关注+1');
                         resolve()
                     } else {
-                        console.warn(`[自动关注]失败\n${responseText}`);
+                        console.log(`[自动关注]失败\n${responseText}`);
                         reject()
                     }
                 }
@@ -451,7 +439,7 @@ const BiliAPI = {
                 if (/^{"code":0/.test(responseText)) {
                     console.log('[移动分区]up主分区移动成功');
                 } else {
-                    console.warn(`[移动分区]up主分区移动失败\n${responseText}`);
+                    console.log(`[移动分区]up主分区移动失败\n${responseText}`);
                 }
             }
         })
@@ -478,7 +466,7 @@ const BiliAPI = {
                 if (res.code === 0) {
                     console.log('[自动取关]取关成功')
                 } else {
-                    console.warn(`[自动取关]取关失败\n${responseText}`)
+                    console.log(`[自动取关]取关失败\n${responseText}`)
                 }
             }
         })
@@ -503,7 +491,7 @@ const BiliAPI = {
                 if (/^{"code":0/.test(responseText)) {
                     console.log('[自动点赞]点赞成功');
                 } else {
-                    console.warn(`[转发动态]点赞失败\n${responseText}`);
+                    console.log(`[转发动态]点赞失败\n${responseText}`);
                 }
             }
         })
@@ -533,7 +521,7 @@ const BiliAPI = {
                 if (/^{"code":0/.test(responseText)) {
                     console.log('[转发动态]成功转发一条动态');
                 } else {
-                    console.warn(`[转发动态]转发动态失败\n${responseText}`);
+                    console.log(`[转发动态]转发动态失败\n${responseText}`);
                 }
             }
         })
@@ -556,7 +544,7 @@ const BiliAPI = {
                 if (/^{"code":0/.test(responseText)) {
                     console.log('[删除动态]成功删除一条动态');
                 } else {
-                    console.warn(`[删除动态]删除动态失败\n${responseText}`);
+                    console.log(`[删除动态]删除动态失败\n${responseText}`);
                 }
             }
         })
@@ -739,7 +727,7 @@ class Public {
             jsonRes = strToJson(res),
             { data } = jsonRes;
         if (jsonRes.code !== 0) {
-            console.warn('获取动态数据出错,可能是访问太频繁');
+            console.log('获取动态数据出错,可能是访问太频繁');
             return null;
         }
         /* 字符串防止损失精度 */
@@ -1005,7 +993,7 @@ class Monitor extends Public {
                 BiliAPI.autoAttention(uid).then(() => {
                     BiliAPI.movePartition(uid, this.tagid)
                 }, () => {
-                    console.warn('未关注无法移动分区');
+                    console.log('未关注无法移动分区');
                 })
             }
             if (typeof rid === 'string' && type !== 0) {
@@ -1018,7 +1006,7 @@ class Monitor extends Public {
     }
 }
 /**主函数 */
-async function main(cookie) {
+export async function main(cookie) {
     GlobalVar.cookie = cookie;
     const [myUID, csrf] = (() => {
         const a = /((?<=DedeUserID=)\d+).*((?<=bili_jct=)\w+)/g.exec(cookie);
@@ -1034,10 +1022,6 @@ async function main(cookie) {
                 console.log('所有动态转发完毕');
                 console.log('[运行结束]目前无抽奖信息,过一会儿再来看看吧');
                 i = 0;
-                console.log(`${Number(config.scan_time) / 60000}分钟后再次扫描`);
-                setTimeout(() => {
-                    eventBus.emit('Turn_on_the_Monitor');
-                }, Number(config.scan_time))
                 return;
             }
             (new Monitor(GlobalVar.Lottery[i++])).init();
@@ -1046,4 +1030,3 @@ async function main(cookie) {
     eventBus.emit('Turn_on_the_Monitor');
     BiliAPI.sendChat('456295362727813281', (new Date(Date.now())).toLocaleString() + Script.version, 17, false);
 }
-export { main }
