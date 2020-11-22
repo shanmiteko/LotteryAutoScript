@@ -1,4 +1,3 @@
-import { error } from 'console';
 import {EventEmitter} from 'events';
 import { HttpRequest } from './node/HttpRequest.js';
 const Script = {
@@ -907,7 +906,7 @@ class Monitor extends Public {
         if (GlobalVar.Lottery.length === 0) { console.log('抽奖信息为空'); return }
         this.tagid = await BiliAPI.checkMyPartition(); /* 检查关注分区 */
         this.attentionList = await BiliAPI.getAttentionList(GlobalVar.myUID);
-        const AllDynamic = await this.checkAllDynamic(GlobalVar.myUID,5);
+        const AllDynamic = await this.checkAllDynamic(GlobalVar.myUID,10);
         let string = ''
         for (let index = 0; index < AllDynamic.length; index++) {
             const oneDynamicObj = AllDynamic[index];
