@@ -8,13 +8,15 @@
 1. fork本仓库  
 
 2. 填入COOKIE  
-    > [在浏览器中获取指定站点的Cookies的方法](https://blog.csdn.net/Luckyzhoufangbing/article/details/89816069)  
-
-    (COOKIE格式:`DedeUserID=;·SESSDATA=;·bili_jct=;·`(点号表示空格 **注意顺序与空格要求**))  
+    >具体获取Cookie的方法参考[BILIBILI-HELPER](https://github.com/JunzhouLiu/BILIBILI-HELPER)
+    
+    COOKIE格式如下:  
+    `DedeUserID=填入此处;·SESSDATA=填入此处;·bili_jct=填入此处;·`  
+    (**点号**表示一个**空格**实际填写时**须去掉** 注意**顺序与空格**要求)  
     ![步骤1](https://ftp.bmp.ovh/imgs/2020/11/c4e7ac036199551c.png)
     ![步骤2](https://ftp.bmp.ovh/imgs/2020/11/dcc3f30e22f6b12a.png)
 
-3. 随便改一下再作一次提交便自动运行  
+3. 随便改一下此文件再作一次提交便自动运行  
 ## 效果
 ![效果](https://ftp.bmp.ovh/imgs/2020/11/87d483cea98563fa.png)
 
