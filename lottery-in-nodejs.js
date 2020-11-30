@@ -1109,13 +1109,12 @@ export async function isMe(SCKEY) {
     let desp = '';
     if (arr.length !== 0) {
         arr.forEach(e => {
-            desp += `发生时间: ${e.time}  `
-            desp += `用户: ${e.nickname}  `
-            desp += `在${e.business}中@了你  `
-            desp += `原内容为: ${e.source_content}  `
-            desp += `[直达链接](${e.url})  `
-            desp += `\n`
-            desp += `---`
+            desp += `发生时间: ${e.time}  \n\n`
+            desp += `用户: ${e.nickname}  \n\n`
+            desp += `在${e.business}中@了你  \n\n`
+            desp += `原内容为: ${e.source_content}  \n\n`
+            desp += `[直达链接](${e.url})  \n\n`
+            desp += `---\n\n`
         });
     }
     if (desp !== '') {
