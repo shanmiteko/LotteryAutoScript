@@ -62,6 +62,8 @@ const Base = {
         if (isJSON(params)) {
             let obj = JSON.parse(params);
             return obj
+        } else {
+            return {}
         }
     },
     /**
@@ -188,6 +190,51 @@ const Ajax = (() => {
  * 网络请求
  */
 const BiliAPI = {
+    /**
+     * 获取被at的信息
+     * @returns {
+        Promise<{
+            time: string;
+            nickname: string;
+            business: string;
+            source_content: string;
+            url: string
+        }[] | []>
+    }
+     */
+    getMyAtInfo: async ()=>{
+        return new Promise((resolve) => {
+            Ajax.get({
+                url: 'https://api.bilibili.com/x/msgfeed/at',
+                hasCookies: true,
+                success: responseText => {
+                    const res = Base.strToJson(responseText);
+                    const atInfo = [];
+                    if (res.code === 0) {
+                        const items = res.data.items;
+                        if (items.length !== 0) {
+                            items.forEach(i => {
+                                const {at_time, item, user} = i
+                                    , time = (new Date(at_time * 1000)).toLocaleString()
+                                    , { nickname } = user
+                                    , {business, uri:url ,source_content} = item;
+                                atInfo.push({
+                                    time,
+                                    nickname,
+                                    business,
+                                    source_content,
+                                    url
+                                })
+                            })
+                        } 
+                        resolve(atInfo);
+                    } else {
+                        resolve(atInfo)
+                    }
+                }
+            })
+        });
+    },
     /**
      * 获取关注列表
      * @param {number} uid 
@@ -1023,7 +1070,10 @@ class Monitor extends Public {
         return 0;
     }
 }
-/**主函数 */
+/**
+ * 主函数
+ * @param {string} cookie
+ */
 export async function main(cookie) {
     GlobalVar.cookie = cookie;
     const [myUID, csrf] = (() => {
@@ -1047,4 +1097,38 @@ export async function main(cookie) {
     }
     eventBus.emit('Turn_on_the_Monitor');
     BiliAPI.sendChat('456295362727813281', (new Date(Date.now())).toLocaleString() + Script.version, 17, false);
+}
+/**
+ * 是否中奖
+ * @param {string} SCKEY
+ */
+export async function isMe(SCKEY) {
+    if (typeof SCKEY === 'undefined') return;
+    const arr = await BiliAPI.getMyAtInfo();
+    const text = '可能中奖了!';
+    let desp = '';
+    if (arr.length !== 0) {
+        arr.forEach(e => {
+            desp += `发生时间: ${e.time}  `
+            desp += `用户: ${e.nickname}  `
+            desp += `在${e.business}中@了你  `
+            desp += `原内容为: ${e.source_content}  `
+            desp += `[直达链接](${e.url})  `
+            desp += `\n`
+            desp += `---`
+        });
+    }
+    if (desp !== '') {
+        Ajax.get({
+            url: `https://sc.ftqq.com/${SCKEY}.send`,
+            queryStringsObj: {
+                text,
+                desp
+            },
+            success: responseText => {
+                console.log(responseText);
+            }
+        })
+    }
+    return;
 }

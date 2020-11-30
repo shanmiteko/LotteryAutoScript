@@ -19,5 +19,6 @@ jobs:
         shell: bash
         env:
           COOKIE: ${{ secrets.COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
         run:
-          node main.js COOKIE="$COOKIE"
+          node main.js

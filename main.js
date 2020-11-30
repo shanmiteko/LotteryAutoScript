@@ -1,4 +1,6 @@
-import { main } from './lottery-in-nodejs.js';
+import { main,isMe } from './lottery-in-nodejs.js';
 /**@type {string}*/
-const COOKIE = (process.argv.slice(2))[0].substr(7);
+const COOKIE = process.env.COOKIE;
+const SCKEY = process.env.SCKEY;
+isMe(SCKEY);
 main(COOKIE);
