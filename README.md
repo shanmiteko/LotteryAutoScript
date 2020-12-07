@@ -3,7 +3,8 @@
 通过Github Actions挂载Nodejs脚本  
 > [Actions官方文档](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)
 
-默认整点运行,只转发非官方抽奖
+---
+
 ## 操作步骤
 1. fork本仓库  
 
@@ -16,11 +17,36 @@
     ![步骤1](https://ftp.bmp.ovh/imgs/2020/11/c4e7ac036199551c.png)
     ![步骤2](https://ftp.bmp.ovh/imgs/2020/11/dcc3f30e22f6b12a.png)
 
-3. 如果想使用**微信推送**服务请用同样的方法填入`SCKEY`  
-    [Server酱](http://sc.ftqq.com/3.version)  
-    具体方法可以参考同样参考[BILIBILI-HELPER](https://github.com/JunzhouLiu/BILIBILI-HELPER)
+3. 如果想使用Server酱提供的**微信推送**服务请用同样的方法填入`SCKEY`  
+    > [Server酱是什么?](http://sc.ftqq.com/3.version)  
 
-4. 随便改一下此文件再作一次提交便自动运行  
+4. 随便改一下`README.md`文件再作一次提交便自动运行  
+
+---
+
 ## 效果
-![效果](https://ftp.bmp.ovh/imgs/2020/11/87d483cea98563fa.png)
+![效果](https://ftp.bmp.ovh/imgs/2020/11/87d483cea98563fa.png)  
+
+---
+
+## 部分设置说明
+- 定时运行
+    ```yaml
+    schedule:
+      - cron: '0 */2 * * *'
+    ```
+    > [填写格式](https://crontab.guru/)  
+- 模式选择
+    ```javascript
+    /**
+     * 默认设置
+     */
+    let config = {
+        model: '11',/* both */
+        chatmodel: '11',/* both */
+    }
+    ```
+    [具体含义](https://github.com/shanmite/LotteryAutoScript/issues/2)
+
+---
 

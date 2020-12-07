@@ -15,7 +15,7 @@ const Script = {
  * 默认设置
  */
 let config = {
-    model: '01',/* both */
+    model: '11',/* both */
     chatmodel: '01',/* both */
     maxday: '-1', /* 不限 */
     wait: '60000', /* 60s */
