@@ -1,9 +1,20 @@
-import {EventEmitter} from 'events';
-import { HttpRequest } from './node/HttpRequest.js';
+const { EventEmitter } = require('events');
+const { HttpRequest } = require('./node/HttpRequest.js');
 const Script = {
-    version: '|version: 3.6.5|in nodejs',
+    version: '|version: 3.6.6-by nodejs',
     author: '@shanmite',
-    UIDs: [],
+    UIDs: [
+        213931643,
+        15363359,
+        31252386,
+        80158015,
+        678772444,
+        35719643,
+        223748830,
+        420788931,
+        689949971,
+        38970985
+    ],
     TAGs: [
         '抽奖',
         '互动抽奖',
@@ -143,48 +154,34 @@ const GlobalVar = {
  * Ajax请求对象
  */
 const Ajax = (() => {
-    const get = ({
-        url,
-        queryStringsObj,
-        success
-    }) => {
-        HttpRequest({
-            type: 'GET',
-            _url: url,
-            _query_string: queryStringsObj,
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
-                Accept: 'application/json, text/plain, */*',
-                Cookie: GlobalVar.cookie,
-            },
-            success: success,
-            error: (res)=>{
-                console.log(res);
-            }
-        })
-    };
-    const post = ({
-        url,
-        data,
-        success
-    }) => {
-        HttpRequest({
-            type: 'POST',
-            _url: url,
-            contents: data,
+    function transformToNodeRequest(options) {
+        return {
+            method: options.method,
+            url: options.url,
+            query: options.queryStringsObj,
+            contents: options.data,
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
                 Accept: 'application/json, text/plain, */*',
                 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
                 Cookie: GlobalVar.cookie,
             },
-            success: success,
-            error: (res)=>{
-                console.log(res);
-            }
-        })
-    };
-    return { get, post };
+            success: options.success,
+            failure: options.error
+        }
+    }
+    return {
+        get(options) {
+            options['method'] = 'GET';
+            HttpRequest(transformToNodeRequest(options))
+            return;
+        },
+        post(options) {
+            options['method'] = 'POST';
+            HttpRequest(transformToNodeRequest(options))
+            return;
+        }
+    }
 })()
 /**
  * 网络请求
@@ -1070,64 +1067,66 @@ class Monitor extends Public {
         return 0;
     }
 }
-/**
- * 主函数
- * @param {string} cookie
- */
-export async function main(cookie) {
-    GlobalVar.cookie = cookie;
-    const [myUID, csrf] = (() => {
-        const a = /((?<=DedeUserID=)\d+).*((?<=bili_jct=)\w+)/g.exec(cookie);
-        return [a[1], a[2]]
-    })();
-    GlobalVar.myUID = myUID;
-    GlobalVar.csrf = csrf;
-    /* 注册事件 */
-    {
-        let i = 0;
-        eventBus.on('Turn_on_the_Monitor', () => {
-            if (i === GlobalVar.Lottery.length) {
-                console.log('所有动态转发完毕');
-                console.log('[运行结束]目前无抽奖信息,过一会儿再来看看吧');
-                i = 0;
-                return;
-            }
-            (new Monitor(GlobalVar.Lottery[i++])).init();
-        });
+module.exports = {
+    /**
+     * 主函数
+     * @param {string} cookie
+     */
+    async main(cookie) {
+        GlobalVar.cookie = cookie;
+        const [myUID, csrf] = (() => {
+            const a = /((?<=DedeUserID=)\d+).*((?<=bili_jct=)\w+)/g.exec(cookie);
+            return [a[1], a[2]]
+        })();
+        GlobalVar.myUID = myUID;
+        GlobalVar.csrf = csrf;
+        /* 注册事件 */
+        {
+            let i = 0;
+            eventBus.on('Turn_on_the_Monitor', () => {
+                if (i === GlobalVar.Lottery.length) {
+                    console.log('所有动态转发完毕');
+                    console.log('[运行结束]目前无抽奖信息,过一会儿再来看看吧');
+                    i = 0;
+                    return;
+                }
+                (new Monitor(GlobalVar.Lottery[i++])).init();
+            });
+        }
+        eventBus.emit('Turn_on_the_Monitor');
+        BiliAPI.sendChat('456295362727813281', (new Date(Date.now())).toLocaleString() + Script.version, 17, false);
+    },
+    /**
+     * 是否中奖
+     * @param {string} SCKEY
+     */
+    async isMe(SCKEY) {
+        if (typeof SCKEY === 'undefined') return;
+        const arr = await BiliAPI.getMyAtInfo();
+        const text = '可能中奖了!';
+        let desp = '';
+        if (arr.length !== 0) {
+            arr.forEach(e => {
+                desp += `发生时间: ${e.time}  \n\n`
+                desp += `用户: ${e.nickname}  \n\n`
+                desp += `在${e.business}中@了你  \n\n`
+                desp += `原内容为: ${e.source_content}  \n\n`
+                desp += `[直达链接](${e.url})  \n\n`
+                desp += `---\n\n`
+            });
+        }
+        if (desp !== '') {
+            Ajax.get({
+                url: `https://sc.ftqq.com/${SCKEY}.send`,
+                queryStringsObj: {
+                    text,
+                    desp
+                },
+                success: responseText => {
+                    console.log(responseText);
+                }
+            })
+        }
+        return;
     }
-    eventBus.emit('Turn_on_the_Monitor');
-    BiliAPI.sendChat('456295362727813281', (new Date(Date.now())).toLocaleString() + Script.version, 17, false);
-}
-/**
- * 是否中奖
- * @param {string} SCKEY
- */
-export async function isMe(SCKEY) {
-    if (typeof SCKEY === 'undefined') return;
-    const arr = await BiliAPI.getMyAtInfo();
-    const text = '可能中奖了!';
-    let desp = '';
-    if (arr.length !== 0) {
-        arr.forEach(e => {
-            desp += `发生时间: ${e.time}  \n\n`
-            desp += `用户: ${e.nickname}  \n\n`
-            desp += `在${e.business}中@了你  \n\n`
-            desp += `原内容为: ${e.source_content}  \n\n`
-            desp += `[直达链接](${e.url})  \n\n`
-            desp += `---\n\n`
-        });
-    }
-    if (desp !== '') {
-        Ajax.get({
-            url: `https://sc.ftqq.com/${SCKEY}.send`,
-            queryStringsObj: {
-                text,
-                desp
-            },
-            success: responseText => {
-                console.log(responseText);
-            }
-        })
-    }
-    return;
 }

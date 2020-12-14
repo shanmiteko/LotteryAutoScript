@@ -1,5 +1,4 @@
-import { main,isMe } from './lottery-in-nodejs.js';
-/**@type {string}*/
+const { main,isMe } = require('./lottery-in-nodejs.js');
 const COOKIE = process.env.COOKIE;
 const SCKEY = process.env.SCKEY;
 main(COOKIE);
