@@ -111,9 +111,7 @@ const Base = {
      * @param {string[]} arr
      * @returns {string}
      */
-    getRandomStr: arr => {
-        return arr[parseInt(Math.random() * arr.length)]
-    },
+    getRandomStr: arr => arr[~~(Math.random() * arr.length)],
 }
 /**
  * 事件总线
@@ -127,8 +125,8 @@ const eventBus = (() => {
             emit: (type) => {
                 eTarget.emit(type);
             },
-            off: ()=>{
-                eTarget.off()
+            off: (type, fn)=>{
+                eTarget.off(type, fn)
             }
         }
     return module;
@@ -146,14 +144,17 @@ const GlobalVar = {
      * 抽奖信息
      * @type {(string|number)[]}
      */
-    Lottery: (() => {
-        return Script.UIDs.concat(Script.TAGs);
-    })(),
+    Lottery: [...Script.UIDs,...Script.TAGs],
 };
 /**
  * Ajax请求对象
  */
 const Ajax = (() => {
+    /**
+     * 
+     * @param {*} options
+     * @returns {import("./node/HttpRequest.js").RequestOptions;}
+     */
     function transformToNodeRequest(options) {
         return {
             method: options.method,
@@ -205,7 +206,7 @@ const BiliAPI = {
                 url: 'https://api.bilibili.com/x/msgfeed/at',
                 hasCookies: true,
                 success: responseText => {
-                    const res = Base.strToJson(responseText);
+                    const res = Base.strToJson(responseText.body);
                     const atInfo = [];
                     if (res.code === 0) {
                         const items = res.data.items;
@@ -246,7 +247,7 @@ const BiliAPI = {
                 },
                 hasCookies: true,
                 success: responseText => {
-                    let res = Base.strToJson(responseText)
+                    let res = Base.strToJson(responseText.body)
                     if (res.code === 0) {
                         console.log('[获取关注列表]成功');
                         resolve(res.data.list.toString())
@@ -279,7 +280,7 @@ const BiliAPI = {
                 hasCookies: true,
                 success: responseText => {
                     /* 鉴别工作交由modifyDynamicRes完成 */
-                    resolve(responseText)
+                    resolve(responseText.body)
                 }
             })
         });
@@ -301,7 +302,7 @@ const BiliAPI = {
                 },
                 hasCookies: false,
                 success: responseText => {
-                    const res = Base.strToJson(responseText);
+                    const res = Base.strToJson(responseText.body);
                     if (res.code !== 0) {
                         console.log('获取TagID失败');
                         resolve(-1)
@@ -325,7 +326,7 @@ const BiliAPI = {
                 },
                 hasCookies: true,
                 success: responseText => {
-                    resolve(responseText)
+                    resolve(responseText.body)
                 }
             })
         });
@@ -346,7 +347,7 @@ const BiliAPI = {
                 },
                 hasCookies: true,
                 success: responseText => {
-                    resolve(responseText)
+                    resolve(responseText.body)
                 }
             })
         });
@@ -366,7 +367,7 @@ const BiliAPI = {
                 },
                 hasCookies: true,
                 success: responseText => {
-                    const res = Base.strToJson(responseText);
+                    const res = Base.strToJson(responseText.body);
                     if (res.code === 0) {
                         resolve(res.data.follower)
                     } else {
@@ -399,8 +400,7 @@ const BiliAPI = {
                 },
                 hasCookies: false,
                 success: responseText => {
-                    const res = Base.strToJson(responseText);
-                    /(?<=_prize_cmt":").*(?=")/.exec()
+                    const res = Base.strToJson(responseText.body);
                     if (res.code === 0) {
                         const timestamp10 = res.data.lottery_time,
                             timestamp13 = timestamp10 * 1000,
@@ -408,10 +408,10 @@ const BiliAPI = {
                         const remain = (() => {
                             const timestr = ((timestamp13 - Date.now()) / 86400000).toString()
                                 , timearr = timestr.replace(/(\d+)\.(\d+)/, "$1,0.$2").split(',');
-                            const text = timearr[0][0] === '-' ? `开奖时间已过${timearr[0].substring(1)}天余${parseInt(timearr[1] * 24)}小时` : `还有${timearr[0]}天余${parseInt(timearr[1] * 24)}小时`;
+                            const text = timearr[0][0] === '-' ? `开奖时间已过${timearr[0].substring(1)}天余${~~(Number(timearr[1]) * 24)}小时` : `还有${timearr[0]}天余${~~(Number(timearr[1]) * 24)}小时`;
                             return text
                         })();
-                        let isMeB = (new RegExp(GlobalVar.myUID)).test(responseText);
+                        let isMeB = (new RegExp(GlobalVar.myUID)).test(responseText.body);
                         const isMe = isMeB ? '中奖了！！！' : '未中奖';
                         const iteminfo = res.data.first_prize_cmt || '' + '  ' + res.data.second_prize_cmt || '' + '  ' + res.data.third_prize_cmt || '';
                         resolve({
@@ -455,7 +455,7 @@ const BiliAPI = {
                 },
                 success: responseText => {
                     /* 重复关注code also equal 0  */
-                    if (/^{"code":0/.test(responseText)) {
+                    if (/^{"code":0/.test(responseText.body)) {
                         console.log('[自动关注]关注+1');
                         resolve(1)
                     } else {
@@ -485,7 +485,7 @@ const BiliAPI = {
                 },
                 success: responseText => {
                     /* 重复移动code also equal 0 */
-                    if (/^{"code":0/.test(responseText)) {
+                    if (/^{"code":0/.test(responseText.body)) {
                         console.log('[移动分区]up主分区移动成功');
                         resolve(1)
                     } else {
@@ -515,7 +515,7 @@ const BiliAPI = {
                 csrf: GlobalVar.csrf
             },
             success: responseText => {
-                const res = Base.strToJson(responseText)
+                const res = Base.strToJson(responseText.body)
                 if (res.code === 0) {
                     console.log('[自动取关]取关成功')
                 } else {
@@ -542,7 +542,7 @@ const BiliAPI = {
                     csrf: GlobalVar.csrf
                 },
                 success: responseText => {
-                    if (/^{"code":0/.test(responseText)) {
+                    if (/^{"code":0/.test(responseText.body)) {
                         console.log('[自动点赞]点赞成功');
                         resolve(1);
                     } else {
@@ -576,7 +576,7 @@ const BiliAPI = {
                     csrf: GlobalVar.csrf
                 },
                 success: responseText => {
-                    if (/^{"code":0/.test(responseText)) {
+                    if (/^{"code":0/.test(responseText.body)) {
                         console.log('[转发动态]成功转发一条动态');
                         resolve(1)
                     } else {
@@ -602,7 +602,7 @@ const BiliAPI = {
                 csrf: GlobalVar.csrf
             },
             success: responseText => {
-                if (/^{"code":0/.test(responseText)) {
+                if (/^{"code":0/.test(responseText.body)) {
                     console.log('[删除动态]成功删除一条动态');
                 } else {
                     console.log(`[删除动态]删除动态失败\n${responseText}`);
@@ -635,7 +635,7 @@ const BiliAPI = {
                     csrf: GlobalVar.csrf
                 },
                 success: responseText => {
-                    if (/^{"code":0/.test(responseText)) {
+                    if (/^{"code":0/.test(responseText.body)) {
                         show ? console.log('[自动评论]评论成功') : void 0;
                         resolve(1)
                     } else {
@@ -662,7 +662,7 @@ const BiliAPI = {
                 },
                 hasCookies: true,
                 success: responseText => {
-                    if (!/此处存放因抽奖临时关注的up/.test(responseText)) {
+                    if (!/此处存放因抽奖临时关注的up/.test(responseText.body)) {
                         /* 如果不存在就新建一个 */
                         Ajax.post({
                             url: 'https://api.bilibili.com/x/relation/tag/create?cross_domain=true',
@@ -673,7 +673,7 @@ const BiliAPI = {
                                 csrf: GlobalVar.csrf
                             },
                             success: responseText => {
-                                let obj = Base.strToJson(responseText);
+                                let obj = Base.strToJson(responseText.body);
                                 if (obj.code === 0) {
                                     console.log('[新建分区]分区新建成功')
                                     let tagid = obj.data.tagid /* 获取tagid */
@@ -683,7 +683,7 @@ const BiliAPI = {
                         })
                     } else {
                         /* 此处可能会出现问题 */
-                        let tagid = /[0-9]*(?=,"name":"此处存放因抽奖临时关注的up")/.exec(responseText)[0] /* 获取tagid */
+                        let tagid = /[0-9]*(?=,"name":"此处存放因抽奖临时关注的up")/.exec(responseText.body)[0] /* 获取tagid */
                         resolve(Number(tagid))
                     }
                 }
@@ -698,7 +698,7 @@ class Public {
     constructor() { }
     /**
      * 检查所有的动态信息
-     * @param {string} UID
+     * @param {string} hostuid
      * 指定的用户UID
      * @param {number} pages
      * 读取页数
@@ -1123,7 +1123,7 @@ module.exports = {
                     desp
                 },
                 success: responseText => {
-                    console.log(responseText);
+                    console.log(responseText.body);
                 }
             })
         }
