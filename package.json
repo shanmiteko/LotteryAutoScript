@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "run javascript in github",
   "main": "main.js",
+  "type": "module",
   "scripts": {
-    "run": "node main.js"
+    "test": "node main.js"
   },
   "repository": {
     "type": "git",

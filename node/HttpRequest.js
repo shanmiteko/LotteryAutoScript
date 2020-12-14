@@ -1,106 +1,115 @@
-//@ts-check
+import { request } from 'http';
+import { stringify } from 'querystring';
 /**
- * @typedef {import("http").IncomingHttpHeaders} HttpHeaders 头部信息
- * 
- * @typedef {object} Respond 返回的响应
- * @property {HttpHeaders} headers 响应头
- * @property {string} body 响应体
- * 
- * @callback SuccessCb 成功回调
- * @param {Respond} res
- * @returns {void}
- * @callback FailureCb 失败回调
- * @param {string} err
- * @returns {void}
- * 
- * @typedef {object} RequestOptions Http请求选项
- * @property {string} method 请求方法
- * @property {string} url 完整链接
- * @property {Object.<string, string>} [query] 查询选项
- * @property {Object.<string, string>} [contents] 内容
- * @property {HttpHeaders} [headers] 请求头
- * @property {SuccessCb} [success] 成功回调
- * @property {FailureCb} [failure] 失败回调
+ * 简化nodejs发送http请求的步骤
+ * @param {object} obj
+ * @member type
+ * 请求的方法
+ * @member _url
+ * 请求的完整链接(若有查询字符串则为'?'之前的内容)
+ * @member _query_string
+ * 键值对形式的查询字符串(值为对象)
+ * @member contents
+ * 键值对形式的请求体(值为对象)
+ * @member headers
+ * 键值对形式的请求头(值为对象)
+ * @member success
+ * 请求成功执行的方法
+ * @member error
+ * 请求失败执行的方法
  */
-
-const { request } = require('http');
-const { stringify } = require('querystring');
-/**
- * 处理请求体  
- * 默认url编码字符串
- * @private
- * @param {HttpHeaders} headers 请求的内容格式
- * @param {object} contents 请求体
- * @returns {string} 格式化字符串
- */
-function formatContents(headers, contents) {
-    const contentstype = headers['Content-type'];
-    if (typeof contentstype === 'undefined') return '';
-    if (/application\/x-www-form-urlencoded/i.test(contentstype.toString())) return stringify(contents);
-    if (/application\/json/i.test(contentstype.toString())) return JSON.stringify(contents);
-    return '';
-}
-/**
- * 测试url是否符合要求
- * @private
- * @param {string} url
- * @returns {boolean}
- */
-function isHttpR(url) {
-    const urlreg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+).)+([A-Za-z0-9-~/])+$/;
-    return urlreg.test(url);
-}
-/**
- * @private
- * @param {import("http").IncomingMessage} res
- * @param {SuccessCb} success
- * @param {FailureCb} failure
- * @returns {void}
- */
-function resDataHandler(res, success, failure) {
-    let protodata = '';
-    const { statusCode, headers } = res;
-    if (statusCode < 400) {
-        res.setEncoding('utf8')
-            .on('data', chunk => protodata += chunk)
-            .on('end', () => success({ headers: headers, body: protodata }))
-    } else {
-        failure(`网络错误: 错误码${statusCode}`);
-    }
-}
-/**
- * @description 简化HTTP请求
- * @param {RequestOptions} detail
- * @returns {void}
- */
-const HttpRequest = detail => {
-    const { method, url, query = {}, contents = {}, headers = {}, success, failure = e => console.warn(e) } = detail;
-    if (!isHttpR(url)) return failure('非http请求');
-    const
-        thisURL = new URL(url),
-        content = formatContents(headers, contents);
+const HttpRequest = obj => {
+    const type = obj.type;
+    const _url = obj._url;
+    const headers = obj.headers;
+    const _query_string = obj._query_string;
+    const contents = formatContents(headers['Content-Type'],obj.contents);
+    (()=>{
+        const reg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+).)+([A-Za-z0-9-~/])+$/;
+        if (!reg.test(_url)) {
+            console.log('url无效');
+            return;
+        }
+    })()
+    /**
+     * 处理options
+     */
     let options = {
-        method,
-        host: thisURL.host,
-        path: thisURL.pathname,
-        headers,
+        host: /(?<=https?:\/\/)[a-zA-Z.]*(?=\/)/.exec(_url)[0],
+        path: /(?<=https?:\/\/.*)\/.*/.exec(_url)[0],
+        headers: headers,
     };
-    switch (method) {
+    let query_string = '';
+    switch (type) {
+        case 'get':
         case 'GET':
-            if (Object.keys(query).length !== 0) options.path += '?' + stringify(query);
+            options.method = 'GET';
+            if (typeof _query_string != 'undefined') {
+                query_string = stringify(_query_string);
+            }
+            if (query_string != '') {
+                let url = _url + '?' + query_string;
+                options.path = /(?<=https?:\/\/.*)\/.*/.exec(url)[0];
+            }
             break;
+        case 'post':
         case 'POST':
-            options.headers['content-length'] = Buffer.byteLength(content, 'utf-8').toString();
+            options.method = 'POST';
+            options.headers['Content-Length'] = contents.length;
+            if (typeof headers['Content-Type'] =='undefined') {
+                options.headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=utf-8';
+            }
             break;
         default:
-            return failure(`未实现的请求方法: ${method}`);
+            console.log('请检查传入HttpRequest方法的对象中的type属性');
+            break;
     }
-    const req = request(options, res => resDataHandler(res, success, failure));
-    if (method === 'POST') req.write(content);
-    req.setTimeout(5000, req.abort)
-        .on('error', err => failure(`请求失败: ${err.message}`))
-        .end();
+    /**
+     * 发送Http请求
+     */
+    let req = request(options, res => {
+        let protodata = '';
+        if (res.statusCode == 200) {
+            // console.log('真·服务器返回的响应头');
+            // console.log(res.headers);
+            res.setEncoding('utf8');
+            res.on('data', chunk => {
+                protodata += chunk
+            })
+            res.on('end', () => {
+                obj.success(protodata)
+            })
+        } else {
+            console.log(`${res.statusCode} RESPEND ERROR!`);
+            obj.error(`服务器拒绝了你的请求`);
+        }
+    });
+    if (type == 'POST') {
+        req.write(contents)
+    }
+    req.on('error', () => {
+        console.error("REQUEST ERROR!")
+        obj.error(`请求失败\n${_url}是无效的url`);
+    });
+    req.end()
 }
-module.exports = {
-    HttpRequest
+/**
+ * 处理请求体
+ * 默认url编码字符串
+ * @param {string} contentstype 请求的内容格式
+ * @param {object} contents 请求体
+ * @returns 格式化字符串
+ */
+function formatContents(contentstype,contents) {
+    if (typeof contents == 'undefined') {
+        return ''
+    }
+    if (/application\/x-www-form-urlencoded/i.test(contentstype)) {
+        return stringify(contents)
+    }
+    if (/application\/json/i.test(contentstype)) {
+        return JSON.stringify(contents)
+    }
+    return stringify(contents);
 }
+export { HttpRequest }
