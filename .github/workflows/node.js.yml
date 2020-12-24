@@ -6,7 +6,7 @@ on:
   schedule:
     - cron: '0 */2 * * *'
 jobs:
-  lottery:
+  lottery_1:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
@@ -19,6 +19,70 @@ jobs:
         shell: bash
         env:
           COOKIE: ${{ secrets.COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          node main.js
+  lottery_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          COOKIE_2: ${{ secrets.COOKIE2 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          node main.js
+  lottery_3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          COOKIE_3: ${{ secrets.COOKIE3 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          node main.js
+  lottery_4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          COOKIE_4: ${{ secrets.COOKIE4 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          node main.js
+  lottery_5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          COOKIE_5: ${{ secrets.COOKIE5 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
           node main.js

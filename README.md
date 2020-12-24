@@ -22,6 +22,15 @@
 
 4. 随便改一下`README.md`文件再作一次提交便自动运行  
 
+5. 支持最多5个账号  
+    |cookies   | value |
+    |   ----   |  ---- |
+    | `COOKIE` |  值   |
+    | `COOKIE2`|  值   |
+    | `COOKIE3`|  值   |
+    | `COOKIE4`|  值   |
+    | `COOKIE5`|  值   |
+
 ---
 
 ## 效果
@@ -30,13 +39,13 @@
 ---
 
 ## 部分设置说明
-- 定时运行(`UTC`时间)
+- 定时运行(`UTC`时间)  
     ```yaml
     schedule:
       - cron: '0 */2 * * *'
-    ```
-    > [填写格式](https://crontab.guru/)  
-- 模式选择
+    ```  
+    [填写格式](https://crontab.guru/)  
+- 模式选择  
     ```javascript
     /**
      * 默认设置
@@ -45,8 +54,8 @@
         model: '11',/* both */
         chatmodel: '11',/* both */
     }
-    ```
-    [具体含义](https://github.com/shanmite/LotteryAutoScript/issues/2)
+    ```  
+    [具体含义](https://github.com/shanmite/LotteryAutoScript/issues/2)  
 
 ---
 
