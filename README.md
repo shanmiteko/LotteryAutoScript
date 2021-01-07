@@ -55,11 +55,18 @@
 ↓  
 
 ### 运行
-随便改一下此`README.md`文件并提交  
+进入Actions启用工作流  
+
+随便改一下此`README.md`文件并提交(Push触发)  
 ![change](.github/start1.png)  
 ![commit](.github/start2.png)  
+或者  
+通过手动触发  
+![commit](.github/byhand.png)  
 
-进入Actions启用工作流
+***以上步骤是为了检测是否配置成功***
+
+至此程序将会每两小时运行一次
 
 ↓  
 
