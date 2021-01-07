@@ -2,7 +2,7 @@ const setGlobalVar = require("./lib/setCookie");
 
 const {
     SCKEY,
-    COOKIE = 'DedeUserID=478207966; SESSDATA=15b4607a%2C1622340565%2C4eae0*c1; bili_jct=a8c20b10ba3cbe3ca535395d227545d5; ',
+    COOKIE,
     COOKIE_2,
     COOKIE_3,
     COOKIE_4,
