@@ -17,13 +17,12 @@
 ↓  
 
 ### 填入COOKIE  
-对于chrome浏览器
+进入[B站主页](https://www.bilibili.com/)获取Cookie用于登录  
+Chrome浏览器:  
 1. `F12`打开控制台  
 2. 进入Application找到Cookies栏中的SESSDATA将HttpOnly选项**取消**勾选  
     (此步骤是为了方便后续采用JS获取Cookies)  
-    ![cookies](.github/cookies.png)  
-    取消httponly
-    ![httponly](.github/httponly.png)  
+    ![取消httponly](.github/getCookies.png)  
 3. 在Console中复制以下代码回车
     ```js
     {
@@ -37,10 +36,11 @@
         console.log(bilicookie)
     }
     ```
-4. 新建一个COOKIE将获取到的`DedeUserID=...;SESSDATA=...;bili_jct=...`填入  
-    ![new secret COOKIE](.github/cookie2.png)  
+4. 新建一个COOKIE将获取到的`DedeUserID=***;SESSDATA=***;bili_jct=***`填入  
+    ![new secret](.github/cookie2.png)  
+    ![new COOKIE](.github/new_secret.png)  
 
-也可以采用其他方式获取所需的Cookie
+也可以采用其他方式获取所需的Cookie  
 只需含有`DedeUserID=...;SESSDATA=...;bili_jct=...`三项即可  
 
 ↓  
