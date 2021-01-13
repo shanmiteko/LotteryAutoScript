@@ -21,7 +21,7 @@ jobs:
       - name: 'Run in Nodejs'
         shell: bash
         env:
-          COOKIE: ${{ secrets.COOKIE }}
+          COOKIE_1: ${{ secrets.COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
           node main.js
