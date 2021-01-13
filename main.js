@@ -16,9 +16,18 @@ COOKIE_ARR.forEach(async (cookie, num) => {
     if (typeof cookie === 'string' && cookie.length > 10) {
         await setGlobalVar(cookie, SCKEY);
         const { start, isMe, checkCookie } = require("./lib/lottery-in-nodejs");
+        const { clear } = require("./lib/clear");
         const isRight = await checkCookie(num + 1);
         if (!isRight) return;
         await isMe();
-        await start();
+        if (process.argv.slice(2)[0] === 'clear') {
+            console.log('开始清理动态');
+            await clear();
+            console.log('清理动态完毕');
+        } else {
+            console.log('开始参与抽奖');
+            await start();
+            console.log('参与抽奖结束');
+        }
     }
 });

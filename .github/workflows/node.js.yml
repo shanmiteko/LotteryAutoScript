@@ -24,7 +24,7 @@ jobs:
           COOKIE_1: ${{ secrets.COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
-          node main.js
+          npm start
   lottery_2:
     runs-on: ubuntu-latest
     steps:
@@ -40,7 +40,7 @@ jobs:
           COOKIE_2: ${{ secrets.COOKIE2 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
-          node main.js
+          npm start
   lottery_3:
     runs-on: ubuntu-latest
     steps:
@@ -56,7 +56,7 @@ jobs:
           COOKIE_3: ${{ secrets.COOKIE3 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
-          node main.js
+          npm start
   lottery_4:
     runs-on: ubuntu-latest
     steps:
@@ -72,7 +72,7 @@ jobs:
           COOKIE_4: ${{ secrets.COOKIE4 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
-          node main.js
+          npm start
   lottery_5:
     runs-on: ubuntu-latest
     steps:
@@ -88,4 +88,4 @@ jobs:
           COOKIE_5: ${{ secrets.COOKIE5 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
-          node main.js
+          npm start

@@ -15,7 +15,10 @@
 
 ## 动态抽奖  
 通过Github Actions挂载Nodejs脚本  
-> [Actions官方文档](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)  
+
+  > [Actions官方文档](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)  
+
+此脚本将在B站专栏草稿中储存信息
 
 ---
 
@@ -90,8 +93,11 @@ Chrome浏览器:
 
 ## 其他细节  
 - 更新  
-    > [如何同步更新Github上Fork的项目](https://www.cnblogs.com/idyllcheung/p/13555934.html)  
-- 支持最多5个账号  
+    如果出现  
+    ![滞后](.github/behind.png)  
+    说明此脚本有更新  
+    自行搜索`如何同步更新Github上Fork的项目`
+- 默认支持5个账号  
     | cookies   | value |
     | --------- | ----- |
     | `COOKIE`  | 值    |
@@ -99,15 +105,36 @@ Chrome浏览器:
     | `COOKIE3` | 值    |
     | `COOKIE4` | 值    |
     | `COOKIE5` | 值    |
-    
+    也可在`.github/workflows/node.js.yml`中  
+    ```yaml
+    lottery_*:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          COOKIE_*: ${{ secrets.COOKIE* }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          npm start
+    ```  
+    将以上星号处改为数字并依次复制粘贴(简单的找规律问题)  
 - 部分设置说明  
     - 定时运行(`UTC`时间)  
+        `.github/workflows/node.js.yml`  
         ```yaml
         schedule:
           - cron: '0 */2 * * *'
         ```  
         [填写格式](https://crontab.guru/)  
     - 模式选择  
+        `lib/config.js`
         ```javascript
         /**
          * 默认设置
