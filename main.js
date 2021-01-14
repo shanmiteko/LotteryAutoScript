@@ -27,7 +27,6 @@ COOKIE_ARR.forEach(async (cookie, num) => {
         } else {
             console.log('开始参与抽奖');
             await start();
-            console.log('参与抽奖结束');
         }
     }
 });
