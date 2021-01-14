@@ -105,6 +105,7 @@ Chrome浏览器:
     | `COOKIE3` | 值    |
     | `COOKIE4` | 值    |
     | `COOKIE5` | 值    |
+
     也可在`.github/workflows/node.js.yml`中  
     ```yaml
     lottery_*:
@@ -124,7 +125,9 @@ Chrome浏览器:
         run:
           npm start
     ```  
-    将以上星号处改为数字并依次复制粘贴(简单的找规律问题)  
+    将以上星号处改为数字并依次复制粘贴  
+    此时secret里就可以添加更多的Cookie(简单的找规律问题)  
+
 - 部分设置说明  
     - 定时运行(`UTC`时间)  
         `.github/workflows/node.js.yml`  
