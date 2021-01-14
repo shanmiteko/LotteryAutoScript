@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/shanmite/AutoScript/issues"
   },
-  "homepage": "https://github.com/shanmite/AutoScript#readme"
+  "homepage": "https://github.com/shanmite/AutoScript#readme",
+  "devDependencies": {
+    "eslint": "^7.17.0"
+  }
 }
