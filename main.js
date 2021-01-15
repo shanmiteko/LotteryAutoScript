@@ -1,6 +1,6 @@
 const setGlobalVar = require("./lib/setCookie");
 
-const { NUMBER, COOKIE, SCKEY } = process.env;
+const { NUMBER, CLEAR, COOKIE, SCKEY } = process.env;
 
 ((async () => {
     if (typeof COOKIE === 'string' && COOKIE.length > 10) {
@@ -11,9 +11,11 @@ const { NUMBER, COOKIE, SCKEY } = process.env;
         if (!isRight) return;
         await isMe();
         if (process.argv.slice(2)[0] === 'clear') {
-            console.log('开始清理动态');
-            await clear();
-            console.log('清理动态完毕');
+            if (typeof CLEAR === 'string' && CLEAR === 'true') {
+                console.log('开始清理动态');
+                await clear();
+                console.log('清理动态完毕');
+            }
         } else {
             console.log('开始参与抽奖');
             await start();

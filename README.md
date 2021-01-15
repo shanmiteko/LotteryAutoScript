@@ -2,15 +2,24 @@
 ![Automatic sweepstakes](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20sweepstakes/badge.svg)  
 ![Automatic clear dynamic&follow](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20clear%20dynamic&follow/badge.svg)  
 
+<!-- TOC -->
+
 - [AutoScript](#autoscript)
-  - [动态抽奖](#动态抽奖)
-  - [操作步骤](#操作步骤)
-    - [Fork本仓库](#fork本仓库)
-    - [填入COOKIE](#填入cookie)
-    - [微信推送中奖信息(可选)](#微信推送中奖信息可选)
-    - [运行](#运行)
-    - [完成!](#完成)
-  - [其他细节](#其他细节)
+    - [动态抽奖](#动态抽奖)
+    - [操作步骤](#操作步骤)
+        - [Fork本仓库](#fork本仓库)
+        - [填入COOKIE](#填入cookie)
+        - [微信推送中奖信息(可选)](#微信推送中奖信息可选)
+        - [运行](#运行)
+        - [完成!](#完成)
+    - [清理动态](#清理动态)
+    - [其他细节](#其他细节)
+        - [更新](#更新)
+        - [多账号支持](#多账号支持)
+        - [如何关闭](#如何关闭)
+        - [部分设置说明](#部分设置说明)
+
+<!-- /TOC -->
 
 ---
 
@@ -92,68 +101,100 @@ Chrome浏览器:
 
 ---
 
+## 清理动态
+只需在`Secret`里添加一个`CLEAR`项并取值为`true`  
+程序便会每15天清理一次动态和关注  
+
+---
+
+
 ## 其他细节  
-- 更新  
-    如果出现  
-    ![滞后](.github/behind.png)  
-    说明此脚本有更新  
-    通过`Pull Request`更新仓库  
-    ![如何同步更新Github上Fork的项目](.github/update_fork.png)  
+### 更新  
+如果出现  
+![滞后](.github/behind.png)  
+说明此脚本有更新  
+通过`Pull Request`更新仓库  
+![如何同步更新Github上Fork的项目](.github/update_fork.png)  
 
-- 默认支持5个账号  
-    | cookies   | value |
-    | --------- | ----- |
-    | `COOKIE`  | 值    |
-    | `COOKIE2` | 值    |
-    | `COOKIE3` | 值    |
-    | `COOKIE4` | 值    |
-    | `COOKIE5` | 值    |
-    | `COOKIE*` | 值    |
+### 多账号支持
+默认支持5个账号  
+  | cookies   | value |
+  | --------- | ----- |
+  | `COOKIE`  | 值    |
+  | `COOKIE2` | 值    |
+  | `COOKIE3` | 值    |
+  | `COOKIE4` | 值    |
+  | `COOKIE5` | 值    |
+  | `COOKIE*` | 值    
+*添加更多的账号*  
+可在文件`.github/workflows/node.js.yml`中  
+```yaml
+lottery_*:
+runs-on: ubuntu-latest
+steps:
+  - name: 'Checkout codes'
+    uses: actions/checkout@v2
+  - name: 'Use Node.js'
+    uses: actions/setup-node@v1
+    with:
+      node-version: '12.18.3'
+  - name: 'Run in Nodejs'
+    shell: bash
+    env:
+      NUMBER: *
+      COOKIE: ${{ secrets.COOKIE* }}
+      SCKEY: ${{ secrets.SCKEY }}
+    run:
+      npm start
+```  
+将以上星号处改为数字并依次复制粘贴  
+此时`Secrets`里就可以添加更多的`COOKIE*`(简单的找规律问题)  
+若使用自动清理功能,还需再`.github/workflows/clear.yml`中  
+```yaml
+lottery_*:
+  runs-on: ubuntu-latest
+  steps:
+    - name: 'Checkout codes'
+      uses: actions/checkout@v2
+    - name: 'Use Node.js'
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.18.3'
+    - name: 'Run in Nodejs'
+      shell: bash
+      env:
+        NUMBER: *
+        CLEAR: ${{ secrets.CLEAR }}
+        COOKIE: ${{ secrets.COOKIE* }}
+        SCKEY: ${{ secrets.SCKEY }}
+      run:
+        npm run clear
+```  
+将以上星号处改为数字并依次复制粘贴以清理更多的账号  
 
-    *添加更多的账号*  
-    可在`.github/workflows/node.js.yml`中  
-    ```yaml
-    lottery_*:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout codes'
-        uses: actions/checkout@v2
-      - name: 'Use Node.js'
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.18.3'
-      - name: 'Run in Nodejs'
-        shell: bash
-        env:
-          NUMBER: *
-          COOKIE: ${{ secrets.COOKIE* }}
-          SCKEY: ${{ secrets.SCKEY }}
-        run:
-          npm start
-    ```  
-    将以上星号处改为数字并依次复制粘贴  
-    此时`Secrets`里就可以添加更多的`COOKIE*`(简单的找规律问题)  
+### 如何关闭
+![关闭工作流](.github/close.png)  
 
-- 部分设置说明  
-    - 定时运行(`UTC`时间)  
-        `.github/workflows/node.js.yml`  
-        ```yaml
-        schedule:
-          - cron: '0 */2 * * *'
-        ```  
-        [填写格式](https://crontab.guru/)  
-    - 模式选择  
-        `lib/config.js`
-        ```javascript
-        /**
-         * 默认设置
-         */
-        let config = {
-            model: '11',/* both */
-            chatmodel: '11',/* both */
-        }
-        ```  
-        [具体含义](https://github.com/shanmite/LotteryAutoScript/issues/2)  
+### 部分设置说明  
+  - 定时运行(`UTC`时间)  
+      `.github/workflows/node.js.yml`  
+      ```yaml
+      schedule:
+        - cron: '0 */2 * * *'
+      ```  
+      [填写格式](https://crontab.guru/)  
+  - 模式选择  
+      `lib/config.js`
+      ```javascript
+      /**
+       * 默认设置
+       */
+      let config = {
+          model: '11',/* both */
+          chatmodel: '11',/* both */
+      }
+      ```  
+      [具体含义](https://github.com/shanmite/LotteryAutoScript/issues/2)  
 
 ---
 
