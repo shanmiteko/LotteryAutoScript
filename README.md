@@ -125,7 +125,8 @@ Chrome浏览器:
   | `COOKIE3` | 值    |
   | `COOKIE4` | 值    |
   | `COOKIE5` | 值    |
-  | `COOKIE*` | 值    
+  | `COOKIE*` | 值    |
+
 *添加更多的账号*  
 可在文件`.github/workflows/node.js.yml`中  
 ```yaml
