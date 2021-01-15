@@ -21,7 +21,8 @@ jobs:
       - name: 'Run in Nodejs'
         shell: bash
         env:
-          COOKIE_1: ${{ secrets.COOKIE }}
+          NUMBER: 1
+          COOKIE: ${{ secrets.COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
           npm start
@@ -37,7 +38,8 @@ jobs:
       - name: 'Run in Nodejs'
         shell: bash
         env:
-          COOKIE_2: ${{ secrets.COOKIE2 }}
+          NUMBER: 2
+          COOKIE: ${{ secrets.COOKIE2 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
           npm start
@@ -53,7 +55,8 @@ jobs:
       - name: 'Run in Nodejs'
         shell: bash
         env:
-          COOKIE_3: ${{ secrets.COOKIE3 }}
+          NUMBER: 3
+          COOKIE: ${{ secrets.COOKIE3 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
           npm start
@@ -69,7 +72,8 @@ jobs:
       - name: 'Run in Nodejs'
         shell: bash
         env:
-          COOKIE_4: ${{ secrets.COOKIE4 }}
+          NUMBER: 4
+          COOKIE: ${{ secrets.COOKIE4 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
           npm start
@@ -85,7 +89,8 @@ jobs:
       - name: 'Run in Nodejs'
         shell: bash
         env:
-          COOKIE_5: ${{ secrets.COOKIE5 }}
+          NUMBER: 5
+          COOKIE: ${{ secrets.COOKIE5 }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
           npm start

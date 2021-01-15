@@ -1,5 +1,6 @@
 # AutoScript
 ![Automatic sweepstakes](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20sweepstakes/badge.svg)  
+![Automatic clear dynamic&follow](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20clear%20dynamic&follow/badge.svg)  
 
 - [AutoScript](#autoscript)
   - [动态抽奖](#动态抽奖)
@@ -18,7 +19,7 @@
 
   > [Actions官方文档](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)  
 
-此脚本将在B站专栏草稿中储存信息
+此脚本将在B站专栏草稿中储存转发过的动态id以防止重复转发  
 
 ---
 
@@ -96,7 +97,9 @@ Chrome浏览器:
     如果出现  
     ![滞后](.github/behind.png)  
     说明此脚本有更新  
-    自行搜索`如何同步更新Github上Fork的项目`
+    通过`Pull Request`更新仓库  
+    ![如何同步更新Github上Fork的项目](.github/update_fork.png)  
+
 - 默认支持5个账号  
     | cookies   | value |
     | --------- | ----- |
@@ -105,8 +108,10 @@ Chrome浏览器:
     | `COOKIE3` | 值    |
     | `COOKIE4` | 值    |
     | `COOKIE5` | 值    |
+    | `COOKIE*` | 值    |
 
-    也可在`.github/workflows/node.js.yml`中  
+    *添加更多的账号*  
+    可在`.github/workflows/node.js.yml`中  
     ```yaml
     lottery_*:
     runs-on: ubuntu-latest
@@ -120,13 +125,14 @@ Chrome浏览器:
       - name: 'Run in Nodejs'
         shell: bash
         env:
-          COOKIE_*: ${{ secrets.COOKIE* }}
+          NUMBER: *
+          COOKIE: ${{ secrets.COOKIE* }}
           SCKEY: ${{ secrets.SCKEY }}
         run:
           npm start
     ```  
     将以上星号处改为数字并依次复制粘贴  
-    此时secret里就可以添加更多的Cookie(简单的找规律问题)  
+    此时`Secrets`里就可以添加更多的`COOKIE*`(简单的找规律问题)  
 
 - 部分设置说明  
     - 定时运行(`UTC`时间)  
