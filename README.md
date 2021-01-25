@@ -8,9 +8,13 @@
 
   
 
+![Automatic sync](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20sync/badge.svg)
+
+  
+
 <!-- TOC -->
 
-* [AutoScript](#autoscript)
+- [AutoScript](#autoscript)
     - [动态抽奖](#动态抽奖)
     - [操作步骤](#操作步骤)
         - [Fork本仓库](#fork本仓库)
@@ -21,11 +25,13 @@
     - [清理动态](#清理动态)
     - [其他细节](#其他细节)
         - [更新](#更新)
+        - [自动更新（个人推荐）](#自动更新个人推荐)
         - [多账号支持](#多账号支持)
         - [如何关闭](#如何关闭)
         - [部分设置说明](#部分设置说明)
 
 <!-- /TOC -->
+
 
 ---
 
@@ -47,8 +53,6 @@
 
 ![fork](.github/fork.png)
 
-  
-
 ↓↓  
 
 ### 填入COOKIE  
@@ -61,17 +65,11 @@ Chrome浏览器:
 
     (此步骤是为了方便后续采用JS获取Cookies)  
 
-    
-
 ![取消httponly](.github/getCookies.png)
-
-  
 
 3. 在Console中复制以下代码回车  
 
-    
-
-``` js
+    ```js
     {
         let bilicookie = '';
         document.cookie.split(/\s*;\s*/).forEach(item => {
@@ -82,21 +80,13 @@ Chrome浏览器:
         copy(bilicookie); /* 自动复制到粘贴板 */
         console.log(bilicookie)
     }
-```
+    ```
 
 4. 新建一个COOKIE将获取到的`DedeUserID=***;SESSDATA=***;bili_jct=***`填入  
 
-    
+![new secret](.github/cookie2.png)  
 
-![new secret](.github/cookie2.png)
-
-  
-
-    
-
-![new COOKIE](.github/new_secret.png)
-
-  
+![new COOKIE](.github/new_secret.png)  
 
 也可以采用**其他方式获取**所需的Cookie  
 只需含有 `DedeUserID=...;SESSDATA=...;bili_jct=...` 三项即可  
@@ -114,8 +104,6 @@ Chrome浏览器:
 
 ![new secret SCKEY](.github/secret2.png)
 
-  
-
 ↓↓  
 
 ### 运行  
@@ -124,32 +112,25 @@ Chrome浏览器:
 
 随便改一下此 `README.md` 文件并提交(Push触发)  
 
-![change](.github/start1.png)
+![change](.github/start1.png)  
 
-  
+![commit](.github/start2.png)  
 
-![commit](.github/start2.png)
-
-  
 **或者**通过手动触发  
 
-![commit](.github/byhand.png)
-
-  
+![commit](.github/byhand.png)  
 
 ***以上步骤是为了检测是否配置成功***
 
-至此程序将会每**两小时运行**一次
+至此程序将会每**两小时运行**一次  
 
 ↓↓  
 
 ### 完成!  
 
-效果
+效果  
 
-![效果](.github/success.png)
-
-  
+![效果](.github/success.png)  
 
 ---
 
@@ -167,15 +148,13 @@ Chrome浏览器:
 
 如果出现  
 
-![滞后](.github/behind.png)
+![滞后](.github/behind.png)  
 
-  
 说明此脚本有更新  
 通过 `Pull Request` 更新仓库  
 
-![如何同步更新Github上Fork的项目](.github/update_fork.png)
+![如何同步更新Github上Fork的项目](.github/update_fork.png)  
 
-  
 或者  
 使用[GitHub App Pull](https://github.com/apps/pull)自动同步
 
@@ -192,37 +171,29 @@ Chrome浏览器:
 4. 我默认设置更新时间：每天晚上8点与主仓库自动同步一次！
 
 ### 多账号支持
-
 默认支持5个账号  
-
-| cookies   | value |
-|-----------|-------|
-| `COOKIE` | 值    |
-| `COOKIE2` | 值    |
-| `COOKIE3` | 值    |
-| `COOKIE4` | 值    |
-| `COOKIE5` | 值    |
-| `COOKIE*` | 值    |
+  | cookies   | value |
+  | --------- | ----- |
+  | `COOKIE`  | 值    |
+  | `COOKIE2` | 值    |
+  | `COOKIE3` | 值    |
+  | `COOKIE4` | 值    |
+  | `COOKIE5` | 值    |
+  | `COOKIE*` | 值    |
 
 *添加更多的账号*  
-可在文件 `.github/workflows/node.js.yml` 中  
+可在文件`.github/workflows/node.js.yml`中  
 ```yaml
 lottery_*:
 runs-on: ubuntu-latest
 steps:
-
-  + name: 'Checkout codes'
-
+  - name: 'Checkout codes'
     uses: actions/checkout@v2
-
-  + name: 'Use Node.js'
-
+  - name: 'Use Node.js'
     uses: actions/setup-node@v1
     with:
       node-version: '12.18.3'
-
-  + name: 'Run in Nodejs'
-
+  - name: 'Run in Nodejs'
     shell: bash
     env:
       NUMBER: *
@@ -230,28 +201,21 @@ steps:
       SCKEY: ${{ secrets.SCKEY }}
     run:
       npm start
-
 ```  
 将以上星号处改为数字并依次复制粘贴  
-此时 `Secrets` 里就可以添加更多的 `COOKIE*` (简单的找规律问题)  
-若使用自动清理功能, 还需再 `.github/workflows/clear.yml` 中  
+此时`Secrets`里就可以添加更多的`COOKIE*`(简单的找规律问题)  
+若使用自动清理功能,还需再`.github/workflows/clear.yml`中  
 ```yaml
 lottery_*:
   runs-on: ubuntu-latest
   steps:
-
     - name: 'Checkout codes'
-
       uses: actions/checkout@v2
-
     - name: 'Use Node.js'
-
       uses: actions/setup-node@v1
       with:
         node-version: '12.18.3'
-
     - name: 'Run in Nodejs'
-
       shell: bash
       env:
         NUMBER: *
@@ -260,34 +224,22 @@ lottery_*:
         SCKEY: ${{ secrets.SCKEY }}
       run:
         npm run clear
-
 ```  
 将以上星号处改为数字并依次复制粘贴以清理更多的账号  
 
 ### 如何关闭
-
-![关闭工作流](.github/close.png)
-
-  
+![关闭工作流](.github/close.png)  
 
 ### 部分设置说明  
-
-  + 定时运行(`UTC`时间)  
-
- `.github/workflows/node.js.yml`
-
+  - 定时运行(`UTC`时间)  
+      `.github/workflows/node.js.yml`  
       ```yaml
       schedule:
-
         - cron: '0 */2 * * *'
-
       ```  
       [如何填写此字段](https://crontab.guru/)  
-
-  + 模式选择  
-
- `lib/config.js`
-
+  - 模式选择  
+    `lib/config.js`
     - 字段解释  
       - `model`
         - `'00'`关闭自动抽奖
