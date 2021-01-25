@@ -115,6 +115,8 @@ Chrome浏览器:
 说明此脚本有更新  
 通过`Pull Request`更新仓库  
 ![如何同步更新Github上Fork的项目](.github/update_fork.png)  
+或者  
+使用[GitHub App Pull](https://github.com/apps/pull)自动同步
 
 ### 多账号支持
 默认支持5个账号  
@@ -183,19 +185,40 @@ lottery_*:
       schedule:
         - cron: '0 */2 * * *'
       ```  
-      [填写格式](https://crontab.guru/)  
+      [如何填写此字段](https://crontab.guru/)  
   - 模式选择  
-      `lib/config.js`
-      ```javascript
-      /**
-       * 默认设置
-       */
-      let config = {
-          model: '11',/* both */
-          chatmodel: '11',/* both */
-      }
-      ```  
-      [具体含义](https://github.com/shanmite/LotteryAutoScript/issues/2)  
+    `lib/config.js`
+    - 字段解释  
+      - `model`
+        - `'00'`关闭自动抽奖
+        - `'10'`只转发官方抽奖
+        - `'01'`只转发非官方抽奖
+        - `'11'`都转
+      - `chatmodel`
+        - `'00'`关闭自动评论
+        - `'10'`只评论官抽
+        - `'01'`只评论非官抽
+        - `'11'`都评论
+      - `maxday`
+        - 开奖时间距离现在的最大天数
+        - 默认为-1表示不限制
+      - `wait`
+        - 转发间隔时间
+        - 单位毫秒
+      - `minfollower`
+        - up主粉丝数限制
+        - 仅限制没有官方认证的up
+      - `blacklist`
+        - 防钓鱼黑名单
+      - `blockword`
+        - 屏蔽词
+      - `followWhiteList`
+        - 取关白名单
+        - 逗号分割字符串
+      - `relay`
+        - 转发评语
+      - `chat`
+        - 评论内容
 
 ---
 
