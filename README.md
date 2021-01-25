@@ -29,6 +29,9 @@
         - [多账号支持](#多账号支持)
         - [如何关闭](#如何关闭)
         - [部分设置说明](#部分设置说明)
+            - [定时运行(`UTC`时间)](#定时运行utc时间)
+            - [模式选择](#模式选择)
+            - [自定义设置](#自定义设置)
 
 <!-- /TOC -->
 
@@ -168,7 +171,7 @@ Chrome浏览器:
 
 3. 将 令牌 复制（注意，先复制，一旦关闭网页就不能查看了），再新建`Secrets`，键名 填入 `PAT`
 
-4. 我默认设置更新时间：每天晚上8点与主仓库自动同步一次！
+4. 每天与主仓库自动同步一次！
 
 ### 多账号支持
 默认支持5个账号  
@@ -199,6 +202,7 @@ steps:
       NUMBER: *
       COOKIE: ${{ secrets.COOKIE* }}
       SCKEY: ${{ secrets.SCKEY }}
+      MY_CONFIG: ${{ secrets.MY_CONFIG }}
     run:
       npm start
 ```  
@@ -231,46 +235,64 @@ lottery_*:
 ![关闭工作流](.github/close.png)  
 
 ### 部分设置说明  
-  - 定时运行(`UTC`时间)  
-      `.github/workflows/node.js.yml`  
-      ```yaml
-      schedule:
-        - cron: '0 */2 * * *'
-      ```  
-      [如何填写此字段](https://crontab.guru/)  
-  - 模式选择  
-    `lib/config.js`
-    - 字段解释  
-      - `model`
-        - `'00'`关闭自动抽奖
-        - `'10'`只转发官方抽奖
-        - `'01'`只转发非官方抽奖
-        - `'11'`都转
-      - `chatmodel`
-        - `'00'`关闭自动评论
-        - `'10'`只评论官抽
-        - `'01'`只评论非官抽
-        - `'11'`都评论
-      - `maxday`
-        - 开奖时间距离现在的最大天数
-        - 默认为-1表示不限制
-      - `wait`
-        - 转发间隔时间
-        - 单位毫秒
-        - 上下浮动30s
-      - `minfollower`
-        - up主粉丝数限制
-        - 仅限制没有官方认证的up
-      - `blacklist`
-        - 防钓鱼黑名单
-      - `blockword`
-        - 屏蔽词
-      - `followWhiteList`
-        - 取关白名单
-        - 逗号分割字符串
-      - `relay`
-        - 转发评语
-      - `chat`
-        - 评论内容
+#### 定时运行(`UTC`时间)  
+  `.github/workflows/node.js.yml`  
+  ```yaml
+  schedule:
+    - cron: '0 */2 * * *'
+  ```  
+  [如何填写此字段](https://crontab.guru/)  
+#### 模式选择  
+  `lib/config.js`
+  - 字段解释  
+    - `model`
+      - `'00'`关闭自动抽奖
+      - `'10'`只转发官方抽奖
+      - `'01'`只转发非官方抽奖
+      - `'11'`都转
+    - `chatmodel`
+      - `'00'`关闭自动评论
+      - `'10'`只评论官抽
+      - `'01'`只评论非官抽
+      - `'11'`都评论
+    - `maxday`
+      - 开奖时间距离现在的最大天数
+      - 默认为`-1`表示不限制
+      - 字符串类型
+    - `wait`
+      - 转发间隔时间
+      - 单位毫秒
+      - 上下浮动30s
+      - 字符串类型
+    - `minfollower`
+      - up主粉丝数限制
+      - 仅限制没有官方认证的up
+      - 字符串类型
+    - `blacklist`
+      - 防钓鱼uid黑名单
+      - 逗号分割字符串
+    - `blockword`
+      - 屏蔽词
+      - 字符串数组
+    - `followWhiteList`
+      - 取关白名单
+      - 逗号分割字符串
+    - `relay`
+      - 转发评语
+      - 字符串数组
+    - `chat`
+      - 评论内容
+      - 字符串数组
+#### 自定义设置  
+  - 新建一个Repository secrets取名为`MY_CONFIG`
+  - 填入符合[JSON语法](https://www.w3school.com.cn/json/json_syntax.asp)的内容
+  - 字段的名称和对应的值按照[字段解释](#模式选择)要求填写
+  - 需要修改哪项就填入相应的键值对  
+    > 例如我要将`model`值改为`'00'`就在MY_CONFIG里填入  
+    > ```json
+    > {
+    >   "model":"00"
+    > }
+    > ```
 
 ---

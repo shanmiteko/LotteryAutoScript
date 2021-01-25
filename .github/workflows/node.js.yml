@@ -24,6 +24,7 @@ jobs:
           NUMBER: 1
           COOKIE: ${{ secrets.COOKIE }}
           SCKEY: ${{ secrets.SCKEY }}
+          MY_CONFIG: ${{ secrets.MY_CONFIG }}
         run:
           npm start
   lottery_2:
@@ -41,6 +42,7 @@ jobs:
           NUMBER: 2
           COOKIE: ${{ secrets.COOKIE2 }}
           SCKEY: ${{ secrets.SCKEY }}
+          MY_CONFIG: ${{ secrets.MY_CONFIG }}
         run:
           npm start
   lottery_3:
@@ -58,6 +60,7 @@ jobs:
           NUMBER: 3
           COOKIE: ${{ secrets.COOKIE3 }}
           SCKEY: ${{ secrets.SCKEY }}
+          MY_CONFIG: ${{ secrets.MY_CONFIG }}
         run:
           npm start
   lottery_4:
@@ -75,6 +78,7 @@ jobs:
           NUMBER: 4
           COOKIE: ${{ secrets.COOKIE4 }}
           SCKEY: ${{ secrets.SCKEY }}
+          MY_CONFIG: ${{ secrets.MY_CONFIG }}
         run:
           npm start
   lottery_5:
@@ -92,5 +96,6 @@ jobs:
           NUMBER: 5
           COOKIE: ${{ secrets.COOKIE5 }}
           SCKEY: ${{ secrets.SCKEY }}
+          MY_CONFIG: ${{ secrets.MY_CONFIG }}
         run:
           npm start
