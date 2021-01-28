@@ -3,8 +3,12 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.github/**'
+      - '.vscode/**'
+      - '*.md'
   workflow_dispatch:
-      branches:
+    branches:
       - main
   schedule:
     - cron: '0 */2 * * *'
