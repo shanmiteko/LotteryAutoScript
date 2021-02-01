@@ -111,6 +111,7 @@ Chrome浏览器:
 
 #### 手动检查  
 手动触发`Automatic check`工作流后可在日志中查看
+![check](.github/check.png)
 #### 微信推送(可选)  
 如果想使用Server酱提供的**微信推送**服务  
 
