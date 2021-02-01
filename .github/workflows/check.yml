@@ -1,0 +1,93 @@
+name: 'Automatic check'
+on:
+  workflow_dispatch:
+      branches:
+      - main
+  schedule:
+    - cron: '0 0 */2 * *'
+jobs:
+  lottery_1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          NUMBER: 1
+          COOKIE: ${{ secrets.COOKIE }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          npm run check
+  lottery_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          NUMBER: 2
+          COOKIE: ${{ secrets.COOKIE2 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          npm run check
+  lottery_3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          NUMBER: 3
+          COOKIE: ${{ secrets.COOKIE3 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          npm run check
+  lottery_4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          NUMBER: 4
+          COOKIE: ${{ secrets.COOKIE4 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          npm run check
+  lottery_5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.18.3'
+      - name: 'Run in Nodejs'
+        shell: bash
+        env:
+          NUMBER: 5
+          COOKIE: ${{ secrets.COOKIE5 }}
+          SCKEY: ${{ secrets.SCKEY }}
+        run:
+          npm run check

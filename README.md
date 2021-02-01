@@ -4,6 +4,10 @@
 
   
 
+![Automatic check](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20check/badge.svg)
+
+  
+
 ![Automatic clear dynamic&follow](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20clear%20dynamic&follow/badge.svg)
 
   
@@ -19,7 +23,9 @@
   - [操作步骤](#操作步骤)
     - [Fork本仓库](#fork本仓库)
     - [填入COOKIE](#填入cookie)
-    - [微信推送中奖信息(可选)](#微信推送中奖信息可选)
+    - [检测中奖](#检测中奖)
+      - [手动检查](#手动检查)
+      - [微信推送(可选)](#微信推送可选)
     - [运行](#运行)
     - [完成!](#完成)
   - [清理动态](#清理动态)
@@ -99,15 +105,22 @@ Chrome浏览器:
 
 ↓↓  
 
-### 微信推送中奖信息(可选)  
+### 检测中奖  
+每两个小时检测一次  
+通过`@`信息判断  
 
+#### 手动检查  
+手动触发`Automatic check`工作流后可在日志中查看
+#### 微信推送(可选)  
 如果想使用Server酱提供的**微信推送**服务  
 
 > [Server酱是什么?](http://sc.ftqq.com/3.version)  
 
 可在 `Repository secrets` 中新建一个 `SCKEY` 并填入相应的值  
 
-![new secret SCKEY](.github/secret2.png)
+![new secret SCKEY](.github/secret2.png)  
+
+**注意**Server酱有时会出错  
 
 ↓↓  
 
@@ -182,6 +195,7 @@ Chrome浏览器:
 
 *添加更多的账号*  
 可在文件`.github/workflows/node.js.yml`中  
+将以下代码中星号处改为数字并依次复制粘贴  
 ```yaml
 lottery_*:
 runs-on: ubuntu-latest
@@ -202,9 +216,31 @@ steps:
     run:
       npm start
 ```  
-将以上星号处改为数字并依次复制粘贴  
 此时`Secrets`里就可以添加更多的`COOKIE*`(简单的找规律问题)  
-若使用自动清理功能,还需再`.github/workflows/clear.yml`中  
+
+同理须在文件`.github/workflows/check.yml`中  
+将以下代码中星号处改为数字并依次复制粘贴(启用对应的中奖检测)  
+```yaml
+lottery_*:
+  runs-on: ubuntu-latest
+  steps:
+    - name: 'Checkout codes'
+      uses: actions/checkout@v2
+    - name: 'Use Node.js'
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.18.3'
+    - name: 'Run in Nodejs'
+      shell: bash
+      env:
+        NUMBER: *
+        COOKIE: ${{ secrets.COOKIE* }}
+        SCKEY: ${{ secrets.SCKEY }}
+      run:
+        npm run check
+```
+
+若使用**自动清理**功能,还需再`.github/workflows/clear.yml`中  
 ```yaml
 lottery_*:
   runs-on: ubuntu-latest

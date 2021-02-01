@@ -4,10 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js",
+    "start": "node main.js start",
     "clear": "node main.js clear",
-    "test_start": "env.bat && node main.js",
-    "test_clear": "env.bat && node main.js clear"
+    "check": "node main.js check",
+    "test_start": "env.bat && node main.js start",
+    "test_clear": "env.bat && node main.js clear",
+    "test_check": "env.bat && node main.js check"
   },
   "repository": {
     "type": "git",

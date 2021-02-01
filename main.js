@@ -9,16 +9,24 @@ const { NUMBER, CLEAR, COOKIE, SCKEY } = process.env;
         const { clear } = require("./lib/clear");
         const isRight = await checkCookie(NUMBER);
         if (!isRight) return;
-        await isMe();
-        if (process.argv.slice(2)[0] === 'clear') {
-            if (typeof CLEAR === 'string' && CLEAR === 'true') {
-                console.log('开始清理动态');
-                await clear();
-                console.log('清理动态完毕');
-            }
-        } else {
-            console.log('开始参与抽奖');
-            await start();
+        switch (process.argv.slice(2)[0]) {
+            case 'start':
+                console.log('开始参与抽奖');
+                await start();
+                break;
+            case 'check':
+                console.log('检查是否中奖');
+                await isMe();
+                break;
+            case 'clear':
+                if (typeof CLEAR === 'string' && CLEAR === 'true') {
+                    console.log('开始清理动态');
+                    await clear();
+                    console.log('清理动态完毕');
+                }
+                break;
+            default:
+                break;
         }
     }
 }))();
