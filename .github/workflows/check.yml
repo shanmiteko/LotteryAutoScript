@@ -5,6 +5,9 @@ on:
       - main
   schedule:
     - cron: '0 0 */2 * *'
+env:
+  SCKEY: ${{ secrets.SCKEY }}
+  PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
 jobs:
   lottery_1:
     runs-on: ubuntu-latest
@@ -20,7 +23,6 @@ jobs:
         env:
           NUMBER: 1
           COOKIE: ${{ secrets.COOKIE }}
-          SCKEY: ${{ secrets.SCKEY }}
         run:
           npm run check
   lottery_2:
@@ -37,7 +39,6 @@ jobs:
         env:
           NUMBER: 2
           COOKIE: ${{ secrets.COOKIE2 }}
-          SCKEY: ${{ secrets.SCKEY }}
         run:
           npm run check
   lottery_3:
@@ -54,7 +55,6 @@ jobs:
         env:
           NUMBER: 3
           COOKIE: ${{ secrets.COOKIE3 }}
-          SCKEY: ${{ secrets.SCKEY }}
         run:
           npm run check
   lottery_4:
@@ -71,7 +71,6 @@ jobs:
         env:
           NUMBER: 4
           COOKIE: ${{ secrets.COOKIE4 }}
-          SCKEY: ${{ secrets.SCKEY }}
         run:
           npm run check
   lottery_5:
@@ -88,6 +87,5 @@ jobs:
         env:
           NUMBER: 5
           COOKIE: ${{ secrets.COOKIE5 }}
-          SCKEY: ${{ secrets.SCKEY }}
         run:
           npm run check

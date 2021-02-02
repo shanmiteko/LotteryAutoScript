@@ -26,6 +26,8 @@
     - [检测中奖](#检测中奖)
       - [手动检查](#手动检查)
       - [微信推送(可选)](#微信推送可选)
+        - [Server酱](#server酱)
+        - [pushplus](#pushplus)
     - [运行](#运行)
     - [完成!](#完成)
   - [清理动态](#清理动态)
@@ -113,15 +115,23 @@ Chrome浏览器:
 手动触发`Automatic check`工作流后可在日志中查看
 ![check](.github/check.png)
 #### 微信推送(可选)  
-如果想使用Server酱提供的**微信推送**服务  
+##### Server酱  
 
 > [Server酱是什么?](http://sc.ftqq.com/3.version)  
 
-可在 `Repository secrets` 中新建一个 `SCKEY` 并填入相应的值  
+在 `Repository secrets` 中新建一个 `SCKEY` 并填入对应的值  
 
-![new secret SCKEY](.github/secret2.png)  
+![new secret SCKEY](.github/serverchan.png)  
 
 **注意**Server酱有时会出错  
+
+##### pushplus  
+
+> [pushplus是什么?](https://pushplus.hxtrip.com/index)  
+
+在 `Repository secrets` 中新建一个 `PUSH_PLUS_TOKEN` 并填入对应的值  
+
+![new secret PUSH_PLUS_TOKEN](.github/push+.png)  
 
 ↓↓  
 
@@ -212,8 +222,6 @@ steps:
     env:
       NUMBER: *
       COOKIE: ${{ secrets.COOKIE* }}
-      SCKEY: ${{ secrets.SCKEY }}
-      MY_CONFIG: ${{ secrets.MY_CONFIG }}
     run:
       npm start
 ```  
@@ -236,7 +244,6 @@ lottery_*:
       env:
         NUMBER: *
         COOKIE: ${{ secrets.COOKIE* }}
-        SCKEY: ${{ secrets.SCKEY }}
       run:
         npm run check
 ```
@@ -256,9 +263,7 @@ lottery_*:
       shell: bash
       env:
         NUMBER: *
-        CLEAR: ${{ secrets.CLEAR }}
         COOKIE: ${{ secrets.COOKIE* }}
-        SCKEY: ${{ secrets.SCKEY }}
       run:
         npm run clear
 ```  

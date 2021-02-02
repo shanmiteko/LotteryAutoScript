@@ -1,10 +1,10 @@
 const setGlobalVar = require("./lib/setCookie");
 
-const { NUMBER, CLEAR, COOKIE, SCKEY } = process.env;
+const { NUMBER, CLEAR, COOKIE, SCKEY, PUSH_PLUS_TOKEN } = process.env;
 
 ((async () => {
     if (typeof COOKIE === 'string' && COOKIE.length > 10) {
-        await setGlobalVar(COOKIE, SCKEY);
+        await setGlobalVar(COOKIE, SCKEY, PUSH_PLUS_TOKEN);
         const { start, isMe, checkCookie } = require("./lib/lottery-in-nodejs");
         const { clear } = require("./lib/clear");
         const isRight = await checkCookie(NUMBER);
