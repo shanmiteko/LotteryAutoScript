@@ -4,7 +4,7 @@ on:
       branches:
       - main
   schedule:
-    - cron: '0 0 */15 * *'
+    - cron: '0 0 1 * *'
 jobs:
   lottery_1:
     runs-on: ubuntu-latest
