@@ -33,7 +33,7 @@
   - [清理动态](#清理动态)
   - [其他细节](#其他细节)
     - [更新](#更新)
-    - [自动更新（推荐）](#自动更新推荐)
+    - [自动更新](#自动更新)
     - [多账号支持](#多账号支持)
     - [如何关闭](#如何关闭)
     - [部分设置说明](#部分设置说明)
@@ -181,7 +181,10 @@ Chrome浏览器:
 或者  
 使用[GitHub App Pull](https://github.com/apps/pull)自动同步
 
-### 自动更新（推荐）
+### 自动更新
+*须知*  
+> This will force sync ALL branches to match source repo. Branches that are created only in the destination repo will not be affected but all the other branches will be hard reset to match source repo.  
+> ⚠️ This does mean if upstream ever creates a branch that shares the name, your changes will be gone.  
 
 1. 点我创建 [`授权令牌`](https://github.com/settings/tokens/new)
 
