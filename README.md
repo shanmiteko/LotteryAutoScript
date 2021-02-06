@@ -123,8 +123,6 @@ Chrome浏览器:
 
 ![new secret SCKEY](.github/serverchan.png)  
 
-**注意**Server酱有时会出错  
-
 ##### pushplus  
 
 > [pushplus是什么?](https://pushplus.hxtrip.com/index)  
@@ -209,7 +207,7 @@ Chrome浏览器:
 
 *添加更多的账号*  
 可在文件`.github/workflows/node.js.yml`中  
-将以下代码中星号处改为数字并依次复制粘贴  
+将以下代码中的三处星号(`*`)改为数字并依次复制粘贴  
 ```yaml
 lottery_*:
 runs-on: ubuntu-latest
@@ -231,7 +229,7 @@ steps:
 此时`Secrets`里就可以添加更多的`COOKIE*`(简单的找规律问题)  
 
 同理须在文件`.github/workflows/check.yml`中  
-将以下代码中星号处改为数字并依次复制粘贴(启用对应的中奖检测)  
+将以下代码中的三处星号(`*`)改为数字并依次复制粘贴(启用对应的中奖检测)  
 ```yaml
 lottery_*:
   runs-on: ubuntu-latest
@@ -270,7 +268,7 @@ lottery_*:
       run:
         npm run clear
 ```  
-将以上星号处改为数字并依次复制粘贴以清理更多的账号  
+将以上的三处星号(`*`)改为数字并依次复制粘贴以清理更多的账号  
 
 ### 如何关闭
 ![关闭工作流](.github/close.png)  
