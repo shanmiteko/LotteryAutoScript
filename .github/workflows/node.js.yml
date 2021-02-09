@@ -11,7 +11,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 */3 * * *'
 env:
   SCKEY: ${{ secrets.SCKEY }}
   MY_CONFIG: ${{ secrets.MY_CONFIG }}
