@@ -3,10 +3,8 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '.github/**'
-      - '.vscode/**'
-      - '*.md'
+    paths:
+      - 'lib/**'
   workflow_dispatch:
     branches:
       - main
