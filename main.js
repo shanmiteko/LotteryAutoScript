@@ -29,5 +29,4 @@ const { NUMBER, CLEAR, COOKIE, SCKEY, PUSH_PLUS_TOKEN } = process.env;
                 break;
         }
     }
-    process.exit(0)
 }))();
