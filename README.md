@@ -198,6 +198,7 @@ Chrome浏览器:
 或者使用[GitHub App Pull](https://github.com/apps/pull)自动同步
 
 ### 本地运行
+由于Github服务器共用IP导致脚本易发生访问频繁,可选择在本地运行  
 详见[env.example.bat](env.example.bat)文件
 
 ### 多账号支持
