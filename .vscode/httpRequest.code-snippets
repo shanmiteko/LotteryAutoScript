@@ -17,7 +17,7 @@
 			"    success: res => {",
 			"        $4",
 			"    },",
-			"    error: err => {",
+			"    failure: err => {",
 			"        $5",
 			"    }",
 			"})$6"
@@ -43,7 +43,7 @@
 			"    success: res => {",
 			"        $4",
 			"    },",
-			"    error: err => {",
+			"    failure: err => {",
 			"        $5",
 			"    }",
 			"})$6"
