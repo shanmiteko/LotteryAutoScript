@@ -17,3 +17,4 @@ set NUMBER=1
 set CLEAR=true
 set SCKEY=
 set PUSH_PLUS_TOKEN=
+set LOCALLAUNCH=true
