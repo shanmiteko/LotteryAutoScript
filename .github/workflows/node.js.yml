@@ -14,6 +14,7 @@ env:
   SCKEY: ${{ secrets.SCKEY }}
   MY_CONFIG: ${{ secrets.MY_CONFIG }}
   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+  PAT: ${{ secrets.PAT }}
 jobs:
   lottery_1:
     runs-on: ubuntu-latest
@@ -23,14 +24,20 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
           NUMBER: 1
           COOKIE: ${{ secrets.COOKIE }}
         run:
+          npm install
           npm start
+      - name: 'Upload dyid to artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dyid.txt
+          path: lib/dyid.txt
   lottery_2:
     runs-on: ubuntu-latest
     steps:
@@ -39,14 +46,20 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
           NUMBER: 2
           COOKIE: ${{ secrets.COOKIE2 }}
         run:
+          npm install
           npm start
+      - name: 'Upload dyid to artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dyid.txt
+          path: lib/dyid.txt
   lottery_3:
     runs-on: ubuntu-latest
     steps:
@@ -55,14 +68,20 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
           NUMBER: 3
           COOKIE: ${{ secrets.COOKIE3 }}
         run:
+          npm install
           npm start
+      - name: 'Upload dyid to artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dyid.txt
+          path: lib/dyid.txt
   lottery_4:
     runs-on: ubuntu-latest
     steps:
@@ -71,14 +90,20 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
           NUMBER: 4
           COOKIE: ${{ secrets.COOKIE4 }}
         run:
+          npm install
           npm start
+      - name: 'Upload dyid to artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dyid.txt
+          path: lib/dyid.txt
   lottery_5:
     runs-on: ubuntu-latest
     steps:
@@ -87,11 +112,17 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
           NUMBER: 5
           COOKIE: ${{ secrets.COOKIE5 }}
         run:
+          npm install
           npm start
+      - name: 'Upload dyid to artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dyid.txt
+          path: lib/dyid.txt

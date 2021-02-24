@@ -18,7 +18,7 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
@@ -34,7 +34,7 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
@@ -50,7 +50,7 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
@@ -66,7 +66,7 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:
@@ -82,7 +82,7 @@ jobs:
       - name: 'Use Node.js'
         uses: actions/setup-node@v1
         with:
-          node-version: '12.18.3'
+          node-version: '14.15.5'
       - name: 'Run in Nodejs'
         shell: bash
         env:

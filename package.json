@@ -27,5 +27,8 @@
   "homepage": "https://github.com/shanmite/AutoScript#readme",
   "devDependencies": {
     "eslint": "^7.17.0"
+  },
+  "dependencies": {
+    "unzipper": "^0.10.11"
   }
 }

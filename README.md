@@ -23,6 +23,7 @@
   - [操作步骤](#操作步骤)
     - [Fork本仓库](#fork本仓库)
     - [填入COOKIE](#填入cookie)
+    - [防重复转发](#防重复转发)
     - [检测中奖](#检测中奖)
       - [手动检查](#手动检查)
       - [微信推送(可选)](#微信推送可选)
@@ -53,7 +54,8 @@
 
   > [Actions官方文档](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)  
 
-此脚本将在B站专栏草稿中储存转发过的动态id以防止重复转发  
+~~此脚本将在B站专栏草稿中储存转发过的动态id以防止重复转发~~  
+动态id已储存在本地和GitHub构件中
 
 ---
 
@@ -105,6 +107,20 @@ Chrome浏览器:
 也可以采用**其他方式获取**所需的Cookie  
 只需含有 `DedeUserID=...;SESSDATA=...;bili_jct=...` 三项即可  
 (分号分割，顺序随意)  
+
+↓↓  
+
+### 防重复转发
+转发过的动态上传至构件  
+为了能够从构件中下载文件，需要access token权限
+
+1. 点我创建 [`授权令牌`](https://github.com/settings/tokens/new)
+
+2. 如图，勾选前两项即可：
+
+![如图，勾选前两项即可：](.github/create_pat.png)
+
+3. 将 令牌 复制（注意，先复制，一旦关闭网页就不能查看了），再新建`Secrets`，键名 填入 `PAT`
 
 ↓↓  
 
@@ -187,15 +203,9 @@ Chrome浏览器:
 > This will force sync ALL branches to match source repo. Branches that are created only in the destination repo will not be affected but all the other branches will be hard reset to match source repo.  
 > ⚠️ This does mean if upstream ever creates a branch that shares the name, your changes will be gone.  
 
-1. 点我创建 [`授权令牌`](https://github.com/settings/tokens/new)
+每天与主仓库自动同步一次!  
 
-2. 如图，勾选前两项即可：
-
-![如图，勾选前两项即可：](.github/create_pat.png)
-
-3. 将 令牌 复制（注意，先复制，一旦关闭网页就不能查看了），再新建`Secrets`，键名 填入 `PAT`
-
-4. 每天与主仓库自动同步一次!
+如需关闭请手动关闭  
 
 或者使用[GitHub App Pull](https://github.com/apps/pull)自动同步
 
@@ -226,7 +236,7 @@ steps:
   - name: 'Use Node.js'
     uses: actions/setup-node@v1
     with:
-      node-version: '12.18.3'
+      node-version: '14.15.5'
   - name: 'Run in Nodejs'
     shell: bash
     env:
@@ -248,7 +258,7 @@ lottery_*:
     - name: 'Use Node.js'
       uses: actions/setup-node@v1
       with:
-        node-version: '12.18.3'
+        node-version: '14.15.5'
     - name: 'Run in Nodejs'
       shell: bash
       env:
@@ -268,7 +278,7 @@ lottery_*:
     - name: 'Use Node.js'
       uses: actions/setup-node@v1
       with:
-        node-version: '12.18.3'
+        node-version: '14.15.5'
     - name: 'Run in Nodejs'
       shell: bash
       env:
