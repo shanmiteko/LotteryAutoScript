@@ -1,3 +1,4 @@
 node_modules/
 lib/GlobalVar.json
+lib/dyid.txt
 env.bat

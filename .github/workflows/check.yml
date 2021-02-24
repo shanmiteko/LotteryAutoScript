@@ -23,7 +23,8 @@ jobs:
         env:
           NUMBER: 1
           COOKIE: ${{ secrets.COOKIE }}
-        run:
+        run: |
+          npm insatll
           npm run check
   lottery_2:
     runs-on: ubuntu-latest
@@ -39,7 +40,8 @@ jobs:
         env:
           NUMBER: 2
           COOKIE: ${{ secrets.COOKIE2 }}
-        run:
+        run: |
+          npm insatll
           npm run check
   lottery_3:
     runs-on: ubuntu-latest
@@ -55,7 +57,8 @@ jobs:
         env:
           NUMBER: 3
           COOKIE: ${{ secrets.COOKIE3 }}
-        run:
+        run: |
+          npm insatll
           npm run check
   lottery_4:
     runs-on: ubuntu-latest
@@ -71,7 +74,8 @@ jobs:
         env:
           NUMBER: 4
           COOKIE: ${{ secrets.COOKIE4 }}
-        run:
+        run: |
+          npm insatll
           npm run check
   lottery_5:
     runs-on: ubuntu-latest
@@ -87,5 +91,6 @@ jobs:
         env:
           NUMBER: 5
           COOKIE: ${{ secrets.COOKIE5 }}
-        run:
+        run: |
+          npm insatll
           npm run check
