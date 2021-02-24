@@ -242,7 +242,8 @@ steps:
     env:
       NUMBER: *
       COOKIE: ${{ secrets.COOKIE* }}
-    run:
+    run: |
+      npm install
       npm start
 ```  
 此时`Secrets`里就可以添加更多的`COOKIE*`(简单的找规律问题)  
