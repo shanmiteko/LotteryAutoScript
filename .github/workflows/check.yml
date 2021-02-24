@@ -24,7 +24,7 @@ jobs:
           NUMBER: 1
           COOKIE: ${{ secrets.COOKIE }}
         run: |
-          npm insatll
+          npm install
           npm run check
   lottery_2:
     runs-on: ubuntu-latest
@@ -41,7 +41,7 @@ jobs:
           NUMBER: 2
           COOKIE: ${{ secrets.COOKIE2 }}
         run: |
-          npm insatll
+          npm install
           npm run check
   lottery_3:
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
           NUMBER: 3
           COOKIE: ${{ secrets.COOKIE3 }}
         run: |
-          npm insatll
+          npm install
           npm run check
   lottery_4:
     runs-on: ubuntu-latest
@@ -75,7 +75,7 @@ jobs:
           NUMBER: 4
           COOKIE: ${{ secrets.COOKIE4 }}
         run: |
-          npm insatll
+          npm install
           npm run check
   lottery_5:
     runs-on: ubuntu-latest
@@ -92,5 +92,5 @@ jobs:
           NUMBER: 5
           COOKIE: ${{ secrets.COOKIE5 }}
         run: |
-          npm insatll
+          npm install
           npm run check

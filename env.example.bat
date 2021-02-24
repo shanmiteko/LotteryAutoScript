@@ -6,6 +6,7 @@
 @REM 使用时先将本文件名改成env.bat
 @REM 填入相应的值
 @REM 需注意 % 要转义为 %%
+@REM npm install
 @REM npm run test_start 启动脚本
 @REM npm run test_check 检查是否中奖
 @REM npm run test_clear 清空动态和关注

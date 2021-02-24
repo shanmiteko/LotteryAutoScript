@@ -266,7 +266,7 @@ lottery_*:
         NUMBER: *
         COOKIE: ${{ secrets.COOKIE* }}
       run: |
-        npm insatll
+        npm install
         npm run check
 ```
 
@@ -287,7 +287,7 @@ lottery_*:
         NUMBER: *
         COOKIE: ${{ secrets.COOKIE* }}
       run: |
-        npm insatll
+        npm install
         npm run clear
 ```  
 将以上的三处星号(`*`)改为数字并依次复制粘贴以清理更多的账号  
