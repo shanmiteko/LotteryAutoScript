@@ -8,6 +8,7 @@ on:
 env:
   SCKEY: ${{ secrets.SCKEY }}
   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+  PAT: ${{ secrets.PAT }}
 jobs:
   lottery_1:
     runs-on: ubuntu-latest
