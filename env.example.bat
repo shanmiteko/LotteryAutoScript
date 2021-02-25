@@ -8,7 +8,7 @@
 @REM 需注意 % 要转义为 %%
 @REM npm install
 @REM npm run test_start 启动脚本
-@REM npm run test_check 检查是否中奖
+@REM npm run test_check 检查是否中奖(只查看两个小时内的奖)
 @REM npm run test_clear 清空动态和关注
 @REM 运行成功后在lib文件夹下会生成一个GlobalVar.json文件
 @REM 换参数时须先将GlobalVar.json文件删除
