@@ -245,6 +245,11 @@ steps:
     run: |
       npm install
       npm start
+  - name: 'Upload dyid to artifact'
+    uses: actions/upload-artifact@v2
+    with:
+      name: dyid.txt
+      path: lib/dyid.txt
 ```  
 此时`Secrets`里就可以添加更多的`COOKIE*`(简单的找规律问题)  
 
