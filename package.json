@@ -29,7 +29,6 @@
     "eslint": "^7.17.0"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.5",
     "unzipper": "^0.10.11"
   }
 }
