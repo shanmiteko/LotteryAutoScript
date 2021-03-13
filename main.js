@@ -1,11 +1,11 @@
 const { setVariable } = require("./lib/setVariable");
 
-const { NUMBER, CLEAR, COOKIE, PAT, SCKEY, PUSH_PLUS_TOKEN, LOCALLAUNCH } = process.env;
+const { NUMBER, CLEAR, COOKIE, PAT, LOCALLAUNCH } = process.env;
 
 ((async () => {
     if (typeof COOKIE === 'string' && COOKIE.length > 10) {
         if (!LOCALLAUNCH && !PAT) { console.log('请查看README文件, 填入相应的PAT'); return; }
-        await setVariable(COOKIE, PAT, SCKEY, PUSH_PLUS_TOKEN);
+        await setVariable(COOKIE, PAT);
         const { start, isMe, checkCookie } = require("./lib/lottery-in-nodejs");
         const { clear } = require("./lib/clear");
         const isRight = await checkCookie(NUMBER);
