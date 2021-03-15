@@ -1,12 +1,11 @@
 @REM 下载代码到本地
 @REM 安装node(http://nodejs.cn/download/)
 
-@REM for windows
+@REM Windows
 @REM 此批处理脚本为本地运行代码前设置环境变量时所需
 @REM 使用时先将本文件名改成env.bat
 @REM 填入相应的值
 @REM 需注意 % 要转义为 %%
-@REM npm install 安装依赖
 @REM npm run test_start 启动脚本
 @REM npm run test_check 检查是否中奖(只查看两个小时内的奖)
 @REM npm run test_clear 清空动态和关注(须set CLEAR=true)
@@ -25,6 +24,8 @@ set BARK_PUSH=
 set BARK_SOUND=
 set TG_BOT_TOKEN=
 set TG_USER_ID=
+set TG_PROXY_HOST=
+set TG_PROXY_PORT=
 set DD_BOT_TOKEN=
 set DD_BOT_SECRET=
 set QYWX_KEY=

@@ -1,15 +1,15 @@
 {
   "name": "lottery-in-bilibili",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "自动抽奖",
   "main": "main.js",
   "scripts": {
     "start": "node main.js start",
     "clear": "node main.js clear",
     "check": "node main.js check",
-    "test_start": "env.bat && node main.js start",
-    "test_clear": "env.bat && node main.js clear",
-    "test_check": "env.bat && node main.js check"
+    "test_start": "npm install && env.bat && node main.js start",
+    "test_clear": "npm install && env.bat && node main.js clear",
+    "test_check": "npm install && env.bat && node main.js check"
   },
   "repository": {
     "type": "git",

@@ -14,6 +14,8 @@ env:
   BARK_SOUND: ${{ secrets.BARK_SOUND }}
   TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
   TG_USER_ID: ${{ secrets.TG_USER_ID }}
+  TG_PROXY_HOST: ${{ secrets.TG_PROXY_HOST }}
+  TG_PROXY_PORT: ${{ secrets.TG_PROXY_PORT }}
   DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
   QYWX_KEY: ${{ secrets.QYWX_KEY}}
