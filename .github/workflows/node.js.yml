@@ -14,6 +14,7 @@ env:
   MY_CONFIG: ${{ secrets.MY_CONFIG }}
   PAT: ${{ secrets.PAT }}
   SCKEY: ${{ secrets.SCKEY }}
+  SENDKEY: ${{ secrets.SENDKEY }}
   QQ_SKEY: ${{ secrets.QQ_SKEY}}
   QQ_MODE: ${{ secrets.QQ_MODE}}
   BARK_PUSH: ${{ secrets.BARK_PUSH }}

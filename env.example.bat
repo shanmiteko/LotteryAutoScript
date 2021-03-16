@@ -18,6 +18,7 @@ set CLEAR=
 set LOCALLAUNCH=true
 @REM 推送所需环境变量(可不填)
 set SCKEY=
+set SENDKEY=
 set QQ_SKEY=
 set QQ_MODE=
 set BARK_PUSH=
