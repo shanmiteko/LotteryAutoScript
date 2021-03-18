@@ -3,8 +3,15 @@ on:
   push:
     branches:
       - main
+      - master
     paths:
       - 'lib/**'
+  pull_request:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - '**'
   workflow_dispatch:
     branches:
       - main
