@@ -6,6 +6,7 @@ on:
   schedule:
     - cron: '0 */2 * * *'
 env:
+  MY_CONFIG: ${{ secrets.MY_CONFIG }}
   PAT: ${{ secrets.PAT }}
   SCKEY: ${{ secrets.SCKEY }}
   SENDKEY: ${{ secrets.SENDKEY }}
