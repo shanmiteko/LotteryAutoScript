@@ -52,6 +52,8 @@
 
   > [Actions官方文档](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)  
 
+注意: Github Actions最大运行时间为6小时,超时会被强制关闭
+
 [油猴版本](https://greasyfork.org/zh-CN/scripts/412468)  
 
 ---
