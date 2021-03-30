@@ -363,6 +363,18 @@ lottery_*:
       - 是否发送随机动态(防止被开奖机过滤)
       - `'1'`开启
       - `'0'`关闭
+    - `dy_contents`
+      - 随机动态内容
+      - 类型 `content[]`
+        ```js
+        /**
+         * @typedef Picture
+         * @property {string} img_src
+         * @property {number} img_width
+         * @property {number} img_height
+         * @param { string | Picture[] } content
+         */
+        ```
     - `blacklist`
       - 防钓鱼uid黑名单
       - 逗号分割字符串
@@ -390,5 +402,3 @@ lottery_*:
     > }
     > ```
   - [自定义设置模板](https://github.com/shanmite/LotteryAutoScript/issues/62#issuecomment-808882833)
-
----
