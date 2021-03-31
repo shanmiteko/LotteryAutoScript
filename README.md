@@ -392,6 +392,7 @@ lottery_*:
       - 字符串数组
 #### 自定义设置  
   - 新建一个Repository secrets取名为`MY_CONFIG`
+  - 本地运行时在项目根目录下新建my_config.json文件将设置填在其中
   - 填入符合[JSON语法](https://www.w3school.com.cn/json/json_syntax.asp)的内容
   - 字段的名称和对应的值按照[字段解释](#模式选择)要求填写
   - 需要修改哪项就填入相应的键值对  
