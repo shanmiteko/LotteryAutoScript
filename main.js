@@ -13,7 +13,6 @@ const { NUMBER, CLEAR, COOKIE, PAT, LOCALLAUNCH } = process.env;
         if (!isRight) return;
         switch (process.argv.slice(2)[0]) {
             case 'start':
-                await setVariable('', PAT);
                 tooltip.log('开始参与抽奖');
                 await start();
                 break;

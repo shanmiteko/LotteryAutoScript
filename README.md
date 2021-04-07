@@ -352,16 +352,16 @@ lottery_*:
     - `maxday`
       - 开奖时间距离现在的最大天数
       - 默认为`-1`表示不限制
-      - 字符串类型
+      - `string`
     - `wait`
       - 转发间隔时间
       - 单位毫秒
       - 上下浮动30s
-      - 字符串类型
+      - `string`
     - `minfollower`
       - up主粉丝数限制
       - 仅限制没有官方认证的up
-      - 字符串类型
+      - `string`
     - `only_followed`
       - 只转发已关注的
       - `'1'`开启
@@ -387,26 +387,29 @@ lottery_*:
       - 逗号分割字符串
     - `blockword`
       - 屏蔽词
-      - 字符串数组
+      - `string[]`
     - `followWhiteList`
       - 取关白名单
       - 逗号分割字符串
     - `relay`
       - 转发评语
-      - 字符串数组
+      - `string[]`
     - `chat`
       - 评论内容
-      - 字符串数组
+      - `string[]`
+    - `UIDs`
+      - 监听的UID列表
+      - `number[]`
+    - `TAGs`
+      - 监听的抽奖话题
+      - `string[]`
+    - `clear_partition`
+      - 取关分区
+      - `string`
 #### 自定义设置  
   - 新建一个Repository secrets取名为`MY_CONFIG`
   - 本地运行时在项目根目录下新建my_config.json文件将设置填在其中
   - 填入符合[JSON语法](https://www.w3school.com.cn/json/json_syntax.asp)的内容
   - 字段的名称和对应的值按照[字段解释](#模式选择)要求填写
   - 需要修改哪项就填入相应的键值对  
-    > 例如我要将`model`值改为`'00'`就在MY_CONFIG里填入  
-    > ```json
-    > {
-    >   "model":"00"
-    > }
-    > ```
   - [自定义设置模板](https://github.com/shanmite/LotteryAutoScript/issues/62#issuecomment-808882833)
