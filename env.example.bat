@@ -15,7 +15,10 @@ set COOKIE=
 set NUMBER=1
 set CLEAR=
 set LOCALLAUNCH=true
+
 :: 推送所需环境变量(可不填)
+:: 推送限制时间(小时) 默认为2 即只推送两小时内的中奖信息防止重复发送
+set PUSH_LIMIT_TIME=
 set SCKEY=
 set SENDKEY=
 set QQ_SKEY=
@@ -32,3 +35,8 @@ set QYWX_KEY=
 set IGOT_PUSH_KEY=
 set PUSH_PLUS_TOKEN=
 set PUSH_PLUS_USER=
+set SMTP_HOST=
+set SMTP_PORT=
+set SMTP_USER=
+set SMTP_PASS=
+set SMTP_TO_USER=
