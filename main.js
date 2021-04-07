@@ -31,6 +31,6 @@ const { NUMBER, CLEAR, COOKIE, PAT, LOCALLAUNCH } = process.env;
             default:
                 break;
         }
-        process.exit(0)
     }
+    process.exit(0)
 }))();
