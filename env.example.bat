@@ -6,7 +6,7 @@
 :: 进入文件夹打开CMD
 :: npm run test_start 启动脚本
 :: npm run test_check 检查是否中奖(只查看两个小时内的奖)
-:: npm run test_clear 清空动态和关注(须set CLEAR=true)
+:: npm run test_clear 清空动态和关注
 :: 运行成功后在lib文件夹下会生成一个GlobalVar.json文件和dyid.txt文件
 :: ==换参数时须先将GlobalVar.json文件删除==
 :: 如果要运行多账号只能复制本项目并依次独立运行
@@ -15,6 +15,7 @@ set COOKIE=
 set NUMBER=1
 set CLEAR=
 set LOCALLAUNCH=true
+set CLEAR=true
 
 :: 推送所需环境变量(可不填)
 :: 推送限制时间(小时) 默认为2 即只推送两小时内的中奖信息防止重复发送

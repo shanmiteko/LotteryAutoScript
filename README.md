@@ -382,6 +382,16 @@ lottery_*:
          * @param { string | Picture[] } content
          */
         ```
+    - `at_users`
+      - 转发时[at]的用户
+      - `AtInfo[]`
+        ```js
+        /**
+         * @typedef {string} NickName
+         * @typedef {number} UID
+         * @typedef {(NickName | UID)[]} AtInfo
+         */
+        ```
     - `blacklist`
       - 防钓鱼uid黑名单
       - 逗号分割字符串
