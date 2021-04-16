@@ -10,6 +10,7 @@
 :: 运行成功后在lib文件夹下会生成一个GlobalVar.json文件和dyid.txt文件
 :: ==换参数时须先将GlobalVar.json文件删除==
 :: 如果要运行多账号只能复制本项目并依次独立运行
+:: lib/Public.js getLotteryInfoByTag getLotteryInfoByUID中可适当增大扫描范围
 :: ==注意运行时请去掉注释==
 set COOKIE=
 set NUMBER=1
