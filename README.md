@@ -416,6 +416,9 @@ lottery_*:
     - `clear_partition`
       - 取关分区
       - `string`
+    - `partition_id`
+      - 抽奖UP用户分组id
+      - `number`
 #### 自定义设置  
   - 新建一个Repository secrets取名为`MY_CONFIG`
   - 本地运行时在项目根目录下新建my_config.json文件将设置填在其中
