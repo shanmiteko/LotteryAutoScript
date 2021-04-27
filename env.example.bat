@@ -19,8 +19,6 @@ set LOCALLAUNCH=true
 set CLEAR=true
 
 :: 推送所需环境变量(可不填)
-:: 推送限制时间(小时) 默认为2 即只推送两小时内的中奖信息防止重复发送
-set PUSH_LIMIT_TIME=
 set SCKEY=
 set SENDKEY=
 set QQ_SKEY=

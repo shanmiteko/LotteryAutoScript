@@ -8,7 +8,6 @@ on:
 env:
   MY_CONFIG: ${{ secrets.MY_CONFIG }}
   PAT: ${{ secrets.PAT }}
-  PUSH_LIMIT_TIME: ${{ secrets.PUSH_LIMIT_TIME }}
   SCKEY: ${{ secrets.SCKEY }}
   SENDKEY: ${{ secrets.SENDKEY }}
   QQ_SKEY: ${{ secrets.QQ_SKEY}}
