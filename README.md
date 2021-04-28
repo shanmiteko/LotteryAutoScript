@@ -226,15 +226,15 @@ Chrome浏览器:
 > This will force sync ALL branches to match source repo. Branches that are created only in the destination repo will not be affected but all the other branches will be hard reset to match source repo.  
 > ⚠️ This does mean if upstream ever creates a branch that shares the name, your changes will be gone.  
 
-每天与主仓库自动同步一次!  
+配置了PAT后每天与主仓库自动同步一次!  
 
 如需关闭请手动关闭  
 
 或者使用[GitHub App Pull](https://github.com/apps/pull)自动同步
 
 ### 本地运行
-由于Github服务器共用IP导致脚本易发生访问频繁,可选择在本地运行  
-详见[env.example.bat](env.example.bat)文件
+由于Github服务器共用IP导致脚本易发生访问频繁, 且滥用行为可能会封禁Actions可选择在本地运行  
+具体操作详见[env.example.bat](env.example.bat)文件
 
 ### 多账号支持
 默认支持5个账号  
