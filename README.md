@@ -60,7 +60,7 @@
 
 ## 操作步骤  
 
-<kbd>★ Star</kbd>  
+右上角<kbd>★ Star</kbd>  
 
 ↓↓  
 
@@ -108,7 +108,7 @@ Chrome浏览器:
 
 也可以采用**其他方式获取**所需的Cookie  
 只需含有 `DedeUserID=...;SESSDATA=...;bili_jct=...` 三项即可  
-(分号分割，顺序随意)  
+(分号分割, 不要换行, 顺序随意)  
 
 ↓↓  
 
@@ -141,7 +141,7 @@ Chrome浏览器:
 
 #### 手动检查  
 手动触发`Automatic check`工作流后可在日志中查看
-![check](.github/check.png)
+![check](.github/check_me.png)
 #### 中奖推送(可选)  
 > 例如在 `Repository secrets` 中新建一个 `SCKEY` 并填入对应的值  
 > ![新建repository secrets](.github/serverchan.png)  
@@ -194,6 +194,8 @@ Chrome浏览器:
 
 ![效果](.github/success.png)  
 
+其中每条`workflow`都可点开查看`Run in Nodejs`里的日志
+
 ---
 
 ## 清理动态
@@ -234,110 +236,57 @@ Chrome浏览器:
 
 ### 本地运行
 由于Github服务器共用IP导致脚本易发生访问频繁, 且滥用行为可能会封禁Actions可选择在本地运行  
-具体操作详见[env.example.bat](env.example.bat)文件
+具体操作详见[env.example.js](env.example.js)文件  
 
-win系统环境配置及定时计划运行
-
-step1：环境配置
-
-下载代码到本地 
+step1: 下载代码到本地  
 
 [点此下载](https://github.com/shanmite/LotteryAutoScript/archive/refs/heads/main.zip)或如图示下载↓
 
 ![点我加载下载操作图示](.github/download.png)
 
-下载的压缩包解压后修改env.example.bat文件，详见step3
+下载的压缩包解压后修改env.example.js文件，详见step3  
 
-step2：下载并安装Node.js 
+step2: 下载并安装Node.js  
 
 [点此进入nodejs下载页面](http://nodejs.cn/download)
 
 ![点我加载下载nodejs操作图示](.github/nodejs.png)
 
-step3：修改env.example.bat文件及创建运行文件
+step3：修改env.example.js文件及创建运行文件  
 
-1.step1下载的压缩包解压后将其中的`env.example.bat`文件重命名为`env.bat`      
+1.step1下载的压缩包解压后将其中的`env.example.js`文件重命名为`env.js`  
 
-2.右键`env.bat`文件选择编辑或用记事本打开      
+2.右键`env.js`文件选择编辑或用记事本打开  
 
-3.使用 -[填入COOKIE](#填入cookie) 操作获取cookie，将字段其中包含`%`的修改成`%%`，多输入一个`%`避免转义    
+3.填入相关参数  
 
-4.将cookie填入文件对应值中
+4.运行  
+新建`start.bat`(windows)或`start.sh`(linux)文件写入以下内容  
+即在当前目录下运行执行以下命令  
+注: `npm i`意味安装依赖, 只需运行一次, 为防止依赖有变化遂每次都执行  
 
-```
-set COOKIE= 你在浏览器获取后并修改了%的cookie
-…………
-（后面的按照文件中的提示填写）
-``` 
-
-5.在`env.bat`文件同一根目录下新建一个`start.bat`文件，用于运行程序          
-
-![点我加载该步骤目录结构图示](.github/menu.png)          
-
-6.右键`start.bat`文件选择编辑或用记事本打开，填入以下内容(内容具体含义详见`env.bat`文件，可根据个人需求选择其中一条)           
-
-```
-npm run test_start
-```
-或
-```
-npm run test_check
-```
-或
-```
-npm run test_clear
+启动抽奖  
+```bash
+npm i
+npm run start
 ```
 
-8.确入修改无误后，将`env.bat`文件中前面含有`::`的注释全部删除，只保留`chcp 65001`语句和含有前缀`set`的语句         
-
-9.上一步操作仍可能无法修改默认编码，此时可以去搜索引擎搜索永久修改cmd默认编码为`65001`的方法，这里不赘述了        
-
-10.以上修改都保存成功后，点击`start.bat`文件即可启动         
-
-11.注意事项
-
-```
-运行成功后在lib文件夹下会生成一个GlobalVar.json文件和dyid.txt文件
-==换env.bat的参数时须先将GlobalVar.json文件删除==
-==注意运行时请去掉注释== 
-==注意 bat文件中% 要转义写为 %%==
-如果要运行多账号只能复制本项目并依次独立运行
-在lib/Public.js文件getLotteryInfoByTag方法和getLotteryInfoByUID方法中可适当增大扫描范围 默认3页
+检查中奖  
+```bash
+npm i
+npm run check
 ```
 
-step4：本地定时运行(在Windows系统的操作)
+清理动态  
+```
+npm i
+npm run clear
+```
 
-1.右键我的电脑打开控制面板，或在win10搜索框里搜索控制面板打开          
+4.以上修改都保存成功后，点击`start.bat`文件即可启动  
 
-2.在`控制面板`右上角的搜索框里搜索`计划任务`点击打开         
-
-3.在`任务计划程序`中选择`任务计划程序库`         
-
-4.在右边的操作框中选择`创建任务`        
-
-5.在`常规`页面中的名称框中写入计划名称后，在`安全选项`里选择`不管用户是否登陆都要运行`，`使用最高权限运行`         
-
-6.在`触发器`页面中规划时间，点击`新建`，选择设置`每天`和具体开始时间以及间隔时间，高级设置直接看情况选择          
-
-7.在`操作`页面中点击`新建`，选择操作为`启动程序`，在设置里点击浏览找到`start.bat`文件并选择，在`起始于(可选)(T)：`中的空白框里输入`start.bat`文件的目录地址，也就是`程序或脚本(P)：`里`start.bat`的前面那一串目录地址，最后是以`\`结尾的 ，填好东西后按下面`确认`              
-
-![点我加载步骤7结果图示](.github/step_menu.png)             
-
-8.在`条件`页面中选择`网络`，设定启动条件为任何连接            
-
-9.在`设置`页面中选择如图示选项，或者不修改默认设置           
-
-![点我加载步骤9结果图示](.github/shezhi_renwu.png)            
-
-10.最后按`确定`          
-
-11.此时它会弹框要求输入用户密码，一般是你的开机密码确认身份，这个对于服务器来说就是远程桌面开启的那个密码         
-
-最后你可以在任务列表中选择已有的任务，右边的操作框中选择`运行`点击，启动计划的任务，如下图所示
-
-![点我加载运行图示](.github/start_renwu.png)
-
-具体看任务是否正常执行，你可以看看自己的账号动态的最新转发，运行成功每几分钟自动转发抽奖动态
+> [windows系统定时运行](./doc/win_schedule.md)  
+> [linux系统定时运行](https://zhuanlan.zhihu.com/p/58719487)
 
 ### 多账号支持
 默认支持5个账号  

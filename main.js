@@ -1,11 +1,16 @@
 const { tooltip } = require("./lib/Base");
-const { setVariable } = require("./lib/setVariable");
 
-const { NUMBER, CLEAR, COOKIE, PAT, LOCALLAUNCH } = process.env;
+try {
+    require("./env");
+} catch (error) {
+    tooltip.log("无env.js文件");
+}
 
 ((async () => {
-    if (typeof COOKIE === 'string' && COOKIE.length > 10) {
+    const { NUMBER, CLEAR, COOKIE, PAT, LOCALLAUNCH } = process.env;
+    if (COOKIE) {
         if (!LOCALLAUNCH && !PAT) { tooltip.log('请查看README文件, 填入相应的PAT'); return; }
+        const { setVariable } = require("./lib/setVariable");
         await setVariable(COOKIE);
         const { start, isMe, checkCookie } = require("./lib/lottery-in-nodejs");
         const { clear } = require("./lib/clear");

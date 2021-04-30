@@ -6,10 +6,7 @@
   "scripts": {
     "start": "node main.js start",
     "clear": "node main.js clear",
-    "check": "node main.js check",
-    "test_start": "npm install && env.bat && node main.js start",
-    "test_clear": "npm install && env.bat && node main.js clear",
-    "test_check": "npm install && env.bat && node main.js check"
+    "check": "node main.js check"
   },
   "repository": {
     "type": "git",
