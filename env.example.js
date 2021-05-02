@@ -6,7 +6,7 @@
  * 账号相关参数
  * `COOKIE` 是必填项
  * `NUMBER` 表示是第几个账号
- * `PAT` 与 `GITHUB_REPOSITORY` 两项是为了从构件中下载已转发信息
+ * `PAT` 与 `GITHUB_REPOSITORY` 两项是为了从构件中下载已转发信息 可不填
  */
 const account_parm = {
     "COOKIE": "",

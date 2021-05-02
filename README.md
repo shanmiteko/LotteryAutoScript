@@ -48,13 +48,15 @@
 
 ## 动态抽奖  
 
-通过Github Actions挂载Nodejs脚本  
+借助Github Actions定时运行Nodejs脚本  
 
   > [Actions官方文档](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)  
 
-注意: Github Actions最大运行时间为6小时,超时会被强制关闭
+如果README图片加载失败可前往[此处](https://gitee.com/shanmite/LotteryAutoScript)查看
 
 [油猴版本](https://greasyfork.org/zh-CN/scripts/412468)  
+
+声明: 此脚本仅用于学习和测试，作者本人并不对其负责，请于运行测试完成后自行删除，请勿滥用！  
 
 ---
 
@@ -66,7 +68,7 @@
 
 ### Fork本仓库  
 
-![fork](.github/fork.png)
+![fork](doc/pic/fork.png)
 
 ↓↓  
 
@@ -80,7 +82,7 @@ Chrome浏览器:
 
     (此步骤是为了方便后续采用JS获取Cookies)  
 
-![取消httponly](.github/getCookies.png)
+![取消httponly](doc/pic/getCookies.png)
 
 3. 在Console中复制以下代码回车  
 
@@ -102,9 +104,9 @@ Chrome浏览器:
 
 > 此处页面可能会有所不同,不用在意  
 
-![new secret](.github/cookie2.png)  
+![new secret](doc/pic/cookie2.png)  
 
-![new COOKIE](.github/new_secret.png)  
+![new COOKIE](doc/pic/new_secret.png)  
 
 也可以采用**其他方式获取**所需的Cookie  
 只需含有 `DedeUserID=...;SESSDATA=...;bili_jct=...` 三项即可  
@@ -121,7 +123,7 @@ Chrome浏览器:
 
 2. 如图，勾选前两项即可：
 
-![如图，勾选前两项即可：](.github/create_pat.png)
+![如图，勾选前两项即可：](doc/pic/create_pat.png)
 
 3. 将 令牌 复制（注意，先复制，一旦关闭网页就不能查看了），再新建`Secrets`，键名 填入 `PAT`
 
@@ -141,10 +143,10 @@ Chrome浏览器:
 
 #### 手动检查  
 手动触发`Automatic check`工作流后可在日志中查看
-![check](.github/check_me.png)
+![check](doc/pic/check_me.png)
 #### 中奖推送(可选)  
 > 例如在 `Repository secrets` 中新建一个 `SCKEY` 并填入对应的值  
-> ![新建repository secrets](.github/serverchan.png)  
+> ![新建repository secrets](doc/pic/serverchan.png)  
 
 以下是详细说明
 
@@ -152,14 +154,14 @@ Chrome浏览器:
 | :---------------: | :--------------------------------------------------------------------------------: | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |      `SCKEY`      |                         微信server酱推送(将在2021/4月下线)                         | 非必须 | server酱的微信通知[官方文档](http://sc.ftqq.com/3.version)                                                                                                                                                                  |
 |     `SENDKEY`     |                             微信server酱(Turbo版)推送                              | 非必须 | [获取SENDKEY](https://sct.ftqq.com/sendkey) [选择消息通道](https://sct.ftqq.com/forward)                                                                                                                                    |
-|    `BARK_PUSH`    | [BARK推送](https://apps.apple.com/us/app/bark-customed-notifications/id1403753865) | 非必须 | IOS用户下载BARK这个APP,填写内容是app提供的`设备码`，例如：https://api.day.app/123 ，那么此处的设备码就是`123`，再不懂看 [这个图](.github/bark.jpg)（注：支持自建填完整链接即可）                                            |
+|    `BARK_PUSH`    | [BARK推送](https://apps.apple.com/us/app/bark-customed-notifications/id1403753865) | 非必须 | IOS用户下载BARK这个APP,填写内容是app提供的`设备码`，例如：https://api.day.app/123 ，那么此处的设备码就是`123`，再不懂看 [这个图](doc/pic/bark.jpg)（注：支持自建填完整链接即可）                                            |
 |   `BARK_SOUND`    | [BARK推送](https://apps.apple.com/us/app/bark-customed-notifications/id1403753865) | 非必须 | bark推送声音设置，例如`choo`,具体值请在`bark`-`推送铃声`-`查看所有铃声`                                                                                                                                                     |
-|  `TG_BOT_TOKEN`   |                                    telegram推送                                    | 非必须 | tg推送(需设备可连接外网),`TG_BOT_TOKEN`和`TG_USER_ID`两者必需,填写自己申请[@BotFather](https://t.me/BotFather)的Token,如`10xxx4:AAFcqxxxxgER5uw` , [具体教程](.github/TG_PUSH.md)                                           |
-|   `TG_USER_ID`    |                                    telegram推送                                    | 非必须 | tg推送(需设备可连接外网),`TG_BOT_TOKEN`和`TG_USER_ID`两者必需,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字ID, [具体教程](.github/TG_PUSH.md)                                                              |
+|  `TG_BOT_TOKEN`   |                                    telegram推送                                    | 非必须 | tg推送(需设备可连接外网),`TG_BOT_TOKEN`和`TG_USER_ID`两者必需,填写自己申请[@BotFather](https://t.me/BotFather)的Token,如`10xxx4:AAFcqxxxxgER5uw` , [具体教程](doc/TG_PUSH.md)                                           |
+|   `TG_USER_ID`    |                                    telegram推送                                    | 非必须 | tg推送(需设备可连接外网),`TG_BOT_TOKEN`和`TG_USER_ID`两者必需,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字ID, [具体教程](doc/TG_PUSH.md)                                                              |
 |  `TG_PROXY_HOST`  |                                 Telegram 代理的 IP                                 | 非必须 | 代理类型为 http。例子：http代理 http://127.0.0.1:1080 则填写 127.0.0.1                                                                                                                                                      |
 |  `TG_PROXY_PORT`  |                                Telegram 代理的端口                                 | 非必须 | 例子：http代理 http://127.0.0.1:1080 则填写 1080                                                                                                                                                                            |
 |  `DD_BOT_TOKEN`   |                                      钉钉推送                                      | 非必须 | 钉钉推送(`DD_BOT_TOKEN`和`DD_BOT_SECRET`两者必需)[官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq) ,只需`https://oapi.dingtalk.com/robot/send?access_token=XXX` 等于`=`符号后面的XXX即可                     |
-|  `DD_BOT_SECRET`  |                                      钉钉推送                                      | 非必须 | (`DD_BOT_TOKEN`和`DD_BOT_SECRET`两者必需) ,密钥，机器人安全设置页面，加签一栏下面显示的SEC开头的`SECXXXXXXXXXX`等字符 , 注:钉钉机器人安全设置只需勾选`加签`即可，其他选项不要勾选,再不懂看 [这个图](.github/DD_bot.png)     |
+|  `DD_BOT_SECRET`  |                                      钉钉推送                                      | 非必须 | (`DD_BOT_TOKEN`和`DD_BOT_SECRET`两者必需) ,密钥，机器人安全设置页面，加签一栏下面显示的SEC开头的`SECXXXXXXXXXX`等字符 , 注:钉钉机器人安全设置只需勾选`加签`即可，其他选项不要勾选,再不懂看 [这个图](doc/pic/DD_bot.png)     |
 |  `IGOT_PUSH_KEY`  |                                      iGot推送                                      | 非必须 | iGot聚合推送，支持多方式推送，确保消息可达。 [参考文档](https://wahao.github.io/Bark-MP-helper )                                                                                                                            |
 |     `QQ_SKEY`     |                                酷推(Cool Push)推送                                 | 非必须 | 推送所需的Skey,登录后获取Skey [参考文档](https://cp.xuthus.cc/)                                                                                                                                                             |
 |     `QQ_MODE`     |                                酷推(Cool Push)推送                                 | 非必须 | 推送方式(send或group或者wx，默认send) [参考文档](https://cp.xuthus.cc/)                                                                                                                                                     |
@@ -180,7 +182,7 @@ Chrome浏览器:
 
 通过手动触发  
 
-![commit](.github/byhand.png)  
+![commit](doc/pic/byhand.png)  
 
 ***以上步骤是为了检测是否配置成功***
 
@@ -192,7 +194,7 @@ Chrome浏览器:
 
 效果  
 
-![效果](.github/success.png)  
+![效果](doc/pic/success.png)  
 
 其中每条`workflow`都可点开查看`Run in Nodejs`里的日志
 
@@ -215,12 +217,12 @@ Chrome浏览器:
 
 如果出现  
 
-![滞后](.github/behind.png)  
+![滞后](doc/pic/behind.png)  
 
 说明此脚本有更新  
 通过 `Pull Request` 更新仓库  
 **注意PR的方向 如下图**
-![如何同步更新Github上Fork的项目](.github/update_fork.png)  
+![如何同步更新Github上Fork的项目](doc/pic/update_fork.png)  
 
 
 ### 自动更新
@@ -235,14 +237,13 @@ Chrome浏览器:
 或者使用[GitHub App Pull](https://github.com/apps/pull)自动同步
 
 ### 本地运行
-由于Github服务器共用IP导致脚本易发生访问频繁, 且滥用行为可能会封禁Actions可选择在本地运行  
 具体操作详见[env.example.js](env.example.js)文件  
 
 step1: 下载代码到本地  
 
 [点此下载](https://github.com/shanmite/LotteryAutoScript/archive/refs/heads/main.zip)或如图示下载↓
 
-![点我加载下载操作图示](.github/download.png)
+![点我加载下载操作图示](doc/pic/download.png)
 
 下载的压缩包解压后修改env.example.js文件，详见step3  
 
@@ -250,7 +251,7 @@ step2: 下载并安装Node.js
 
 [点此进入nodejs下载页面](http://nodejs.cn/download)
 
-![点我加载下载nodejs操作图示](.github/nodejs.png)
+![点我加载下载nodejs操作图示](doc/pic/nodejs.png)
 
 step3：修改env.example.js文件及创建运行文件  
 
@@ -265,19 +266,19 @@ step3：修改env.example.js文件及创建运行文件
 即在当前目录下运行执行以下命令  
 注: `npm i`意味安装依赖, 只需运行一次, 为防止依赖有变化遂每次都执行  
 
-启动抽奖  
+a.启动抽奖  
 ```bash
 npm i
 npm run start
 ```
 
-检查中奖  
+b.检查中奖  
 ```bash
 npm i
 npm run check
 ```
 
-清理动态  
+c.清理动态  
 ```
 npm i
 npm run clear
@@ -375,10 +376,10 @@ lottery_*:
 **注意**: 由于脚本会强制同步同名文件, 任何在原文件上的修改都会无效  
 解决办法
 - 取消自动同步
-- 重命名`/.github/workflows/`下的`.yml`文件以及修改内部的`name`值并禁用之前的`name`对应的工作流
+- 重命名`.github/workflows/`下的`.yml`文件以及修改内部的`name`值并禁用之前的`name`对应的工作流
 
 ### 如何关闭
-![关闭工作流](.github/close.png)  
+![关闭工作流](doc/pic/close.png)  
 
 ### 部分设置说明  
 #### 定时运行(`UTC+0`)  
