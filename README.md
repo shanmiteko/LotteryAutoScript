@@ -262,8 +262,8 @@ step3：修改env.example.js文件及创建运行文件
 3.填入相关参数  
 
 4.运行  
-新建`start.bat`(windows)或`start.sh`(linux)文件写入以下内容  
-即在当前目录下运行执行以下命令  
+在当前目录下打开命令行终端输入以下三种命令即对应三种功能  
+(可新建`xxx.bat`(windows)或`xxx.sh`(linux)文件写入以下内容)  
 注: `npm i`意味安装依赖, 只需运行一次, 为防止依赖有变化遂每次都执行  
 
 a.启动抽奖  
@@ -284,7 +284,7 @@ npm i
 npm run clear
 ```
 
-4.以上修改都保存成功后，点击`start.bat`文件即可启动  
+4.以上修改都保存成功后，点击`xxx.bat`文件即可启动  
 
 > [windows系统定时运行](./doc/win_schedule.md)  
 > [linux系统定时运行](https://zhuanlan.zhihu.com/p/58719487)
@@ -473,9 +473,10 @@ lottery_*:
       - 抽奖UP用户分组id
       - `number`
 #### 自定义设置  
-  - 新建一个Repository secrets取名为`MY_CONFIG`
-  - 本地运行时在项目根目录下新建my_config.json文件将设置填在其中
+  - 默认设置存放于[config.js](lib/config.js)和[script.js](lib/Script.js)中
+  - 修改默认设置
+    - Actions => 新建一个Repository secrets取名为`MY_CONFIG`
+    - 本地运行 => 在项目根目录下新建my_config.json文件将设置填在其中
   - 填入符合[JSON语法](https://www.w3school.com.cn/json/json_syntax.asp)的内容
   - 字段的名称和对应的值按照[字段解释](#模式选择)要求填写
-  - 需要修改哪项就填入相应的键值对  
   - [自定义设置模板](https://github.com/shanmite/LotteryAutoScript/issues/62#issuecomment-808882833)
