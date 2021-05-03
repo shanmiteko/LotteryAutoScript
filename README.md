@@ -286,6 +286,8 @@ npm run clear
 
 4.以上修改都保存成功后，点击`xxx.bat`文件即可启动  
 
+注: 本地运行时可在设置中增大扫描页数  
+
 > [windows系统定时运行](./doc/win_schedule.md)  
 > [linux系统定时运行](https://zhuanlan.zhihu.com/p/58719487)
 
@@ -402,6 +404,9 @@ lottery_*:
       - `'10'`只评论官抽
       - `'01'`只评论非官抽
       - `'11'`都评论
+    - `scan_page_num`
+      - 在uid或tag里检索的页数
+      - `number`
     - `maxday`
       - 开奖时间距离现在的最大天数
       - 默认为`-1`表示不限制
@@ -423,6 +428,9 @@ lottery_*:
       - 是否发送随机动态(防止被开奖机过滤)
       - `'1'`开启
       - `'0'`关闭
+    - `create_dy_num`
+      - 发送随机动态的数量
+      - `number`
     - `dy_contents`
       - 随机动态内容
       - 类型 `content[]`
