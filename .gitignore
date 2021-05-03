@@ -1,6 +1,6 @@
 node_modules/
 lib/GlobalVar.json
-lib/dyid.txt
+lib/dyid*.txt
 dyid.zip
 env.js
 my_config.json
