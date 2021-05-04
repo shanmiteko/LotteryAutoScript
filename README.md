@@ -268,20 +268,17 @@ step3：修改env.example.js文件及创建运行文件
 
 命令一: 启动抽奖  
 ```bash
-npm i
-npm run start
+npm i && npm run start
 ```
 
 命令二: 检查中奖  
 ```bash
-npm i
-npm run check
+npm i && npm run check
 ```
 
 命令三: 清理动态  
-```
-npm i
-npm run clear
+```bash
+npm i && npm run clear
 ```
 
 注: 仅填入代码块内的内容  
