@@ -87,16 +87,16 @@ Chrome浏览器:
 3. 在Console中复制以下代码回车  
 
     ```js
-    {
-        let bilicookie = '';
-        document.cookie.split(/\s*;\s*/).forEach(item => {
-            const _item = item.split('=');
-            if (['DedeUserID', 'bili_jct', 'SESSDATA'].indexOf(_item[0]) !== -1)
-                bilicookie += `${_item[0]}=${_item[1]}; `;
-        })
-        copy(bilicookie); /* 自动复制到粘贴板 */
-        console.log(bilicookie)
-    }
+    /** 自动复制到粘贴板 */
+    copy(
+      document
+        .cookie
+        .split(/\s*;\s*/)
+        .map(it => it.split('='))
+        .filter(it => ['DedeUserID','bili_jct', 'SESSDATA'].indexOf(it[0]) > -1)
+        .map(it => it.join('='))
+        .join('; ')
+    )
     ```
 
 4. 进入你Fork的GitHub仓库  
