@@ -1,5 +1,4 @@
 node_modules/
-lib/GlobalVar.json
 lib/dyid*.txt
 dyid.zip
 env.js

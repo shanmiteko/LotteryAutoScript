@@ -266,27 +266,29 @@ step3：修改env.example.js文件及创建运行文件
 (可新建`xxx.bat`(windows)或`xxx.sh`(linux)文件写入以下内容)  
 注: `npm i`意味安装依赖, 只需运行一次, 为防止依赖有变化遂每次都执行  
 
-a.启动抽奖  
+命令一: 启动抽奖  
 ```bash
 npm i
 npm run start
 ```
 
-b.检查中奖  
+命令二: 检查中奖  
 ```bash
 npm i
 npm run check
 ```
 
-c.清理动态  
+命令三: 清理动态  
 ```
 npm i
 npm run clear
 ```
 
+注: 仅填入代码块内的内容  
+
 4.以上修改都保存成功后，点击`xxx.bat`文件即可启动  
 
-注: 本地运行时可在设置中增大扫描页数  
+注: **本地运行时可在设置中增大扫描页数**  
 
 > [windows系统定时运行](./doc/win_schedule.md)  
 > [linux系统定时运行](https://zhuanlan.zhihu.com/p/58719487)
