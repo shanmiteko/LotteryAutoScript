@@ -52,7 +52,10 @@
 
   > [Actions官方文档](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions)  
 
-如果README图片加载失败可前往[此处](https://gitee.com/shanmite/LotteryAutoScript)查看
+如果README图片加载失败可前往[此处](https://gitee.com/shanmite/LotteryAutoScript)查看  
+
+已实现功能:  
+  > 点赞 评论 转发 @好友 带话题 随机动态 检测开奖 清理
 
 [油猴版本](https://greasyfork.org/zh-CN/scripts/412468)  
 
@@ -88,15 +91,15 @@ Chrome浏览器:
 
     ```js
     /** 自动复制到粘贴板 */
-    copy(
-      document
-        .cookie
-        .split(/\s*;\s*/)
-        .map(it => it.split('='))
-        .filter(it => ['DedeUserID','bili_jct', 'SESSDATA'].indexOf(it[0]) > -1)
-        .map(it => it.join('='))
-        .join('; ')
-    )
+    document
+      .cookie
+      .split(/\s*;\s*/)
+      .map(it => it.split('='))
+      .filter(it => ['DedeUserID','bili_jct', 'SESSDATA'].indexOf(it[0]) > -1)
+      .map(it => it.join('='))
+      .join('; ')
+      .split()
+      .forEach(it => copy(it) || console.log(it))
     ```
 
 4. 进入你Fork的GitHub仓库  
