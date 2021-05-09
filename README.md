@@ -416,7 +416,7 @@ lottery_*:
     - `wait`
       - 转发间隔时间
       - 单位毫秒
-      - 上下浮动30s
+      - 上下浮动50%
       - `string`
     - `minfollower`
       - up主粉丝数限制
