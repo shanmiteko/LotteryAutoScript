@@ -34,6 +34,8 @@
     - [更新](#更新)
     - [自动更新](#自动更新)
     - [本地运行](#本地运行)
+      - [Windows](#windows)
+      - [Linux](#linux)
     - [多账号支持](#多账号支持)
     - [如何关闭](#如何关闭)
     - [部分设置说明](#部分设置说明)
@@ -159,8 +161,8 @@ Chrome浏览器:
 |     `SENDKEY`     |                             微信server酱(Turbo版)推送                              | 非必须 | [获取SENDKEY](https://sct.ftqq.com/sendkey) [选择消息通道](https://sct.ftqq.com/forward)                                                                                                                                    |
 |    `BARK_PUSH`    | [BARK推送](https://apps.apple.com/us/app/bark-customed-notifications/id1403753865) | 非必须 | IOS用户下载BARK这个APP,填写内容是app提供的`设备码`，例如：https://api.day.app/123 ，那么此处的设备码就是`123`，再不懂看 [这个图](doc/pic/bark.jpg)（注：支持自建填完整链接即可）                                            |
 |   `BARK_SOUND`    | [BARK推送](https://apps.apple.com/us/app/bark-customed-notifications/id1403753865) | 非必须 | bark推送声音设置，例如`choo`,具体值请在`bark`-`推送铃声`-`查看所有铃声`                                                                                                                                                     |
-|  `TG_BOT_TOKEN`   |                                    telegram推送                                    | 非必须 | tg推送(需设备可连接外网),`TG_BOT_TOKEN`和`TG_USER_ID`两者必需,填写自己申请[@BotFather](https://t.me/BotFather)的Token,如`10xxx4:AAFcqxxxxgER5uw` , [具体教程](doc/TG_PUSH.md)                                           |
-|   `TG_USER_ID`    |                                    telegram推送                                    | 非必须 | tg推送(需设备可连接外网),`TG_BOT_TOKEN`和`TG_USER_ID`两者必需,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字ID, [具体教程](doc/TG_PUSH.md)                                                              |
+|  `TG_BOT_TOKEN`   |                                    telegram推送                                    | 非必须 | tg推送(需设备可连接外网),`TG_BOT_TOKEN`和`TG_USER_ID`两者必需,填写自己申请[@BotFather](https://t.me/BotFather)的Token,如`10xxx4:AAFcqxxxxgER5uw` , [具体教程](doc/TG_PUSH.md)                                               |
+|   `TG_USER_ID`    |                                    telegram推送                                    | 非必须 | tg推送(需设备可连接外网),`TG_BOT_TOKEN`和`TG_USER_ID`两者必需,填写[@getuseridbot](https://t.me/getuseridbot)中获取到的纯数字ID, [具体教程](doc/TG_PUSH.md)                                                                  |
 |  `TG_PROXY_HOST`  |                                 Telegram 代理的 IP                                 | 非必须 | 代理类型为 http。例子：http代理 http://127.0.0.1:1080 则填写 127.0.0.1                                                                                                                                                      |
 |  `TG_PROXY_PORT`  |                                Telegram 代理的端口                                 | 非必须 | 例子：http代理 http://127.0.0.1:1080 则填写 1080                                                                                                                                                                            |
 |  `DD_BOT_TOKEN`   |                                      钉钉推送                                      | 非必须 | 钉钉推送(`DD_BOT_TOKEN`和`DD_BOT_SECRET`两者必需)[官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq) ,只需`https://oapi.dingtalk.com/robot/send?access_token=XXX` 等于`=`符号后面的XXX即可                     |
@@ -173,9 +175,9 @@ Chrome浏览器:
 | `PUSH_PLUS_USER`  |                                    pushplus推送                                    | 非必须 | 一对多推送的“群组编码”（一对多推送下面->您的群组(如无则新建)->群组编码）注:(1、需订阅者扫描二维码 2、如果您是创建群组所属人，也需点击“查看二维码”扫描绑定，否则不能接受群组消息推送)，只填`PUSH_PLUS_TOKEN`默认为一对一推送 |
 |    `SMTP_HOST`    |                                      电子邮件                                      | 非必须 | smtp服务器的主机名 如: `smtp.qq.com`                                                                                                                                                                                        |
 |    `SMTP_PORT`    |                                      电子邮件                                      | 非必须 | smtp服务器的端口 如: `465`                                                                                                                                                                                                  |
-|    `SMTP_USER`    |                                      电子邮件                                      | 非必须 | 发送方的电子邮件   如: `xxxxxxxxx@qq.com`                                                                                                                                                                            |
+|    `SMTP_USER`    |                                      电子邮件                                      | 非必须 | 发送方的电子邮件   如: `xxxxxxxxx@qq.com`                                                                                                                                                                                   |
 |    `SMTP_PASS`    |                                      电子邮件                                      | 非必须 | smtp服务对应的授权码                                                                                                                                                                                                        |
-|  `SMTP_TO_USER`   |                                      电子邮件                                      | 非必须 | 接收方电子邮件                                                                                                                                                                                                        |
+|  `SMTP_TO_USER`   |                                      电子邮件                                      | 非必须 | 接收方电子邮件                                                                                                                                                                                                              |
 
 ↓↓  
 
@@ -241,7 +243,7 @@ Chrome浏览器:
 
 ### 本地运行
 具体操作详见[env.example.js](env.example.js)文件  
-
+#### Windows
 step1: 下载代码到本地  
 
 [点此下载](https://github.com/shanmite/LotteryAutoScript/archive/refs/heads/main.zip)或如图示下载↓
@@ -290,8 +292,10 @@ npm i && npm run clear
 
 注: **本地运行时可在设置中增大扫描页数**  
 
-> [windows系统定时运行](./doc/win_schedule.md)  
-> [linux系统定时运行](https://zhuanlan.zhihu.com/p/58719487)
+> [windows系统定时运行](./doc/win_schedule.md)
+
+#### Linux
+[linux系统配置与定时运行](./doc/linux_schedule.md)
 
 ### 多账号支持
 默认支持5个账号  
