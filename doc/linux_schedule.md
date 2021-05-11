@@ -10,7 +10,7 @@
 
 git clone https://github.com/shanmite/LotteryAutoScript.git
 
-![image-20210503084944747](../pic/image_download.png)
+![image-20210503084944747](pic/image_download.png)
 
 注意 github访问下载速度可能很慢  如过卡主了可以通过github镜像网站下载
 
@@ -26,7 +26,7 @@ mv env.example.js  env.js
 
 vim env.js       按i进入编辑模式    改完了用esc+wq保存退出
 
-![image-20210503090541547](../pic/image-envjs.png)
+![image-20210503090541547](pic/image-envjs.png)
 
 说明: "CLEAR"设置为TRUE  才可以自动开启自动清理动态功能
 
@@ -38,7 +38,7 @@ vim env.js       按i进入编辑模式    改完了用esc+wq保存退出
 
 crontab -e   写入
 
-![image-20210503091402159](../pic/crontab.png)
+![image-20210503091402159](pic/crontab.png)
 
 SHELL 和 PATH照着填
 
@@ -60,7 +60,7 @@ npm run start
 
 看看有没有效果
 
-![image-20210503091546835](../pic/image-start.png)
+![image-20210503091546835](pic/image-start.png)
 
 
 
