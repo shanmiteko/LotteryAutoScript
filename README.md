@@ -480,12 +480,24 @@ lottery_*:
     - `TAGs`
       - 监听的抽奖话题
       - `string[]`
-    - `clear_partition`
-      - 取关分区
-      - `string`
     - `partition_id`
       - 抽奖UP用户分组id
       - `number`
+    - `clear_partition`
+      - 取关分区
+      - `string`
+    - `clear_max_day`
+      - 清理多少天内的动态或关注
+      - `number`
+    - `clear_remove_all_force`
+      - 是否强制移除所有动态和关注
+      - `boolean`
+    - `clear_remove_dynamic`
+      - 是否移除动态
+      - `boolean`
+    - `clear_remove_attention`
+      - 是否移除关注
+      - `boolean`
 #### 自定义设置  
   - 默认设置存放于[config.js](lib/config.js)和[script.js](lib/Script.js)中
   - 修改默认设置
@@ -493,4 +505,16 @@ lottery_*:
     - 本地运行 => 在项目根目录下新建my_config.json文件将设置填在其中
   - 填入符合[JSON语法](https://www.w3school.com.cn/json/json_syntax.asp)的内容
   - 字段的名称和对应的值按照[字段解释](#模式选择)要求填写
+  - 多账号的设置  
+    分别存储于键`"config_1"``"config_2"`...`"config_n"`中, 例如
+    ```json
+    {
+      "config_1": {
+          "model": "00"
+      },
+      "config_2": {
+          "model": "11"
+      }
+    }
+    ```
   - [自定义设置模板](https://github.com/shanmite/LotteryAutoScript/issues/62#issuecomment-808882833)
