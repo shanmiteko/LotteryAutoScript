@@ -3,7 +3,7 @@ const { tooltip, delay } = require("./lib/Base");
 try {
     require("./env");
 } catch (error) {
-    tooltip.log("无env.js文件");
+    tooltip.log("通过env.js设置环境变量失败 原因:\n" + error);
 }
 
 async function main() {
@@ -50,7 +50,7 @@ async function main() {
             }
         }
     } else {
-        tooltip.log('请查看README文件, 填入相应的PAT');
+        tooltip.log('请查看README文件, 填入相应的PAT, 若是本地运行则设LOCALLAUNCH=true');
     }
 }
 
