@@ -267,8 +267,6 @@ step3：修改env.example.js文件及创建运行文件
 3.填入相关参数  
 
 4.运行  
-在当前目录下打开命令行终端输入以下三种命令即对应三种功能  
-(可新建`xxx.bat`(windows)或`xxx.sh`(linux)文件写入以下内容)  
 注: `npm i`意味安装依赖, 只需运行一次, 为防止依赖有变化遂每次都执行  
 
 命令一: 启动抽奖  
@@ -286,9 +284,7 @@ npm i && npm run check
 npm i && npm run clear
 ```
 
-注: 仅填入代码块内的内容  
-
-4.以上修改都保存成功后，点击`xxx.bat`文件即可启动  
+`script`目录下有启动脚本, 点击即可运行
 
 注: **本地运行时可在设置中增大扫描页数**  
 
@@ -483,6 +479,9 @@ lottery_*:
     - `partition_id`
       - 抽奖UP用户分组id
       - `number`
+    - `is_exception`
+      - 是否关注异常
+      - `boolean`
     - `clear_partition`
       - 取关分区
       - `string`
@@ -500,7 +499,7 @@ lottery_*:
       - `boolean`
 #### 自定义设置  
   - 默认设置存放于[config.js](lib/config.js)和[script.js](lib/Script.js)中
-  - 修改默认设置
+  - 修改默认设置(非必要)
     - Actions => 新建一个Repository secrets取名为`MY_CONFIG`
     - 本地运行 => 在项目根目录下新建my_config.json文件将设置填在其中
   - 填入符合[JSON语法](https://www.w3school.com.cn/json/json_syntax.asp)的内容
