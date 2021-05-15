@@ -1,6 +1,6 @@
 {
   "name": "lottery-in-bilibili",
-  "version": "2.2.0",
+  "version": "2.5.0",
   "description": "自动抽奖",
   "main": "main.js",
   "scripts": {
