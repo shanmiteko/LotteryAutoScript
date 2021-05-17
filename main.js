@@ -3,7 +3,8 @@ const { tooltip, delay } = require("./lib/Base");
 try {
     require("./env");
 } catch (error) {
-    tooltip.log("通过env.js设置环境变量失败 原因:\n" + error);
+    if (!process.env.CI)
+        tooltip.log("通过env.js设置环境变量失败 原因:\n" + error);
 }
 
 async function main() {
