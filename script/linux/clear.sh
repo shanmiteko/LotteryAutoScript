@@ -1,3 +1,3 @@
 #!/bin/bash
 npm i
-npm run clean
+npm run clear
