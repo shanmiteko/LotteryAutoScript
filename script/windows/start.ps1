@@ -1,7 +1,7 @@
 ﻿chcp 65001
-$host.UI.RawUI.BackgroundColor = "Black"
-$host.UI.RawUI.WindowTitle = "动态抽奖"
 
+cd ..
+cd ..
 npm i
 npm run start
 

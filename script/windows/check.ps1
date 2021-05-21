@@ -1,7 +1,7 @@
 ﻿chcp 65001
-$host.UI.RawUI.BackgroundColor = "Black"
-$host.UI.RawUI.WindowTitle = "检测中奖"
 
+cd ..
+cd ..
 npm i
 npm run check
 
