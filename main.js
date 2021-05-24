@@ -51,7 +51,7 @@ async function main() {
             }
         }
     } else {
-        tooltip.log('请查看README文件, 填入相应的PAT, 若是本地运行则设LOCALLAUNCH=true');
+        tooltip.log('请查看README文件, 填入相应的PAT, 若是本地运行则设LOCALLAUNCH为true');
     }
 }
 
