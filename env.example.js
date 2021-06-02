@@ -34,7 +34,7 @@ const account_parm = {
         //     NUMBER: 2,
         //     CLEAR: true,
         //     WAIT: 60 * 1000,
-        // }
+        // },
     ])
 }
 
@@ -65,8 +65,16 @@ const push_parm = {
     SMTP_TO_USER: ""
 }
 
-process.env = {
-    ...process.env,
-    ...account_parm,
-    ...push_parm
+/**
+ * 初始化环境变量
+ */
+function initEnv() {
+    process.env = {
+        ...process.env,
+        ...account_parm,
+        ...push_parm
+    }
 }
+
+
+module.exports = { initEnv };

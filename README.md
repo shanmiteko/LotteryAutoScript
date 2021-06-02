@@ -13,6 +13,7 @@
     - [本地运行](#本地运行)
       - [Windows](#windows)
       - [Linux](#linux)
+  - [防重复转发](#防重复转发)
   - [检测中奖](#检测中奖)
     - [检测未读信息, 已读未读信息](#检测未读信息-已读未读信息)
     - [中奖推送(可选)](#中奖推送可选)
@@ -119,6 +120,13 @@ npm i && npm run clear
 
 #### Linux
 [linux系统配置与定时运行](./doc/linux_schedule.md)
+
+----------------------------------------
+
+## 防重复转发
+脚本将所转发过的动态都写入`lib/dyid*.txt`文件中
+
+完整转发一轮后才会进行写入操作, 勿过早关闭运行
 
 ----------------------------------------
 
@@ -288,7 +296,7 @@ npm i && npm run clear
   </details>
 
 ### 自定义设置
-  - 默认设置存放于[config.js](lib/config.js)和[script.js](lib/Script.js)中
+  - **默认设置**存放于[config.js](lib/config.js)和[script.js](lib/Script.js)中
   - 修改默认设置(非必要)
     - 本地运行 => 在项目根目录下新建my_config.json文件将设置填在其中
   - 填入符合[JSON语法](https://www.w3school.com.cn/json/json_syntax.asp)的内容
@@ -332,6 +340,7 @@ npm i && npm run clear
     - [本地运行](#本地运行)
       - [Windows](#windows)
       - [Linux](#linux)
+  - [防重复转发](#防重复转发)
   - [检测中奖](#检测中奖)
     - [检测未读信息, 已读未读信息](#检测未读信息-已读未读信息)
     - [中奖推送(可选)](#中奖推送可选)
