@@ -1,0 +1,6 @@
+node_modules/
+package-lock.json
+lib/dyid*.txt
+dyid.zip
+env.js
+my_config.json

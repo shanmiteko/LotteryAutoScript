@@ -1,7 +1,10 @@
 const { tooltip, delay } = require("./lib/Base");
 
+let multiple_account = [];
+
 if (!process.env.CI) {
-    const { initEnv } = require("./env");
+    const { initEnv, multiple_account_parm } = require("./env");
+    multiple_account = multiple_account_parm;
     initEnv()
 }
 
@@ -9,8 +12,12 @@ async function main() {
     const { COOKIE, NUMBER, CLEAR, PAT, LOCALLAUNCH, ENABLE_MULTIPLE_ACCOUNT, MULTIPLE_ACCOUNT } = process.env;
     if (LOCALLAUNCH || PAT) {
         if (ENABLE_MULTIPLE_ACCOUNT) {
-            let muti_acco = JSON.parse(MULTIPLE_ACCOUNT);
+            let muti_acco = multiple_account.length
+                ? multiple_account
+                : JSON.parse(MULTIPLE_ACCOUNT);
+
             process.env.ENABLE_MULTIPLE_ACCOUNT = '';
+
             for (const acco of muti_acco) {
                 process.env.COOKIE = acco.COOKIE;
                 process.env.NUMBER = acco.NUMBER;
@@ -22,9 +29,12 @@ async function main() {
             if (COOKIE) {
                 const { setVariable } = require("./lib/setVariable");
                 await setVariable(COOKIE, Number(NUMBER));
+
                 const { start, isMe, checkCookie } = require("./lib/lottery-in-nodejs");
                 const { clear } = require("./lib/clear");
+
                 tooltip.log('[LotteryAutoScript] 账号' + NUMBER);
+
                 if (await checkCookie(NUMBER)) {
                     switch (process.argv.slice(2)[0]) {
                         case 'start':
