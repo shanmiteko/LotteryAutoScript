@@ -133,6 +133,8 @@ curl -fsSL https://cdn.jsdelivr.net/gh/shanmite/LotteryAutoScript@main/script/do
 进入`lottery`文件夹
 
 编辑`env.js`与`my_config.json`文件
+- env.js 设置必要环境变量
+- my_config.json 写入你要覆盖的默认设置
 
 执行相应的脚本
 

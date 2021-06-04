@@ -12,7 +12,7 @@ async function main() {
     const { COOKIE, NUMBER, CLEAR, PAT, LOCALLAUNCH, ENABLE_MULTIPLE_ACCOUNT, MULTIPLE_ACCOUNT } = process.env;
     if (LOCALLAUNCH || PAT) {
         if (ENABLE_MULTIPLE_ACCOUNT) {
-            let muti_acco = multiple_account.length
+            let muti_acco = multiple_account && multiple_account.length
                 ? multiple_account
                 : JSON.parse(MULTIPLE_ACCOUNT);
 
