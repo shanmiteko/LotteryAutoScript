@@ -1,23 +1,53 @@
 #!/bin/bash
 
 # 脚本根目录
-script_folder=lottery
+SCRIPT_FOLDER=lottery
+# dyid存放目录
+DYID_FOLDER=lib
+# 设置环境变量文件
+ENV_FILE=env.js
+# 自定义设置文件
+CONFIG_FILE=my_config.json
 
-if [ ! -d "$script_folder" ]; then
-    echo "create $script_folder"
-    mkdir "$script_folder"
+echo "  _           _   _                   _____           _       _   ";
+echo " | |         | | | |                 / ____|         (_)     | |  ";
+echo " | |     ___ | |_| |_ ___ _ __ _   _| (___   ___ _ __ _ _ __ | |_ ";
+echo " | |    / _ \| __| __/ _ \ '__| | | |\___ \ / __| '__| | '_ \| __|";
+echo " | |___| (_) | |_| ||  __/ |  | |_| |____) | (__| |  | | |_) | |_ ";
+echo " |______\___/ \__|\__\___|_|   \__, |_____/ \___|_|  |_| .__/ \__|";
+echo "                                __/ |                  | |        ";
+echo "                               |___/                   |_|        ";
+
+if [ ! -d "$SCRIPT_FOLDER" ]; then
+    echo "create $SCRIPT_FOLDER"
+    mkdir $SCRIPT_FOLDER
 fi
 
-cd $script_folder/
+cd $SCRIPT_FOLDER/
 
-if [ ! -d "lib" ]; then
-    mkdir "lib"
+if [ ! -d "$DYID_FOLDER" ]; then
+    echo "create $DYID_FOLDER/"
+    mkdir $DYID_FOLDER
+else
+    echo "$DYID_FOLDER/ exists"
 fi
-curl -fsSL https://cdn.jsdelivr.net/gh/shanmite/LotteryAutoScript@main/env.example.js -o env.js
-echo "{}" > my_config.json
 
-echo "docker pull"
-docker pull shanmite/lottery_auto_docker
+if [ ! -f "$ENV_FILE" ]; then
+    echo "create $ENV_FILE"
+    curl -fsSL https://cdn.jsdelivr.net/gh/shanmite/LotteryAutoScript@main/env.example.js -o $ENV_FILE
+else
+    echo "$ENV_FILE exists"
+fi
+
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "create $CONFIG_FILE"
+    echo "{}" > $CONFIG_FILE
+else
+    echo "$CONFIG_FILE exists"
+fi
+
+echo "docker pull shanmite/lottery_auto_docker"
+docker -v && docker pull shanmite/lottery_auto_docker
 
 echo "create start.sh"
 echo -e "#!/bin/bash\n\

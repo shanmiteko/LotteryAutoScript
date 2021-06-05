@@ -123,20 +123,29 @@ npm i && npm run clear
 [linux系统配置与定时运行](./doc/linux_schedule.md)
 
 ### Docker
-
-初始化
+1.初始化
 
 ```bash
 curl -fsSL https://cdn.jsdelivr.net/gh/shanmite/LotteryAutoScript@main/script/docker/init.sh | sh
 ```
 
 进入`lottery`文件夹
+```bash
+cd lottery
+```
 
 编辑`env.js`与`my_config.json`文件
 - env.js 设置必要环境变量
-- my_config.json 写入你要覆盖的默认设置
+- my_config.json 写入你要覆盖的[默认设置](#设置说明)
 
 执行相应的脚本
+> start,check,clear
+
+2.更新
+
+进入lottery上一级目录
+
+使用与初始化相同的命令
 
 ----------------------------------------
 
