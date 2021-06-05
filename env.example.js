@@ -22,22 +22,7 @@ const account_parm = {
     LOCALLAUNCH: true,
     PAT: "",
     GITHUB_REPOSITORY: "用户名/仓库名",
-    ENABLE_MULTIPLE_ACCOUNT: false,
-    /* 不推荐 */
-    MULTIPLE_ACCOUNT: JSON.stringify([
-        {
-            COOKIE: "",
-            NUMBER: 1,
-            CLEAR: true,
-            WAIT: 60 * 1000,
-        },
-        // {
-        //     COOKIE: "",
-        //     NUMBER: 2,
-        //     CLEAR: true,
-        //     WAIT: 60 * 1000,
-        // },
-    ])
+    ENABLE_MULTIPLE_ACCOUNT: false
 }
 
 /**

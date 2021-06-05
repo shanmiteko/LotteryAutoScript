@@ -56,6 +56,8 @@ async function main() {
                             break;
                     }
                 }
+            } else {
+                tooltip.log('请查看README文件, 在指定位置填入cookie')
             }
         }
     } else {

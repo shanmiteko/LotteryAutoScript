@@ -141,6 +141,12 @@ cd lottery
 执行相应的脚本
 > start,check,clear
 
+例如:
+```bash
+chmod 777 start.sh
+./start.sh
+```
+
 2.更新
 
 进入lottery上一级目录
@@ -159,7 +165,7 @@ rm -rf lottery/
 ----------------------------------------
 
 ## 防重复转发
-脚本将所转发过的动态都写入`lib/dyid*.txt`文件中
+脚本将所转发过的动态都写入`dyids/dyid*.txt`文件中
 
 完整转发一轮后才会进行写入操作, 勿过早关闭运行
 

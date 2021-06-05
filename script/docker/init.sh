@@ -3,7 +3,7 @@
 # 脚本根目录
 SCRIPT_FOLDER=lottery
 # dyid存放目录
-DYID_FOLDER=lib
+DYID_FOLDER=dyids
 # 设置环境变量文件
 ENV_FILE=env.js
 # 自定义设置文件
@@ -19,6 +19,8 @@ echo " | |___| (_) | |_| ||  __/ |  | |_| |____) | (__| |  | | |_) | |_ ";
 echo " |______\___/ \__|\__\___|_|   \__, |_____/ \___|_|  |_| .__/ \__|";
 echo "                                __/ |                  | |        ";
 echo "                               |___/                   |_|        ";
+echo "                                                                  ";
+echo "                                                       by shanmite";
 
 if [ ! -d "$SCRIPT_FOLDER" ]; then
     echo "create $SCRIPT_FOLDER"
@@ -56,7 +58,7 @@ echo -e "#!/bin/bash\n\
 docker run \
 -v $PWD/env.js:/lottery/env.js \
 -v $PWD/my_config.json:/lottery/my_config.json \
--v $PWD/lib/:/lottery/lib/ \
+-v $PWD/$DYID_FOLDER/:/lottery/$DYID_FOLDER/ \
 $DOCKER_REPO \
 start" \
 > start.sh
@@ -66,7 +68,7 @@ echo -e "#!/bin/bash\n\
 docker run \
 -v $PWD/env.js:/lottery/env.js \
 -v $PWD/my_config.json:/lottery/my_config.json \
--v $PWD/lib/:/lottery/lib/ \
+-v $PWD/$DYID_FOLDER/:/lottery/$DYID_FOLDER/ \
 $DOCKER_REPO \
 check" \
 > check.sh
@@ -76,7 +78,7 @@ echo -e "#!/bin/bash\n\
 docker run \
 -v $PWD/env.js:/lottery/env.js \
 -v $PWD/my_config.json:/lottery/my_config.json \
--v $PWD/lib/:/lottery/lib/ \
+-v $PWD/$DYID_FOLDER/:/lottery/$DYID_FOLDER/ \
 $DOCKER_REPO \
 clear" \
 > clear.sh

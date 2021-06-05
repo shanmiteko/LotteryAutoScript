@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dyid.txt
-          path: lib/dyid.txt
+          path: dyids/dyid.txt
   lottery_2:
     runs-on: ubuntu-latest
     steps:
@@ -85,7 +85,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dyid.txt
-          path: lib/dyid.txt
+          path: dyids/dyid.txt
   lottery_3:
     runs-on: ubuntu-latest
     steps:
@@ -107,7 +107,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dyid.txt
-          path: lib/dyid.txt
+          path: dyids/dyid.txt
   lottery_4:
     runs-on: ubuntu-latest
     steps:
@@ -129,7 +129,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dyid.txt
-          path: lib/dyid.txt
+          path: dyids/dyid.txt
   lottery_5:
     runs-on: ubuntu-latest
     steps:
@@ -151,4 +151,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dyid.txt
-          path: lib/dyid.txt
+          path: dyids/dyid.txt

@@ -1,4 +1,5 @@
 node_modules/
+dyids/
 lib/dyid*.txt
 dyid.zip
 env.js
