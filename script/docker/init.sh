@@ -8,6 +8,8 @@ DYID_FOLDER=lib
 ENV_FILE=env.js
 # 自定义设置文件
 CONFIG_FILE=my_config.json
+# docker仓库
+DOCKER_REPO=shanmite/lottery_auto_docker
 
 echo "  _           _   _                   _____           _       _   ";
 echo " | |         | | | |                 / ____|         (_)     | |  ";
@@ -34,7 +36,7 @@ fi
 
 if [ ! -f "$ENV_FILE" ]; then
     echo "create $ENV_FILE"
-    curl -fsSL https://cdn.jsdelivr.net/gh/shanmite/LotteryAutoScript@main/env.example.js -o $ENV_FILE
+    curl -fsSL https://cdn.staticaly.com/gh/shanmite/LotteryAutoScript/main/env.example.js -o $ENV_FILE
 else
     echo "$ENV_FILE exists"
 fi
@@ -46,8 +48,8 @@ else
     echo "$CONFIG_FILE exists"
 fi
 
-echo "docker pull shanmite/lottery_auto_docker"
-docker -v && docker pull shanmite/lottery_auto_docker
+echo "docker pull $DOCKER_REPO"
+docker -v && docker pull $DOCKER_REPO
 
 echo "create start.sh"
 echo -e "#!/bin/bash\n\
@@ -55,7 +57,7 @@ docker run \
 -v $PWD/env.js:/lottery/env.js \
 -v $PWD/my_config.json:/lottery/my_config.json \
 -v $PWD/lib/:/lottery/lib/ \
-shanmite/lottery_auto_docker \
+$DOCKER_REPO \
 start" \
 > start.sh
 
@@ -65,7 +67,7 @@ docker run \
 -v $PWD/env.js:/lottery/env.js \
 -v $PWD/my_config.json:/lottery/my_config.json \
 -v $PWD/lib/:/lottery/lib/ \
-shanmite/lottery_auto_docker \
+$DOCKER_REPO \
 check" \
 > check.sh
 
@@ -75,6 +77,6 @@ docker run \
 -v $PWD/env.js:/lottery/env.js \
 -v $PWD/my_config.json:/lottery/my_config.json \
 -v $PWD/lib/:/lottery/lib/ \
-shanmite/lottery_auto_docker \
+$DOCKER_REPO \
 clear" \
 > clear.sh
