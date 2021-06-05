@@ -62,6 +62,7 @@ docker run \
 $DOCKER_REPO \
 start" \
 > start.sh
+chmod 777 start.sh
 
 echo "create check.sh"
 echo -e "#!/bin/bash\n\
@@ -72,6 +73,7 @@ docker run \
 $DOCKER_REPO \
 check" \
 > check.sh
+chmod 777 check.sh
 
 echo "create clear.sh"
 echo -e "#!/bin/bash\n\
@@ -82,3 +84,4 @@ docker run \
 $DOCKER_REPO \
 clear" \
 > clear.sh
+chmod 777 clear.sh

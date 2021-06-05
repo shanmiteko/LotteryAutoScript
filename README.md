@@ -143,7 +143,6 @@ cd lottery
 
 例如:
 ```bash
-chmod 777 start.sh
 ./start.sh
 ```
 
