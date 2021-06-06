@@ -38,11 +38,8 @@ async function main() {
                 tooltip.log('[LotteryAutoScript] 账号' + NUMBER);
 
                 if (await checkCookie(NUMBER)) {
-                    let argvs = process.argv;
-                    if (/node/.test(argvs[0])) {
-                        argvs = argvs.splice(1);
-                    }
-                    switch (argvs[1]) {
+                    const mode = process.env.lottery_mode;
+                    switch (mode) {
                         case 'start':
                             tooltip.log('开始参与抽奖');
                             await start();
@@ -60,6 +57,7 @@ async function main() {
                             break;
                         default:
                             console.log(`Usage: lottery-in-bili [OPTIONS]`)
+                            console.log(`错误OPTIONS: ${mode}`);
                     }
                 }
             } else {
@@ -84,6 +82,8 @@ async function main() {
     metainfo += `                                                                  \n`;
     metainfo += `                                                       by shanmite\n`;
     console.log(metainfo);
+    /**OPTIONS */
+    process.env.lottery_mode = process.argv[2]
     await main();
     await delay(5 * 1000);
     process.exit(0)

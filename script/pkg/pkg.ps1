@@ -25,7 +25,7 @@ foreach($X64 in $MAP.Keys) {
     Move-Item -Path $BIN -Destination $X64 -Force
     Copy-Item -Path $ENV_FILE -Destination $X64 -Force
     cd $X64
-    echo "{`n`t`"config_1`":{}`n}" > $CONFIG_FILE
+    Set-Content -Path $CONFIG_FILE -Value "{`n`t`"config_1`":{}`n}" -Force
     cd ..
     Compress-Archive -Path $X64 -DestinationPath $X64 -Force
 }
