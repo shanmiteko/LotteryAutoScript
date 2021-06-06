@@ -7,14 +7,15 @@
     "start": "node main.js start",
     "clear": "node main.js clear",
     "check": "node main.js check",
-    "pkg": "npx pkg ."
+    "pkg": "npx pkg . && powershell .\\script\\pkg\\pkg.ps1",
+    "pkg_arm": "npx pkg -t linux-arm -o dist/lottery-in-bili-linux-arm main.js"
   },
   "bin": "main.js",
   "pkg": {
     "targets": [
-      "node14-linux-x64",
-      "node14-win-x64",
-      "node12-macos-x64"
+      "linux-x64",
+      "win-x64",
+      "macos-x64"
     ],
     "outputPath": "dist"
   },
