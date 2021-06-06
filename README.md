@@ -11,6 +11,7 @@
   - [操作步骤](#操作步骤)
     - [获取COOKIE](#获取cookie)
     - [本地运行](#本地运行)
+      - [可执行文件](#可执行文件)
       - [Windows](#windows)
       - [Linux](#linux)
     - [Docker](#docker)
@@ -71,7 +72,11 @@ Chrome浏览器:
 ↓↓  
 
 ### 本地运行
-具体操作详见[env.example.js](env.example.js)文件内注释  
+具体操作详见[env.example.js](env.example.js)文件内注释
+
+#### 可执行文件
+[可执行文件下载](https://github.com/shanmite/LotteryAutoScript/releases)
+
 #### Windows
 step1: 下载代码到本地  
 

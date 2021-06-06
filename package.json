@@ -1,12 +1,22 @@
 {
-  "name": "lottery-in-bilibili",
-  "version": "2.5.0",
+  "name": "lottery-in-bili",
+  "version": "3.0.0",
   "description": "自动抽奖",
   "main": "main.js",
   "scripts": {
     "start": "node main.js start",
     "clear": "node main.js clear",
-    "check": "node main.js check"
+    "check": "node main.js check",
+    "pkg": "npx pkg ."
+  },
+  "bin": "main.js",
+  "pkg": {
+    "targets": [
+      "node14-linux-x64",
+      "node14-win-x64",
+      "node12-macos-x64"
+    ],
+    "outputPath": "dist"
   },
   "repository": {
     "type": "git",
@@ -23,7 +33,8 @@
   },
   "homepage": "https://github.com/shanmite/AutoScript#readme",
   "devDependencies": {
-    "eslint": "^7.17.0"
+    "eslint": "^7.17.0",
+    "pkg": "^5.2.1"
   },
   "dependencies": {
     "nodemailer": "^6.5.0",

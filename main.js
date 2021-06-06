@@ -1,10 +1,12 @@
-const { tooltip, delay } = require("./lib/Base");
+const { env_file, tooltip, delay } = require("./lib/Base");
 
 let multiple_account = [];
 
 if (!process.env.CI) {
-    const { initEnv, multiple_account_parm } = require("./env");
-    multiple_account = multiple_account_parm;
+    const { initEnv, multiple_account_parm } = require(env_file);
+    if (multiple_account_parm) {
+        multiple_account = multiple_account_parm;
+    }
     initEnv()
 }
 
@@ -12,7 +14,7 @@ async function main() {
     const { COOKIE, NUMBER, CLEAR, PAT, LOCALLAUNCH, ENABLE_MULTIPLE_ACCOUNT, MULTIPLE_ACCOUNT } = process.env;
     if (LOCALLAUNCH || PAT) {
         if (ENABLE_MULTIPLE_ACCOUNT) {
-            let muti_acco = multiple_account && multiple_account.length
+            let muti_acco = multiple_account.length
                 ? multiple_account
                 : JSON.parse(MULTIPLE_ACCOUNT);
 
@@ -36,7 +38,11 @@ async function main() {
                 tooltip.log('[LotteryAutoScript] 账号' + NUMBER);
 
                 if (await checkCookie(NUMBER)) {
-                    switch (process.argv.slice(2)[0]) {
+                    let argvs = process.argv;
+                    if (/node/.test(argvs[0])) {
+                        argvs = argvs.splice(1);
+                    }
+                    switch (argvs[1]) {
                         case 'start':
                             tooltip.log('开始参与抽奖');
                             await start();
@@ -53,7 +59,7 @@ async function main() {
                             }
                             break;
                         default:
-                            break;
+                            console.log(`Usage: lottery-in-bili [OPTIONS]`)
                     }
                 }
             } else {
@@ -66,6 +72,19 @@ async function main() {
 }
 
 (async function () {
+    let metainfo = '';
+    metainfo += `  _           _   _                   _____           _       _   \n`;
+    metainfo += ` | |         | | | |                 / ____|         (_)     | |  \n`;
+    metainfo += ` | |     ___ | |_| |_ ___ _ __ _   _| (___   ___ _ __ _ _ __ | |_ \n`;
+    metainfo += ` | |    / _ \\| __| __/ _ \\ '__| | | |\\___ \\ / __| '__| | '_ \\| __|\n`;
+    metainfo += ` | |___| (_) | |_| ||  __/ |  | |_| |____) | (__| |  | | |_) | |_ \n`;
+    metainfo += ` |______\\___/ \\__|\\__\\___|_|   \\__, |_____/ \\___|_|  |_| .__/ \\__|\n`;
+    metainfo += `                                __/ |                  | |        \n`;
+    metainfo += `                               |___/                   |_|        \n`;
+    metainfo += `                                                                  \n`;
+    metainfo += `                                                       by shanmite\n`;
+    console.log(metainfo);
     await main();
+    await delay(5 * 1000);
     process.exit(0)
 })()

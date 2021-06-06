@@ -11,17 +11,6 @@ CONFIG_FILE=my_config.json
 # docker仓库
 DOCKER_REPO=shanmite/lottery_auto_docker
 
-echo "  _           _   _                   _____           _       _   ";
-echo " | |         | | | |                 / ____|         (_)     | |  ";
-echo " | |     ___ | |_| |_ ___ _ __ _   _| (___   ___ _ __ _ _ __ | |_ ";
-echo " | |    / _ \| __| __/ _ \ '__| | | |\___ \ / __| '__| | '_ \| __|";
-echo " | |___| (_) | |_| ||  __/ |  | |_| |____) | (__| |  | | |_) | |_ ";
-echo " |______\___/ \__|\__\___|_|   \__, |_____/ \___|_|  |_| .__/ \__|";
-echo "                                __/ |                  | |        ";
-echo "                               |___/                   |_|        ";
-echo "                                                                  ";
-echo "                                                       by shanmite";
-
 if [ ! -d "$SCRIPT_FOLDER" ]; then
     echo "create $SCRIPT_FOLDER"
     mkdir $SCRIPT_FOLDER
