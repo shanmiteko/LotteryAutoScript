@@ -19,7 +19,7 @@ Move-Item -Path "env.example.js" -Destination $ENV_FILE -Force
 
 foreach($X64 in $MAP.Keys) {
     $BIN = $MAP[$X64]
-    if (!(Test-Path $X64 -PathType Container)) { 
+    if (!(Test-Path $X64 -PathType Container)) {
         New-Item -ItemType Directory -Force -Path $X64
     }
     Move-Item -Path $BIN -Destination $X64 -Force

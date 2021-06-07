@@ -57,7 +57,7 @@ async function main() {
                             break;
                         default:
                             console.log(`Usage: lottery-in-bili [OPTIONS]`)
-                            console.log(`错误OPTIONS: ${mode}`);
+                            console.log(`错误OPTIONS: ${mode} 正确OPTIONS: start,check,clear`);
                     }
                 }
             } else {

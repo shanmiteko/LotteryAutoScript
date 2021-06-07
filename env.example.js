@@ -4,15 +4,16 @@
  */
 
 /**
- * ## 账号相关参数  
- * `COOKIE` 是必填项  
- * `NUMBER` 表示是第几个账号  
- * `PAT` 与 `GITHUB_REPOSITORY` 如果之前在Github Action上运行过脚本, 可填写已下载转发过的动态dyid, 之后可移除  
+ * ## 账号相关参数
+ * - `COOKIE` 是必填项
+ * - `NUMBER` 表示是第几个账号
+ * - `PAT` 与 `GITHUB_REPOSITORY` 如果之前在Github Action上运行过脚本, 可填写已下载转发过的动态dyid, 之后可移除
  * 
- * ## 多账号  
- * 将 ENABLE_MULTIPLE_ACCOUNT 的值改为true  
- * 将账号信息依次填写于 MULTIPLE_ACCOUNT 中, 参考例子类推  
- * `WAIT` 表示下一个账号运行等待时间(毫秒)  
+ * ## 多账号
+ * 1. 将 ENABLE_MULTIPLE_ACCOUNT 的值改为true
+ * 2. 将账号信息依次填写于 multiple_account_parm 中, 参考例子类推
+ * - `WAIT` 表示下一个账号运行等待时间(毫秒)
+ * 
  * **按顺序依次执行, 防止访问频繁封禁IP**
  */
 const account_parm = {
