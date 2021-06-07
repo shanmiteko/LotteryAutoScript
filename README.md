@@ -77,6 +77,8 @@ Chrome浏览器:
 具体操作详见[env.example.js](env.example.js)文件内注释
 
 #### 可执行文件
+[打开终端](https://cn.bing.com/search?q=%E5%A6%82%E4%BD%95%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF)运行内部的可执行文件
+
 [下载](https://github.com/shanmite/LotteryAutoScript/releases)
 
 [cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmite/LotteryAutoScript/releases)
@@ -315,7 +317,7 @@ rm -rf lottery/
     - 监听的抽奖话题
     - `string[]`
   - `partition_id`
-    - 抽奖UP用户分组id
+    - 抽奖UP用户分组id(网页端点击分区后地址栏中的tagid)
     - `number`
   - `is_exception`
     - 是否关注异常
