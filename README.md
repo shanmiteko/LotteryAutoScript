@@ -1,11 +1,4 @@
 # AutoScript
-![Automatic sweepstakes](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20sweepstakes/badge.svg)
-
-![Automatic check](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20check/badge.svg)
-
-![Automatic clear dynamic&follow](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20clear%20dynamic&follow/badge.svg)
-
-![Automatic sync](https://github.com/shanmite/LotteryAutoScript/workflows/Automatic%20sync/badge.svg)
 
 - [AutoScript](#autoscript)
   - [操作步骤](#操作步骤)
@@ -20,7 +13,6 @@
     - [检测未读信息, 已读未读信息](#检测未读信息-已读未读信息)
     - [中奖推送(可选)](#中奖推送可选)
   - [设置说明](#设置说明)
-    - [模式选择](#模式选择)
     - [自定义设置](#自定义设置)
 
 已实现功能:  
@@ -77,18 +69,21 @@ Chrome浏览器:
 具体操作详见[env.example.js](env.example.js)文件内注释
 
 #### 可执行文件
-[打开终端](https://cn.bing.com/search?q=%E5%A6%82%E4%BD%95%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF)运行内部的可执行文件
+[打开终端](https://cn.bing.com/search?q=%E5%A6%82%E4%BD%95%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF)运行内部的可执行文件即可
 
-[下载](https://github.com/shanmite/LotteryAutoScript/releases)
+[下载](https://github.com/shanmiteko/LotteryAutoScript/releases)
 
-[cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmite/LotteryAutoScript/releases)
+[cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript/releases)
 
-[Fastgit镜像下载](https://hub.fastgit.org/shanmite/LotteryAutoScript/releases)
+[Fastgit镜像下载](https://hub.fastgit.org/shanmiteko/LotteryAutoScript/releases)
 
 #### Windows
+
+如何搭建运行环境
+
 step1: 下载代码到本地
 
-[点此下载](https://github.com/shanmite/LotteryAutoScript/archive/refs/heads/main.zip)或如图示下载↓
+[点此下载](https://github.com/shanmiteko/LotteryAutoScript/archive/refs/heads/main.zip)或如图示下载↓
 
 ![点我加载下载操作图示](doc/pic/download.png)
 
@@ -108,7 +103,9 @@ step3：修改env.example.js文件及创建运行文件(打开扩展名显示)
 
 3.填入相关参数
 
-4.运行
+4.`my_config.example.js`同样操作
+
+5.运行
 
 注: `npm i`意味安装依赖, 只需运行一次, 为防止依赖有变化遂每次都执行
 
@@ -143,7 +140,7 @@ npm i && npm run clear
 1.初始化
 
 ```bash
-curl -fsSL https://cdn.staticaly.com/gh/shanmite/LotteryAutoScript/main/script/docker/init.sh | sh
+curl -fsSL https://cdn.staticaly.com/gh/shanmiteko/LotteryAutoScript/main/script/docker/init.sh | sh
 ```
 
 进入`lottery`文件夹
@@ -151,9 +148,9 @@ curl -fsSL https://cdn.staticaly.com/gh/shanmite/LotteryAutoScript/main/script/d
 cd lottery
 ```
 
-编辑`env.js`与`my_config.json`文件
+编辑`env.js`与`my_config.js`文件
 - env.js 设置必要环境变量
-- my_config.json 写入你要覆盖的[默认设置](#设置说明)
+- my_config.js 你的设置
 
 执行相应的脚本
 > start,check,clear
@@ -229,135 +226,10 @@ rm -rf lottery/
 ----------------------------------------
 
 ## 设置说明
-### 模式选择
-  `lib/config.js`
-
-  <details>
-  <summary>点击显示所有设置的详细说明</summary>
-
-  - `model`
-    - `'00'`关闭自动抽奖
-    - `'10'`只转发官方抽奖
-    - `'01'`只转发非官方抽奖
-    - `'11'`都转
-  - `chatmodel`
-    - `'00'`关闭自动评论
-    - `'10'`只评论官抽
-    - `'01'`只评论非官抽
-    - `'11'`都评论
-  - `scan_page_num`
-    - 在uid或tag里检索的页数
-    - `number`
-  - `maxday`
-    - 开奖时间距离现在的最大天数
-    - 默认为`-1`表示不限制
-    - `string`
-  - `wait`
-    - 转发间隔时间
-    - 单位毫秒
-    - 上下浮动50%
-    - `string`
-  - `minfollower`
-    - up主粉丝数限制
-    - 仅限制没有官方认证的up
-    - `string`
-  - `only_followed`
-    - 只转发已关注的
-    - `'1'`开启
-    - `'0'`关闭
-  - `create_dy`
-    - 是否发送随机动态(防止被开奖机过滤)
-    - `'1'`开启
-    - `'0'`关闭
-  - `create_dy_num`
-    - 发送随机动态的数量
-    - `number`
-  - `dy_contents`
-    - 随机动态内容
-    - 类型 `content[]`
-      ```js
-      /**
-       * @typedef Picture
-       * @property {string} img_src
-       * @property {number} img_width
-       * @property {number} img_height
-       * @param { string | Picture[] } content
-       */
-      ```
-  - `at_users`
-    - 转发时[at]的用户
-    - `AtInfo[]`
-      ```js
-      /**
-       * @typedef {string} NickName
-       * @typedef {number} UID
-       * @typedef {(NickName | UID)[]} AtInfo
-       */
-      ```
-  - `blacklist`
-    - 防钓鱼uid黑名单
-    - 逗号分割字符串
-  - `blockword`
-    - 屏蔽词
-    - `string[]`
-  - `followWhiteList`
-    - 取关白名单
-    - 逗号分割字符串
-  - `relay`
-    - 转发评语
-    - `string[]`
-  - `chat`
-    - 评论内容
-    - `string[]`
-    - 若此项不为长度大于0的数组, 则使用转发评语
-  - `UIDs`
-    - 监听的UID列表
-    - `number[]`
-  - `TAGs`
-    - 监听的抽奖话题
-    - `string[]`
-  - `partition_id`
-    - 抽奖UP用户分组id(网页端点击分区后地址栏中的tagid)
-    - `number`
-  - `is_exception`
-    - 是否关注异常
-    - `boolean`
-  - `clear_partition`
-    - 取关分区
-    - `string`
-  - `clear_max_day`
-    - 清理多少天内的动态或关注
-    - `number`
-  - `clear_remove_dynamic`
-    - 是否移除动态
-    - `boolean`
-  - `clear_remove_attention`
-    - 是否移除关注
-    - `boolean`
-  - `clear_remove_delay`
-    - 清除动态延时(毫秒)
-    - `number`
-  - `clear_dynamic_type`
-    - 清除动态类型
-      | 动态类型   | type值 |
-      | ---------- | ------ |
-      | 无         | `0`    |
-      | 转发       | `1`    |
-      | 含图片     | `2`    |
-      | 无图纯文字 | `4`    |
-      | 视频       | `8`    |
-      | 专栏       | `64`   |
-      | 活动       | `2048` |
-    - `number`
-  
-  </details>
-
 ### 自定义设置
   - **默认设置**存放于[config.js](lib/config.js)和[script.js](lib/Script.js)中
   - 修改默认设置(非必要)
-    - 本地运行 => 在项目根目录下新建my_config.json文件将设置填在其中
-  - 填入符合[JSON语法](https://www.w3school.com.cn/json/json_syntax.asp)的内容
-  - 字段的名称和对应的值按照[字段解释](#模式选择)要求填写
+    - 本地运行 => 在项目根目录下新建my_config.js文件将设置填在其中
   - 多账号的设置  
     分别存储于键`"config_1"``"config_2"`...`"config_n"`中, 例如
     ```json
@@ -370,6 +242,3 @@ rm -rf lottery/
       }
     }
     ```
-  - [自定义设置模板](https://github.com/shanmite/LotteryAutoScript/issues/62#issuecomment-808882833)
-
-<!-- 关于如何在GitHub Actions中运行 请查看历史提交记录 -->

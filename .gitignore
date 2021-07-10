@@ -4,4 +4,4 @@ dist/
 lib/dyid*.txt
 dyid.zip
 env.js
-my_config.json
+my_config.js

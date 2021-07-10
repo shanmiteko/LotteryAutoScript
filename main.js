@@ -61,7 +61,7 @@ async function main() {
                     }
                 }
             } else {
-                tooltip.log('请查看README文件, 在指定位置填入cookie')
+                tooltip.log('请查看README文件, 在env.js指定位置填入cookie')
             }
         }
     } else {
