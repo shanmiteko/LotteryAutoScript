@@ -5,15 +5,15 @@
     - [获取COOKIE](#获取cookie)
     - [本地运行](#本地运行)
       - [可执行文件](#可执行文件)
-      - [Windows](#windows)
-      - [Linux](#linux)
+      - [搭建运行环境](#搭建运行环境)
+        - [Windows](#windows)
+        - [Linux](#linux)
     - [Docker](#docker)
   - [防重复转发](#防重复转发)
   - [检测中奖](#检测中奖)
     - [检测未读信息, 已读未读信息](#检测未读信息-已读未读信息)
     - [中奖推送(可选)](#中奖推送可选)
   - [设置说明](#设置说明)
-    - [自定义设置](#自定义设置)
 
 已实现功能:  
   > 点赞 评论 转发 @好友 带话题 随机动态 检测开奖 清理
@@ -66,6 +66,7 @@ Chrome浏览器:
 ↓↓
 
 ### 本地运行
+设置环境变量中的cookie和推送相关参数
 具体操作详见[env.example.js](env.example.js)文件内注释
 
 #### 可执行文件
@@ -77,9 +78,14 @@ Chrome浏览器:
 
 [Fastgit镜像下载](https://hub.fastgit.org/shanmiteko/LotteryAutoScript/releases)
 
-#### Windows
 
-如何搭建运行环境
+#### 搭建运行环境
+
+<details>
+
+<summary>点击显示详细说明</summary>
+
+##### Windows
 
 step1: 下载代码到本地
 
@@ -133,8 +139,10 @@ npm i && npm run clear
 
 > [windows系统定时运行](./doc/win_schedule.md)
 
-#### Linux
+##### Linux
 [linux系统配置与定时运行](./doc/linux_schedule.md)
+
+</details>
 
 ### Docker
 1.初始化
@@ -226,19 +234,4 @@ rm -rf lottery/
 ----------------------------------------
 
 ## 设置说明
-### 自定义设置
-  - **默认设置**存放于[config.js](lib/config.js)和[script.js](lib/Script.js)中
-  - 修改默认设置(非必要)
-    - 本地运行 => 在项目根目录下新建my_config.js文件将设置填在其中
-  - 多账号的设置  
-    分别存储于键`"config_1"``"config_2"`...`"config_n"`中, 例如
-    ```json
-    {
-      "config_1": {
-          "model": "00"
-      },
-      "config_2": {
-          "model": "11"
-      }
-    }
-    ```
+详见[my_config.example.js](./my_config.example.js)文件内部注释
