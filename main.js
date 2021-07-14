@@ -39,6 +39,7 @@ async function main() {
 
                 if (await checkCookie(NUMBER)) {
                     const mode = process.env.lottery_mode;
+                    const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart 启动抽奖\n\tcheck 中奖检查\n\tclear 清理动态和关注\n";
                     switch (mode) {
                         case 'start':
                             tooltip.log('开始参与抽奖');
@@ -55,9 +56,16 @@ async function main() {
                                 tooltip.log('清理动态完毕');
                             }
                             break;
+                        case 'help':
+                            console.log(help_msg);
+                            break;
+                        case undefined:
+                            console.log(`错误: 未提供以下参数\n\t[OPTIONS]\n`);
+                            console.log(help_msg);
+                            break
                         default:
-                            console.log(`Usage: lottery-in-bili [OPTIONS]`)
-                            console.log(`错误OPTIONS: ${mode} 正确OPTIONS: start,check,clear`);
+                            console.log(`错误: 提供了错误的[OPTIONS] -> ${mode}\n`)
+                            console.log(help_msg);
                     }
                 }
             } else {
@@ -85,6 +93,7 @@ async function main() {
     /**OPTIONS */
     process.env.lottery_mode = process.argv[2]
     await main();
+    tooltip.log('5秒后自动退出');
     await delay(5 * 1000);
     process.exit(0)
 })()

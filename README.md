@@ -5,7 +5,7 @@
     - [获取COOKIE](#获取cookie)
     - [本地运行](#本地运行)
       - [可执行文件](#可执行文件)
-      - [搭建运行环境](#搭建运行环境)
+      - [以源码方式运行](#以源码方式运行)
         - [Windows](#windows)
         - [Linux](#linux)
     - [Docker](#docker)
@@ -38,7 +38,7 @@ Chrome浏览器:
 
 2. 进入Application找到Cookies栏中的SESSDATA将HttpOnly选项**取消**勾选  
 
-    (此步骤是为了方便后续采用JS获取Cookies)  
+    (此步骤是为了方便后续采用JS获取Cookies,获取完毕后应再次勾选)
 
 ![取消httponly](doc/pic/getCookies.png)
 
@@ -66,20 +66,19 @@ Chrome浏览器:
 ↓↓
 
 ### 本地运行
-设置环境变量中的cookie和推送相关参数
-具体操作详见[env.example.js](env.example.js)文件内注释
 
 #### 可执行文件
-在当前目录下[打开终端](https://cn.bing.com/search?q=%E5%A6%82%E4%BD%95%E5%9C%A8%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF)运行内部的可执行文件即可
+1. [[下载](https://github.com/shanmiteko/LotteryAutoScript/releases)|[cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript/releases)|[Fastgit镜像下载](https://hub.fastgit.org/shanmiteko/LotteryAutoScript/releases)]压缩包并解压
+   ```
+    env.js
+    lottery.exe
+    my_config.js
+   ```
+2. `env.js`中填入`COOKIE`和推送参数
+3. `my_config.js`中自定义设置
+4. 在当前目录下打开终端运行可执行文件`lottery`
 
-[下载](https://github.com/shanmiteko/LotteryAutoScript/releases)
-
-[cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript/releases)
-
-[Fastgit镜像下载](https://hub.fastgit.org/shanmiteko/LotteryAutoScript/releases)
-
-
-#### 搭建运行环境
+#### 以源码方式运行
 
 <details>
 
@@ -234,4 +233,6 @@ rm -rf lottery/
 ----------------------------------------
 
 ## 设置说明
+详见[env.example.js](./env.example.js)文件内部注释
+
 详见[my_config.example.js](./my_config.example.js)文件内部注释

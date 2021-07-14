@@ -1,7 +1,5 @@
 node_modules/
 dyids/
 dist/
-lib/dyid*.txt
-dyid.zip
 env.js
 my_config.js
