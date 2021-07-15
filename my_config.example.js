@@ -64,11 +64,17 @@ module.exports = {
         maxday: Infinity,
 
         /**
+         *  - 整体循环等待时间(指所有转发完毕后的休眠时间)
+         *  - 单位毫秒
+         */
+        loop_wait: 60 * 60 * 1000,
+
+        /**
          * - 转发间隔时间
          * - 单位毫秒
          * - 上下浮动50%
          */
-        wait: 100000,
+        wait: 100 * 1000,
 
         /**
          * - 检索动态间隔
@@ -151,7 +157,8 @@ module.exports = {
         ],
 
         /**
-         * 抽奖UP用户分组id(网页端点击分区后地址栏中的tagid)
+         * - 抽奖UP用户分组id(网页端点击分区后地址栏中的tagid)
+         * - 自动获取
          */
         partition_id: 0,
 
@@ -161,7 +168,8 @@ module.exports = {
         is_exception: false,
 
         /**
-         * 取关分区
+         * - 取关分区
+         * - 默认为: 此处存放因抽奖临时关注的up
          */
         clear_partition: '',
 

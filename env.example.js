@@ -8,7 +8,9 @@
  * ## 账号相关参数
  * - `COOKIE` 是必填项
  * - `NUMBER` 表示是第几个账号
- * - `PAT` 与 `GITHUB_REPOSITORY` 如果之前在Github Action上运行过脚本, 可填写已下载转发过的动态dyid, 之后可移除
+ * - `CLEAR` 是否启用清理功能
+ * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
+ * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式)
  * 
  * ## 多账号
  * 1. 将 ENABLE_MULTIPLE_ACCOUNT 的值改为true
@@ -21,10 +23,8 @@ const account_parm = {
     COOKIE: "",
     NUMBER: 1,
     CLEAR: true,
-    LOCALLAUNCH: true,
-    PAT: "",
-    GITHUB_REPOSITORY: "用户名/仓库名",
-    ENABLE_MULTIPLE_ACCOUNT: false
+    ENABLE_MULTIPLE_ACCOUNT: false,
+    MULTIPLE_ACCOUNT_PARM: ""
 }
 
 /**
