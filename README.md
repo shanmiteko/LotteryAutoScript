@@ -178,7 +178,7 @@ cd lottery
 进入lottery上一级目录
 
 ```bash
-docker image rm shanmite/lottery_auto_docker
+docker image rm -f shanmite/lottery_auto_docker
 rm -rf lottery/
 ```
 
