@@ -8,7 +8,8 @@ module.exports = {
          */
         UIDs: [
             31252386,
-            689277291
+            689277291,
+            241675899
         ],
 
         /**
@@ -63,10 +64,12 @@ module.exports = {
         maxday: Infinity,
 
         /**
-         *  - 整体循环等待时间(指所有转发完毕后的休眠时间)
+         *  - 循环等待时间(指所有操作完毕后的休眠时间)
          *  - 单位毫秒
          */
-        loop_wait: 60 * 60 * 1000,
+        lottery_loop_wait: 60 * 60 * 1000,
+        check_loop_wait: 0,
+        clear_loop_wait: 0,
 
         /**
          * - 转发间隔时间
@@ -173,7 +176,7 @@ module.exports = {
         clear_partition: '',
 
         /**
-         * 清理多少天内的动态或关注
+         * 清理多少天之前的动态或关注
          */
         clear_max_day: 30,
 

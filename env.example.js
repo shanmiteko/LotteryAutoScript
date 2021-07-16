@@ -11,6 +11,7 @@
  * - `CLEAR` 是否启用清理功能
  * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
  * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式)
+ * - `LOTTERY_LOG_LEVEL` 输出日志等级 Error<Warn<Info<Debug 1<2<3<4
  * 
  * ## 多账号
  * 1. 将 ENABLE_MULTIPLE_ACCOUNT 的值改为true
@@ -24,7 +25,8 @@ const account_parm = {
     NUMBER: 1,
     CLEAR: true,
     ENABLE_MULTIPLE_ACCOUNT: false,
-    MULTIPLE_ACCOUNT_PARM: ""
+    MULTIPLE_ACCOUNT_PARM: "",
+    LOTTERY_LOG_LEVEL: 3
 }
 
 /**

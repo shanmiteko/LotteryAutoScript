@@ -77,6 +77,8 @@ Chrome浏览器:
 2. `env.js`中填入`COOKIE`和推送参数
 3. `my_config.js`中自定义设置
 4. 在当前目录下打开终端运行可执行文件`lottery`
+5. 运行截图
+  ![lottery_start](doc/pic/lottery_start.png)
 
 #### 以源码方式运行
 

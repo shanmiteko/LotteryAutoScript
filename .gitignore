@@ -1,5 +1,6 @@
 node_modules/
 dyids/
 dist/
+package-lock.json
 env.js
 my_config.js

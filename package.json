@@ -7,7 +7,8 @@
     "start": "node main.js start",
     "clear": "node main.js clear",
     "check": "node main.js check",
-    "pkg": "npx pkg . && powershell .\\script\\pkg\\pkg.ps1",
+    "pkg_x86": "npx pkg . && PowerShell .\\script\\pkg\\pkg.ps1",
+    "pkg_clean_dist": "PowerShell -Command \"& {Remove-Item -Path .\\dist\\ -Recurse}\"",
     "pkg_arm": "npx pkg -t linux-arm -o dist/lottery-in-bili-linux-arm main.js"
   },
   "bin": "main.js",
@@ -38,6 +39,7 @@
     "pkg": "^5.2.1"
   },
   "dependencies": {
+    "chalk": "^4.1.1",
     "nodemailer": "^6.5.0",
     "unzipper": "^0.10.11"
   }
