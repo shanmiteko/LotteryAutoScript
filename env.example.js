@@ -5,14 +5,15 @@
  */
 
 /**
- * ## 账号相关参数
+ * ## 账号相关
  * - `COOKIE` 是必填项
  * - `NUMBER` 表示是第几个账号
  * - `CLEAR` 是否启用清理功能
  * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
  * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式)
+ * ## 调试相关
  * - `LOTTERY_LOG_LEVEL` 输出日志等级 Error<Warn<Info<Debug 1<2<3<4
- * 
+ * - `NOT_GO_LOTTERY` 关闭抽奖行为 为空字符即关
  * ## 多账号
  * 1. 将 ENABLE_MULTIPLE_ACCOUNT 的值改为true
  * 2. 将账号信息依次填写于 multiple_account_parm 中, 参考例子类推
@@ -26,7 +27,8 @@ const account_parm = {
     CLEAR: true,
     ENABLE_MULTIPLE_ACCOUNT: false,
     MULTIPLE_ACCOUNT_PARM: "",
-    LOTTERY_LOG_LEVEL: 3
+    LOTTERY_LOG_LEVEL: 3,
+    NOT_GO_LOTTERY: ''
 }
 
 /**
