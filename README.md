@@ -15,6 +15,8 @@
     - [中奖推送(可选)](#中奖推送可选)
   - [设置说明](#设置说明)
 
+[Github仓库链接](https://github.com/shanmiteko/LotteryAutoScript)
+
 已实现功能:  
   > 点赞 评论 转发 @好友 带话题 随机动态 检测开奖 清理
 
@@ -68,11 +70,11 @@ Chrome浏览器:
 ### 本地运行
 
 #### 可执行文件
-1. [[下载](https://github.com/shanmiteko/LotteryAutoScript/releases)|[cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript/releases)|[Fastgit镜像下载](https://hub.fastgit.org/shanmiteko/LotteryAutoScript/releases)]压缩包并解压
+1. [[下载](https://github.com/shanmiteko/LotteryAutoScript/releases)|[cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript/releases)|[Fastgit镜像下载](https://hub.fastgit.org/shanmiteko/LotteryAutoScript/releases)]压缩包并解压后有三个文件
    ```
-    env.js
-    lottery.exe
-    my_config.js
+    env.js 便捷设置环境变量和多账号参数
+    lottery.exe 可执行文件
+    my_config.js 自定义设置文件
    ```
 2. `env.js`中填入`COOKIE`和推送参数
 3. `my_config.js`中自定义设置
@@ -138,7 +140,9 @@ npm i && npm run clear
 
 注: **本地运行时可在设置中增大扫描页数**
 
-> [windows系统定时运行](./doc/win_schedule.md)
+> ~~[windows系统定时运行](./doc/win_schedule.md)~~
+
+脚本已内置定时运行功能
 
 ##### Linux
 [linux系统配置与定时运行](./doc/linux_schedule.md)
@@ -187,9 +191,7 @@ rm -rf lottery/
 ----------------------------------------
 
 ## 防重复转发
-脚本将所转发过的动态都写入`dyids/dyid*.txt`文件中
-
-完整转发一轮后才会进行写入操作, 勿过早关闭运行
+脚本将转发过的动态和被过滤的动态都写入`dyids/dyid*.txt`文件中
 
 ----------------------------------------
 

@@ -45,7 +45,8 @@ vim env.js
 `"PAT"`和`"GITHUB_REPOSITORY"`不填也行  
 
 
-5.设置定时工作  
+~~5.设置定时工作~~
+
 > [linux系统定时运行](https://zhuanlan.zhihu.com/p/58719487)  
 
 输入:
