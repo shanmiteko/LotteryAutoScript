@@ -9,7 +9,8 @@
     "check": "node main.js check",
     "pkg_x86": "npx pkg . && PowerShell .\\script\\pkg\\pkg.ps1",
     "pkg_clean_dist": "PowerShell -Command \"& {Remove-Item -Path .\\dist\\ -Recurse}\"",
-    "pkg_arm": "npx pkg -t linux-arm -o dist/lottery-in-bili-linux-arm main.js"
+    "pkg_arm64": "npx pkg -t linux-arm64 -o dist/lottery main.js && cp my_config.example.js my_config.js && cp env.example.js dist/env.js",
+    "pkg_armv7": "npx pkg -t linux-armv7 -o dist/lottery main.js && cp my_config.example.js my_config.js && cp env.example.js dist/env.js"
   },
   "bin": "main.js",
   "pkg": {
