@@ -79,7 +79,9 @@ Chrome浏览器:
 2. `env.js`中填入`COOKIE`和推送参数
 3. `my_config.js`中自定义设置
 4. 在当前目录下打开终端运行可执行文件`lottery`
-5. 运行截图
+5. 输入`lottery start`启动抽奖|`lottery check`检测中奖|`lottery clear`清理动态
+   > 或者新建文本文档写入`lottery start`然后更改扩展名为.bat点击运行
+6. 运行截图
   ![lottery_start](doc/pic/lottery_start.png)
 
 #### 以源码方式运行
