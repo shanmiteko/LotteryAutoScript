@@ -123,19 +123,15 @@ module.exports = {
         at_users: [['转发抽奖娘', 294887687], ['你的工具人老公', 100680137]],
 
         /**
-         * 同步 https://gitee.com/shanmite/lottery-notice/raw/master/notice.json
+         * - 同步 https://gitee.com/shanmite/lottery-notice/raw/master/notice.json
+         * - 英文逗号分隔 如: 1,2,3
          */
-        blacklist: '1,2',
+        blacklist: '',
 
         /**
          * 屏蔽词
          */
         blockword: ["脚本抽奖", "恭喜", "结果", "抽奖号", "钓鱼", "涨粉"],
-
-        /**
-         * 取关白名单
-         */
-        followWhiteList: '1,2',
 
         /**
          * 转发评语
@@ -163,6 +159,12 @@ module.exports = {
          * 是否关注异常
          */
         is_exception: false,
+
+        /**
+         * - 清理白名单uid或dyid
+         * - 英文逗号分隔 如: 1,2,3
+         */
+        clear_white_list: '',
 
         /**
          * - 取关分区
