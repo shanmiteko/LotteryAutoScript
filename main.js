@@ -10,7 +10,7 @@ const metainfo = [
     `                                __/ |                  | |        `,
     `                               |___/                   |_|        `,
     `                                                                  `,
-    `                                                     by shanmite  `,
+    `                                                       by shanmite`,
 ]
 /**多账号存储 */
 let multiple_account = [];
@@ -36,6 +36,9 @@ async function main() {
             await main();
             await delay(acco.WAIT);
         }
+
+        /**多账号状态还原 */
+        process.env.ENABLE_MULTIPLE_ACCOUNT = ENABLE_MULTIPLE_ACCOUNT;
     } else {
         if (!COOKIE) {
             return '请查看README文件, 在env.js指定位置填入cookie'
@@ -117,7 +120,7 @@ async function main() {
     } else {
         while (loop_wait) {
             log.info('程序休眠', `${loop_wait / 1000}秒后再次启动`)
-            await delay(loop_wait),
+            await delay(loop_wait)
             await main()
         }
         log.info('结束运行', '未设置休眠时间')
