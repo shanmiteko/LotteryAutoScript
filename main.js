@@ -110,18 +110,18 @@ async function main() {
     process.env.lottery_mode = process.argv[2]
 
     const err_msg = await main();
-
     if (err_msg) {
         log.error('错误', '\n' + err_msg + '\n');
         log.warn('结束运行', '5秒后自动退出');
         await delay(5 * 1000);
     } else {
-        if (loop_wait > 0) {
+        while (loop_wait) {
             log.info('程序休眠', `${loop_wait / 1000}秒后再次启动`)
-            await delay(loop_wait);
-        } else {
-            log.info('结束运行', '未设置休眠时间')
+            await delay(loop_wait),
+            await main()
         }
+        log.info('结束运行', '未设置休眠时间')
     }
+
     process.exit(0);
 })()
