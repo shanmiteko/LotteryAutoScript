@@ -1,4 +1,4 @@
-const { env_file, config_file, log, delay, hasFileOrDir } = require("./lib/Base");
+const { env_file, config_file, log, delay, hasFileOrDir } = require("./lib/Util");
 
 const metainfo = [
     `  _           _   _                   _____           _       _   `,
