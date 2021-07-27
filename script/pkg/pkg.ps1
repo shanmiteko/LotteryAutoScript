@@ -17,7 +17,6 @@ Copy-Item -Path $TEMPLATE_CONFIG_FILE -Destination $TARGET_DIR -Force
 
 Set-Location -Path $TARGET_DIR
 
-# 重命名文件
 Move-Item -Path $TEMPLATE_ENV_FILE -Destination $ENV_FILE -Force
 Move-Item -Path $TEMPLATE_CONFIG_FILE -Destination $CONFIG_FILE -Force
 

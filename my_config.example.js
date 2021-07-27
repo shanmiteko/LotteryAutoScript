@@ -13,6 +13,13 @@ module.exports = {
         ],
 
         /**
+         * 监视的专栏关键词
+         */
+        Articles: [
+            '抽奖合集'
+        ],
+
+        /**
          * 监视的tag
          */
         TAGs: [
@@ -53,9 +60,19 @@ module.exports = {
         is_imitator: false,
 
         /**
-         * - 在uid或tag里检索的页数
+         * - 在uid里检索的页数
          */
-        scan_page_num: 3,
+        uid_scan_page: 3,
+
+        /**
+         * - 在tag里检索的页数
+         */
+        tag_scan_page: 3,
+
+        /**
+         * - 获取专栏数量
+         */
+        article_scan_page: 3,
 
         /**
          * - 开奖时间距离现在的最大天数
