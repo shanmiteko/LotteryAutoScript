@@ -30,6 +30,11 @@ foreach ($TRI in $TRIARR) {
     Move-Item -Path $BIN -Destination $DIR -Force
     Copy-Item -Path $ENV_FILE -Destination $DIR -Force
     Copy-Item -Path $CONFIG_FILE -Destination $DIR -Force
+    if ($DIR -eq "nlts-win-x64") {
+        New-Item -Path $DIR -Name "start.bat" -ItemType File -Value "@echo off && lottery start && pause" -Force
+        New-Item -Path $DIR -Name "check.bat" -ItemType File -Value "@echo off && lottery check && pause" -Force
+        New-Item -Path $DIR -Name "clear.bat" -ItemType File -Value "@echo off && lottery clear && pause" -Force
+    }
 
     Compress-Archive -Path $DIR -DestinationPath "$($DIR)-$(Get-Date -Format "yyyyMMd")" -Force
 }

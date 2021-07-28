@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shanmite/AutoScript.git"
+    "url": "https://github.com/shanmiteko/AutoScript.git"
   },
   "keywords": [
     "auto",
@@ -32,16 +32,15 @@
   "author": "shanmite",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/shanmite/AutoScript/issues"
+    "url": "https://github.com/shanmiteko/AutoScript/issues"
   },
-  "homepage": "https://github.com/shanmite/AutoScript#readme",
+  "homepage": "https://github.com/shanmiteko/AutoScript#readme",
   "devDependencies": {
     "eslint": "^7.17.0",
     "pkg": "^5.2.1"
   },
   "dependencies": {
     "chalk": "^4.1.1",
-    "nodemailer": "^6.5.0",
-    "unzipper": "^0.10.11"
+    "nodemailer": "^6.5.0"
   }
 }
