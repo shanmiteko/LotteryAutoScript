@@ -27,6 +27,16 @@ const account_parm = {
 
 /**
  * 为防止环境变量过长, 请将多账号填在此处
+ * @example
+ * ```js
+ * {
+ *     COOKIE: "",
+ *     NUMBER: 2,
+ *     CLEAR: true,
+ *     WAIT: 60 * 1000,
+ * },
+ * ```
+ * 请按照以上格式将参数依次填写在下方
  */
 const multiple_account_parm = [
     {
@@ -35,12 +45,6 @@ const multiple_account_parm = [
         CLEAR: true,
         WAIT: 60 * 1000,
     },
-    // {
-    //     COOKIE: "",
-    //     NUMBER: 2,
-    //     CLEAR: true,
-    //     WAIT: 60 * 1000,
-    // },
 ]
 
 /**
