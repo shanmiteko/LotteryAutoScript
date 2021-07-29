@@ -84,7 +84,7 @@ module.exports = {
          *  - 循环等待时间(指所有操作完毕后的休眠时间)
          *  - 单位毫秒
          */
-        lottery_loop_wait: 60 * 60 * 1000,
+        lottery_loop_wait: 0,
         check_loop_wait: 0,
         clear_loop_wait: 0,
 

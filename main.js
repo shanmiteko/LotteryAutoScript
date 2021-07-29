@@ -33,8 +33,12 @@ async function main() {
             process.env.COOKIE = acco.COOKIE;
             process.env.NUMBER = acco.NUMBER;
             process.env.CLEAR = acco.CLEAR;
-            await main();
-            await delay(acco.WAIT);
+            const err_msg = await main();
+            if (err_msg) {
+                return err_msg
+            } else {
+                await delay(acco.WAIT);
+            }
         }
 
         /**多账号状态还原 */
