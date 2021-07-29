@@ -1,3 +1,4 @@
+$README = "README.md"
 $TEMPLATE_CONFIG_FILE = "my_config.example.js"
 $TEMPLATE_ENV_FILE = "env.example.js"
 
@@ -14,6 +15,7 @@ $TRIARR = @(
 
 Copy-Item -Path $TEMPLATE_ENV_FILE -Destination $TARGET_DIR -Force
 Copy-Item -Path $TEMPLATE_CONFIG_FILE -Destination $TARGET_DIR -Force
+Copy-Item -Path $README -Destination $TARGET_DIR -Force
 
 Set-Location -Path $TARGET_DIR
 
@@ -30,6 +32,8 @@ foreach ($TRI in $TRIARR) {
     Move-Item -Path $BIN -Destination $DIR -Force
     Copy-Item -Path $ENV_FILE -Destination $DIR -Force
     Copy-Item -Path $CONFIG_FILE -Destination $DIR -Force
+    Copy-Item -Path $README -Destination $DIR -Force
+
     if ($DIR -eq "nlts-win-x64") {
         New-Item -Path $DIR -Name "start.bat" -ItemType File -Value "@echo off && lottery start && pause" -Force
         New-Item -Path $DIR -Name "check.bat" -ItemType File -Value "@echo off && lottery check && pause" -Force
@@ -41,3 +45,4 @@ foreach ($TRI in $TRIARR) {
 
 Remove-Item -Path $ENV_FILE
 Remove-Item -Path $CONFIG_FILE
+Remove-Item -Path $README
