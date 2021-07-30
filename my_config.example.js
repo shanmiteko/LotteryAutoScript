@@ -178,6 +178,14 @@ module.exports = {
         is_exception: false,
 
         /**
+         * 中奖通知关键词(满足一个就推送)
+         * 符合js正则表达式的字符串
+         */
+        notice_key_words: [
+            "中奖", "获得", "填写", "写上", "提供", "收货地址", "支付宝账号", "码", "大会员"
+        ],
+
+        /**
          * - 清理白名单uid或dyid
          * - 英文逗号分隔 如: 1,2,3
          */
@@ -193,6 +201,12 @@ module.exports = {
          * 清理多少天之前的动态或关注
          */
         clear_max_day: 30,
+
+        /**
+         * - 快速移除关注
+         * - 不加判断只去除关注
+         */
+        clear_quick_remove_attention: false,
 
         /**
          * 是否移除动态
