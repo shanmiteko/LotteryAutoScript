@@ -1,0 +1,107 @@
+name: Bug反馈
+description: 提出你遇到的问题
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **为避免无效问题和冗余问题，提问前请确认**  
+        - 你确定搜索引擎不能解决你的问题  
+        - 你确定提供的Readme文档和Release说明不能解决你的问题  
+        - 你确定已有的issue不能解决你的问题  
+        - 你确定issue的title能简明的描述你的问题  
+        <br />
+
+  - id: describe
+    type: textarea
+    validations:
+      required: true
+    attributes:
+      label: "描述Bug"
+      description: |
+        简要而清晰的描述你所遇到的bug。
+
+  - id: reproduction
+    type: textarea
+    validations:
+      required: true
+    attributes:
+      label: "重现Bug"
+      description: |
+        说明您在进行了怎样的操作后出现了Bug.
+      placeholder: |
+        1. xxx
+        2. xxx
+
+  - id: expection
+    type: textarea
+    validations:
+      required: true
+    attributes:
+      label: "预期行为"
+      description: |
+        简要描述进行以上操作后预期的脚本行为。
+
+  - id: picture
+    type: textarea
+    validations:
+      required: false
+    attributes:
+      label: "截图"
+      description: |
+        如果可以，请提供尽可能多的相关截图。
+      placeholder: |
+        可使用 QQ / Snipaste 等工具截图后在此处 ctrl + v 黏贴。
+
+  - id: log
+    type: textarea
+    validations:
+      required: true
+    attributes:
+      label: "运行日志"
+      description: |
+        控制台日志。
+      placeholder: |
+        请在此黏贴运行日志。
+
+  - id: system
+    type: input
+    validations:
+      required: true
+    attributes:
+      label: "操作系统"
+      description: |
+        请给出操作系统名称和版本号。
+      placeholder: |
+        eg: Windows 10
+
+  - id: nodejs_version
+    type: input
+    validations:
+      required: true
+    attributes:
+      label: "NodeJs版本"
+      description: |
+        在控制台输入 node -v 即可查看版本号
+      placeholder: |
+        eg: v16.5.0
+
+  - id: lotteryAutoScript_version
+    type: input
+    validations:
+      required: true
+    attributes:
+      label: "脚本版本"
+      description: |
+        脚本版本。脚本开始运行后会显示版本号。
+      placeholder: |
+        eg: v2.0.2
+
+  - id: extra
+    type: textarea
+    validations:
+      required: false
+    attributes:
+      label: "其他"
+      description: |
+        若您有其他想要补充的内容，请在此说明
