@@ -78,11 +78,11 @@ body:
   - id: nodejs_version
     type: input
     validations:
-      required: true
+      required: false
     attributes:
       label: "NodeJs版本"
       description: |
-        在控制台输入 node -v 即可查看版本号
+        若使用源码运行请在控制台输入`node -v`查看版本号。
       placeholder: |
         eg: v16.5.0
 

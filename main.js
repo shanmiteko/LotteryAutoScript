@@ -10,7 +10,8 @@ const metainfo = [
     `                                __/ |                  | |        `,
     `                               |___/                   |_|        `,
     `                                                                  `,
-    `                                              v2.0.2   by shanmite`,
+    `                                                 Verison:   v2.0.3`,
+    `                                               Written by shanmite`,
 ]
 /**多账号存储 */
 let multiple_account = [];
