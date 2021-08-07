@@ -1,4 +1,4 @@
-const { env_file, config_file, log, delay, hasFileOrDir } = require("./lib/Util");
+const { env_file, config_file, log, delay, hasFileOrDir } = require("./lib/utils");
 
 const metainfo = [
     `  _           _   _                   _____           _       _   `,
@@ -48,18 +48,17 @@ async function main() {
         if (!COOKIE) {
             return '请查看README文件, 在env.js指定位置填入cookie'
         }
-        const { setVariable } = require("./lib/setVariable");
-        await setVariable(COOKIE, Number(NUMBER));
+        const global_var = require("./lib/data/global_var");
+        await global_var.init(COOKIE, Number(NUMBER));
 
-        const { start, isMe, checkCookie } = require("./lib/lottery-in-nodejs");
-        const { clear } = require("./lib/clear");
+        const { start, isMe, clear, checkCookie } = require("./lib/index");
 
         log.info('main', '当前为第' + NUMBER + '个账号');
 
         if (await checkCookie(NUMBER)) {
             const mode = process.env.lottery_mode;
             const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart 启动抽奖\n\tcheck 中奖检查\n\tclear 清理动态和关注\n\thelp 帮助信息";
-            const { lottery_loop_wait, check_loop_wait, clear_loop_wait } = require("./lib/config");
+            const { lottery_loop_wait, check_loop_wait, clear_loop_wait } = require("./lib/data/config");
             switch (mode) {
                 case 'start':
                     log.info('抽奖', '开始运行');
@@ -107,7 +106,7 @@ async function main() {
     }
 
     if (hasFileOrDir(config_file)) {
-        require("./lib/config");
+        require("./lib/data/config");
         log.info('配置文件初始化', '成功加载my_config.js文件');
     } else {
         log.error('配置文件初始化', '未在当前目录下找到my_config.js文件');
