@@ -24,10 +24,11 @@
 - 自动点赞、评论、乱序转发、@好友、带话题、可选随机动态
 - 检测是否中奖
 - 清理动态关注
+- 更多功能设置请参考配置文件
 
 **声明**: 此脚本仅用于学习和测试，作者本人并不对其负责，请于运行测试完成后自行删除，请勿滥用！
 
-----------------------------------------
+---------------------------------
 
 ## 操作步骤
 
@@ -75,11 +76,17 @@ Chrome浏览器:
 ### 本地运行
 
 #### 可执行文件
-1. [[下载](https://github.com/shanmiteko/LotteryAutoScript/releases)|[cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript/releases)|[Fastgit镜像下载](https://hub.fastgit.org/shanmiteko/LotteryAutoScript/releases)]压缩包并解压后有三个文件
+1. [[下载](https://github.com/shanmiteko/LotteryAutoScript/releases)|[cnpmjs镜像下载](https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript/releases)|[Fastgit镜像下载](https://hub.fastgit.org/shanmiteko/LotteryAutoScript/releases)]压缩包并解压后
    ```
-    env.js 便捷设置环境变量和多账号参数
-    lottery.exe 可执行文件
-    my_config.js 自定义设置文件
+    ~/nlts-linux-x64
+    => tree
+    .
+    ├── dyids           (自动生成的dyid存储)
+    │   └── dyid.txt
+    ├── env.js          (便捷设置环境变量和多账号参数)
+    ├── lottery         (可执行文件)
+    ├── my_config.js    (自定义设置文件) (!使用前必读)
+    └── README.md       (说明文件)
    ```
 2. 用记事本或其他编辑器修改`env.js`和`my_config.js`文件(右键选择用记事本打开)
 3. 在`env.js`中填入`COOKIE`和推送参数

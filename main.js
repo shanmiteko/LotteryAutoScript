@@ -1,4 +1,4 @@
-const { env_file, config_file, log, delay, hasFileOrDir } = require("./lib/utils");
+const { env_file, config_file, log, hasEnv, delay, hasFileOrDir } = require("./lib/utils");
 
 const metainfo = [
     `  _           _   _                   _____           _       _   `,
@@ -11,7 +11,7 @@ const metainfo = [
     `                               |___/                   |_|        `,
     `                                                                  `,
     `                                                 Verison:   v2.0.5`,
-    `                                               Written by shanmite`,
+    `                                               Written By shanmite`,
 ]
 /**多账号存储 */
 let multiple_account = [];
@@ -44,13 +44,11 @@ async function main() {
 
         /**多账号状态还原 */
         process.env.ENABLE_MULTIPLE_ACCOUNT = ENABLE_MULTIPLE_ACCOUNT;
-    } else {
-        if (!COOKIE) {
-            return '请查看README文件, 在env.js指定位置填入cookie'
-        }
-        const global_var = require("./lib/data/global_var");
-        await global_var.init(COOKIE, Number(NUMBER));
+    } else if (COOKIE) {
+        const { init } = require("./lib/data/global_var");
+        await init(COOKIE, Number(NUMBER));
 
+        /**引入基础功能 */
         const { start, isMe, clear, checkCookie } = require("./lib/index");
 
         log.info('main', '当前为第' + NUMBER + '个账号');
@@ -84,7 +82,11 @@ async function main() {
                 default:
                     return `提供了错误的[OPTIONS] -> ${mode}\n\n` + help_msg
             }
+        } else {
+            return 'Cookie已失效, 切换账号时不要点击退出账号而应直接删除Cookie退出'
         }
+    } else {
+        return '请查看README文件, 在env.js指定位置填入cookie'
     }
 }
 
@@ -99,9 +101,12 @@ async function main() {
         initEnv();
         log.init();
         log.info('环境变量初始化', '成功加载env.js文件');
+    } else if (hasEnv('COOKIE') || hasEnv('MULTIPLE_ACCOUNT_PARM')) {
+        log.init();
+        log.info('环境变量初始化', '成功从环境变量中读取COOKIE设置');
     } else {
         log.init();
-        log.warn('环境变量初始化', '未在当前目录下找到env.js文件 也可在环境变量中设置所需参数');
+        log.error('环境变量初始化', '未在当前目录下找到env.js文件或者在环境变量中设置所需参数');
         return
     }
 
