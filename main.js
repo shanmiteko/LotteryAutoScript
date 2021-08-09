@@ -10,7 +10,7 @@ const metainfo = [
     `                                __/ |                  | |        `,
     `                               |___/                   |_|        `,
     `                                                                  `,
-    `                                                 Verison:   v2.0.4`,
+    `                                                 Verison:   v2.0.5`,
     `                                               Written by shanmite`,
 ]
 /**多账号存储 */
