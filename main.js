@@ -45,8 +45,8 @@ async function main() {
         /**多账号状态还原 */
         process.env.ENABLE_MULTIPLE_ACCOUNT = ENABLE_MULTIPLE_ACCOUNT;
     } else if (COOKIE) {
-        const { init } = require("./lib/data/global_var");
-        await init(COOKIE, Number(NUMBER));
+        const global_var = require("./lib/data/global_var");
+        await global_var.init(COOKIE, Number(NUMBER));
 
         /**引入基础功能 */
         const { start, isMe, clear, checkCookie } = require("./lib/index");
@@ -132,7 +132,7 @@ async function main() {
             await delay(loop_wait)
             await main()
         }
-        log.info('结束运行', '未设置休眠时间')
+        log.info('结束运行', '未在config.js中设置休眠时间')
     }
 
     process.exit(0);
