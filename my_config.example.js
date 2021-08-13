@@ -87,6 +87,7 @@ module.exports = {
         lottery_loop_wait: 0,
         check_loop_wait: 0,
         clear_loop_wait: 0,
+        update_loop_wait: 0,
 
         /**
          * - 转发间隔时间

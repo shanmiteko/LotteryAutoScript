@@ -7,10 +7,12 @@ $ENV_FILE = "env.js"
 
 $TARGET_DIR = ".\dist"
 
+$NAME = 'lottery-auto-script'
+
 $TRIARR = @(
-    @("lottery-in-bili-win.exe", "lottery.exe", "nlts-win-x64"),
-    @("lottery-in-bili-linux", "lottery", "nlts-linux-x64"),
-    @("lottery-in-bili-macos", "lottery", "nlts-macos-x64")
+    @("$NAME-win.exe", "lottery.exe", "nlts-win-x64"),
+    @("$NAME-linux", "lottery", "nlts-linux-x64"),
+    @("$NAME-macos", "lottery", "nlts-macos-x64")
 )
 
 Copy-Item -Path $TEMPLATE_ENV_FILE -Destination $TARGET_DIR -Force
@@ -38,6 +40,7 @@ foreach ($TRI in $TRIARR) {
         New-Item -Path $DIR -Name "start.bat" -ItemType File -Value "@echo off && lottery start && pause" -Force
         New-Item -Path $DIR -Name "check.bat" -ItemType File -Value "@echo off && lottery check && pause" -Force
         New-Item -Path $DIR -Name "clear.bat" -ItemType File -Value "@echo off && lottery clear && pause" -Force
+        New-Item -Path $DIR -Name "update.bat" -ItemType File -Value "@echo off && lottery update && pause" -Force
     }
 
     Compress-Archive -Path $DIR -DestinationPath "$($DIR)-$(Get-Date -Format "yyyyMMd")" -Force

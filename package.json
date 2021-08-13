@@ -1,13 +1,14 @@
 {
-  "name": "lottery-in-bili",
-  "version": "3.0.0",
-  "description": "自动抽奖",
+  "name": "lottery-auto-script",
+  "version": "2.0.6",
+  "description": "自动参与B站动态抽奖",
   "main": "main.js",
   "scripts": {
     "start": "node main.js start",
     "clear": "node main.js clear",
     "check": "node main.js check",
-    "pkg_x86": "npx pkg . && PowerShell .\\script\\pkg\\pkg.ps1",
+    "update": "node main.js update",
+    "pkg_x64": "npx pkg . && PowerShell .\\script\\pkg\\pkg.ps1",
     "pkg_clean_dist": "PowerShell -Command \"& {Remove-Item -Path .\\dist\\ -Recurse}\"",
     "pkg_arm64": "npx pkg -t linux-arm64 -o dist/lottery main.js && cp my_config.example.js my_config.js && cp env.example.js dist/env.js",
     "pkg_armv7": "npx pkg -t linux-armv7 -o dist/lottery main.js && cp my_config.example.js my_config.js && cp env.example.js dist/env.js"
