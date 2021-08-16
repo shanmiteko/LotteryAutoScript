@@ -128,7 +128,7 @@ async function main() {
 
     const err_msg = await main();
     if (err_msg) {
-        log.error('错误', '\n' + err_msg + '\n');
+        log.error('错误', err_msg);
         log.warn('结束运行', '5秒后自动退出');
         await delay(5 * 1000);
     } else {

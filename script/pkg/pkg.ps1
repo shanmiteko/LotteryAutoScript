@@ -15,6 +15,12 @@ $TRIARR = @(
     @("$NAME-macos", "lottery", "nlts-macos-x64")
 )
 
+if((Test-Path $TARGET_DIR) -eq "True") {
+    Remove-Item -Path $TARGET_DIR -Recurse
+}
+
+npx pkg .
+
 Copy-Item -Path $TEMPLATE_ENV_FILE -Destination $TARGET_DIR -Force
 Copy-Item -Path $TEMPLATE_CONFIG_FILE -Destination $TARGET_DIR -Force
 Copy-Item -Path $README -Destination $TARGET_DIR -Force
