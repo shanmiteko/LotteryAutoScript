@@ -1,6 +1,6 @@
 {
   "name": "lottery-auto-script",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "description": "自动参与B站动态抽奖",
   "main": "main.js",
   "scripts": {
@@ -12,6 +12,15 @@
     "pkg_arm64": "npx pkg -t linux-arm64 -o dist/lottery main.js && cp my_config.example.js my_config.js && cp env.example.js dist/env.js",
     "pkg_armv7": "npx pkg -t linux-armv7 -o dist/lottery main.js && cp my_config.example.js my_config.js && cp env.example.js dist/env.js"
   },
+  "files": [
+    "lib",
+    "main.js",
+    "package.js",
+    "my_config.example.js",
+    "env.example.js",
+    "LICENSE",
+    "README.md"
+  ],
   "bin": "main.js",
   "pkg": {
     "targets": [
