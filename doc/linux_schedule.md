@@ -13,7 +13,7 @@
 git clone https://github.com/shanmite/LotteryAutoScript.git
 ```
 
-![image_download](pic/image_download.png)  
+![image_download](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/image_download.png)  
 
 **注意**: github访问下载速度可能很慢, 如果卡住了可以通过Github镜像网站下载  
 
@@ -38,7 +38,7 @@ vim env.js
 # 此处可查阅Vim的使用手册
 ```
 
-![image-envjs](pic/image-envjs.png)  
+![image-envjs](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/image-envjs.png)  
 
 说明: `"CLEAR"`项设置为`true`, 才可以开启自动清理动态功能  
 
@@ -55,7 +55,7 @@ vim env.js
 crontab -e
 ```
 
-![crontab](pic/crontab.png)  
+![crontab](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/crontab.png)  
 
 `SHELL` 和 `PATH`照着填
 
@@ -74,7 +74,7 @@ crontab -e
 
 看看有没有效果
 
-![image-start](pic/image-start.png)
+![image-start](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/image-start.png)
 
 
 7.如果本地的脚本需要更新
