@@ -35,7 +35,7 @@ jobs:
           name: dist_x64
           path: dist/
   pkg_arm64:
-    runs-on: ubantu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v2
