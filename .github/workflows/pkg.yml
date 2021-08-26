@@ -16,7 +16,7 @@ on:
     branches:
       - main
 jobs:
-  pkg:
+  pkg_x64:
     runs-on: windows-latest
     steps:
       - name: 'Checkout codes'
@@ -32,5 +32,41 @@ jobs:
       - name: 'Upload to artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: dist
+          name: dist_x64
+          path: dist/
+  pkg_arm64:
+    runs-on: ubantu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+      - name: 'Pkg this'
+        run: |
+          npm install
+          npm run pkg_arm64
+      - name: 'Upload to artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist_arm64
+          path: dist/
+  pkg_armv7:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+      - name: 'Pkg this'
+        run: |
+          npm install
+          npm run pkg_armv7
+      - name: 'Upload to artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist_armv7
           path: dist/
