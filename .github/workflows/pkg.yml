@@ -50,7 +50,7 @@ jobs:
       - name: 'Upload to artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: dist_arm64
+          name: nlts-linux-arm64
           path: dist/
   pkg_armv7:
     runs-on: ubuntu-latest
@@ -68,5 +68,5 @@ jobs:
       - name: 'Upload to artifact'
         uses: actions/upload-artifact@v2
         with:
-          name: dist_armv7
+          name: nlts-linux-armv7
           path: dist/

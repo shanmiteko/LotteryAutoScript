@@ -49,7 +49,7 @@ foreach ($TRI in $TRIARR) {
         New-Item -Path $DIR -Name "update.bat" -ItemType File -Value "@echo off && lottery update && pause" -Force
     }
 
-    Compress-Archive -Path $DIR -DestinationPath "$($DIR)-$(Get-Date -Format "yyyyMMd")" -Force
+    Compress-Archive -Path $DIR -DestinationPath $DIR -Force
 }
 
 Remove-Item -Path $ENV_FILE
