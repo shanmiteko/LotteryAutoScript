@@ -1,0 +1,36 @@
+name: 'Package Node.js project into an executable'
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'lib/**'
+      - 'main.js'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'lib/**'
+      - 'main.js'
+  workflow_dispatch:
+    branches:
+      - main
+jobs:
+  pkg:
+    runs-on: windows-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Use Node.js'
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16'
+      - name: 'Pkg this'
+        run: |
+          npm install
+          npm run pkg_x64
+      - name: 'Upload to artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist/
