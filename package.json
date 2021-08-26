@@ -9,8 +9,8 @@
     "check": "node main.js check",
     "update": "node main.js update",
     "pkg_x64": "PowerShell .\\script\\pkg\\pkg.ps1",
-    "pkg_arm64": "npx pkg -t node16-linux-arm64 -o dist/lottery main.js && cp my_config.example.js my_config.js && cp env.example.js dist/env.js",
-    "pkg_armv7": "npx pkg -t node16-linuxstatic-armv7 -o dist/lottery main.js && cp my_config.example.js my_config.js && cp env.example.js dist/env.js"
+    "pkg_arm64": "npx pkg -t node16-linux-arm64 -o dist/lottery main.js && cp my_config.example.js dist/my_config.js && cp env.example.js dist/env.js",
+    "pkg_armv7": "npx pkg -t node16-linuxstatic-armv7 -o dist/lottery main.js && cp my_config.example.js dist/my_config.js && cp env.example.js dist/env.js"
   },
   "files": [
     "lib",
