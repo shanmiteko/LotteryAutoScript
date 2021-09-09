@@ -33,6 +33,8 @@
 
 ## 操作步骤
 
+**使用前务必阅读此教程和配置文件内注释**
+
 右上角<kbd>★ Star</kbd>
 
 ↓↓
@@ -93,8 +95,11 @@ Chrome浏览器:
 3. 在`env.js`中填入`COOKIE`和推送参数
 4. 在`my_config.js`中自定义设置
 5. 在当前目录下**打开终端**运行可执行文件`lottery`(勿直接点击`lottery`)
-6. 键入`lottery start`启动抽奖|`lottery check`检测中奖|`lottery clear`清理动态
-   > 或者新建文本文档写入`lottery start`然后更改扩展名为.bat点击运行
+   - `lottery start` 启动抽奖
+   - `lottery check` 检测中奖
+   - `lottery clear` 清理动态
+
+    或者 新建文本文档写入`lottery start`然后更改扩展名为.bat点击运行(已自带start.bat可直接点击)
 7. 运行截图
   ![lottery_start](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/lottery_start.png)
 
