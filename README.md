@@ -1,5 +1,4 @@
 # AutoScript
-
 - [AutoScript](#autoscript)
   - [操作步骤](#操作步骤)
     - [获取COOKIE](#获取cookie)
@@ -16,6 +15,9 @@
   - [设置说明](#设置说明)
 
 [Github仓库链接](https://github.com/shanmiteko/LotteryAutoScript)
+
+[![Package Node.js project into an executable](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/pkg.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/pkg.yml)<br>
+[![Build and push Docker images](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/docker.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/docker.yml)
 
 已实现功能:
 - 监控用户转发
