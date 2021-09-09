@@ -10,7 +10,7 @@
 2.下载脚本到本地  
 
 ```sh
-git clone https://github.com/shanmite/LotteryAutoScript.git
+git clone https://github.com/shanmiteko/LotteryAutoScript.git
 ```
 
 ![image_download](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/image_download.png)  
@@ -18,7 +18,7 @@ git clone https://github.com/shanmite/LotteryAutoScript.git
 **注意**: github访问下载速度可能很慢, 如果卡住了可以通过Github镜像网站下载  
 
 ```sh
-git clone https://github.com.cnpmjs.org/shanmite/LotteryAutoScript.git
+git clone https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript.git
 ```
 
 
@@ -54,14 +54,14 @@ vim env.js
 ```sh
 crontab -e
 ```
+cd 后的路径修改为你的脚本路径
+```sh
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin/:/usr/bin
 
-![crontab](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/crontab.png)  
-
-`SHELL` 和 `PATH`照着填
-
-`MAILTO`不填也行
-
-注意`HOME`后面跟脚本所在的目录, 这样才能到那个目录下去执行命令
+1 */3 * * * cd /root/LotteryAutoScript && npm i && npm run check
+1 */3 * * * cd /root/LotteryAutoScript && npm i && npm run start
+```
 
 
 6.手动运行一波
