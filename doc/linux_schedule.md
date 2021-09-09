@@ -10,15 +10,14 @@
 2.下载脚本到本地  
 
 ```sh
-git clone https://github.com/shanmite/LotteryAutoScript.git
+git clone https://github.com/shanmiteko/LotteryAutoScript.git
 ```
 
-![image_download](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/image_download.png)  
 
 **注意**: github访问下载速度可能很慢, 如果卡住了可以通过Github镜像网站下载  
 
 ```sh
-git clone https://github.com.cnpmjs.org/shanmite/LotteryAutoScript.git
+git clone https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript.git
 ```
 
 
@@ -26,6 +25,7 @@ git clone https://github.com.cnpmjs.org/shanmite/LotteryAutoScript.git
 
 ```sh
 mv env.example.js env.js
+mv my_config.example.js my_config.js
 ```
 
 
@@ -38,11 +38,10 @@ vim env.js
 # 此处可查阅Vim的使用手册
 ```
 
-![image-envjs](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/image-envjs.png)  
+详见[env.example.js](https://github.com/shanmiteko/LotteryAutoScript/blob/main/env.example.js)文件内部注释
 
-说明: `"CLEAR"`项设置为`true`, 才可以开启自动清理动态功能  
 
-`"PAT"`和`"GITHUB_REPOSITORY"`不填也行  
+[my_config.example.js](https://github.com/shanmiteko/LotteryAutoScript/blob/main/my_config.example.js)同理
 
 
 ~~5.设置定时工作~~
@@ -54,14 +53,14 @@ vim env.js
 ```sh
 crontab -e
 ```
+cd 后的路径修改为你的脚本路径
+```sh
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin/:/usr/bin
 
-![crontab](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/crontab.png)  
-
-`SHELL` 和 `PATH`照着填
-
-`MAILTO`不填也行
-
-注意`HOME`后面跟脚本所在的目录, 这样才能到那个目录下去执行命令
+1 */3 * * * cd /root/LotteryAutoScript && npm i && npm run check
+1 */3 * * * cd /root/LotteryAutoScript && npm i && npm run start
+```
 
 
 6.手动运行一波
