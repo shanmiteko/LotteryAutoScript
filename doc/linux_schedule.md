@@ -25,6 +25,7 @@ git clone https://github.com.cnpmjs.org/shanmiteko/LotteryAutoScript.git
 
 ```sh
 mv env.example.js env.js
+mv my_config.example.js my_config.js
 ```
 
 
@@ -37,11 +38,10 @@ vim env.js
 # 此处可查阅Vim的使用手册
 ```
 
-![image-envjs](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/image-envjs.png)  
+详见[env.example.js](https://github.com/shanmiteko/LotteryAutoScript/blob/main/env.example.js)文件内部注释
 
-说明: `"CLEAR"`项设置为`true`, 才可以开启自动清理动态功能  
 
-`"PAT"`和`"GITHUB_REPOSITORY"`不填也行  
+[my_config.example.js](https://github.com/shanmiteko/LotteryAutoScript/blob/main/my_config.example.js)同理
 
 
 ~~5.设置定时工作~~
