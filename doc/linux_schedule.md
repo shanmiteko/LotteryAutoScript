@@ -13,7 +13,6 @@
 git clone https://github.com/shanmiteko/LotteryAutoScript.git
 ```
 
-![image_download](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/image_download.png)  
 
 **注意**: github访问下载速度可能很慢, 如果卡住了可以通过Github镜像网站下载  
 
