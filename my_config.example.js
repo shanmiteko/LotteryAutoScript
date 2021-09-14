@@ -76,9 +76,9 @@ module.exports = {
         
         /**
          * - 检查专栏是否看过，提高检测效率
-         * - 默认false(不检查)
+         * - 默认false(检查)
          */
-        checkArt: false,
+        not_check_article: false,
 
         /**
          * - 开奖时间距离现在的最大天数
