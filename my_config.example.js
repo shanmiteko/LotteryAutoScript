@@ -75,7 +75,7 @@ module.exports = {
         article_scan_page: 3,
         
         /**
-         * - 检查专栏是否看过，提高检测效率
+         * - 不检查专栏是否看过，若选择检查可以提高检测效率
          * - 默认false(检查)
          */
         not_check_article: false,
