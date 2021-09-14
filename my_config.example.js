@@ -73,6 +73,12 @@ module.exports = {
          * - 获取专栏数量
          */
         article_scan_page: 3,
+        
+        /**
+         * - 检查专栏是否看过，提高检测效率
+         * - 默认true(检查)
+         */
+        checkArt: true,
 
         /**
          * - 开奖时间距离现在的最大天数
