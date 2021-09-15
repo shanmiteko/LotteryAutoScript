@@ -1,0 +1,25 @@
+name: "Publishing to NPM"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "lib/**"
+      - "main.js"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "lib/**"
+      - "main.js"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}

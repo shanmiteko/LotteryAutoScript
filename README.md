@@ -17,7 +17,8 @@
 [Github仓库链接](https://github.com/shanmiteko/LotteryAutoScript)
 
 [![Package Node.js project into an executable](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/pkg.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/pkg.yml)<br>
-[![Build and push Docker images](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/docker.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/docker.yml)
+[![Build and push Docker images](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/docker.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/docker.yml)<br>
+[![Publishing to NPM](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/npmp.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/npmp.yml)
 
 已实现功能:
 - 监控用户转发
