@@ -17,7 +17,7 @@ module.exports = Object.freeze({
      * **按顺序依次执行, 防止访问频繁封禁IP**
      */
     account_parm: {
-        COOKIE: "",
+        COOKIE: "SESSDATA=6f9def8b%2C1643037950%2Cf2b95%2A71; bili_jct=9c7241c80ab38f3a788317fd6cd33e31; DedeUserID=1113895660",
         NUMBER: 1,
         CLEAR: true,
 
