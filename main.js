@@ -95,15 +95,21 @@ async function main() {
     }
 }
 
-(async function () {
-    log.proPrint(metainfo, '\n')
-
+/**
+ * 初始化环境
+ * @returns {boolean} 出错true
+ */
+function initEnv() {
     if (hasFileOrDir(env_file)) {
-        const { initEnv, multiple_account_parm } = require(env_file);
+        const
+            env = require("./lib/data/env"),
+            multiple_account_parm = env.get_multiple_account();
+
         if (multiple_account_parm) {
             multiple_account = multiple_account_parm;
         }
-        initEnv();
+
+        env.init();
         log.init();
         log.info('环境变量初始化', '成功加载env.js文件');
     } else if (hasEnv('COOKIE') || hasEnv('MULTIPLE_ACCOUNT_PARM')) {
@@ -112,16 +118,33 @@ async function main() {
     } else {
         log.init();
         log.error('环境变量初始化', '未在当前目录下找到env.js文件或者在环境变量中设置所需参数');
-        return
+        return true
     }
 
+    return false
+}
+
+/**
+ * 初始化设置
+ * @returns {boolean} 出错true
+ */
+function initConfig() {
     if (hasFileOrDir(config_file)) {
-        require("./lib/data/config");
+        const config = require("./lib/data/config");
+        config.init();
         log.info('配置文件初始化', '成功加载my_config.js文件');
     } else {
         log.error('配置文件初始化', '未在当前目录下找到my_config.js文件');
-        return
+        return true
     }
+
+    return false
+}
+
+(async function () {
+    log.proPrint(metainfo, '\n')
+
+    if (initEnv() || initConfig()) return;
 
     /**OPTIONS */
     process.env.lottery_mode = process.argv[2]
@@ -135,6 +158,7 @@ async function main() {
         while (loop_wait) {
             log.info('程序休眠', `${loop_wait / 1000}秒后再次启动`)
             await delay(loop_wait)
+            if (initEnv() || initConfig()) return;
             await main()
         }
         log.info('结束运行', '未在config.js中设置休眠时间')
