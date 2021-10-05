@@ -123,15 +123,19 @@ module.exports = Object.freeze({
         create_dy: false,
 
         /**
-         * - 发送随机动态的数量
+         * - 结束运行时发送随机动态的数量
          */
         create_dy_num: 1,
 
         /**
+         * - 每转发x条抽奖动态就发送x条随机动态
+         * - @example [6,1] 每转发6条抽奖动态就发送1条随机动态
+         */
+        create_dy_mode: [0, 0],
+
+        /**
          * - 随机动态内容
          * - 类型 `content[]`
-         */
-        /**
          * @typedef Picture
          * @property {string} img_src 站内源
          * @property {number} img_width
