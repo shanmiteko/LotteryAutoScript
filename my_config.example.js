@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = Object.freeze({
     /** 
      * 默认设置(公用)
      */
@@ -7,7 +7,6 @@ module.exports = {
          * 监视更转的用户uid
          */
         UIDs: [
-            31252386,
             689277291,
             241675899
         ],
@@ -73,7 +72,7 @@ module.exports = {
          * - 获取专栏数量
          */
         article_scan_page: 3,
-        
+
         /**
          * - 不检查专栏是否看过，若选择检查可以提高检测效率
          * - 默认false(检查)
@@ -255,4 +254,4 @@ module.exports = {
     config_1: {},
     config_2: {},
     config_3: {}
-}
+})

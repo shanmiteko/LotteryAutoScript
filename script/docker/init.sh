@@ -3,8 +3,6 @@ set -e
 
 # 脚本根目录
 SCRIPT_FOLDER=lottery
-# dyid存放目录
-DYID_FOLDER=dyids
 # 设置环境变量文件
 ENV_FILE=env.js
 # 自定义设置文件
@@ -25,14 +23,6 @@ if [ ! -d "$SCRIPT_FOLDER" ]; then
 fi
 
 cd $SCRIPT_FOLDER/
-
-# 新建dyid储存目录
-if [ ! -d "$DYID_FOLDER" ]; then
-    echo "create $DYID_FOLDER/"
-    mkdir $DYID_FOLDER
-else
-    echo "$DYID_FOLDER/ exists"
-fi
 
 # 新建环境变量设置文件
 if [ ! -f "$ENV_FILE" ]; then
@@ -58,7 +48,6 @@ echo -e "#!/bin/bash\n\
 docker run \
 -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \
 -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \
--v $PWD/$DYID_FOLDER/:/lottery/$DYID_FOLDER/ \
 $DOCKER_REPO \
 start" \
 > start.sh
@@ -69,7 +58,6 @@ echo -e "#!/bin/bash\n\
 docker run \
 -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \
 -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \
--v $PWD/$DYID_FOLDER/:/lottery/$DYID_FOLDER/ \
 $DOCKER_REPO \
 check" \
 > check.sh
@@ -80,7 +68,6 @@ echo -e "#!/bin/bash\n\
 docker run \
 -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \
 -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \
--v $PWD/$DYID_FOLDER/:/lottery/$DYID_FOLDER/ \
 $DOCKER_REPO \
 clear" \
 > clear.sh

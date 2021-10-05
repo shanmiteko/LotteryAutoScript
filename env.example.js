@@ -30,7 +30,7 @@ module.exports = Object.freeze({
 
     /**
      * 为防止环境变量过长, 请将多账号填在此处
-     * 以大括号内容为模板依次复制,逗号分割
+     * 以大括号内容为模板依次复制(包含大括号),逗号分割
      */
     multiple_account_parm: [
         {
