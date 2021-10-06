@@ -5,14 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "lib/**"
-      - "main.js"
-  pull_request:
-    branches:
-      - main
-    paths:
-      - "lib/**"
-      - "main.js"
+      - "package.json"
   workflow_dispatch:
 
 jobs:
