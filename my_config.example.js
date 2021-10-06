@@ -123,15 +123,17 @@ module.exports = Object.freeze({
         create_dy: false,
 
         /**
+         * 随机动态类型
+         * - 0 自定义文字与图片
+         * - 1 推荐视频
+         * - -1 混合
+         */
+        create_dy_type: 0,
+
+        /**
          * - 结束运行时发送随机动态的数量
          */
         create_dy_num: 1,
-
-        /**
-         * - 每转发x条抽奖动态就发送x条随机动态
-         * - @example [6,1] 每转发6条抽奖动态就发送1条随机动态
-         */
-        create_dy_mode: [0, 0],
 
         /**
          * - 随机动态内容
@@ -143,6 +145,12 @@ module.exports = Object.freeze({
          * @param { string | Picture[] } content
          */
         dy_contents: ['[doge]', '[doge][doge]'],
+
+        /**
+         * - 每转发x条抽奖动态就发送x条随机动态
+         * - @example [[10,11,9],[6,8,9]] 每转发9,10,11条抽奖动态就发送6,8,9条随机动态
+         */
+        create_dy_mode: [[0], [0]],
 
         /**
          * 转发时[at]的用户
