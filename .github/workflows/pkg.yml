@@ -29,11 +29,21 @@ jobs:
         run: |
           npm install
           npm run pkg_x64
-      - name: "Upload to artifact"
+      - name: "Upload to artifact(win)"
         uses: actions/upload-artifact@v2
         with:
-          name: dist_x64
-          path: dist/
+          name: nlts-win-x64
+          path: dist/nlts-win-x64.zip
+      - name: "Upload to artifact(linux)"
+        uses: actions/upload-artifact@v2
+        with:
+          name: nlts-linux-x64
+          path: dist/nlts-linux-x64.zip
+      - name: "Upload to artifact(macos)"
+        uses: actions/upload-artifact@v2
+        with:
+          name: nlts-macos-x64
+          path: dist/nlts-macos-x64.zip
   pkg_arm64:
     runs-on: ubuntu-latest
     steps:
