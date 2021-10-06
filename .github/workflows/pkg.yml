@@ -33,17 +33,17 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: nlts-win-x64
-          path: dist/nlts-win-x64.zip
+          path: dist/nlts-win-x64/
       - name: "Upload to artifact(linux)"
         uses: actions/upload-artifact@v2
         with:
           name: nlts-linux-x64
-          path: dist/nlts-linux-x64.zip
+          path: dist/nlts-linux-x64/
       - name: "Upload to artifact(macos)"
         uses: actions/upload-artifact@v2
         with:
           name: nlts-macos-x64
-          path: dist/nlts-macos-x64.zip
+          path: dist/nlts-macos-x64/
   pkg_arm64:
     runs-on: ubuntu-latest
     steps:
