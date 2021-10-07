@@ -256,8 +256,12 @@ module.exports = Object.freeze({
          * | 番剧       | `512`  |
          * | 活动       | `2048` |
          * | 专栏       | `64`   |
+         * 
+         * @example
+         * 1
+         * [1,2,4]
          */
-        clear_dynamic_type: 1
+        clear_dynamic_type: [1]
     },
 
     /**
