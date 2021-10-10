@@ -108,6 +108,36 @@ module.exports = Object.freeze({
         search_wait: 1000,
 
         /**
+         * - 读取下一页私信间隔
+         * - 单位毫秒
+         */
+        get_session_wait: 3000,
+
+        /**
+         * - 已读私信间隔
+         * - 单位毫秒
+         */
+        update_session_wait: 1000,
+
+        /**
+         * - 读取下一页关注列表间隔
+         * - 单位毫秒
+         */
+        get_partition_wait: 2000,
+
+        /**
+         * - 获取动态细节间隔
+         * - 单位毫秒
+         */
+        get_dynamic_detail_wait: 2000,
+
+        /**
+         * - 随机动态间隔
+         * - 单位毫秒
+         */
+        random_dynamic_wait: 2000,
+
+        /**
          * - up主粉丝数限制
          */
         minfollower: 1000,
