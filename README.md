@@ -98,11 +98,25 @@ Chrome浏览器:
 3. 在`env.js`中填入`COOKIE`和推送参数
 4. 在`my_config.js`中自定义设置
 5. 在当前目录下**打开终端**运行可执行文件`lottery`(勿直接点击`lottery`)
-   - `lottery start` 启动抽奖
-   - `lottery check` 检测中奖
-   - `lottery clear` 清理动态
+   ```sh
+   # unix-like
+   ## 进入脚本所在目录
+   ## 授予执行权限
+   $ chmod u+x lottery
+   ## 启动脚本
+   $ ./lottery start
+   ## 检测中奖
+   $ ./lottery check
+   ## 清理关注动态
+   $ ./lottery clear
+   ## 下载最新版本
+   $ ./lottery clear
 
-    或者 新建文本文档写入`lottery start`然后更改扩展名为.bat点击运行(已自带start.bat可直接点击)
+   # windows
+   ## 不需要chmod
+   ## 把`./`换成`.\`或去掉
+   ## 已自带*.bat可直接点击
+   ```
 7. 运行截图
   ![lottery_start](https://gitee.com/shanmite/LotteryAutoScript/raw/main/doc/pic/lottery_start.png)
 
@@ -177,12 +191,12 @@ npm i && npm run clear
 1.初始化
 
 ```bash
-curl -fsSL https://cdn.staticaly.com/gh/shanmiteko/LotteryAutoScript/main/script/docker/init.sh | sh
+$ curl -fsSL https://cdn.staticaly.com/gh/shanmiteko/LotteryAutoScript/main/script/docker/init.sh | sh
 ```
 
 进入`lottery`文件夹
 ```bash
-cd lottery
+$ cd lottery
 ```
 
 编辑`env.js`与`my_config.js`文件
@@ -194,7 +208,7 @@ cd lottery
 
 例如:
 ```bash
-./start.sh
+$ ./start.sh
 ```
 
 2.更新
@@ -208,8 +222,8 @@ cd lottery
 进入lottery上一级目录
 
 ```bash
-docker image rm -f shanmite/lottery_auto_docker
-rm -rf lottery/
+$ docker image rm -f shanmite/lottery_auto_docker
+$ rm -rf lottery/
 ```
 
 ----------------------------------------
