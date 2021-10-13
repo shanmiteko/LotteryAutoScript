@@ -132,6 +132,12 @@ module.exports = Object.freeze({
         get_dynamic_detail_wait: 2000,
 
         /**
+         * - 过滤间隔(开奖时间/粉丝数)
+         * - 单位毫秒
+         */
+        filter_wait: 1000,
+
+        /**
          * - 随机动态间隔
          * - 单位毫秒
          */
