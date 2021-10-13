@@ -142,7 +142,7 @@ function initConfig() {
 }
 
 (async function () {
-    log.proPrint(metainfo, '\n')
+    log.rainbow(metainfo)
 
     if (initEnv() || initConfig()) return;
 
