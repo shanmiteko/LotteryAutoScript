@@ -1,3 +1,17 @@
+## 主要变化(2.2.6)
+- LOG日志显示随机动态内容(#47)
+- 增加设置过滤间隔
+## 较上一版本变化
+- `env.js`无
+- `my_config.js`增加`filter_wait`
+
+**替换可执行文件和更改配置文件(建议修改)**
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.2.5...v2.2.6
+
+
 ## 主要变化(2.2.5)
 ## 问题修复
 - 因黑名单而关注失败(#45)
