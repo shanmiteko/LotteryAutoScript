@@ -88,7 +88,8 @@ async function main() {
                     return `提供了错误的[OPTIONS] -> ${mode}\n\n` + help_msg
             }
         } else {
-            return 'Cookie已失效, 切换账号时不要点击退出账号而应直接删除Cookie退出'
+            log.error('Cookie已失效', '切换账号时不要点击退出账号而应直接删除Cookie退出')
+            return ''
         }
     } else {
         return '请查看README文件, 在env.js指定位置填入cookie'
