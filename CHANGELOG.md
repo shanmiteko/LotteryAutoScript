@@ -1,3 +1,18 @@
+## 主要变化(2.2.7)
+## 问题修复
+- 未移动分区(#50)
+- 修改线路切换逻辑 
+## 较上一版本变化
+- `env.js`无
+- `my_config.js`无
+
+**替换可执行文件**
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.2.6...v2.2.7
+
+
 ## 主要变化(2.2.6)
 - LOG日志显示随机动态内容(#47)
 - 增加设置过滤间隔
