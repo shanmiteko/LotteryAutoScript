@@ -105,7 +105,7 @@ module.exports = Object.freeze({
          * - 检索动态间隔
          * - 单位毫秒
          */
-        search_wait: 1000,
+        search_wait: 2000,
 
         /**
          * - 读取下一页私信间隔
