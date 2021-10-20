@@ -1,3 +1,18 @@
+## 主要变化(2.2.8)
+- 遇到过期的cookie跳过(#51)
+## 问题修复
+- UP关闭评论区(#52)
+## 较上一版本变化
+- `env.js`无
+- `my_config.js`无
+
+**替换可执行文件**
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.2.7...v2.2.8
+
+
 ## 主要变化(2.2.7)
 ## 问题修复
 - 未移动分区(#50)
