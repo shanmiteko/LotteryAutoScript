@@ -1,3 +1,19 @@
+## 主要变化(2.2.9)
+- 检查动态创建时间(#57)(#58)
+- 简单整理(#56)
+## 问题修复
+- 非转发动态无源用户(#54)
+## 较上一版本变化
+- `env.js`无
+- `my_config.js`增加`max_create_time`
+
+**替换可执行文件和更改配置文件(建议修改)**
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.2.8...v2.2.9
+
+
 ## 主要变化(2.2.8)
 - 遇到过期的cookie跳过(#51)
 ## 问题修复
