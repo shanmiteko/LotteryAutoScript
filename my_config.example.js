@@ -54,6 +54,12 @@ module.exports = Object.freeze({
         chatmodel: '01',
 
         /**
+         * - 动态创建时间
+         * - 多少天前
+         */
+        max_create_time: 60,
+
+        /**
          * 不加判断的转发所监视的uid转发的动态
          */
         is_imitator: false,
