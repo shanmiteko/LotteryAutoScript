@@ -1,6 +1,6 @@
 {
   "name": "lottery-auto-script",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "自动参与B站动态抽奖",
   "main": "main.js",
   "scripts": {
@@ -45,11 +45,11 @@
   },
   "homepage": "https://github.com/shanmiteko/AutoScript#readme",
   "devDependencies": {
-    "eslint": "^7.17.0",
-    "pkg": "^5.2.1"
+    "eslint": "^8.1.0",
+    "pkg": "^5.4.1"
   },
   "dependencies": {
-    "chalk": "^4.1.1",
-    "nodemailer": "^6.5.0"
+    "chalk": "^4.1.2",
+    "nodemailer": "^6.7.0"
   }
 }
