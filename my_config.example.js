@@ -29,6 +29,34 @@ module.exports = Object.freeze({
         ],
 
         /**
+         * 从API接口中获取抽奖信息
+         * @typedef {object} LotteryInfo
+         * @property {string} lottery_info_type
+         * @property {number} create_time
+         * @property {boolean} is_liked
+         * @property {number[]} uids `[uid,ouid]`
+         * @property {string} uname
+         * @property {Array<{}>} ctrl
+         * @property {string} dyid
+         * @property {string} rid
+         * @property {string} des
+         * @property {number} type
+         * @property {boolean} hasOfficialLottery 是否官方
+         * @typedef RespondBody
+         * @property {string} err_msg 错误信息
+         * @property {LotteryInfo[]} lottery_info
+         * API传回数据类型 {RespondBody}
+         * 获取抽奖信息的链接字符串
+         */
+        APIs: [],
+
+        /**
+         * API发送数据类型 {LotteryInfo[]}
+         * 上传抽奖信息的链接字符串
+         */
+        set_lottery_info_url: "",
+
+        /**
          * 动态中的关键词(表示须同时满足以下条件)
          * 符合js正则表达式的字符串
          */
