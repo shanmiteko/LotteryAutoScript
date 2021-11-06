@@ -1,6 +1,23 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
 
+## 主要变化(2.3.2)
+
+* b4c7a83 docs: 更新README
+* 72b07a0 chore: 暂时去除打包到arm
+* 4accd2d fix: 根据点赞去重(#64)
+* d1c2c61 fix: 无法打包pkg_armv7
+* 6b09711 feat: 获取和储存整理好的动态信息(#64)
+## 较上一版本变化
+
+[my_config.js](my_config.js)增加
+* `APIs` - 获取抽奖信息的链接字符串
+* `set_lottery_info_url` - 上传抽奖信息的链接字符串
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.3.1...v2.3.2
+
 ## 主要变化(2.3.1)
 
 ## 问题修复

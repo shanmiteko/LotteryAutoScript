@@ -47,6 +47,8 @@ module.exports = Object.freeze({
          * @property {LotteryInfo[]} lottery_info
          * API传回数据类型 {RespondBody}
          * 获取抽奖信息的链接字符串
+         * @example
+         * "https://raw.fastgit.org/spiritLHL/sync_lottery/master/archive_datas/datas.json"
          */
         APIs: [],
 
