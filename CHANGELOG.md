@@ -1,6 +1,17 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
 
+## 主要变化(2.3.3)
+* 11625b3 feat: 检索专栏时能够根据发布时间进行过滤(#65)
+* 8c7a6d1 fix: 多帐号设置未更新
+## 较上一版本变化
+[my_config.js](my_config.example.js)增加
+* `article_create_time` - 专栏创建时间距离现在的最大天数
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.3.2...v.2.3.3
+
 ## 主要变化(2.3.2)
 
 * b4c7a83 docs: 更新README
