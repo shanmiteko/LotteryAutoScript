@@ -110,6 +110,11 @@ module.exports = Object.freeze({
         article_scan_page: 3,
 
         /**
+         * - 专栏创建时间距离现在的最大天数
+         */
+        article_create_time: 7,
+
+        /**
          * - 不检查专栏是否看过，若选择检查可以提高检测效率
          * - 默认false(检查)
          */
