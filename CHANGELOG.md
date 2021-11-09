@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.3.4)
+* 1962d97 fix: 过滤专栏时间失效(#67)
+## 较上一版本变化
+只变更可执行文件
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.3.2...v2.3.4
 
 ## 主要变化(2.3.3)
 * 11625b3 feat: 检索专栏时能够根据发布时间进行过滤(#65)
