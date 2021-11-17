@@ -284,6 +284,11 @@ module.exports = Object.freeze({
         ],
 
         /**
+         * - 获取私信页数
+         */
+        check_session_pages: 16,
+
+        /**
          * - 清理白名单uid或dyid
          * - 英文逗号分隔 如: 1,2,3
          */
