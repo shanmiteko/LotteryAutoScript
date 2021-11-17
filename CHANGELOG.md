@@ -1,5 +1,17 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.3.5)
+* 8c0d96a refactor: 检测是否已经发送过随机动态(#71)
+* 09b6db4 feat: 新增设置`check_session_pages`(#66)
+## 较上一版本变化
+* 变更可执行文件
+* [my_config.js](my_config.example.js)增加
+  - `check_session_pages` - 检查私信页数
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.3.4...v2.3.5
+
 ## 主要变化(2.3.4)
 * 1962d97 fix: 过滤专栏时间失效(#67)
 ## 较上一版本变化
