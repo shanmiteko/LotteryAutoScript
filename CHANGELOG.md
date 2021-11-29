@@ -1,5 +1,16 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.3.6)
+* eae72db feat: minfollower填0可关闭本地粉丝数筛选
+* 111602f perf: 日志显示是否转发过
+* d366e25 fix:  转发动态时非限制性错误码(#72)
+## 较上一版本变化
+* 变更可执行文件
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.3.5...v2.3.6
+
 ## 主要变化(2.3.5)
 * 8c0d96a refactor: 检测是否已经发送过随机动态(#71)
 * 09b6db4 feat: 新增设置`check_session_pages`(#66)
