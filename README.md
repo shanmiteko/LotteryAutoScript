@@ -201,7 +201,7 @@ npm i && npm run clear
 1.初始化
 
 ```bash
-curl -fsSL https://cdn.staticaly.com/gh/shanmiteko/LotteryAutoScript/main/script/docker/init.sh | sh
+curl -fsSL https://cdn.staticaly.com/gh/shanmiteko/LotteryAutoScript/main/script/docker/init.sh | sudo sh
 ```
 
 进入`lottery`文件夹
@@ -237,6 +237,11 @@ cd lottery
 ```bash
 docker image rm -f shanmite/lottery_auto_docker
 rm -rf lottery/
+```
+
+4.调试
+```bash
+docker run -it --entrypoint /bin/sh shanmite/lottery_auto_docker:latest -c sh
 ```
 
 ----------------------------------------
