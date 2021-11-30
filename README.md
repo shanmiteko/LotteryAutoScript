@@ -215,34 +215,26 @@ cd lottery
 - env.js 设置必要环境变量
 - my_config.js 你的设置
 
-执行相应的脚本
-> start,check,clear
-
-例如:
-
-```bash
-./start.sh
+2.执行相应的脚本
+```
+$ tree
+.
+├── check.sh
+├── clear.sh
+├── debug.sh 进入临时容器查看内容
+├── env.js
+├── my_config.js
+├── new_env.js
+├── new_my_config.js
+├── remove_all.sh 移除对应docker镜像和所有相关容器
+└── start.sh 
 ```
 
-2.更新
+3.更新
 
 进入lottery上一级目录
 
 使用与初始化相同的命令
-
-3.卸载
-
-进入lottery上一级目录
-
-```bash
-docker image rm -f shanmite/lottery_auto_docker
-rm -rf lottery/
-```
-
-4.调试
-```bash
-docker run -it --entrypoint /bin/sh shanmite/lottery_auto_docker:latest -c sh
-```
 
 ----------------------------------------
 

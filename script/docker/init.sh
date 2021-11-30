@@ -29,7 +29,9 @@ if [ ! -f "$ENV_FILE" ]; then
     echo "create $ENV_FILE"
     curl -fsSL $ENV_EXAMPLE -o $ENV_FILE
 else
-    echo "$ENV_FILE exists"
+    echo "$ENV_FILE already existed"
+    echo "create new_$ENV_FILE"
+    curl -fsSL $ENV_EXAMPLE -o "new_$ENV_FILE"
 fi
 
 # 新建配置文件
@@ -37,38 +39,99 @@ if [ ! -f "$CONFIG_FILE" ]; then
     echo "create $CONFIG_FILE"
     curl -fsSL $CONFIG_EXAMPLE -o $CONFIG_FILE
 else
-    echo "$CONFIG_FILE exists"
+    echo "$CONFIG_FILE already existed"
+    echo "create new_$CONFIG_FILE"
+    curl -fsSL $CONFIG_EXAMPLE -o "new_$CONFIG_FILE"
 fi
 
 echo "docker pull $DOCKER_REPO"
 docker -v && docker pull $DOCKER_REPO
 
 echo "create start.sh"
-echo -e "#!/bin/bash\n\
-docker run \
--v $PWD/$ENV_FILE:/lottery/$ENV_FILE \
--v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \
-$DOCKER_REPO \
-start" \
-> start.sh
+cat >start.sh <<EOF
+#!/bin/sh
+NAME=shanmite-lottery-start
+if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
+    docker run \\
+        -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \\
+        -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \\
+        --name \$NAME \\
+        $DOCKER_REPO \\
+        start
+else
+    echo "container \$NAME already existed"
+    echo "history logs -> docker logs \$NAME"
+    echo "close this -> docker stop \$NAME"
+    echo "start \$NAME"
+    docker start \$NAME
+fi
+EOF
 chmod +x start.sh
 
 echo "create check.sh"
-echo -e "#!/bin/bash\n\
-docker run \
--v $PWD/$ENV_FILE:/lottery/$ENV_FILE \
--v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \
-$DOCKER_REPO \
-check" \
-> check.sh
+cat >check.sh <<EOF
+#!/bin/sh
+NAME=shanmite-lottery-check
+if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
+    docker run \\
+        -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \\
+        -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \\
+        --name \$NAME \\
+        $DOCKER_REPO \\
+        check
+else
+    echo "container \$NAME already existed"
+    echo "history logs -> docker logs \$NAME"
+    echo "close this -> docker stop \$NAME"
+    echo "start \$NAME"
+    docker start \$NAME
+fi
+EOF
 chmod +x check.sh
 
 echo "create clear.sh"
-echo -e "#!/bin/bash\n\
-docker run \
--v $PWD/$ENV_FILE:/lottery/$ENV_FILE \
--v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \
-$DOCKER_REPO \
-clear" \
-> clear.sh
+cat >clear.sh <<EOF
+#!/bin/sh
+NAME=shanmite-lottery-clear
+if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
+    docker run \\
+        -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \\
+        -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \\
+        --name \$NAME \\
+        $DOCKER_REPO \\
+        clear
+else
+    echo "container \$NAME already existed"
+    echo "history logs -> docker logs \$NAME"
+    echo "close this -> docker stop \$NAME"
+    echo "start \$NAME"
+    docker start \$NAME
+fi
+EOF
 chmod +x clear.sh
+
+echo "create debug.sh"
+cat >debug.sh <<EOF
+#!/bin/sh
+NAME=shanmite-lottery-debug
+echo "create temporary debug container"
+docker run \\
+    -it \\
+    --name \$NAME \\
+    --entrypoint /bin/sh \\
+    $DOCKER_REPO -c sh
+echo "remove temporary debug container"
+docker rm \$NAME
+EOF
+chmod +x debug.sh
+
+echo "create remove_all.sh"
+cat >remove_all.sh <<EOF
+#!/bin/sh
+echo "remove all containers about $DOCKER_REPO"
+docker rm \$(docker ps -a | awk '/shanmite\/lottery_auto_docker/ {print \$1}')
+echo "remove image $DOCKER_REPO"
+docker image rm -f shanmite/lottery_auto_docker
+echo "see you next time!"
+EOF
+chmod +x remove_all.sh
