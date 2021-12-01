@@ -60,7 +60,7 @@ body:
     attributes:
       label: "运行日志"
       description: |
-        控制台日志。
+        控制台日志,请用md代码格式上传,日志内容过多时请上传文件
       placeholder: |
         ```
         请在此黏贴运行日志。
