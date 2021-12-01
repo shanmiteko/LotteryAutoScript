@@ -62,7 +62,9 @@ body:
       description: |
         控制台日志。
       placeholder: |
+        ```
         请在此黏贴运行日志。
+        ```
 
   - id: system
     type: input

@@ -129,7 +129,7 @@ echo "create remove_all.sh"
 cat >remove_all.sh <<EOF
 #!/bin/sh
 echo "remove all containers about $DOCKER_REPO"
-docker rm \$(docker ps -a | awk '/shanmite\/lottery_auto_docker/ {print \$1}')
+docker rm -v \$(docker ps -a | awk '/shanmite\/lottery_auto_docker/ {print \$1}')
 echo "remove image $DOCKER_REPO"
 docker image rm -f shanmite/lottery_auto_docker
 echo "see you next time!"

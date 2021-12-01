@@ -16,35 +16,7 @@ on:
     branches:
       - main
 jobs:
-  pkg_x64:
-    runs-on: windows-latest
-    steps:
-      - name: "Checkout codes"
-        uses: actions/checkout@v2
-      - name: "Use Node.js"
-        uses: actions/setup-node@v1
-        with:
-          node-version: "16"
-      - name: "Pkg this"
-        run: |
-          npm install
-          npm run pkg_x64
-      - name: "Upload to artifact(win)"
-        uses: actions/upload-artifact@v2
-        with:
-          name: nlts-win-x64
-          path: dist/nlts-win-x64/
-      - name: "Upload to artifact(linux)"
-        uses: actions/upload-artifact@v2
-        with:
-          name: nlts-linux-x64
-          path: dist/nlts-linux-x64/
-      - name: "Upload to artifact(macos)"
-        uses: actions/upload-artifact@v2
-        with:
-          name: nlts-macos-x64
-          path: dist/nlts-macos-x64/
-  pkg_arm64:
+  build_all:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout codes"
@@ -55,28 +27,18 @@ jobs:
           node-version: "16"
       - name: "Pkg this"
         run: |
+          sudo apt install zip unzip
           npm install
-          npm run pkg_arm64
+          npm run build_all
       - name: "Upload to artifact"
         uses: actions/upload-artifact@v2
         with:
-          name: nlts-linux-arm64
+          name: all_platform
           path: dist/
-  pkg_armv7:
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Checkout codes"
-        uses: actions/checkout@v2
-      - name: "Use Node.js"
-        uses: actions/setup-node@v1
+      - name: "Upload to release draft"
+        uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          node-version: "16"
-      - name: "Pkg this"
-        run: |
-          npm install
-          npm run pkg_armv7
-      - name: "Upload to artifact"
-        uses: actions/upload-artifact@v2
-        with:
-          name: nlts-linux-armv7
-          path: dist/
+          file: "dist/*.zip"
+          delete_file: "dist/*.zip"
