@@ -41,7 +41,7 @@ for file in "$TARGET_DIR/"*; do
 			./lottery update
 			if [[ -r "latest_version.zip" ]]; then
 			unzip latest_version.zip
-			rm latest_version.zip
+			rm latest_version0.zip
 			chmod u+x lottery
 			fi
 		EOF
