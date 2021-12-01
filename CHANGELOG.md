@@ -1,5 +1,20 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.3.7)
+* 50e18e2 feat: 下载更新时有多个版本
+* b9c73bd chore: change docker auto build
+* 608b1fb pref: 增加筛选时日志输出(#79)
+* 07ef8df chore: 移植并完善自动化构建脚本
+* 6b09e26 chore: update docker init.sh
+* 7babd57 docs: about docker
+* 8b57a85 chore: pkg build
+## 较上一版本变化
+* 变更可执行文件
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.3.6...v2.3.7
+
 ## 主要变化(2.3.6)
 * eae72db feat: minfollower填0可关闭本地粉丝数筛选
 * 111602f perf: 日志显示是否转发过
