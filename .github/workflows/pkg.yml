@@ -42,3 +42,4 @@ jobs:
         with:
           file: "dist/*.zip"
           delete_file: "dist/*.zip"
+          overwrite: true

@@ -121,7 +121,7 @@ docker run \\
     --entrypoint /bin/sh \\
     $DOCKER_REPO -c sh
 echo "remove temporary debug container"
-docker rm \$NAME
+docker rm -v \$NAME
 EOF
 chmod +x debug.sh
 

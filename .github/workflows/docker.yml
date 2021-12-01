@@ -16,25 +16,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  path-context:
+  docker:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
+      - name: Build and push
+        env:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: shanmite/lottery_auto_docker:latest
+          repo: ${{ secrets.DOCKERHUB_REPO }}
+        run: |
+          curl -fsSL https://get.docker.com | bash -s docker
+          docker build -t $repo .
+          docker login -p $password -u $username
+          docker push $repo
