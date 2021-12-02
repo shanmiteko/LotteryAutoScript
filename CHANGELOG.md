@@ -1,5 +1,20 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.3.8)
+* 313942a ci: pkg.yml tag_name
+* 66efd62 feat: 新增设置`use_public_blacklist`
+* d7cf742 feat: 增加粉丝数查询第三方接口
+* 094e019 fix: 二级转发带有效抽奖
+* 8de7453 fix: description获取不到
+* 70c10f2 fix: 更改默认设置`key_words` `blockword`
+* 2f26a39 feat: 源uid参与筛选判断
+## 较上一版本变化
+* 变更可执行文件
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
+**Full Changelog**: https://github.com/shanmiteko/LotteryAutoScript/compare/v2.3.7...v2.3.8
+
 ## 主要变化(2.3.7)
 * 50e18e2 feat: 下载更新时有多个版本
 * b9c73bd chore: change docker auto build
