@@ -63,8 +63,8 @@ module.exports = Object.freeze({
          * 符合js正则表达式的字符串
          */
         key_words: [
-            "[抽奖]",
-            "[转关].*[转关]"
+            "[抽奖送]",
+            "[转关评]"
         ],
 
         /**
@@ -243,7 +243,7 @@ module.exports = Object.freeze({
         /**
          * 屏蔽词
          */
-        blockword: ["脚本抽奖", "恭喜", "结果", "抽奖号", "钓鱼", "涨粉"],
+        blockword: ["脚本", "抽奖号", "钓鱼"],
 
         /**
          * 转发评语
