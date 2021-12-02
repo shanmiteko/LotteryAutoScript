@@ -230,6 +230,8 @@ $ tree
 └── start.sh 
 ```
 
+[![asciicast](https://asciinema.org/a/453237.svg)](https://asciinema.org/a/453237)
+
 3.更新
 
 进入lottery上一级目录
