@@ -35,13 +35,16 @@ for file in "$TARGET_DIR/"*; do
 		for item in "${BATS[@]}"; do
 			create_win_bat "${item}" >"$TMPDIR/$item.bat"
 		done
+		mv "$TMPDIR/$BIN_NAME" "$TMPDIR/$BIN_NAME.exe"
 	else
+		ZIP_NAME=latest_version0
 		cat >"$TMPDIR/update.sh" <<-EOF
 			#!/bin/bash
 			./lottery update
-			if [[ -r "latest_version.zip" ]]; then
-			unzip latest_version.zip
-			rm latest_version0.zip
+			ZIP_NAME=$ZIP_NAME
+			if [[ -r "\$ZIP_NAME.zip" ]]; then
+			unzip \$ZIP_NAME.zip
+			rm \$ZIP_NAME.zip
 			chmod u+x lottery
 			fi
 		EOF
