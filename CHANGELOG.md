@@ -1,5 +1,14 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.3.9)
+* b36c555 ci: auto gen changelog
+* 7338e09 feat: 更新`notice_key_words`
+* 80a54e8 ci: `*.exe` `latest_version0`
+* 1a62914 feat: 新增设置`is_outof_maxfollow`(#80)
+* 449c8d9 docs: update README
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.3.8)
 * 313942a ci: pkg.yml tag_name
 * 66efd62 feat: 新增设置`use_public_blacklist`
