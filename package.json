@@ -8,7 +8,8 @@
     "clear": "node main.js clear",
     "check": "node main.js check",
     "update": "node main.js update",
-    "build_all": "bash script/build/pkg.sh"
+    "build_all": "bash script/build/pkg.sh",
+    "changelog": "bash script/build/changelog.sh"
   },
   "files": [
     "lib",
