@@ -10,8 +10,7 @@ const metainfo = [
     `                                __/ |                  | |        `,
     `                               |___/                   |_|        `,
     `                                                                  `,
-    `                                               Verison:   v${ve}`,
-    `                                               Written By shanmite`,
+    `    This: v${ve}     Nodejs: ${process.version}     Written By shanmite`,
 ]
 /**多账号存储 */
 let multiple_account = [];
