@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # version: <major.minor.patch>
-level=patch
+level=minor
 
 npm version $level \
     --no-commit-hooks \

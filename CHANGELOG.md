@@ -1,5 +1,14 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.0)
+* 01562b6 ci: verison升级时小版本号归0
+* 90ac347 docs: 更新README
+* 3cf3939 feat: 新增设置`check_if_duplicated`
+* d0a8aa9 feat: metainfo显示nodejs版本号
+* 10db52f fix: 完善错误延时重试(#82)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.3.9)
 * b36c555 ci: auto gen changelog
 * 7338e09 feat: 更新`notice_key_words`
