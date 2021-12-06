@@ -15,9 +15,12 @@ patch=${OLD_VERSION_ARRAY[2]}
 case "${level}" in
 "major")
     ((major += 1))
+    minor=0
+    patch=0
     ;;
 "minor")
     ((minor += 1))
+    patch=0
     ;;
 *)
     ((patch += 1))
