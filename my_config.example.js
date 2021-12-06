@@ -48,7 +48,7 @@ module.exports = Object.freeze({
          * API传回数据类型 {RespondBody}
          * 获取抽奖信息的链接字符串
          * @example
-         * "https://raw.fastgit.org/spiritLHL/sync_lottery/master/archive_datas/datas.json"
+         * "https://github.com/spiritLHL/sync_lottery"
          */
         APIs: [],
 
@@ -82,6 +82,14 @@ module.exports = Object.freeze({
          * - '11'都评论
          */
         chatmodel: '01',
+
+        /**
+         * 检查是否重复转发
+         * - 不检查 -1
+         * - 通过是否点赞判断 0
+         * - 检索本地dyids文件 1
+         */
+        check_if_duplicated: 0,
 
         /**
          * - 动态创建时间

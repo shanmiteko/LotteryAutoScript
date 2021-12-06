@@ -45,7 +45,7 @@ async function main() {
         process.env.ENABLE_MULTIPLE_ACCOUNT = ENABLE_MULTIPLE_ACCOUNT;
     } else if (COOKIE) {
         const global_var = require("./lib/data/global_var");
-        await global_var.init(COOKIE, Number(NUMBER));
+        await global_var.init(COOKIE, NUMBER);
 
         /**引入基础功能 */
         const { start, isMe, clear, update, checkCookie } = require("./lib/index");
