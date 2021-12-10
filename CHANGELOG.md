@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.1)
+* 0ba6ace feat: check_if_duplicated可同时使用多种方式
+* dd99426 fix: 只转已关注功能失效
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.0)
 * 01562b6 ci: verison升级时小版本号归0
 * 90ac347 docs: 更新README
