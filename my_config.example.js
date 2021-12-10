@@ -88,8 +88,9 @@ module.exports = Object.freeze({
          * - 不检查 -1
          * - 通过是否点赞判断 0
          * - 检索本地dyids文件 1
+         * - 通过是否点赞判断+检索本地dyids文件 2
          */
-        check_if_duplicated: 0,
+        check_if_duplicated: 1,
 
         /**
          * - 动态创建时间
