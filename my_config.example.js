@@ -244,6 +244,7 @@ module.exports = Object.freeze({
         at_users: [['转发抽奖娘', 294887687], ['你的工具人老公', 100680137]],
 
         /**
+         * - 动态dyid或UID
          * - 英文逗号分隔 如: 1,2,3
          */
         blacklist: '',
