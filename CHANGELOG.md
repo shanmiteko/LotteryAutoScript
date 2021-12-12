@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.3)
+* aba17ed feat: 提示关键词修改建议
+* 5a23043 feat: 只通过是否点赞判断时点赞
+* 76f7152 fix: 黑名单匹配(#90)
+* 0d4185d fix(Searcher): getLotteryInfoByUID(#89)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.2)
 * 20c423f fix: "公共黑名单"显示错误(#87)
 * 6851f29 fix: 描述中出现undefined(#88)
