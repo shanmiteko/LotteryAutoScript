@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.4)
+* c486abf fix: 黑名单不起作用(#92)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.3)
 * aba17ed feat: 提示关键词修改建议
 * 5a23043 feat: 只通过是否点赞判断时点赞

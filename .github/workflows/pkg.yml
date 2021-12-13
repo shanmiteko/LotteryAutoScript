@@ -37,5 +37,5 @@ jobs:
         with:
           file: "dist/*.zip"
           delete_file: "dist/*.zip"
-          tag_name: "v*.*.*"
+          tag_name: "v2"
           overwrite: true
