@@ -141,13 +141,13 @@ function initConfig() {
     return false
 }
 
-(async function () {
+async function go(lottery_mode) {
     log.rainbow(metainfo)
 
     if (initEnv() || initConfig()) return;
 
     /**OPTIONS */
-    process.env.lottery_mode = process.argv[2]
+    process.env.lottery_mode = lottery_mode
 
     const err_msg = await main();
     if (err_msg) {
@@ -165,4 +165,16 @@ function initConfig() {
     }
 
     process.exit(0);
-})()
+}
+
+async function start() {
+    await go("start")
+}
+async function check() {
+    await go("check")
+}
+async function clear() {
+    await go("clear")
+}
+
+module.exports = { start, check, clear }
