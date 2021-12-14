@@ -3,6 +3,7 @@ node_modules/
 tests/
 dyids/
 dist/
+.env
 *.log
 package-lock.json
 env.js
