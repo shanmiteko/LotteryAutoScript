@@ -163,8 +163,6 @@ async function go(lottery_mode) {
         }
         log.info('结束运行', '未在config.js中设置休眠时间')
     }
-
-    process.exit(0);
 }
 
 async function start() {
