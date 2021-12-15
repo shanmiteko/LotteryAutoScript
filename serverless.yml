@@ -7,7 +7,7 @@ inputs:
   src: ./ # 执行目录
   region: ap-guangzhou # 部署目标地区。 更多参考 https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8
   runtime: Nodejs12.16 # 运行环境。[Nodejs10.15, Nodejs12.16]
-  memorySize: 128 # 函数运行内存，单位MB。[64, 128, ... 3072]，以 128 递增
+  memorySize: 64 # 函数运行内存，单位MB。[64, 128, ... 3072]，以 128 递增
   timeout: 900 # 函数超时时间，单位秒，范围 1-900
   functions:
     start:
