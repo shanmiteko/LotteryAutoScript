@@ -8,7 +8,7 @@ inputs:
   region: ap-guangzhou # 部署目标地区。 更多参考 https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8
   runtime: Nodejs12.16 # 运行环境。[Nodejs10.15, Nodejs12.16]
   memorySize: 128 # 函数运行内存，单位MB。[64, 128, ... 3072]，以 128 递增
-  timeout: 3 # 函数超时时间，单位秒，范围 1-900
+  timeout: 900 # 函数超时时间，单位秒，范围 1-900
   functions:
     start:
       handler: main.start
@@ -23,18 +23,15 @@ inputs:
         name: timer1
         cronExpression: "0 12 * * *" # 每天12点
         enable: true
-        argument: argument # 额外的参数
     - type: timer
       function: check
       parameters:
         name: timer2
         cronExpression: "0 * * * *" # 每小时秒触发一次
         enable: true
-        argument: argument # 额外的参数
     - type: timer
       function: clear
       parameters:
         name: timer3
         cronExpression: "0 0 1 */2 *" # 每六十天触发一次
         enable: true
-        argument: argument # 额外的参数
