@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.5)
+* ef969bb feat: 每组显示动态转发数(#97)
+* 0cbacd6 feat: 推送携带帐号编号(#98)
+* da75c8c feat: 增加设置屏蔽动态类型`block_dynamic_type`(#99)
+* 548ad4b fix: pushplus更新域名(#93)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.4)
 * c486abf fix: 黑名单不起作用(#92)
 
