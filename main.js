@@ -65,7 +65,7 @@ async function main() {
                 case 'check':
                     log.info('中奖检测', '检查是否中奖');
                     loop_wait = check_loop_wait;
-                    await isMe();
+                    await isMe(NUMBER);
                     break;
                 case 'clear':
                     if (CLEAR) {
