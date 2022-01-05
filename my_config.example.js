@@ -276,6 +276,12 @@ module.exports = Object.freeze({
         blockword: ["脚本", "抽奖号", "钓鱼"],
 
         /**
+         * 转发并评论
+         * - 评论内容与转发内容相同
+         */
+        is_repost_then_chat: false,
+
+        /**
          * 转发评语
          */
         relay: ['转发动态'],
