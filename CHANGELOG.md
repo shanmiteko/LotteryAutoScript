@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.6)
+* 043fee2 feat: 新增设置`sneaktopic`(#104)
+* ae34c69 feat: 新增设置`is_repost_then_chat`(#103)
+* 7496bc5 feat:  中奖检查时增加回复信息读取(#102)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.5)
 * ef969bb feat: 每组显示动态转发数(#97)
 * 0cbacd6 feat: 推送携带帐号编号(#98)
