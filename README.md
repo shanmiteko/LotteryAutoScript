@@ -301,5 +301,6 @@ $ tree
 ## Awesome
 相关项目
 
-- [LotteryAutoScript_Station](https://github.com/spiritLHL/LotteryAutoScript_Station) - @spiritLHL
-- [sync_lottery](https://github.com/spiritLHL/sync_lottery) - @spiritLHL
+- [LotteryAutoScript_Station](https://github.com/spiritLHL/LotteryAutoScript_Station) - [@spiritLHL](https://github.com/spiritLHL)
+- [sync_lottery](https://github.com/spiritLHL/sync_lottery) - [@spiritLHL](https://github.com/spiritLHL)
+- [BDSF](https://github.com/spiritLHL/BDSF) - [@spiritLHL](https://github.com/spiritLHL)
