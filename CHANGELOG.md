@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.7)
+* dd1b1db feat(update): 优先使用代理更新失败时切回去
+* 86e6b7d feat: 重命名设置`sneaktower`(#104)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.6)
 * 043fee2 feat: 新增设置`sneaktopic`(#104)
 * ae34c69 feat: 新增设置`is_repost_then_chat`(#103)
