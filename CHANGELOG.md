@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.8)
+* 266ecf7 feat: 添加Qmsg酱推送(#115)
+* 4d90d83 feat: 日志细节优化
+* c56ec7a  merge: 更新readme(#110)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.7)
 * dd1b1db feat(update): 优先使用代理更新失败时切回去
 * 86e6b7d feat: 重命名设置`sneaktower`(#104)
