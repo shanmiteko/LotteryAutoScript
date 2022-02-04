@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.4.10)
+* f569207 fix: 低版本node(< v15)不支持replaceAll
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.9)
 * 2fbd292 feat: 自动评语中可用up主昵称`${uname}`变量(#118)
 
