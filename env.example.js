@@ -2,6 +2,7 @@ module.exports = Object.freeze({
     /**
      * ## 账号相关
      * - `COOKIE` 是必填项
+     * - `NOTE` 帐号备注
      * - `NUMBER` 表示是第几个账号
      * - `CLEAR` 是否启用清理功能
      * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
@@ -18,6 +19,7 @@ module.exports = Object.freeze({
      */
     account_parm: {
         COOKIE: "",
+        NOTE: "",
         NUMBER: 1,
         CLEAR: true,
 
@@ -31,10 +33,17 @@ module.exports = Object.freeze({
     /**
      * 为防止环境变量过长, 请将多账号填在此处
      * 以大括号内容为模板依次复制(包含大括号),逗号分割
+     * ```
+     * ...
+     * NUMBER: 1
+     * ...
+     * NUMBER: 2
+     * ```
      */
     multiple_account_parm: [
         {
             COOKIE: "",
+            NOTE: "",
             NUMBER: 1,
             CLEAR: true,
             WAIT: 60 * 1000

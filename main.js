@@ -21,7 +21,7 @@ let loop_wait = 0;
  * @returns {Promise<string>} 错误信息
  */
 async function main() {
-    const { COOKIE, NUMBER, CLEAR, ENABLE_MULTIPLE_ACCOUNT, MULTIPLE_ACCOUNT_PARM } = process.env;
+    const { COOKIE, NOTE, NUMBER, CLEAR, ENABLE_MULTIPLE_ACCOUNT, MULTIPLE_ACCOUNT_PARM } = process.env;
     if (ENABLE_MULTIPLE_ACCOUNT) {
         let muti_acco = multiple_account.length
             ? multiple_account
@@ -33,6 +33,7 @@ async function main() {
             process.env.COOKIE = acco.COOKIE;
             process.env.NUMBER = acco.NUMBER;
             process.env.CLEAR = acco.CLEAR;
+            process.env.NOTE = acco.NOTE;
             const err_msg = await main();
             if (err_msg) {
                 return err_msg
@@ -65,7 +66,7 @@ async function main() {
                 case 'check':
                     log.info('中奖检测', '检查是否中奖');
                     loop_wait = check_loop_wait;
-                    await isMe(NUMBER);
+                    await isMe(NUMBER, NOTE);
                     break;
                 case 'clear':
                     if (CLEAR) {
