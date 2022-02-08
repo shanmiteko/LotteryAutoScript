@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.0)
+* 41b9540 fix: 未知错误退出
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.4.11)
 * 3f59076 feat: 推送中奖检测可添加账号备注(#121)
 
