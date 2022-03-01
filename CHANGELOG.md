@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.1)
+* 45ac58e fix: 评论与转发相同时去掉动态原文(#128)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.0)
 * 41b9540 fix: 未知错误退出
 
