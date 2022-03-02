@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.2)
+* b1f478c  feat: 可选通知现阶段运行到哪个账号(#132)
+  * 新增设置`notice_running_state`
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.1)
 * 45ac58e fix: 评论与转发相同时去掉动态原文(#128)
 
