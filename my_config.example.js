@@ -337,6 +337,11 @@ module.exports = Object.freeze({
         ],
 
         /**
+         * 是否发送运行状态通知
+         */
+        notice_running_state: false,
+
+        /**
          * - 获取私信页数
          */
         check_session_pages: 16,

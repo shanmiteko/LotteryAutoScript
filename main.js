@@ -61,7 +61,7 @@ async function main() {
                 case 'start':
                     log.info('抽奖', '开始运行');
                     loop_wait = lottery_loop_wait;
-                    await start();
+                    await start(NUMBER);
                     break;
                 case 'check':
                     log.info('中奖检测', '检查是否中奖');
