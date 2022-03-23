@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.3)
+* 22e4d2a fix: 转发了不含关键词的抽奖动态(#136)
+* 354d8cf fix: 推送异常(#132)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.2)
 * b1f478c  feat: 可选通知现阶段运行到哪个账号(#132)
   * 新增设置`notice_running_state`
