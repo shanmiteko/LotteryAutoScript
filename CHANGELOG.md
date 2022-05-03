@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.4)
+* f329457 fix: 评论包含敏感词(#150)
+* 0eddee4 Merge pull request #147 from spiritLHLS/patch-1
+* ce2c9e5 Update README.md
+* f1bbc9d Update README.md
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.3)
 * 22e4d2a fix: 转发了不含关键词的抽奖动态(#136)
 * 354d8cf fix: 推送异常(#132)
