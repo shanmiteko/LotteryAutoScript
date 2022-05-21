@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.5)
+* df7b321 fix: 远程设置换源gitlab
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.4)
 * f329457 fix: 评论包含敏感词(#150)
 * 0eddee4 Merge pull request #147 from spiritLHLS/patch-1
