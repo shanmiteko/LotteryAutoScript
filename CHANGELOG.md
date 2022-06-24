@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.6)
+* 2742dcb feat: 清理动态加入错误重试(#140)
+* 329c5e5 feat: 自动参与预约抽奖(#155)
+* 3bc7daf doc: 图片换源gitlab
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.5)
 * df7b321 fix: 远程设置换源gitlab
 
