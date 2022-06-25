@@ -85,6 +85,11 @@ module.exports = Object.freeze({
         chatmodel: '01',
 
         /**
+         * 不参与预约抽奖
+         */
+        disable_reserve_lottery: false,
+
+        /**
          * 检查是否重复转发
          * - 不检查 -1
          * - 通过是否点赞判断 0
