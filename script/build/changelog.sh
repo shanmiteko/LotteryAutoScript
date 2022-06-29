@@ -33,7 +33,7 @@ echo "New Version: $NEW_VERSION"
 
 GIT_LOG="$(git log --pretty=format:"* %h %s" | sed -e '/CHANGELOG/,$d' | sed ':a;N;s/\n/\\n/g;ta')"
 
-sed -i "/# CHANGELOG/a\## 主要变化($NEW_VERSION)\n$GIT_LOG\n\n_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_\n" CHANGELOG.md
+sed -i "/# CHANGELOG/a\## 主要变化($NEW_VERSION)\n$GIT_LOG\n\n_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_\n" CHANGELOG.md
 
 git add .
 git commit -m "docs: 更新CHANGELOG"
