@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.8)
+* 4238ee5 fix: 预约验重(#158)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.7)
 * 607b2d7 feat: 新增设置`disable_reserve_lottery`
 * 03e24b9 fix: `extend_json`中的`reserve`获取失败(#155)
