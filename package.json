@@ -9,7 +9,11 @@
     "check": "node main.js check",
     "update": "node main.js update",
     "build_all": "bash script/build/pkg.sh",
-    "changelog": "bash script/build/changelog.sh"
+    "changelog": "bash script/build/changelog.sh",
+    "sls_deploy": "npx serverless deploy",
+    "sls_invoke_start": "npx serverless invoke -f start",
+    "sls_invoke_check": "npx serverless invoke -f check",
+    "sls_invoke_clear": "npx serverless invoke -f clear"
   },
   "files": [
     "lib",
@@ -48,7 +52,8 @@
   "homepage": "https://github.com/shanmiteko/AutoScript#readme",
   "devDependencies": {
     "eslint": "^8.1.0",
-    "pkg": "^5.4.1"
+    "pkg": "^5.4.1",
+    "serverless": "^2.69.0"
   },
   "dependencies": {
     "chalk": "^4.1.2",
