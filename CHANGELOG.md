@@ -1,5 +1,17 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.5.9)
+* 292b8e0 fix: 动态数据为null时异常退出
+* ca6549d feat:  程序在请求多次输入验证码时切换下一个账号 (#167)
+* e03b483 fix: 远程设置换源gitee
+* 3e01e42 feat: 预约抽奖奖品屏蔽词 (#159)
+* 00b5310 feat: 自动点赞且检索本地(#162)
+* ba100e0 docs: 更新docker运行说明(#160)
+* 29676d5 ci: mirror to gitlab
+* dd9ff1b docs: 修改changelog.sh使用http链接
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.8)
 * 4238ee5 fix: 预约验重(#158)
 
