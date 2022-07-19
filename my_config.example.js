@@ -38,7 +38,8 @@ module.exports = Object.freeze({
          * @property {string} uname
          * @property {Array<{}>} ctrl
          * @property {string} dyid
-         * @property {number} reserve_id
+         * @property {string} reserve_id
+         * @property {string} reserve_lottery_text
          * @property {string} rid
          * @property {string} des
          * @property {number} type
