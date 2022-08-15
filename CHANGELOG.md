@@ -1,5 +1,14 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.0)
+* 5a7b672 fix: `LotteryOrder`设置(#176)
+* aae3de8 fix: 仅在评论需要验证码时退出(#175)
+* 3491888 feat: 抽奖顺序可调`LotteryOrder`(#176)
+* f6aa0d0 fix: 未知错误带状态码(#175)
+* 1415f18 fix: 无屏蔽词时全屏蔽
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.5.9)
 * 292b8e0 fix: 动态数据为null时异常退出
 * ca6549d feat:  程序在请求多次输入验证码时切换下一个账号 (#167)
