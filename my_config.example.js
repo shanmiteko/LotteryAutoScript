@@ -12,13 +12,6 @@ module.exports = Object.freeze({
         ],
 
         /**
-         * 监视的专栏关键词
-         */
-        Articles: [
-            '抽奖合集'
-        ],
-
-        /**
          * 监视的tag
          */
         TAGs: [
@@ -26,6 +19,13 @@ module.exports = Object.freeze({
             '转发抽奖',
             '动态抽奖',
             '抽奖',
+        ],
+
+        /**
+         * 监视的专栏关键词
+         */
+        Articles: [
+            '抽奖合集'
         ],
 
         /**
@@ -53,6 +53,18 @@ module.exports = Object.freeze({
          * "https://github.com/spiritLHL/sync_lottery"
          */
         APIs: [],
+
+        /**
+         * 抽奖参与顺序组合
+         * * 0 - UIDs
+         * * 1 - TAGs
+         * * 2 - Articles
+         * * 3 - APIs
+         * @example
+         * [3,2,1,0]
+         * [1,2,1,2,1]
+         */
+        LotteryOrder: [2, 0, 1, 3],
 
         /**
          * API发送数据类型 {LotteryInfo[]}
