@@ -6,28 +6,65 @@ on:
       - "lib/**"
       - "*.js"
       - "*.json"
+      - ".github/workflows/pkg.yml"
+      - "script/build/pkg.sh"
   workflow_dispatch:
 
 jobs:
-  build_all:
+  x64:
     runs-on: ubuntu-latest
+    name: node${{ matrix.nodev }}-${{ matrix.platform }}-x64
+    strategy:
+      matrix:
+        include:
+          - platform: linux
+            nodev: 18
+          - platform: macos
+            nodev: 18
+          - platform: win
+            nodev: 18
+          - platform: win
+            nodev: 12
     steps:
       - name: "Checkout codes"
         uses: actions/checkout@v2
       - name: "Use Node.js"
         uses: actions/setup-node@v1
         with:
-          node-version: "16"
+          node-version: "*"
       - name: "Pkg this"
         run: |
-          sudo apt install zip unzip
           npm install
-          npm run build_all
+          npm run pkg "node${{ matrix.nodev }}-${{ matrix.platform }}-x64"
       - name: "Upload to artifact"
         uses: actions/upload-artifact@v2
         with:
-          name: all_platform
-          path: dist/
+          name: node${{ matrix.nodev }}-${{ matrix.platform }}-x64
+          path: "dist/*.zip"
+      - name: "Upload to release draft"
+        uses: xresloader/upload-to-github-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          file: "dist/*.zip"
+          delete_file: "dist/*.zip"
+          tag_name: "v2"
+          overwrite: true
+  arm64:
+    runs-on: ubuntu-latest
+    name: arm64
+    steps:
+      - name: "Checkout codes"
+        uses: actions/checkout@v2
+      - name: "Pkg this"
+        run: |
+          sudo podman run --rm --privileged multiarch/qemu-user-static --reset -p yes
+          npm run pkg arm
+      - name: "Upload to artifact"
+        uses: actions/upload-artifact@v2
+        with:
+          name: arm64
+          path: "dist/*.zip"
       - name: "Upload to release draft"
         uses: xresloader/upload-to-github-release@v1
         env:

@@ -9,7 +9,7 @@
     "clear": "node main.js clear",
     "check": "node main.js check",
     "update": "node main.js update",
-    "build_all": "bash script/build/pkg.sh",
+    "pkg": "bash script/build/pkg.sh",
     "changelog": "bash script/build/changelog.sh"
   },
   "files": [
@@ -22,17 +22,6 @@
     "README.md"
   ],
   "bin": "main.js",
-  "pkg": {
-    "targets": [
-      "node12-win-x64",
-      "node16-win-x64",
-      "node16-linux-x64",
-      "node16-macos-x64",
-      "node16-linuxstatic-arm64",
-      "node16-linuxstatic-armv7"
-    ],
-    "outputPath": "dist"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/shanmiteko/AutoScript.git"
