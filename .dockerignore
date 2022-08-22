@@ -1,4 +1,9 @@
 **/**
 !lib/
-!package.json
+!script/
+!test/
 !main.js
+!package.json
+!env.example.js
+!my_config.example.js
+!README.md

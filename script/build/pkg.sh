@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
+set -e
+
 ROOT=$PWD
 README="README.md"
 TEMPLATE_CONFIG_FILE="my_config.example.js"
 TEMPLATE_ENV_FILE="env.example.js"
 CONFIG_FILE="my_config.js"
 ENV_FILE="env.js"
-TARGET_DIR="./dist"
+TARGET_DIR="dist"
 BIN_NAME="lottery"
 
 create_win_bat() {
@@ -17,28 +19,39 @@ if [ -d "$TARGET_DIR" ]; then
 	rm -rf "$TARGET_DIR"
 fi
 
-npx pkg .
+if [[ -z "$1" ]]; then
+	$1=node18-linux-x64
+fi
 
-# Searching in the current directory
+mkdir -p $TARGET_DIR
+
+if [[ "$1" == *"arm"* ]]; then
+	podman build -f Dockerfile.pkg-arm64 -t pkg-arm64
+	podman run -it --rm -v ${PWD}/dist:/root/lottery/dist pkg-arm64
+elif [[ "$1" == *"x64"* ]]; then
+	OUTFILE="$TARGET_DIR/lottery-auto-script-$1"
+	npx pkg -t "$1" -o $OUTFILE .
+fi
+
 for file in "$TARGET_DIR/"*; do
 	TMPDIR="${file%.exe}"
 	TMPDIR_NAME="${TMPDIR##*/}"
 	REMANE_FILE="$TARGET_DIR/$BIN_NAME"
 	mv $file $REMANE_FILE
-	mkdir -p "$TMPDIR/"
-	mv $REMANE_FILE "$TMPDIR/"
-	cp $README "$TMPDIR/"
-	cp $TEMPLATE_CONFIG_FILE "$TMPDIR/$CONFIG_FILE"
-	cp $TEMPLATE_ENV_FILE "$TMPDIR/$ENV_FILE"
+	mkdir -p "$TMPDIR.d/"
+	mv $REMANE_FILE "$TMPDIR.d/"
+	cp $README "$TMPDIR.d/"
+	cp $TEMPLATE_CONFIG_FILE "$TMPDIR.d/$CONFIG_FILE"
+	cp $TEMPLATE_ENV_FILE "$TMPDIR.d/$ENV_FILE"
 	if [ "$(echo $file | grep '.exe')" ]; then
 		BATS=("start" "check" "clear" "update")
 		for item in "${BATS[@]}"; do
-			create_win_bat "${item}" >"$TMPDIR/$item.bat"
+			create_win_bat "${item}" >"$TMPDIR.d/$item.bat"
 		done
-		mv "$TMPDIR/$BIN_NAME" "$TMPDIR/$BIN_NAME.exe"
+		mv "$TMPDIR.d/$BIN_NAME" "$TMPDIR.d/$BIN_NAME.exe"
 	else
 		ZIP_NAME=latest_version0
-		cat >"$TMPDIR/update.sh" <<-EOF
+		cat >"$TMPDIR.d/update.sh" <<-EOF
 			#!/bin/bash
 			./lottery update
 			ZIP_NAME=$ZIP_NAME
@@ -49,7 +62,7 @@ for file in "$TARGET_DIR/"*; do
 			fi
 		EOF
 	fi
-	cd $TMPDIR
+	cd $TMPDIR.d
 	zip -r "$TMPDIR_NAME.zip" .
 	mv "$TMPDIR_NAME.zip" ../
 	cd $ROOT
