@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js start",
+    "test": "node test/index.js",
     "clear": "node main.js clear",
     "check": "node main.js check",
     "update": "node main.js update",

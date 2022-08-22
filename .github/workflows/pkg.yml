@@ -2,8 +2,6 @@ name: "Package Node.js project into an executable"
 
 on:
   push:
-    branches:
-      - main
     paths:
       - "lib/**"
       - "*.js"
