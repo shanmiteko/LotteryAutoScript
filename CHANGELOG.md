@@ -1,5 +1,17 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.1)
+* 82efbb4 ci: pkg arm64 use podman
+* 886ccff fix: cookie缺少`buvid3`导致412(#182)(#185)
+* 0d5f5ec ci(docker): support more platforms
+* f75d2b6 fix: `checkAllDynamic`重试与`null`检测
+* 29bf439 fix: 中途掉号账号未登录(#179)
+* d3a8b86 fix: 重复评论(#184)
+* d205cb5 fix: 未知错误1004(#175)
+* 223a6e1 fix: 获取推荐412(#182)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.0)
 * 5a7b672 fix: `LotteryOrder`设置(#176)
 * aae3de8 fix: 仅在评论需要验证码时退出(#175)
