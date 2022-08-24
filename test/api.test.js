@@ -24,6 +24,8 @@ const util = require('./util');
                 1),
                 3
             )
+        }, async () => {
+            assert.notEqual((await bili_client.searchArticlesByKeyword("专栏")).length, 0)
         }
     ])
 
