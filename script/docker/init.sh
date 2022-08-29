@@ -49,7 +49,7 @@ docker -v && docker pull $DOCKER_REPO
 
 echo "create start.sh"
 cat >start.sh <<EOF
-#!/bin/sh
+#!/bin/env bash
 NAME=shanmite-lottery-start
 if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
     docker run \\
@@ -70,7 +70,7 @@ chmod +x start.sh
 
 echo "create check.sh"
 cat >check.sh <<EOF
-#!/bin/sh
+#!/bin/env bash
 NAME=shanmite-lottery-check
 if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
     docker run \\
@@ -91,7 +91,7 @@ chmod +x check.sh
 
 echo "create clear.sh"
 cat >clear.sh <<EOF
-#!/bin/sh
+#!/bin/env bash
 NAME=shanmite-lottery-clear
 if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
     docker run \\
@@ -112,14 +112,14 @@ chmod +x clear.sh
 
 echo "create debug.sh"
 cat >debug.sh <<EOF
-#!/bin/sh
+#!/bin/env bash
 NAME=shanmite-lottery-debug
 echo "create temporary debug container"
 docker run \\
     -it \\
     --name \$NAME \\
-    --entrypoint /bin/sh \\
-    $DOCKER_REPO -c sh
+    --entrypoint /bin/bash \\
+    $DOCKER_REPO -c bash
 echo "remove temporary debug container"
 docker rm -v \$NAME
 EOF
@@ -127,7 +127,7 @@ chmod +x debug.sh
 
 echo "create remove_all.sh"
 cat >remove_all.sh <<EOF
-#!/bin/sh
+#!/bin/env bash
 echo "remove all containers about $DOCKER_REPO"
 docker rm -v \$(docker ps -a | awk '/shanmite\/lottery_auto_docker/ {print \$1}')
 echo "remove image $DOCKER_REPO"
