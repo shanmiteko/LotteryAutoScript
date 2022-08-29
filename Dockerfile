@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM node:lts-alpine
+FROM node:lts-alpine
 
 LABEL author="shanmite" version="1.1" description="自动参与B站动态抽奖"
 
