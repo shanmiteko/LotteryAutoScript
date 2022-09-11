@@ -1,5 +1,16 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.2)
+* 7ab38f2 feat: 弃用`update_loop_wait`(#180)
+* 35fe448 feat: 预约抽奖参与间隔`reserve_lottery_wait`(#191)
+* 58edd41 fix: 该动态不能转发分享(#189)
+* c8e1a32 fix:  关注UP主7天以上的人可发评论(#192)
+* 4f8f50f ci: docker
+* 3b4b85b ci: pkg
+* db11265 docker: change sh to bash
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.1)
 * 82efbb4 ci: pkg arm64 use podman
 * 886ccff fix: cookie缺少`buvid3`导致412(#182)(#185)
