@@ -24,8 +24,12 @@ const util = require('./util');
                 1),
                 3
             )
-        }, async () => {
+        },
+        async () => {
             assert.notEqual((await bili_client.searchArticlesByKeyword("专栏")).length, 0)
+        },
+        async () => {
+            assert.notEqual(await bili_client.sendChat("703886913053917267", "t", 17), 1)
         }
     ])
 
