@@ -235,6 +235,12 @@ module.exports = Object.freeze({
         random_dynamic_wait: 2000,
 
         /**
+         * - 预约抽奖间隔
+         * - 单位毫秒
+         */
+        reserve_lottery_wait: 6000,
+
+        /**
          * - up主粉丝数限制
          */
         minfollower: 1000,
