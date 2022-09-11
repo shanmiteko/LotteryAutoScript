@@ -49,14 +49,14 @@ async function main() {
         await global_var.init(COOKIE, NUMBER);
 
         /**引入基础功能 */
-        const { start, isMe, clear, update, checkCookie } = require("./lib/index");
+        const { start, isMe, clear, checkCookie } = require("./lib/index");
 
         log.info('main', '当前为第' + NUMBER + '个账号');
 
         if (await checkCookie(NUMBER)) {
             const mode = process.env.lottery_mode;
             const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart 启动抽奖\n\tcheck 中奖检查\n\tclear 清理动态和关注\n\tupdate 检查更新\n\thelp 帮助信息";
-            const { lottery_loop_wait, check_loop_wait, clear_loop_wait, update_loop_wait } = require("./lib/data/config");
+            const { lottery_loop_wait, check_loop_wait, clear_loop_wait } = require("./lib/data/config");
             switch (mode) {
                 case 'start':
                     log.info('抽奖', '开始运行');
@@ -74,11 +74,6 @@ async function main() {
                         loop_wait = clear_loop_wait;
                         await clear();
                     }
-                    break;
-                case 'update':
-                    log.info('检查更新', '开始')
-                    loop_wait = update_loop_wait;
-                    await update()
                     break;
                 case 'help':
                     return help_msg
@@ -149,6 +144,13 @@ function initConfig() {
 
     /**OPTIONS */
     process.env.lottery_mode = process.argv[2]
+
+    if (process.env.lottery_mode === "update") {
+        log.info('检查更新', '开始')
+        await require("./lib/update").update()
+        log.info('检查更新', '请手动解压替换可执行文件')
+        return
+    }
 
     const err_msg = await main();
     if (err_msg) {
