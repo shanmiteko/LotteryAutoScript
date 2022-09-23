@@ -73,7 +73,7 @@ PATH=/sbin:/bin:/usr/sbin/:/usr/bin
 
 看看有没有效果
 
-![image-start](https://gitlab.com/shanmiteko/LotteryAutoScript/-/raw/main/doc/pic/image-start.png)
+![image-start](https://raw.githubusercontents.com/shanmiteko/LotteryAutoScript/main/doc/pic/image-start.png)
 
 
 7.如果本地的脚本需要更新
