@@ -30,6 +30,9 @@ const util = require('./util');
         },
         async () => {
             assert.notEqual(await bili_client.sendChat("703886913053917267", "t", 17), 1)
+        },
+        async () => {
+            // assert(!await bili_client.createDynamic("123"))
         }
     ])
 

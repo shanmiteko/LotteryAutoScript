@@ -121,7 +121,7 @@ Chrome浏览器:
     ## 清理关注动态
     $ ./lottery clear
     ## 下载最新版本
-    $ ./lottery clear
+    $ ./lottery update
     ```
 
 7. 运行截图

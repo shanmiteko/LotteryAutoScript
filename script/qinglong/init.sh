@@ -33,7 +33,7 @@ EOF
 
 create start
 create check
-create clean
+create clear
 
 cd $NAME
 npm i
