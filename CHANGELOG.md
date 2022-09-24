@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.3)
+* ca1acd2 fix: 转发随机动态视频新的错误码(#201)
+* dabf8f9 fix:  关注出错(#199)
+* affe24f fix: 发布随机动态显示转发请求不合法(#197)
+* 3a5a8d0 feat: 青龙面板(#200)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.2)
 * 7ab38f2 feat: 弃用`update_loop_wait`(#180)
 * 35fe448 feat: 预约抽奖参与间隔`reserve_lottery_wait`(#191)
