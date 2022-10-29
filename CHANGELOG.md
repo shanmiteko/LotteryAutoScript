@@ -1,5 +1,14 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.4)
+* a363b4e ci: 关闭`arm64`自动打包
+* c220ff5 feat(多账号优化): 抽奖信息本地保存 (#209)
+* 2b6cc8d feat: 每条运行结果后面加上当前账号序列号 (#206)
+* 856dd79 fix: 增加获取关注上限(#207)
+* 4683002 fix: 青龙执行脚本时出错(#202)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.3)
 * ca1acd2 fix: 转发随机动态视频新的错误码(#201)
 * dabf8f9 fix:  关注出错(#199)
