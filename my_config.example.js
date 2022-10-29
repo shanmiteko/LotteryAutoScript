@@ -6,30 +6,19 @@ module.exports = Object.freeze({
         /**
          * 监视更转的用户uid
          */
-        UIDs: [
-            689277291,
-            241675899
-        ],
+        UIDs: [],
 
         /**
          * 监视的tag
          */
-        TAGs: [
-            '互动抽奖',
-            '转发抽奖',
-            '动态抽奖',
-            '抽奖',
-        ],
+        TAGs: [],
 
         /**
          * 监视的专栏关键词
          */
-        Articles: [
-            '抽奖合集'
-        ],
+        Articles: [],
 
         /**
-         * 从API接口中获取抽奖信息
          * @typedef {object} LotteryInfo
          * @property {string} lottery_info_type
          * @property {number} create_time
@@ -44,15 +33,21 @@ module.exports = Object.freeze({
          * @property {string} des
          * @property {number} type
          * @property {boolean} hasOfficialLottery 是否官方
-         * @typedef RespondBody
+         * @typedef {object} RespondBody
          * @property {string} err_msg 错误信息
          * @property {LotteryInfo[]} lottery_info
-         * API传回数据类型 {RespondBody}
+         * 
+         * - 从API接口中获取抽奖信息
          * 获取抽奖信息的链接字符串
          * @example
-         * "https://github.com/spiritLHL/sync_lottery"
+         * ["https://github.com/spiritLHL/sync_lottery"]
+         * 
+         * - 从当前路径下符合要求的文件中获取
+         * 文件名
+         * @example
+         * ["file://lottery_info_1.json"]
          */
-        APIs: [],
+        APIs: ["file://lottery_info_1.json"],
 
         /**
          * 抽奖参与顺序组合
@@ -65,6 +60,11 @@ module.exports = Object.freeze({
          * [1,2,1,2,1]
          */
         LotteryOrder: [2, 0, 1, 3],
+
+        /**
+         * 保存抽奖信息至文件
+         */
+        save_lottery_info_to_file: false,
 
         /**
          * API发送数据类型 {LotteryInfo[]}
@@ -434,7 +434,28 @@ module.exports = Object.freeze({
      * 针对某一账号的特别设置
      * config_[数字] 依次类推
      */
-    config_1: {},
+    config_1: {
+        /**
+         * 手动添加抽奖号UID
+         * - 抽奖动态下的二级小号
+         */
+        UIDs: [],
+
+        TAGs: [
+            '互动抽奖',
+            '转发抽奖',
+            '动态抽奖',
+            '抽奖',
+        ],
+
+        Articles: [
+            '抽奖合集'
+        ],
+
+        APIs: [],
+
+        save_lottery_info_to_file: true,
+    },
     config_2: {},
     config_3: {}
 })

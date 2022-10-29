@@ -2,6 +2,7 @@ node_modules/
 .vscode/
 tests/
 dyids/
+lottery_info/
 dist/
 .env
 *.log
