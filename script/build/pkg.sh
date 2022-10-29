@@ -26,8 +26,8 @@ fi
 mkdir -p $TARGET_DIR
 
 if [[ "$1" == *"arm"* ]]; then
-	podman build -f Dockerfile.pkg-arm64 -t pkg-arm64
-	podman run -it --rm -v ${PWD}/dist:/root/lottery/dist pkg-arm64
+	sudo podman run --rm --privileged multiarch/qemu-user-static --reset -p yes
+	podman run -it --rm -v ${PWD}/dist:/root/lottery/dist shanmite/pkg-arm64
 elif [[ "$1" == *"x64"* ]]; then
 	OUTFILE="$TARGET_DIR/lottery-auto-script-$1"
 	npx pkg -t "$1" -o $OUTFILE .
