@@ -37,7 +37,6 @@ jobs:
           node-version: "*"
       - name: "Pkg this"
         run: |
-          npm install
           npm run pkg "node${{ matrix.nodev }}-${{ matrix.platform }}-x64"
       - name: "Upload to artifact"
         uses: actions/upload-artifact@v2
@@ -55,13 +54,19 @@ jobs:
           overwrite: true
   arm64:
     runs-on: ubuntu-latest
-    name: arm64
+    name: node18-${{ matrix.platform }}-arm64
+    strategy:
+      matrix:
+        include:
+          - platform: linux
+          - platform: linuxstatic
+          - platform: alpine
     steps:
       - name: "Checkout codes"
         uses: actions/checkout@v2
       - name: "Pkg this"
         run: |
-          npm run pkg arm
+          npm run pkg "${{ matrix.platform }}-arm64"
       - name: "Upload to artifact"
         uses: actions/upload-artifact@v2
         with:

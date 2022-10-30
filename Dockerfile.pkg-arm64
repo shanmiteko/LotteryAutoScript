@@ -1,14 +1,11 @@
-FROM arm64v8/node
+FROM arm64v8/node:lts-alpine
 
 WORKDIR /root/lottery
 
-COPY . .
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
+    apk add --no-cache curl
 
-# RUN npm config set registry https://registry.npm.taobao.org && npm i
-RUN npm i
-
-# ENV DOWNLOAD_HOST=https://ghproxy.com/https://github.com \
-ENV DOWNLOAD_HOST=https://github.com \
+ENV DOWNLOAD_HOST=https://ghproxy.com/https://github.com \
     RELEASE_TAG=v3.4 \
     NODEV=18.5.0 \
     PKG_CACHE_PATH=/root/.pkg-cache \
@@ -17,8 +14,10 @@ ENV DOWNLOAD_HOST=https://github.com \
 RUN mkdir -p "${PKG_CACHE_PATH}" && \
     curl -L "$DOWNLOAD_HOST/vercel/pkg-fetch/releases/download/$RELEASE_TAG/node-v$NODEV-linux-arm64" -o \
         "${PKG_CACHE_PATH}/fetched-v$NODEV-linux-arm64" && \
+    curl -L "$DOWNLOAD_HOST/vercel/pkg-fetch/releases/download/$RELEASE_TAG/node-v$NODEV-alpine-arm64" -o \
+        "${PKG_CACHE_PATH}/fetched-v$NODEV-alpine-arm64" && \
     curl -L "$DOWNLOAD_HOST/vercel/pkg-fetch/releases/download/$RELEASE_TAG/node-v$NODEV-linuxstatic-arm64" -o \
         "${PKG_CACHE_PATH}/fetched-v$NODEV-linuxstatic-arm64"
 
-CMD ["bash", "-c", "npx pkg -t node$NODEV-linuxstatic-arm64 -o dist/lottery-auto-script-node$NODEV-linuxstatic-arm64 . && \
-npx pkg -t node$NODEV-linux-arm64 -o dist/lottery-auto-script-node$NODEV-linux-arm64 ."]
+ENTRYPOINT ["npx", "pkg"]
+CMD [""]
