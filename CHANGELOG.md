@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.5)
+* 47e09a1 ci: arm64 added, and optimized
+* b91a4f9 fix: `fs.rm` node12
+* d9cecbe ci: push shanmite/pkg-arm64
+* 989f836 ci: 修改github release镜像源
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.4)
 * a363b4e ci: 关闭`arm64`自动打包
 * c220ff5 feat(多账号优化): 抽奖信息本地保存 (#209)
