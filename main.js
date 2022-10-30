@@ -158,13 +158,13 @@ function initConfig() {
         log.warn('结束运行', '5秒后自动退出');
         await delay(5 * 1000);
     } else {
-        await clearLotteryInfo();
+        clearLotteryInfo();
         while (loop_wait) {
             log.info('程序休眠', `${loop_wait / 1000}秒后再次启动`)
             await delay(loop_wait)
             if (initEnv() || initConfig()) return;
             await main()
-            await clearLotteryInfo();
+            clearLotteryInfo();
         }
         log.info('结束运行', '未在config.js中设置休眠时间')
     }
