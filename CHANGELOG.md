@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.6)
+* 92f7003 perf: monochrome
+* 8e77afa fix: `fs.uninkSync` returns before remove finish
+* bfc8fb6 ci: gitlab mirror `workflow_dispatch`
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.5)
 * 47e09a1 ci: arm64 added, and optimized
 * b91a4f9 fix: `fs.rm` node12
