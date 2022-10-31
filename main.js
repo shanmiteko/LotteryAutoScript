@@ -56,11 +56,14 @@ async function main() {
         if (await checkCookie(NUMBER)) {
             const mode = process.env.lottery_mode;
             const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart 启动抽奖\n\tcheck 中奖检查\n\tclear 清理动态和关注\n\tupdate 检查更新\n\thelp 帮助信息";
-            const { lottery_loop_wait, check_loop_wait, clear_loop_wait } = require("./lib/data/config");
+            const { lottery_loop_wait, check_loop_wait, clear_loop_wait, save_lottery_info_to_file } = require("./lib/data/config");
             switch (mode) {
                 case 'start':
                     log.info('抽奖', '开始运行');
                     loop_wait = lottery_loop_wait;
+                    if (save_lottery_info_to_file) {
+                        await clearLotteryInfo()
+                    }
                     await start(NUMBER);
                     break;
                 case 'check':
@@ -158,13 +161,11 @@ function initConfig() {
         log.warn('结束运行', '5秒后自动退出');
         await delay(5 * 1000);
     } else {
-        clearLotteryInfo();
         while (loop_wait) {
             log.info('程序休眠', `${loop_wait / 1000}秒后再次启动`)
             await delay(loop_wait)
             if (initEnv() || initConfig()) return;
             await main()
-            clearLotteryInfo();
         }
         log.info('结束运行', '未在config.js中设置休眠时间')
     }
