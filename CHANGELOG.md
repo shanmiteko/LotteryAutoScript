@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.7)
+* db7ba49 style: 修改通知格式
+* b518828 feat: 新增企业微信应用推送 (#217)
+* e0a8ce5 doc: update image
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.6)
 * 92f7003 perf: monochrome
 * 8e77afa fix: `fs.uninkSync` returns before remove finish
