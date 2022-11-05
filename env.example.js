@@ -75,6 +75,7 @@ module.exports = Object.freeze({
         TG_PROXY_PORT: "",
         DD_BOT_TOKEN: "",
         DD_BOT_SECRET: "",
+        QYWX_AM: "",
         QYWX_KEY: "",
         IGOT_PUSH_KEY: "",
         PUSH_PLUS_TOKEN: "",
