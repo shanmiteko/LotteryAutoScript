@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.8)
+* 847e680 feat: 丰富推送内容(#135)(#194)(#211)
+* 8bf5070 fix: `flatMap` is not a function (#218)
+* 727883a feat:  推送`NOTE` (#221)
+* fd33478 fix: 微信企业应用推送未配置出错 (#220)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.7)
 * db7ba49 style: 修改通知格式
 * b518828 feat: 新增企业微信应用推送 (#217)
