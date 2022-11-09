@@ -30,16 +30,16 @@ jobs:
             nodev: 12
     steps:
       - name: "Checkout codes"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Use Node.js"
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: "*"
       - name: "Pkg this"
         run: |
           npm run pkg "node${{ matrix.nodev }}-${{ matrix.platform }}-x64"
       - name: "Upload to artifact"
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: node${{ matrix.nodev }}-${{ matrix.platform }}-x64
           path: "dist/*.zip"
@@ -63,12 +63,12 @@ jobs:
           - platform: alpine
     steps:
       - name: "Checkout codes"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: "Pkg this"
         run: |
           npm run pkg "${{ matrix.platform }}-arm64"
       - name: "Upload to artifact"
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: arm64
           path: "dist/*.zip"
