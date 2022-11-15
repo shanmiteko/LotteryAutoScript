@@ -52,6 +52,7 @@ async function main() {
         const { start, isMe, clear, checkCookie } = require("./lib/index");
 
         log.info('main', '当前为第' + NUMBER + '个账号');
+        log._cache.length = 0
 
         if (await checkCookie(NUMBER)) {
             const mode = process.env.lottery_mode;
