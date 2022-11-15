@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.6.9)
+* 28fc79e fix: 通知内不显示抽奖信息
+* 9e6fe66 fix: free `log._cache`
+* 5b50611 ci: update actions
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.8)
 * 847e680 feat: 丰富推送内容(#135)(#194)(#211)
 * 8bf5070 fix: `flatMap` is not a function (#218)
