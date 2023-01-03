@@ -103,7 +103,7 @@ module.exports = Object.freeze({
         disable_reserve_lottery: false,
 
         /**
-         * 不转发预约抽奖
+         * 不转关预约抽奖
          * - 预约抽奖可能与转发抽奖并存
          */
         is_not_relay_reserve_lottery: false,
@@ -337,6 +337,11 @@ module.exports = Object.freeze({
             'rush', '来来来', 'ok', '冲', '凑热闹', '我要我要[打call]', '我还能中！让我中！！！', '大家都散了吧，已经抽完了，是我的', '我是天选之子', '给我中一次吧！',
             '坚持不懈，迎难而上，开拓创新！', '[OK][OK]', '我来抽个奖', '中中中中中中', '[doge][doge][doge]', '我我我',
         ],
+
+        /**
+         * 是否抄热评
+         */
+        is_copy_chat: false,
 
         /**
          * - 抽奖UP用户分组id(网页端点击分区后地址栏中的tagid)
