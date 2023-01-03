@@ -1,8 +1,11 @@
 /**
+ * @param {Array<number>} nums
  * @param {Array<()=>any>} fns
  */
-function par_run(fns) {
-    return Promise.all((fns.map(fn => fn())))
+function par_run(nums, fns) {
+    return Promise.all(
+        nums.map(num => fns[num]())
+    )
 }
 
 module.exports = {

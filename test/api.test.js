@@ -5,7 +5,7 @@ const util = require('./util');
 (async () => {
     assert(await bili_client.getMyinfo());
 
-    await util.par_run([
+    await util.par_run([0, 1, 2, 3, 4], [
         async () => {
             assert.equal((await bili_client.getTopRcmd()).length, 10)
         },
@@ -32,7 +32,7 @@ const util = require('./util');
             assert.notEqual(await bili_client.sendChat("703886913053917267", "t", 17), 1)
         },
         async () => {
-            // assert(!await bili_client.createDynamic("123"))
+            assert(!await bili_client.createDynamic("1"))
         }
     ])
 
