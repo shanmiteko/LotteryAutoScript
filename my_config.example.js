@@ -103,6 +103,12 @@ module.exports = Object.freeze({
         disable_reserve_lottery: false,
 
         /**
+         * 不转发预约抽奖
+         * - 预约抽奖可能与转发抽奖并存
+         */
+        is_not_relay_reserve_lottery: false,
+
+        /**
          * 检查是否重复转发
          * - 不检查 -1
          * - 通过是否点赞判断(自动点赞) 0
