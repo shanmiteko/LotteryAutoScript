@@ -339,6 +339,11 @@ module.exports = Object.freeze({
         partition_id: 0,
 
         /**
+         * - 是否不为抽奖UP单独设置关注分区
+         */
+        is_not_create_partition: false,
+
+        /**
          * 是否关注异常
          */
         is_exception: false,
