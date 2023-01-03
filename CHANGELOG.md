@@ -1,5 +1,16 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.0)
+* c84cb3f feat:  评论内容从评论区随机获取 (#134)
+* 4fa6d9a feat: 可关闭预约抽奖转发 (#196)
+* 0814154 feat:  关注分区移动可关闭 (#228)
+* 5097f2a feat: 清理动态时显示UID保护列表 (#229)
+* cb08e7a feat: 过滤掉充电包月抽奖 (#224)
+* 7b5a177 refactor: 调整推送格式 (#223)
+* 63b550e ci(mirror): shallow update not allowed
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.6.9)
 * 28fc79e fix: 通知内不显示抽奖信息
 * 9e6fe66 fix: free `log._cache`
