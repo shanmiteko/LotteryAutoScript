@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.1)
+* 92f1ad2 fix: 自动评论没有正确评论所有抽奖 (#235)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.0)
 * c84cb3f feat:  评论内容从评论区随机获取 (#134)
 * 4fa6d9a feat: 可关闭预约抽奖转发 (#196)
