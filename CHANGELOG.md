@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.2)
+* af8c4a6 feat: 新增推送pushdeer (#236)
+* c1ca2b6 fix: 关键词筛选重复且影响官抽
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.1)
 * 92f1ad2 fix: 自动评论没有正确评论所有抽奖 (#235)
 
