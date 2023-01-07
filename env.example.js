@@ -69,6 +69,8 @@ module.exports = Object.freeze({
         QQ_MODE: "",
         BARK_PUSH: "",
         BARK_SOUND: "",
+        PUSHDEER_URL: "",
+        PUSHDEER_PUSHKEY: "",
         TG_BOT_TOKEN: "",
         TG_USER_ID: "",
         TG_PROXY_HOST: "",
