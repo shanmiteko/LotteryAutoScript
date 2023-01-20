@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.3)
+* d13c0a5 docs: 添加设置修改说明
+* 9615d25 fix: 预约抽奖转发 (#240)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.2)
 * af8c4a6 feat: 新增推送pushdeer (#236)
 * c1ca2b6 fix: 关键词筛选重复且影响官抽
