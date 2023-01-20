@@ -1,6 +1,8 @@
 module.exports = Object.freeze({
     /** 
      * 默认设置(公用)
+     * 修改公用设置可填写到最下方
+     * 单独设置区将会覆盖公共设置
      */
     default_config: {
         /**
