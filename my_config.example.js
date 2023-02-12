@@ -357,7 +357,7 @@ module.exports = Object.freeze({
         is_not_create_partition: false,
 
         /**
-         * 是否关注异常
+         * 是否异常
          */
         is_exception: false,
 
