@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.5)
+* 9c9bc18 fix:  查询评论报错 (#250)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.4)
 * 0630c89 feat: 新增设置抄热评屏蔽词 (#239)
 * 7b9d251 feat: 热评包含发送热评的人的昵称换成自己的昵称 (#239)
