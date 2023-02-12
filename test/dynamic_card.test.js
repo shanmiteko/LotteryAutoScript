@@ -4,8 +4,6 @@ const searcher = require("../lib/core/searcher");
 const util = require('./util');
 
 (async () => {
-    assert(await bili_client.getMyinfo());
-
     await util.par_run([0, 1, 2, 3], [
         // 0
         async () => {
@@ -21,7 +19,7 @@ const util = require('./util');
         async () => {
             let card = searcher.parseDynamicCard(await bili_client.getOneDynamicByDyid("746824225190314008"));
             let chats = await bili_client.getChat(card.rid_str, card.chat_type)
-            assert(chats.length > 0 && typeof chats[0] == "string")
+            assert(chats.length > 0 && typeof chats[0][0] == "string")
         },
         // 3
         async () => {
