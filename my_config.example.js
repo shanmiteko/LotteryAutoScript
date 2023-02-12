@@ -346,6 +346,11 @@ module.exports = Object.freeze({
         is_copy_chat: false,
 
         /**
+         * 热评屏蔽词
+         */
+        copy_blockword: ["三不原则"],
+
+        /**
          * - 抽奖UP用户分组id(网页端点击分区后地址栏中的tagid)
          * - 自动获取
          */
