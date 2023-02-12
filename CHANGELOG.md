@@ -1,5 +1,19 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.4)
+* 0630c89 feat: 新增设置抄热评屏蔽词 (#239)
+* 7b9d251 feat: 热评包含发送热评的人的昵称换成自己的昵称 (#239)
+* 5ae7801 fix: 带话题正则修改
+* 0ab5ec0 feat: 未知错误不重试
+* 50c22a4 fix: 账号异常点赞失败 (#247)
+* 8ac7466 fix: 未知错误 已赞过 (#249)
+* 7f6188d feat: UID保护列表输出调整为debug级
+* 2ad128c docs: change LICENSE
+* e945be4 feat: 检测docker是否已安装，未安装则预先安装docker
+* bfdbc7a fix: /bin/env path error
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.3)
 * d13c0a5 docs: 添加设置修改说明
 * 9615d25 fix: 预约抽奖转发 (#240)
