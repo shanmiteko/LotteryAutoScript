@@ -5,7 +5,7 @@ const util = require('./util');
 (async () => {
     assert(await bili_client.getMyinfo());
 
-    await util.par_run([0, 1, 2, 3, 4], [
+    await util.par_run([0, 1, 2, 3, 4, 6], [
         // 0
         async () => {
             assert.equal((await bili_client.getTopRcmd()).length, 10)
@@ -39,6 +39,10 @@ const util = require('./util');
         // 5
         async () => {
             assert(!await bili_client.createDynamic("1"))
+        },
+        // 6
+        async () => {
+            assert.equal(await bili_client.autolike("761391835139538967"), 4)
         }
     ])
 
