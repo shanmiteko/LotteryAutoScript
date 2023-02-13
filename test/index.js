@@ -3,7 +3,7 @@ const global_var = require("../lib/data/global_var");
 const { log } = require('../lib/utils');
 const fs = require('fs');
 
-log._level = 1
+log._level = 2
 env.init()
 global_var.init(process.env["COOKIE"], 1)
 

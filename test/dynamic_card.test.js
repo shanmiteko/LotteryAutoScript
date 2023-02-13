@@ -4,7 +4,7 @@ const searcher = require("../lib/core/searcher");
 const util = require('./util');
 
 (async () => {
-    await util.par_run([0, 1, 2, 3], [
+    await util.par_run([0, 1, 2, 3, 4], [
         // 0
         async () => {
             let info = await bili_client.getOneDynamicByDyid("728424890210713624");
@@ -29,10 +29,13 @@ const util = require('./util');
             assert(card.chat_type == 17)
             assert(card.origin_chat_type == 11)
         },
+        // 4
+        async () => {
+            assert.equal(await bili_client.getOneDynamicByDyid("111111111111111111"), undefined);
+            assert.notEqual(await bili_client.getOneDynamicByDyid("746824225190314008"), undefined);
+            assert.equal(await bili_client.getOneDynamicByDyid("761475750233636886"), undefined);
+        },
     ])
-
-
-
 
     console.log("dynamic_card.test ... ok!");
 })()
