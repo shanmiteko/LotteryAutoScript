@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.6)
+* 881923b fix: 开奖时间和粉丝数判断逻辑 (#253)
+* 097e2d6 fix: 筛选掉置顶的评论，与该动态UP的评论 (#252)
+* 82d285e fix:  充电专属动态 (#251)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.5)
 * 9c9bc18 fix:  查询评论报错 (#250)
 
