@@ -1,6 +1,7 @@
 const assert = require('assert');
 const bili_client = require("../lib/net/bili");
 const util = require('./util');
+const { parseDynamicCard } = require('../lib/core/searcher');
 
 (async () => {
     assert(await bili_client.getMyinfo());
@@ -13,7 +14,7 @@ const util = require('./util');
         // 1
         async () => {
             assert.equal(await bili_client.sendChat(
-                (await bili_client.getOneDynamicByDyid("692193323569381399")).desc.rid,
+                parseDynamicCard(await bili_client.getOneDynamicByDyid("692193323569381399")).rid_str,
                 "test",
                 11),
                 7
@@ -22,7 +23,7 @@ const util = require('./util');
         // 2
         async () => {
             assert.equal(await bili_client.sendChat(
-                (await bili_client.getOneDynamicByDyid("11229466874154064")).desc.rid,
+                parseDynamicCard(await bili_client.getOneDynamicByDyid("11229466874154064")).rid_str,
                 "test",
                 1),
                 3
