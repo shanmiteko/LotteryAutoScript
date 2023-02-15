@@ -4,7 +4,7 @@ const searcher = require("../lib/core/searcher");
 const util = require('./util');
 
 (async () => {
-    await util.par_run([0, 1, 2, 3, 4], [
+    await util.par_run([0, 1, 2, 3, 4, 5], [
         // 0
         async () => {
             let info = await bili_client.getOneDynamicByDyid("728424890210713624");
@@ -34,6 +34,15 @@ const util = require('./util');
             assert.equal(await bili_client.getOneDynamicByDyid("111111111111111111"), undefined);
             assert.notEqual(await bili_client.getOneDynamicByDyid("746824225190314008"), undefined);
             assert.equal(await bili_client.getOneDynamicByDyid("761475750233636886"), undefined);
+        },
+        // 5
+        async () => {
+            let card = searcher.parseDynamicCard(await bili_client.getOneDynamicByDyid("762591475338838053"));
+            let chats = await bili_client.getChat(card.rid_str, card.chat_type)
+            assert.equal(chats.length, 19)
+            card = searcher.parseDynamicCard(await bili_client.getOneDynamicByDyid("762502724122050647"));
+            chats = await bili_client.getChat(card.rid_str, card.chat_type)
+            assert.equal(chats.filter(it => it[0] === '六的月').length, 0)
         },
     ])
 

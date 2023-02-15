@@ -43,7 +43,7 @@ const util = require('./util');
         // 6
         async () => {
             assert.equal(await bili_client.autolike("761391835139538967"), 4)
-        }
+        },
     ])
 
     console.log("api.test ... ok!");
