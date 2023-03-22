@@ -4,7 +4,7 @@ const searcher = require("../lib/core/searcher");
 const util = require('./util');
 
 (async () => {
-    await util.par_run([0, 1, 2, 3, 4, 5], [
+    await util.par_run([0, 1, 2, 3, 4, 5, 6], [
         // 0
         async () => {
             let info = await bili_client.getOneDynamicByDyid("728424890210713624");
@@ -43,6 +43,12 @@ const util = require('./util');
             card = searcher.parseDynamicCard(await bili_client.getOneDynamicByDyid("762502724122050647"));
             chats = await bili_client.getChat(card.rid_str, card.chat_type)
             assert.equal(chats.filter(it => it[0] === '六的月').length, 0)
+        },
+        // 6
+        async () => {
+            const dy = await bili_client.getOneDynamicByDyid("774973685666676768");
+            const card = searcher.parseDynamicCard(dy)
+            assert.notEqual(card.description + "", undefined + "");
         },
     ])
 
