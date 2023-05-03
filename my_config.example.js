@@ -403,6 +403,7 @@ module.exports = Object.freeze({
         /**
          * - 取关分区
          * - 默认为: 此处存放因抽奖临时关注的up
+         * - 可用逗号分割以取关多分区
          */
         clear_partition: '',
 
