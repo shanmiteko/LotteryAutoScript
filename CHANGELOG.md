@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.8)
+* ad6af97 feat: 专栏短链接识别 (#263)
+* b6c56c5 feat:  取关分区支持设置多分区 (#281)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.7)
 * 2426fe2 fix: 动态详情获取接口412频繁 (#279)
 * d370fef fix: 获取动态详情出现undefined (#271)
