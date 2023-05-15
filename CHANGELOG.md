@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.9)
+* 3828a0f fix: Cannot read properties of null (#284)
+* 67313f4 feat: 专栏里的动态链接识别优化 (#283)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.8)
 * ad6af97 feat: 专栏短链接识别 (#263)
 * b6c56c5 feat:  取关分区支持设置多分区 (#281)
