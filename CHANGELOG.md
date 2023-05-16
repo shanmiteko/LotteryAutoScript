@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.10)
+* 29645bc fixed: 话题搜索功能已失效 #285
+* d950a59 fix: is_imitator导致错误评论
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.9)
 * 3828a0f fix: Cannot read properties of null (#284)
 * 67313f4 feat: 专栏里的动态链接识别优化 (#283)
