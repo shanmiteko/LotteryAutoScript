@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.7.11)
+* 5a3c16d fix: 专栏获取内容不正确，需要排除推荐内容 (#293)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.10)
 * 29645bc fixed: 话题搜索功能已失效 #285
 * d950a59 fix: is_imitator导致错误评论
