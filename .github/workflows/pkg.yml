@@ -49,7 +49,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           file: "dist/*.zip"
-          delete_file: "dist/*.zip"
           tag_name: "v2"
           overwrite: true
   arm64:
@@ -78,6 +77,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           file: "dist/*.zip"
-          delete_file: "dist/*.zip"
           tag_name: "v2"
           overwrite: true
