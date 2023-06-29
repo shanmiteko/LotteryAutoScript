@@ -23,6 +23,10 @@ module.exports = Object.freeze({
         NUMBER: 1,
         CLEAR: true,
 
+        ENABLE_PROXY: "",
+        XMDL_ORDERNNO: "",
+        XMDL_SECRET: "",
+
         ENABLE_MULTIPLE_ACCOUNT: false,
 
         MULTIPLE_ACCOUNT_PARM: "",

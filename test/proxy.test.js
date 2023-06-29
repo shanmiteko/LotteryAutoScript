@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const { send } = require('../lib/net/http');
 
 (async () => {
-    await util.par_run([0], [
+    await util.par_run([], [
         // 0
         async () => {
             let timestamp = parseInt(new Date().getTime() / 1000);
