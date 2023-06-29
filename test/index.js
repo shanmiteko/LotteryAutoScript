@@ -7,6 +7,7 @@ log._level = 2
 env.init()
 global_var.init(process.env["COOKIE"], 1)
 
+
 fs.readdirSync(module.path)
     .filter(file => file.endsWith(".test.js"))
     .forEach(file => require(`${module.path}/${file}`))
