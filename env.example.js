@@ -5,11 +5,14 @@ module.exports = Object.freeze({
      * - `NOTE` 帐号备注
      * - `NUMBER` 表示是第几个账号
      * - `CLEAR` 是否启用清理功能
+     * ## 高级功能
+     * - `ENABLE_CHAT_CAPTCHA_OCR` 开启评论验证码识别
      * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
-     * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式)
+     * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式) <不推荐使用
      * ## 调试相关
      * - `LOTTERY_LOG_LEVEL` 输出日志等级 Error<Warn<Info<Debug 1<2<3<4
      * - `NOT_GO_LOTTERY` 关闭抽奖行为
+     * 
      * ## 多账号
      * 1. 将 ENABLE_MULTIPLE_ACCOUNT 的值改为true
      * 2. 将账号信息依次填写于 multiple_account_parm 中, 参考例子类推
@@ -23,6 +26,7 @@ module.exports = Object.freeze({
         NUMBER: 1,
         CLEAR: true,
 
+        ENABLE_CHAT_CAPTCHA_OCR: "",
         ENABLE_MULTIPLE_ACCOUNT: false,
 
         MULTIPLE_ACCOUNT_PARM: "",

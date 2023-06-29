@@ -82,6 +82,7 @@ if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
     docker run \\
         -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \\
         -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \\
+        --network host \\
         --name \$NAME \\
         $DOCKER_REPO \\
         start
@@ -103,6 +104,7 @@ if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
     docker run \\
         -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \\
         -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \\
+        --network host \\
         --name \$NAME \\
         $DOCKER_REPO \\
         check
@@ -124,6 +126,7 @@ if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
     docker run \\
         -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \\
         -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \\
+        --network host \\
         --name \$NAME \\
         $DOCKER_REPO \\
         clear
@@ -144,6 +147,7 @@ NAME=shanmite-lottery-debug
 echo "create temporary debug container"
 docker run \\
     -it \\
+    --network host \\
     --name \$NAME \\
     --entrypoint /bin/bash \\
     $DOCKER_REPO -c bash
