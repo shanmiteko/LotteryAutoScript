@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.0)
+* 2f935bb chore: update env.js
+* eec22ff feat: 验证码自动识别
+* 909fb83 chore: update qinglong script
+* 41b0369 ci: fix pkg.yml
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.7.11)
 * 5a3c16d fix: 专栏获取内容不正确，需要排除推荐内容 (#293)
 
