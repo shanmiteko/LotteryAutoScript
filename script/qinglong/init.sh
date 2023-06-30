@@ -2,6 +2,7 @@
 set -e
 
 NAME=LotteryAutoScript
+BRABCH=main
 
 # 视网络情况选择链接
 GIT_REPO=https://github.com/shanmiteko/${NAME}.git
@@ -12,7 +13,7 @@ if [ -d "$NAME" ]; then
     git pull
     cd ..
 else
-    git clone $GIT_REPO $NAME --depth=1
+    git clone -b $BRABCH $GIT_REPO $NAME
 fi
 
 if [ -f "$NAME/my_config.js" ]; then
