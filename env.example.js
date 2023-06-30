@@ -7,6 +7,10 @@ module.exports = Object.freeze({
      * - `CLEAR` 是否启用清理功能
      * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
      * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式)
+     * ## 代理相关
+     * - `ENABLE_PROXY` 启用代理
+     * - `XMDL_ORDERNNO` 熊猫动态代理订单号
+     * - `XMDL_SECRET` 熊猫动态代理密钥
      * ## 调试相关
      * - `LOTTERY_LOG_LEVEL` 输出日志等级 Error<Warn<Info<Debug 1<2<3<4
      * - `NOT_GO_LOTTERY` 关闭抽奖行为
@@ -23,11 +27,11 @@ module.exports = Object.freeze({
         NUMBER: 1,
         CLEAR: true,
 
+        ENABLE_MULTIPLE_ACCOUNT: false,
+
         ENABLE_PROXY: "",
         XMDL_ORDERNNO: "",
         XMDL_SECRET: "",
-
-        ENABLE_MULTIPLE_ACCOUNT: false,
 
         MULTIPLE_ACCOUNT_PARM: "",
         LOTTERY_LOG_LEVEL: 3,
