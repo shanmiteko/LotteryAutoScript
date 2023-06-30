@@ -6,7 +6,7 @@ module.exports = Object.freeze({
      * - `NUMBER` 表示是第几个账号
      * - `CLEAR` 是否启用清理功能
      * ## 高级功能
-     * - `ENABLE_CHAT_CAPTCHA_OCR` 开启评论验证码识别
+     * - `ENABLE_CHAT_CAPTCHA_OCR` 开启评论验证码识别 使用方法见README
      * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
      * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式) <不推荐使用
      * ## 调试相关
