@@ -74,7 +74,7 @@ Chrome浏览器:
       .cookie
       .split(/\s*;\s*/)
       .map(it => it.split('='))
-      .filter(it => ['DedeUserID','bili_jct', 'SESSDATA'].indexOf(it[0]) > -1)
+      .filter(it => ['DedeUserID','bili_jct', 'SESSDATA', 'buvid3'].indexOf(it[0]) > -1)
       .map(it => it.join('='))
       .join('; ')
       .split()
@@ -83,7 +83,7 @@ Chrome浏览器:
 
 也可以采用**其他方式获取**所需的Cookie
 
-只需含有 `DedeUserID=...;SESSDATA=...;bili_jct=...` 三项即可
+只需含有 `DedeUserID=...;SESSDATA=...;bili_jct=...;buvid3=...` 即可
 
 (分号分割, 不要换行, 顺序随意)
 
