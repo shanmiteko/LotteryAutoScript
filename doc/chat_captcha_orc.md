@@ -10,4 +10,9 @@ docker run -p 9898:9898 -d ocr_api_server
 ```
 
 ### 非docker启动方式
+
+![ocr server](pic/ocr1.png)
+
 [ocr_api_server](https://github.com/shanmiteko/ocr_api_server)
+
+![start](pic/ocr0.png)
