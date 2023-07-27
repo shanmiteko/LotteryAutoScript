@@ -1,5 +1,14 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.1)
+* d44981b fix: 随机cookie参数buvid3
+* 3bfc93f fix: 目前回复无法正常推送 (#302)
+* ef8366b fix: tg推送代理设置出错 (#298)
+* a7e31b4 docs: update
+* f4f45c5 fix: cookie参数buvid3错误导致专栏获取滞后
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.0)
 * 2f935bb chore: update env.js
 * eec22ff feat: 验证码自动识别
