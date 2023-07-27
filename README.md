@@ -85,6 +85,8 @@ Chrome浏览器:
 
 只需含有 `DedeUserID=...;SESSDATA=...;bili_jct=...;buvid3=...` 即可
 
+buvid3亦可不填 使用随机生成值
+
 (分号分割, 不要换行, 顺序随意)
 
 ↓↓
