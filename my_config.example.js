@@ -419,6 +419,13 @@ module.exports = Object.freeze({
         clear_quick_remove_attention: false,
 
         /**
+         * - 快速移除关注
+         * - 不加判断只去除关注
+         * - 移除粉丝数小于指定数量的
+         */
+        clear_quick_remove_attention_fans_number_smallest: Infinity,
+
+        /**
          * 是否移除动态
          */
         clear_remove_dynamic: true,
@@ -429,7 +436,7 @@ module.exports = Object.freeze({
         clear_remove_attention: true,
 
         /**
-         * 清除动态延时(毫秒)
+         * 清除延时(毫秒)
          */
         clear_remove_delay: 8000,
 
