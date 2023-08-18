@@ -9,6 +9,8 @@
     "clear": "node main.js clear",
     "check": "node main.js check",
     "update": "node main.js update",
+    "account": "node main.js account",
+    "help": "node main.js help",
     "pkg": "bash script/build/pkg.sh",
     "changelog": "bash script/build/changelog.sh"
   },

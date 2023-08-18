@@ -7,7 +7,7 @@ const { parseDynamicCard } = require('../lib/core/searcher');
     await util.par_run([], [
         // 0
         async () => {
-            assert(await bili_client.getMyinfo());
+            assert.notEqual(await bili_client.getMyinfo(), null);
 
             const rid = parseDynamicCard(await bili_client.getOneDynamicByDyid("551416252543796684")).rid_str;
 

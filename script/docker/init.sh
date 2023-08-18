@@ -8,7 +8,7 @@ PACKAGE_UPDATE=("! apt-get update && apt-get --fix-broken install -y && apt-get 
 PACKAGE_INSTALL=("apt-get -y install" "apt-get -y install" "yum -y install" "yum -y install" "yum -y install" "pacman -Sy --noconfirm --needed")
 PACKAGE_REMOVE=("apt-get -y remove" "apt-get -y remove" "yum -y remove" "yum -y remove" "yum -y remove" "pacman -Rsc --noconfirm")
 PACKAGE_UNINSTALL=("apt-get -y autoremove" "apt-get -y autoremove" "yum -y autoremove" "yum -y autoremove" "yum -y autoremove" "")
-CMD=("$(grep -i pretty_name /etc/os-release 2>/dev/null | cut -d \" -f2)" "$(hostnamectl 2>/dev/null | grep -i system | cut -d : -f2)" "$(lsb_release -sd 2>/dev/null)" "$(grep -i description /etc/lsb-release 2>/dev/null | cut -d \" -f2)" "$(grep . /etc/redhat-release 2>/dev/null)" "$(grep . /etc/issue 2>/dev/null | cut -d \\ -f1 | sed '/^[ ]*$/d')" "$(grep -i pretty_name /etc/os-release 2>/dev/null | cut -d \" -f2)") 
+CMD=("$(grep -i pretty_name /etc/os-release 2>/dev/null | cut -d \" -f2)" "$(hostnamectl 2>/dev/null | grep -i system | cut -d : -f2)" "$(lsb_release -sd 2>/dev/null)" "$(grep -i description /etc/lsb-release 2>/dev/null | cut -d \" -f2)" "$(grep . /etc/redhat-release 2>/dev/null)" "$(grep . /etc/issue 2>/dev/null | cut -d \\ -f1 | sed '/^[ ]*$/d')" "$(grep -i pretty_name /etc/os-release 2>/dev/null | cut -d \" -f2)")
 SYS="${CMD[0]}"
 [[ -n $SYS ]] || exit 1
 for ((int = 0; int < ${#REGEX[@]}; int++)); do
@@ -19,12 +19,12 @@ for ((int = 0; int < ${#REGEX[@]}; int++)); do
 done
 if ! systemctl is-active docker >/dev/null 2>&1; then
     if [ $SYSTEM = "CentOS" ]; then
-      ${PACKAGE_INSTALL[int]} yum-utils
-      yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo &&
-      ${PACKAGE_INSTALL[int]} docker-ce docker-ce-cli containerd.io
-      systemctl enable --now docker
+        ${PACKAGE_INSTALL[int]} yum-utils
+        yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo &&
+            ${PACKAGE_INSTALL[int]} docker-ce docker-ce-cli containerd.io
+        systemctl enable --now docker
     else
-      ${PACKAGE_INSTALL[int]} docker.io
+        ${PACKAGE_INSTALL[int]} docker.io
     fi
 fi
 
@@ -117,6 +117,28 @@ else
 fi
 EOF
 chmod +x check.sh
+
+echo "create account.sh"
+cat >account.sh <<EOF
+#!$(which env) bash
+NAME=shanmite-lottery-account
+if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
+    docker run \\
+        -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \\
+        -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \\
+        --network host \\
+        --name \$NAME \\
+        $DOCKER_REPO \\
+        account
+else
+    echo "container \$NAME already existed"
+    echo "history logs -> docker logs \$NAME"
+    echo "close this -> docker stop \$NAME"
+    echo "start \$NAME"
+    docker start \$NAME
+fi
+EOF
+chmod +x account.sh
 
 echo "create clear.sh"
 cat >clear.sh <<EOF

@@ -4,7 +4,7 @@ const util = require('./util');
 const { parseDynamicCard } = require('../lib/core/searcher');
 
 (async () => {
-    assert(await bili_client.getMyinfo());
+    assert.notEqual(await bili_client.getMyinfo(), null);
 
     await util.par_run([0, 3], [
         // 0

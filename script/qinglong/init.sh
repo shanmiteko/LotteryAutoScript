@@ -39,6 +39,7 @@ EOF
 create start
 create check
 create clear
+create account
 
 cd $NAME
 npm i

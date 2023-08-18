@@ -49,14 +49,14 @@ async function main() {
         await global_var.init(COOKIE, NUMBER);
 
         /**引入基础功能 */
-        const { start, isMe, clear, checkCookie } = require("./lib/index");
+        const { start, isMe, clear, account, checkCookie } = require("./lib/index");
 
         log.info('main', '当前为第' + NUMBER + '个账号');
         log._cache.length = 0
 
         if (await checkCookie(NUMBER)) {
             const mode = process.env.lottery_mode;
-            const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart 启动抽奖\n\tcheck 中奖检查\n\tclear 清理动态和关注\n\tupdate 检查更新\n\thelp 帮助信息";
+            const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart  启动抽奖\n\tcheck  中奖检查\n\tacount 查看帐号信息\n\tclear  清理动态和关注\n\tupdate 检查更新\n\thelp   帮助信息";
             const { lottery_loop_wait, check_loop_wait, clear_loop_wait, save_lottery_info_to_file } = require("./lib/data/config");
             switch (mode) {
                 case 'start':
@@ -81,6 +81,10 @@ async function main() {
                     break;
                 case 'help':
                     return help_msg
+                case 'account':
+                    log.info('检查帐号信息', '开始运行');
+                    await account();
+                    break;
                 case undefined:
                     return "未提供以下参数\n\t[OPTIONS]\n\n" + help_msg
                 default:

@@ -112,22 +112,20 @@ buvid3亦可不填 使用随机生成值
 4. 在`my_config.js`中自定义设置
 5. 在当前目录下**打开终端**运行可执行文件`lottery`(勿直接点击`lottery`)
   - windows 可直接点击对应的`*.bat`文件
-  - unix-like
-    ```sh
-    ## 进入脚本所在目录
-    ## 授予执行权限
-    $ chmod u+x lottery
-    ## 启动脚本
-    $ ./lottery start
-    ## 检测中奖
-    $ ./lottery check
-    ## 清理关注动态
-    $ ./lottery clear
-    ## 下载最新版本
-    $ ./lottery update
+
+    ```
+    用法: lottery [OPTIONS]
+    
+    OPTIONS:
+            start  启动抽奖
+            check  中奖检查
+            acount 查看帐号信息
+            clear  清理动态和关注
+            update 检查更新
+            help   帮助信息
     ```
 
-7. 运行截图
+1. 运行截图
   ![lottery_start](https://raw.githubusercontents.com/shanmiteko/LotteryAutoScript/main/doc/pic/lottery_start.png)
 
 #### 以源码方式运行

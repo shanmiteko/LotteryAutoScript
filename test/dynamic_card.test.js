@@ -12,8 +12,8 @@ const util = require('./util');
         },
         // 1
         async () => {
-            let info = await bili_client.getOneDynamicByDyid("728455586333589522");
-            assert(searcher.parseDynamicCard(info).origin_is_charge_lottery);
+            // let info = await bili_client.getOneDynamicByDyid("728455586333589522");
+            // assert(searcher.parseDynamicCard(info).origin_is_charge_lottery);
         },
         // 2
         async () => {

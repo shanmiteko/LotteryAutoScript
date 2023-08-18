@@ -49,7 +49,7 @@ for file in "$TARGET_DIR/"*; do
 	cp $TEMPLATE_CONFIG_FILE "$TMPDIR.d/$CONFIG_FILE"
 	cp $TEMPLATE_ENV_FILE "$TMPDIR.d/$ENV_FILE"
 	if [ "$(echo $file | grep '.exe')" ]; then
-		BATS=("start" "check" "clear" "update")
+		BATS=("start" "check" "clear" "account" "update")
 		for item in "${BATS[@]}"; do
 			create_win_bat "${item}" >"$TMPDIR.d/$item.bat"
 		done
