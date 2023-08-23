@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.3)
+* 2f2eaab fix: 预约抽奖包月抽奖识别异常 (#288)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.2)
 * 3825be4 feat: 查看帐号信息
 * 248c78d feat: 快速移除关注模式新增粉丝数限制 (#305)
