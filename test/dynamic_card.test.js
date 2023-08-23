@@ -4,7 +4,7 @@ const searcher = require("../lib/core/searcher");
 const util = require('./util');
 
 (async () => {
-    await util.par_run([0, 1, 2, 3, 4, 5, 6], [
+    await util.par_run([0, 1, 2, 3, 4, 5, 6, 7, 8], [
         // 0
         async () => {
             let info = await bili_client.getOneDynamicByDyid("728424890210713624");
@@ -12,8 +12,8 @@ const util = require('./util');
         },
         // 1
         async () => {
-            // let info = await bili_client.getOneDynamicByDyid("728455586333589522");
-            // assert(searcher.parseDynamicCard(info).origin_is_charge_lottery);
+            let info = await bili_client.getOneDynamicByDyid("768874900850999300");
+            assert(searcher.parseDynamicCard(info).origin_is_charge_lottery);
         },
         // 2
         async () => {
@@ -49,6 +49,18 @@ const util = require('./util');
             const dy = await bili_client.getOneDynamicByDyid("774973685666676768");
             const card = searcher.parseDynamicCard(dy)
             assert.notEqual(card.description + "", undefined + "");
+        },
+        // 7
+        async () => {
+            const dy = await bili_client.getOneDynamicByDyid("832208853440397352");
+            const card = searcher.parseDynamicCard(dy)
+            assert.equal(card.reserve_id, "3106984");
+        },
+        // 8
+        async () => {
+            const dy = await bili_client.getOneDynamicByDyid("832966468497834066");
+            const card = searcher.parseDynamicCard(dy)
+            assert.equal(card.origin_reserve_id, "3106984");
         },
     ])
 

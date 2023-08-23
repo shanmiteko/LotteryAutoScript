@@ -26,8 +26,8 @@ jobs:
             nodev: 18
           - platform: win
             nodev: 18
-          - platform: win
-            nodev: 12
+          # - platform: win
+          #   nodev: 12
     steps:
       - name: "Checkout codes"
         uses: actions/checkout@v3
