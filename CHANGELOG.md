@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.4)
+* 9ab605a feat: 新增本地dyids抽奖新信息获取方式 (#311)(#287)
+* a83c5ab fix: extend_json undefined
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.3)
 * 2f2eaab fix: 预约抽奖包月抽奖识别异常 (#288)
 
