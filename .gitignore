@@ -3,6 +3,7 @@ node_modules/
 tests/
 dyids/
 lottery_info/
+lottery_dyids/
 dist/
 .env
 *.log

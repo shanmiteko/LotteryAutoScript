@@ -52,11 +52,18 @@ module.exports = Object.freeze({
         APIs: ["file://lottery_info_1.json"],
 
         /**
+         * lottery_dyids目录下抽奖动态文件名(如dyids.txt)
+         * 一行一个dyids(非数字字符分割即可)
+         */
+        TxT: ["dyids.txt"],
+
+        /**
          * 抽奖参与顺序组合
          * * 0 - UIDs
          * * 1 - TAGs
          * * 2 - Articles
          * * 3 - APIs
+         * * 4 - TxT
          * @example
          * [3,2,1,0]
          * [1,2,1,2,1]
