@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.5)
+* 0024b19 feat: 移除远程设置启用自动更新
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.4)
 * 9ab605a feat: 新增本地dyids抽奖新信息获取方式 (#311)(#287)
 * a83c5ab fix: extend_json undefined
