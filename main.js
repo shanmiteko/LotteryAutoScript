@@ -153,11 +153,13 @@ function initConfig() {
     /**OPTIONS */
     process.env.lottery_mode = process.argv[2]
 
+    log.info('检查更新', '开始')
+
     if (process.env.lottery_mode === "update") {
-        log.info('检查更新', '开始')
-        await require("./lib/update").update()
-        log.info('检查更新', '请手动解压替换可执行文件')
+        await require("./lib/update").update(true)
         return
+    } else {
+        await require("./lib/update").update(false)
     }
 
     const err_msg = await main();
