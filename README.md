@@ -122,6 +122,7 @@ buvid3亦可不填 使用随机生成值
             acount 查看帐号信息
             clear  清理动态和关注
             update 检查更新
+            login  扫码登录自动更新CK
             help   帮助信息
     ```
 
