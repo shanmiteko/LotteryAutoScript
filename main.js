@@ -1,5 +1,4 @@
 const { version: ve, env_file, config_file, log, hasEnv, delay, hasFileOrDir, clearLotteryInfo } = require("./lib/utils");
-const {lottery_loop_wait} = require("./lib/data/config");
 
 const metainfo = [
     `  _           _   _                   _____           _       _   `,
@@ -55,9 +54,9 @@ async function main() {
         log.info('main', '当前为第' + NUMBER + '个账号');
         log._cache.length = 0
 
+        const mode = process.env.lottery_mode;
+        const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart  启动抽奖\n\tcheck  中奖检查\n\tacount 查看帐号信息\n\tclear  清理动态和关注\n\tlogin 扫码登录更新CK\n\tupdate 检查更新\n\thelp   帮助信息";
         if (await checkCookie(NUMBER)) {
-            const mode = process.env.lottery_mode;
-            const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart  启动抽奖\n\tcheck  中奖检查\n\tacount 查看帐号信息\n\tclear  清理动态和关注\n\tupdate 检查更新\n\thelp   帮助信息";
             const { lottery_loop_wait, check_loop_wait, clear_loop_wait, save_lottery_info_to_file } = require("./lib/data/config");
             switch (mode) {
                 case 'start':
@@ -81,9 +80,7 @@ async function main() {
                     }
                     break;
                 case 'login':
-                    log.info('登陆', '开始扫码');
-                    loop_wait = lottery_loop_wait;
-                    await login(NUMBER);
+                    log.info('登录状态', '正常，跳过扫码');
                     break;
                 case 'help':
                     return help_msg
@@ -98,7 +95,10 @@ async function main() {
             }
         } else {
             log.error('Cookie已失效', '切换账号时不要点击退出账号而应直接删除Cookie退出')
-            return
+            if (mode === "login") {
+                log.info('登陆', '开始扫码');
+                await login(NUMBER);
+            }
         }
     } else {
         return '请查看README文件, 在env.js指定位置填入cookie'
