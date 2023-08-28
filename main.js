@@ -16,6 +16,9 @@ const metainfo = [
 let multiple_account = [];
 /**循环等待时间 */
 let loop_wait = 0;
+/**账号状态标记 1正常 -1失效 */
+// eslint-disable-next-line no-unused-vars
+let ck_flag = 0
 
 /**
  * @returns {Promise<string>} 错误信息
@@ -38,7 +41,11 @@ async function main() {
             if (err_msg) {
                 return err_msg
             } else {
-                await delay(acco.WAIT);
+                if(ck_flag===1){
+                    await delay(acco.WAIT);
+                } else {
+                    await delay(3 * 1000);
+                }
             }
         }
 
@@ -58,6 +65,7 @@ async function main() {
         const help_msg = "用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart  启动抽奖\n\tcheck  中奖检查\n\tacount 查看帐号信息\n\tclear  清理动态和关注\n\tlogin 扫码登录更新CK\n\tupdate 检查更新\n\thelp   帮助信息";
         if (await checkCookie(NUMBER)) {
             const { lottery_loop_wait, check_loop_wait, clear_loop_wait, save_lottery_info_to_file } = require("./lib/data/config");
+            ck_flag = 1;
             switch (mode) {
                 case 'start':
                     log.info('抽奖', '开始运行');
@@ -95,8 +103,10 @@ async function main() {
             }
         } else {
             log.error('Cookie已失效', '切换账号时不要点击退出账号而应直接删除Cookie退出')
+            ck_flag = -1;
             if (mode === "login") {
                 log.info('登陆', '开始扫码');
+                await delay(6 * 1000);
                 await login(NUMBER);
             }
         }
