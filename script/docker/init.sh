@@ -188,3 +188,25 @@ docker image rm -f shanmite/lottery_auto_docker
 echo "see you next time!"
 EOF
 chmod +x remove_all.sh
+
+echo "create login.sh"
+cat >login.sh <<EOF
+#!$(which env) bash
+NAME=shanmite-lottery-login
+if [[ -z "\$(docker ps -a | grep \$NAME)" ]]; then
+    docker run \\
+        -v $PWD/$ENV_FILE:/lottery/$ENV_FILE \\
+        -v $PWD/$CONFIG_FILE:/lottery/$CONFIG_FILE \\
+        --network host \\
+        --name \$NAME \\
+        $DOCKER_REPO \\
+        login
+else
+    echo "container \$NAME already existed"
+    echo "history logs -> docker logs \$NAME"
+    echo "close this -> docker stop \$NAME"
+    echo "login \$NAME"
+    docker login \$NAME
+fi
+EOF
+chmod +x login.sh

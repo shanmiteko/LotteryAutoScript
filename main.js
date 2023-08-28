@@ -1,4 +1,5 @@
 const { version: ve, env_file, config_file, log, hasEnv, delay, hasFileOrDir, clearLotteryInfo } = require("./lib/utils");
+const {lottery_loop_wait} = require("./lib/data/config");
 
 const metainfo = [
     `  _           _   _                   _____           _       _   `,
@@ -49,7 +50,7 @@ async function main() {
         await global_var.init(COOKIE, NUMBER);
 
         /**引入基础功能 */
-        const { start, isMe, clear, account, checkCookie } = require("./lib/index");
+        const { start, isMe, clear, account, checkCookie, login } = require("./lib/index");
 
         log.info('main', '当前为第' + NUMBER + '个账号');
         log._cache.length = 0
@@ -78,6 +79,11 @@ async function main() {
                         loop_wait = clear_loop_wait;
                         await clear();
                     }
+                    break;
+                case 'login':
+                    log.info('登陆', '开始扫码');
+                    loop_wait = lottery_loop_wait;
+                    await login(NUMBER);
                     break;
                 case 'help':
                     return help_msg

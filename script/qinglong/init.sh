@@ -40,6 +40,7 @@ create start
 create check
 create clear
 create account
+create login
 
 cd $NAME
 npm i
