@@ -311,12 +311,6 @@ module.exports = Object.freeze({
         blacklist: '',
 
         /**
-         * - 自动同步 https://gitee.com/shanmite/lottery-notice/raw/master/notice.json
-         * - 使用公共黑名单
-         */
-        use_public_blacklist: true,
-
-        /**
          * 屏蔽词
          */
         blockword: ["脚本", "抽奖号", "钓鱼"],
