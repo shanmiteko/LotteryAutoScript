@@ -45,6 +45,10 @@ const { parseDynamicCard } = require('../lib/core/searcher');
         async () => {
             assert.equal(await bili_client.autolike("761391835139538967"), 4)
         },
+        // 7
+        async () => {
+            assert(await bili_client.rmDynamic("835102428771647513"))
+        },
     ])
 
     console.log("api.test ... ok!");
