@@ -3,6 +3,8 @@
 - [AutoScript](#autoscript)
   - [操作步骤](#操作步骤)
     - [获取COOKIE](#获取cookie)
+      - [扫码登陆](#扫码登陆)
+      - [手动获取](#手动获取)
     - [本地运行](#本地运行)
       - [可执行文件](#可执行文件)
       - [以源码方式运行](#以源码方式运行)
@@ -53,6 +55,14 @@
 ↓↓
 
 ### 获取COOKIE
+
+#### 扫码登陆
+
+在`env.js`文件填`COOKIE`的对应位置写入`"DedeUserID=你的UID"`即可使用`lottery login`扫码自动获取Cookie
+
+`COOKIE`中包含`DedeUserID=你的UID`的都会被自动替换
+
+#### 手动获取
 
 进入[B站主页](https://www.bilibili.com/)获取Cookie用于登录
 
