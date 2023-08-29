@@ -1,5 +1,14 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.6)
+* 83e19d4 docs: 扫码登陆使用说明
+* c238c27 fix：多账号login添加时延进行间隔
+* 8addc90 fix：登录跳过执行正常状态的账号
+* 288851b feat: 扫码登录获取移动端的CK更新账号,带sid可减小掉号频率
+* ddcfcee fix: 移除公共黑名单设置
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.5)
 * 0024b19 feat: 移除远程设置启用自动更新
 
