@@ -41,7 +41,7 @@ async function main() {
             if (err_msg) {
                 return err_msg
             } else {
-                if(ck_flag===1){
+                if (ck_flag === 1) {
                     await delay(acco.WAIT);
                 } else {
                     await delay(3 * 1000);
@@ -106,8 +106,8 @@ async function main() {
             ck_flag = -1;
             if (mode === "login") {
                 log.info('登陆', '开始扫码');
-                await delay(6 * 1000);
                 await login(NUMBER);
+                await delay(1000);
             }
         }
     } else {
@@ -190,7 +190,7 @@ function initConfig() {
             if (initEnv() || initConfig()) return;
             await main()
         }
-        log.info('结束运行', '未在config.js中设置休眠时间')
+        log.info('结束运行', '未在my_config.js中设置休眠时间')
     }
 
     process.exit(0);
