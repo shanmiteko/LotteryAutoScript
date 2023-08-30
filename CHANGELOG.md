@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.7)
+* 62768dd fix: 修改win脚本
+* 101df0a fix: login等待时间过长
+* f8829b5 fix: 清理动态检索动态延时
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.6)
 * 83e19d4 docs: 扫码登陆使用说明
 * c238c27 fix：多账号login添加时延进行间隔
