@@ -12,7 +12,8 @@ TARGET_DIR="dist"
 BIN_NAME="lottery"
 
 create_win_bat() {
-	echo "@echo off && lottery $1 && pause"
+	echo "set NODE_SKIP_PLATFORM_CHECK=1" >>$2
+	echo "lottery $1 & pause" >>$2
 }
 
 if [ -d "$TARGET_DIR" ]; then
@@ -51,7 +52,7 @@ for file in "$TARGET_DIR/"*; do
 	if [ "$(echo $file | grep '.exe')" ]; then
 		BATS=("start" "check" "clear" "account" "update" "login")
 		for item in "${BATS[@]}"; do
-			create_win_bat "${item}" >"$TMPDIR.d/$item.bat"
+			create_win_bat "${item}" "$TMPDIR.d/$item.bat"
 		done
 		mv "$TMPDIR.d/$BIN_NAME" "$TMPDIR.d/$BIN_NAME.exe"
 	else
