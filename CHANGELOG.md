@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.8)
+* 54af844 fix: 专栏无法获取
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.7)
 * 62768dd fix: 修改win脚本
 * 101df0a fix: login等待时间过长
