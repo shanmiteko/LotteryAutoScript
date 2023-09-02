@@ -12,12 +12,12 @@ module.exports = Object.freeze({
      * ## 调试相关
      * - `LOTTERY_LOG_LEVEL` 输出日志等级 Error<Warn<Info<Debug 1<2<3<4
      * - `NOT_GO_LOTTERY` 关闭抽奖行为
-     * 
+     *
      * ## 多账号
      * 1. 将 ENABLE_MULTIPLE_ACCOUNT 的值改为true
      * 2. 将账号信息依次填写于 multiple_account_parm 中, 参考例子类推
      * - `WAIT` 表示下一个账号运行等待时间(毫秒)
-     * 
+     *
      * **按顺序依次执行, 防止访问频繁封禁IP**
      */
     account_parm: {
@@ -37,7 +37,7 @@ module.exports = Object.freeze({
     /**
      * 为防止环境变量过长, 请将多账号填在此处
      * 以 **大括号内容** 为模板依次复制(包含大括号),逗号分割
-     * 
+     *
      * ```txt
      * [
      *     {
@@ -92,6 +92,8 @@ module.exports = Object.freeze({
         SMTP_PORT: "",
         SMTP_USER: "",
         SMTP_PASS: "",
-        SMTP_TO_USER: ""
+        SMTP_TO_USER: "",
+        GOTIFY_URL: "",
+        GOTIFY_APPKEY: ""
     }
 })
