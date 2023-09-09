@@ -1,5 +1,15 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.9)
+* 588feba docs: update readme
+* 5d5858f fix: 无法已读未关注未读私信
+* 1526519 docs: 添加gotify推送说明
+* 69c297e feat: 添加Gotify推送
+* 2017705 feat: autoAttention API增加对重复关注的处理
+* 16c113f docs: update readme
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.8)
 * 54af844 fix: 专栏无法获取
 
