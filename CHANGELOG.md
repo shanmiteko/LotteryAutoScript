@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.10)
+* e32c3c9 fix: 已经关注用户未转发
+* 3bd77b3 fix: fs.close
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.9)
 * 588feba docs: update readme
 * 5d5858f fix: 无法已读未关注未读私信
