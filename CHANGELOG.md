@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.12)
+* 5d30178 ci: docker构建
+* 0c61070 fix: 评论并转发 (#259)
+* 6dfee7e fix: 出现帐号未登录错误时自动跳转下一个帐号
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.11)
 * 6496a8f fix: fs.close
 
