@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.13)
+* addb9c6 fix: ghproxy.com->mirror.ghproxy.com (#333)
+* b86e756 fix: at错位
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.12)
 * 5d30178 ci: docker构建
 * 0c61070 fix: 评论并转发 (#259)
