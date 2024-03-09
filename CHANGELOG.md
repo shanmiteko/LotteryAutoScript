@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.14)
+* f5bdd28 fix: update api getOneDynamicByDyid
+* cb6fad0 fix: get_dynamic_detail api  (#351)
+* 780a3a9 fix: update get_dynamic_detail api (#350)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.13)
 * addb9c6 fix: ghproxy.com->mirror.ghproxy.com (#333)
 * b86e756 fix: at错位
