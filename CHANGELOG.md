@@ -1,5 +1,14 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.15)
+* 7b6356a fix:  风控导致动态全为过时
+* d337fb2 fix: 查询动态详情的接口失效 (#349)
+* d9dba6f fix: Cannot read properties of null (reading 'is_liked')
+* eafa7c7 fix:  Cannot read properties of null (reading 'length') (#360)
+* e2976cc docs: 文档更新cookie获取方式 (#357)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.14)
 * f5bdd28 fix: update api getOneDynamicByDyid
 * cb6fad0 fix: get_dynamic_detail api  (#351)
