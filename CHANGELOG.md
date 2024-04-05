@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.16)
+* 469a6dc fix: add getOneDynamicByDyid v1
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.15)
 * 7b6356a fix:  风控导致动态全为过时
 * d337fb2 fix: 查询动态详情的接口失效 (#349)
