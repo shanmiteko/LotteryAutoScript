@@ -37,6 +37,7 @@ async function main() {
             process.env.NUMBER = acco.NUMBER;
             process.env.CLEAR = acco.CLEAR;
             process.env.NOTE = acco.NOTE;
+            process.env.ACCOUNT_UA = acco.ACCOUNT_UA;
             const err_msg = await main();
             if (err_msg) {
                 return err_msg
