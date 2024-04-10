@@ -5,6 +5,7 @@ module.exports = Object.freeze({
      * - `NOTE` 帐号备注
      * - `NUMBER` 表示是第几个账号
      * - `CLEAR` 是否启用清理功能
+     * - `ACCOUNT_UA` 账号UA, 可在浏览器控制台输入 navigator.userAgent 查看
      * ## 高级功能
      * - `ENABLE_CHAT_CAPTCHA_OCR` 开启评论验证码识别 使用方法见README
      * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
@@ -25,6 +26,7 @@ module.exports = Object.freeze({
         NOTE: "",
         NUMBER: 1,
         CLEAR: true,
+        ACCOUNT_UA: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
 
         ENABLE_CHAT_CAPTCHA_OCR: "",
         ENABLE_MULTIPLE_ACCOUNT: false,
@@ -59,7 +61,8 @@ module.exports = Object.freeze({
             NOTE: "",
             NUMBER: 1,
             CLEAR: true,
-            WAIT: 60 * 1000
+            WAIT: 60 * 1000,
+            ACCOUNT_UA: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
         }
     ],
 
