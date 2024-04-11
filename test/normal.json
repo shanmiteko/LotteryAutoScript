@@ -1,0 +1,330 @@
+{
+    "code": 0,
+    "message": "0",
+    "ttl": 1,
+    "data": {
+        "item": {
+            "basic": {
+                "comment_id_str": "308587881",
+                "comment_type": 11,
+                "like_icon": {
+                    "action_url": "",
+                    "end_url": "",
+                    "id": 0,
+                    "start_url": ""
+                },
+                "rid_str": "308587881"
+            },
+            "id_str": "899394301034758177",
+            "modules": {
+                "module_author": {
+                    "avatar": {
+                        "container_size": {
+                            "height": 1.35,
+                            "width": 1.35
+                        },
+                        "fallback_layers": {
+                            "is_critical_group": true,
+                            "layers": [
+                                {
+                                    "general_spec": {
+                                        "pos_spec": {
+                                            "axis_x": 0.675,
+                                            "axis_y": 0.675,
+                                            "coordinate_pos": 2
+                                        },
+                                        "render_spec": {
+                                            "opacity": 1
+                                        },
+                                        "size_spec": {
+                                            "height": 1,
+                                            "width": 1
+                                        }
+                                    },
+                                    "layer_config": {
+                                        "is_critical": true,
+                                        "tags": {
+                                            "AVATAR_LAYER": {},
+                                            "GENERAL_CFG": {
+                                                "config_type": 1,
+                                                "general_config": {
+                                                    "web_css_style": {
+                                                        "borderRadius": "50%"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "resource": {
+                                        "res_image": {
+                                            "image_src": {
+                                                "placeholder": 6,
+                                                "remote": {
+                                                    "bfs_style": "widget-layer-avatar",
+                                                    "url": "https://i2.hdslb.com/bfs/face/38482704a1ef1585e37bc21095f7c363c45941f1.jpg"
+                                                },
+                                                "src_type": 1
+                                            }
+                                        },
+                                        "res_type": 3
+                                    },
+                                    "visible": true
+                                },
+                                {
+                                    "general_spec": {
+                                        "pos_spec": {
+                                            "axis_x": 0.8000000000000002,
+                                            "axis_y": 0.8000000000000002,
+                                            "coordinate_pos": 1
+                                        },
+                                        "render_spec": {
+                                            "opacity": 1
+                                        },
+                                        "size_spec": {
+                                            "height": 0.41666666666666663,
+                                            "width": 0.41666666666666663
+                                        }
+                                    },
+                                    "layer_config": {
+                                        "tags": {
+                                            "GENERAL_CFG": {
+                                                "config_type": 1,
+                                                "general_config": {
+                                                    "web_css_style": {
+                                                        "background-color": "rgb(255,255,255)",
+                                                        "border": "2px solid rgba(255,255,255,1)",
+                                                        "borderRadius": "50%",
+                                                        "boxSizing": "border-box"
+                                                    }
+                                                }
+                                            },
+                                            "ICON_LAYER": {}
+                                        }
+                                    },
+                                    "resource": {
+                                        "res_image": {
+                                            "image_src": {
+                                                "local": 4,
+                                                "src_type": 2
+                                            }
+                                        },
+                                        "res_type": 3
+                                    },
+                                    "visible": true
+                                }
+                            ]
+                        },
+                        "mid": "626795438"
+                    },
+                    "face": "https://i2.hdslb.com/bfs/face/38482704a1ef1585e37bc21095f7c363c45941f1.jpg",
+                    "face_nft": false,
+                    "following": null,
+                    "jump_url": "//space.bilibili.com/626795438/dynamic",
+                    "label": "",
+                    "mid": 626795438,
+                    "name": "闪魔SmartDevil",
+                    "official_verify": {
+                        "desc": "",
+                        "type": 1
+                    },
+                    "pendant": {
+                        "expire": 0,
+                        "image": "",
+                        "image_enhance": "",
+                        "image_enhance_frame": "",
+                        "n_pid": 0,
+                        "name": "",
+                        "pid": 0
+                    },
+                    "pub_action": "",
+                    "pub_location_text": "",
+                    "pub_time": "2024年02月18日 16:29",
+                    "pub_ts": 1708244954,
+                    "type": "AUTHOR_TYPE_NORMAL",
+                    "vip": {
+                        "avatar_subscript": 0,
+                        "avatar_subscript_url": "",
+                        "due_date": 1681920000000,
+                        "label": {
+                            "bg_color": "",
+                            "bg_style": 0,
+                            "border_color": "",
+                            "img_label_uri_hans": "",
+                            "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png",
+                            "img_label_uri_hant": "",
+                            "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png",
+                            "label_theme": "",
+                            "path": "",
+                            "text": "",
+                            "text_color": "",
+                            "use_img_label": true
+                        },
+                        "nickname_color": "",
+                        "status": 0,
+                        "theme_type": 0,
+                        "type": 1
+                    }
+                },
+                "module_dynamic": {
+                    "additional": null,
+                    "desc": {
+                        "rich_text_nodes": [
+                            {
+                                "orig_text": "魔闪闪演你上班精神状态👇👇\n说说哪一张更符合你现在的状态？\n关注",
+                                "text": "魔闪闪演你上班精神状态👇👇\n说说哪一张更符合你现在的状态？\n关注",
+                                "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                            },
+                            {
+                                "orig_text": "@闪魔SmartDevil ",
+                                "rid": "626795438",
+                                "text": "@闪魔SmartDevil ",
+                                "type": "RICH_TEXT_NODE_TYPE_AT"
+                            },
+                            {
+                                "orig_text": "，转赞评本动态，揪2位打工人送【闪魔无线键盘鼠标套装】，㊗️开工大吉，升职加薪一条龙！🐉\n",
+                                "text": "，转赞评本动态，揪2位打工人送【闪魔无线键盘鼠标套装】，㊗️开工大吉，升职加薪一条龙！🐉\n",
+                                "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                            },
+                            {
+                                "orig_text": "[礼物]",
+                                "text": "[礼物]",
+                                "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                            },
+                            {
+                                "orig_text": "再揪10位打工人送桌宠【魔闪闪限量IP手办】，让魔闪闪陪你上班~3月4日开奖",
+                                "text": "再揪10位打工人送桌宠【魔闪闪限量IP手办】，让魔闪闪陪你上班~3月4日开奖",
+                                "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                            },
+                            {
+                                "jump_url": "//search.bilibili.com/all?keyword=%E8%BD%AC%E5%8F%91%E6%8A%BD%E5%A5%96",
+                                "orig_text": "#转发抽奖#",
+                                "text": "#转发抽奖#",
+                                "type": "RICH_TEXT_NODE_TYPE_TOPIC"
+                            },
+                            {
+                                "orig_text": " ",
+                                "text": " ",
+                                "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                            },
+                            {
+                                "jump_url": "//search.bilibili.com/all?keyword=%E4%BE%9B%E7%94%B5%E5%B1%80%E7%A6%8F%E5%88%A9%E7%A4%BE",
+                                "orig_text": "#供电局福利社#",
+                                "text": "#供电局福利社#",
+                                "type": "RICH_TEXT_NODE_TYPE_TOPIC"
+                            },
+                            {
+                                "orig_text": " ",
+                                "text": " ",
+                                "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                            },
+                            {
+                                "jump_url": "//search.bilibili.com/all?keyword=%E4%BA%92%E5%8A%A8%E6%8A%BD%E5%A5%96",
+                                "orig_text": "#互动抽奖#",
+                                "text": "#互动抽奖#",
+                                "type": "RICH_TEXT_NODE_TYPE_TOPIC"
+                            }
+                        ],
+                        "text": "魔闪闪演你上班精神状态👇👇\n说说哪一张更符合你现在的状态？\n关注@闪魔SmartDevil ，转赞评本动态，揪2位打工人送【闪魔无线键盘鼠标套装】，㊗️开工大吉，升职加薪一条龙！🐉\n[礼物]再揪10位打工人送桌宠【魔闪闪限量IP手办】，让魔闪闪陪你上班~3月4日开奖#转发抽奖# #供电局福利社# #互动抽奖#"
+                    },
+                    "major": {
+                        "draw": {
+                            "id": 308587881,
+                            "items": [
+                                {
+                                    "height": 1440,
+                                    "size": 194.57,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/da8c3fa2b891b0a487d0635b49f7f916626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                },
+                                {
+                                    "height": 1440,
+                                    "size": 177.3,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/798db1202fa4291bb2a32241d101a68e626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                },
+                                {
+                                    "height": 1440,
+                                    "size": 173.04,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/9e2415eb26b4fbf8544b994c9562b9d1626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                },
+                                {
+                                    "height": 1440,
+                                    "size": 206.15,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/2319dfd879f7ba7a3ee120ab9246c165626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                },
+                                {
+                                    "height": 1440,
+                                    "size": 195.71,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/2e979e809e6ee8f9f21ee2d4d5bfcc1f626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                },
+                                {
+                                    "height": 1440,
+                                    "size": 173.86,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/572ba3cb8c86f5ac54f368701b3599a9626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                },
+                                {
+                                    "height": 1440,
+                                    "size": 204.16,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/b588e18fca5204289050604edb60289f626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                },
+                                {
+                                    "height": 1440,
+                                    "size": 191.08,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/e6e114e8510305a4785daaa9d26e9079626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                },
+                                {
+                                    "height": 1440,
+                                    "size": 214.41,
+                                    "src": "https://i0.hdslb.com/bfs/new_dyn/e8ab2b56d9a8ff9337977607230a3d7b626795438.jpg",
+                                    "tags": [],
+                                    "width": 1080
+                                }
+                            ]
+                        },
+                        "type": "MAJOR_TYPE_DRAW"
+                    },
+                    "topic": null
+                },
+                "module_more": {
+                    "three_point_items": [
+                        {
+                            "label": "举报",
+                            "type": "THREE_POINT_REPORT"
+                        }
+                    ]
+                },
+                "module_stat": {
+                    "comment": {
+                        "count": 3978,
+                        "forbidden": false
+                    },
+                    "forward": {
+                        "count": 23608,
+                        "forbidden": false
+                    },
+                    "like": {
+                        "count": 2693,
+                        "forbidden": false,
+                        "status": false
+                    }
+                }
+            },
+            "type": "DYNAMIC_TYPE_DRAW",
+            "visible": true
+        }
+    }
+}

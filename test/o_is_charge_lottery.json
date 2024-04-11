@@ -1,0 +1,460 @@
+{
+    "code": 0,
+    "message": "0",
+    "ttl": 1,
+    "data": {
+        "item": {
+            "basic": {
+                "comment_id_str": "768874900850999300",
+                "comment_type": 17,
+                "like_icon": {
+                    "action_url": "",
+                    "end_url": "",
+                    "id": 0,
+                    "start_url": ""
+                },
+                "rid_str": "768874900626604080"
+            },
+            "id_str": "768874900850999300",
+            "modules": {
+                "module_author": {
+                    "avatar": {
+                        "container_size": {
+                            "height": 1.35,
+                            "width": 1.35
+                        },
+                        "fallback_layers": {
+                            "is_critical_group": true,
+                            "layers": [
+                                {
+                                    "general_spec": {
+                                        "pos_spec": {
+                                            "axis_x": 0.675,
+                                            "axis_y": 0.675,
+                                            "coordinate_pos": 2
+                                        },
+                                        "render_spec": {
+                                            "opacity": 1
+                                        },
+                                        "size_spec": {
+                                            "height": 1,
+                                            "width": 1
+                                        }
+                                    },
+                                    "layer_config": {
+                                        "is_critical": true,
+                                        "tags": {
+                                            "AVATAR_LAYER": {},
+                                            "GENERAL_CFG": {
+                                                "config_type": 1,
+                                                "general_config": {
+                                                    "web_css_style": {
+                                                        "borderRadius": "50%"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "resource": {
+                                        "res_image": {
+                                            "image_src": {
+                                                "placeholder": 6,
+                                                "remote": {
+                                                    "bfs_style": "widget-layer-avatar",
+                                                    "url": "https://i0.hdslb.com/bfs/face/d0175ec92908e1d651f0b1519639adc743b7e0d8.jpg"
+                                                },
+                                                "src_type": 1
+                                            }
+                                        },
+                                        "res_type": 3
+                                    },
+                                    "visible": true
+                                }
+                            ]
+                        },
+                        "mid": "95333625"
+                    },
+                    "face": "https://i0.hdslb.com/bfs/face/d0175ec92908e1d651f0b1519639adc743b7e0d8.jpg",
+                    "face_nft": false,
+                    "following": null,
+                    "jump_url": "//space.bilibili.com/95333625/dynamic",
+                    "label": "",
+                    "mid": 95333625,
+                    "name": "桐零SAC",
+                    "official_verify": {
+                        "desc": "",
+                        "type": -1
+                    },
+                    "pendant": {
+                        "expire": 0,
+                        "image": "",
+                        "image_enhance": "",
+                        "image_enhance_frame": "",
+                        "n_pid": 0,
+                        "name": "",
+                        "pid": 0
+                    },
+                    "pub_action": "",
+                    "pub_location_text": "",
+                    "pub_time": "2023年03月03日 23:07",
+                    "pub_ts": 1677856038,
+                    "type": "AUTHOR_TYPE_NORMAL",
+                    "vip": {
+                        "avatar_subscript": 0,
+                        "avatar_subscript_url": "",
+                        "due_date": 1695571200000,
+                        "label": {
+                            "bg_color": "",
+                            "bg_style": 0,
+                            "border_color": "",
+                            "img_label_uri_hans": "",
+                            "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/d7b702ef65a976b20ed854cbd04cb9e27341bb79.png",
+                            "img_label_uri_hant": "",
+                            "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/KJunwh19T5.png",
+                            "label_theme": "",
+                            "path": "",
+                            "text": "",
+                            "text_color": "",
+                            "use_img_label": true
+                        },
+                        "nickname_color": "",
+                        "status": 0,
+                        "theme_type": 0,
+                        "type": 1
+                    }
+                },
+                "module_dynamic": {
+                    "additional": null,
+                    "desc": {
+                        "rich_text_nodes": [
+                            {
+                                "orig_text": "转发动态",
+                                "text": "转发动态",
+                                "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                            }
+                        ],
+                        "text": "转发动态"
+                    },
+                    "major": null,
+                    "topic": null
+                },
+                "module_more": {
+                    "three_point_items": [
+                        {
+                            "label": "举报",
+                            "type": "THREE_POINT_REPORT"
+                        }
+                    ]
+                },
+                "module_stat": {
+                    "comment": {
+                        "count": 0,
+                        "forbidden": false
+                    },
+                    "forward": {
+                        "count": 0,
+                        "forbidden": false
+                    },
+                    "like": {
+                        "count": 0,
+                        "forbidden": false,
+                        "status": false
+                    }
+                }
+            },
+            "orig": {
+                "basic": {
+                    "comment_id_str": "",
+                    "comment_type": 0,
+                    "like_icon": {
+                        "action_url": "",
+                        "end_url": "",
+                        "id": 0,
+                        "start_url": ""
+                    },
+                    "rid_str": ""
+                },
+                "id_str": "768874694664257625",
+                "modules": {
+                    "module_author": {
+                        "avatar": {
+                            "container_size": {
+                                "height": 1.375,
+                                "width": 1.375
+                            },
+                            "fallback_layers": {
+                                "is_critical_group": true,
+                                "layers": [
+                                    {
+                                        "general_spec": {
+                                            "pos_spec": {
+                                                "axis_x": 0.6875,
+                                                "axis_y": 0.6875,
+                                                "coordinate_pos": 2
+                                            },
+                                            "render_spec": {
+                                                "opacity": 1
+                                            },
+                                            "size_spec": {
+                                                "height": 0.787,
+                                                "width": 0.787
+                                            }
+                                        },
+                                        "layer_config": {
+                                            "is_critical": true,
+                                            "tags": {
+                                                "AVATAR_LAYER": {},
+                                                "GENERAL_CFG": {
+                                                    "config_type": 1,
+                                                    "general_config": {
+                                                        "web_css_style": {
+                                                            "borderRadius": "50%"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "resource": {
+                                            "res_animation": {
+                                                "webp_src": {
+                                                    "placeholder": 6,
+                                                    "remote": {
+                                                        "bfs_style": "widget-layer-avatar",
+                                                        "url": "https://i0.hdslb.com/bfs/face/7efb679569b2faeff38fa08f6f992fa1ada5e948.webp"
+                                                    },
+                                                    "src_type": 1
+                                                }
+                                            },
+                                            "res_type": 4
+                                        },
+                                        "visible": true
+                                    },
+                                    {
+                                        "general_spec": {
+                                            "pos_spec": {
+                                                "axis_x": 0.6875,
+                                                "axis_y": 0.6875,
+                                                "coordinate_pos": 2
+                                            },
+                                            "render_spec": {
+                                                "opacity": 1
+                                            },
+                                            "size_spec": {
+                                                "height": 1.375,
+                                                "width": 1.375
+                                            }
+                                        },
+                                        "layer_config": {
+                                            "tags": {
+                                                "PENDENT_LAYER": {}
+                                            }
+                                        },
+                                        "resource": {
+                                            "res_image": {
+                                                "image_src": {
+                                                    "remote": {
+                                                        "bfs_style": "widget-layer-avatar",
+                                                        "url": "https://i0.hdslb.com/bfs/garb/item/0dcf03aa499a64524fe25871d26d95f49f880928.png"
+                                                    },
+                                                    "src_type": 1
+                                                }
+                                            },
+                                            "res_type": 3
+                                        },
+                                        "visible": true
+                                    },
+                                    {
+                                        "general_spec": {
+                                            "pos_spec": {
+                                                "axis_x": 0.7560000000000001,
+                                                "axis_y": 0.7726666666666667,
+                                                "coordinate_pos": 1
+                                            },
+                                            "render_spec": {
+                                                "opacity": 1
+                                            },
+                                            "size_spec": {
+                                                "height": 0.41666666666666663,
+                                                "width": 0.41666666666666663
+                                            }
+                                        },
+                                        "layer_config": {
+                                            "tags": {
+                                                "GENERAL_CFG": {
+                                                    "config_type": 1,
+                                                    "general_config": {
+                                                        "web_css_style": {
+                                                            "background-color": "rgb(255,255,255)",
+                                                            "border": "2px solid rgba(255,255,255,1)",
+                                                            "borderRadius": "50%",
+                                                            "boxSizing": "border-box"
+                                                        }
+                                                    }
+                                                },
+                                                "ICON_LAYER": {}
+                                            }
+                                        },
+                                        "resource": {
+                                            "res_image": {
+                                                "image_src": {
+                                                    "local": 3,
+                                                    "src_type": 2
+                                                }
+                                            },
+                                            "res_type": 3
+                                        },
+                                        "visible": true
+                                    }
+                                ]
+                            },
+                            "mid": "686127"
+                        },
+                        "face": "https://i0.hdslb.com/bfs/face/7efb679569b2faeff38fa08f6f992fa1ada5e948.webp",
+                        "face_nft": false,
+                        "following": null,
+                        "jump_url": "//space.bilibili.com/686127/dynamic",
+                        "label": "",
+                        "mid": 686127,
+                        "name": "籽岷",
+                        "official_verify": {
+                            "desc": "",
+                            "type": 0
+                        },
+                        "pendant": {
+                            "expire": 0,
+                            "image": "https://i0.hdslb.com/bfs/garb/item/0dcf03aa499a64524fe25871d26d95f49f880928.png",
+                            "image_enhance": "https://i0.hdslb.com/bfs/garb/item/0dcf03aa499a64524fe25871d26d95f49f880928.png",
+                            "image_enhance_frame": "",
+                            "n_pid": 2066,
+                            "name": "百年大会员",
+                            "pid": 2066
+                        },
+                        "pub_action": "",
+                        "pub_time": "",
+                        "pub_ts": 1677855990,
+                        "type": "AUTHOR_TYPE_NORMAL",
+                        "vip": {
+                            "avatar_subscript": 1,
+                            "avatar_subscript_url": "",
+                            "due_date": 4845196800000,
+                            "label": {
+                                "bg_color": "#FB7299",
+                                "bg_style": 1,
+                                "border_color": "",
+                                "img_label_uri_hans": "",
+                                "img_label_uri_hans_static": "https://i0.hdslb.com/bfs/vip/c16005a5b39164b3536cbd45618a5edd597a1c51.png",
+                                "img_label_uri_hant": "",
+                                "img_label_uri_hant_static": "https://i0.hdslb.com/bfs/activity-plat/static/20220614/e369244d0b14644f5e1a06431e22a4d5/Pzrd8zmpQD.png",
+                                "label_theme": "hundred_annual_vip",
+                                "path": "",
+                                "text": "百年大会员",
+                                "text_color": "#FFFFFF",
+                                "use_img_label": true
+                            },
+                            "nickname_color": "#FB7299",
+                            "status": 1,
+                            "theme_type": 0,
+                            "type": 2
+                        }
+                    },
+                    "module_dynamic": {
+                        "additional": {
+                            "type": "ADDITIONAL_TYPE_UPOWER_LOTTERY",
+                            "upower_lottery": {
+                                "button": {
+                                    "check": {
+                                        "disable": 1,
+                                        "icon_url": "",
+                                        "text": "已结束",
+                                        "toast": "抽奖已结束"
+                                    },
+                                    "status": 2,
+                                    "type": 2
+                                },
+                                "desc": {
+                                    "jump_url": "https://www.bilibili.com/h5/lottery/result?business_id=768874694664257625\u0026business_type=12",
+                                    "style": 1,
+                                    "text": "【价值3698元 追觅智能洗地机H13】*2份 【价值3389元 追觅智能洗地机M12S】*2份"
+                                },
+                                "hint": {
+                                    "style": 0,
+                                    "text": "加入当前UP主的「6元档包月充电」即可参与"
+                                },
+                                "jump_url": "https://www.bilibili.com/h5/lottery/result?business_id=768874694664257625\u0026business_type=12",
+                                "rid": 138258,
+                                "state": 0,
+                                "title": "石粒专属抽奖",
+                                "up_mid": 686127,
+                                "upower_action_state": 0,
+                                "upower_level": 10
+                            }
+                        },
+                        "desc": {
+                            "rich_text_nodes": [
+                                {
+                                    "emoji": {
+                                        "icon_url": "https://i0.hdslb.com/bfs/garb/d917c30c6214a131acf46499a52907667a07be19.png",
+                                        "size": 2,
+                                        "text": "[UPOWER_686127_开怀大笑]",
+                                        "type": 11
+                                    },
+                                    "orig_text": "[UPOWER_686127_开怀大笑]",
+                                    "text": "[UPOWER_686127_开怀大笑]",
+                                    "type": "RICH_TEXT_NODE_TYPE_EMOJI"
+                                },
+                                {
+                                    "orig_text": "今天给大家奉上一波新福利，抽4人，总价值14000+元（感谢",
+                                    "text": "今天给大家奉上一波新福利，抽4人，总价值14000+元（感谢",
+                                    "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                                },
+                                {
+                                    "orig_text": "@追觅科技",
+                                    "rid": "601651357",
+                                    "text": "@追觅科技",
+                                    "type": "RICH_TEXT_NODE_TYPE_AT"
+                                },
+                                {
+                                    "orig_text": " 赞助，追觅智能洗地机H13 M12S）~\r\n感谢一直为我包月充电的观众们~\r\n活动开奖时间为3月10日24点，大家快来抽奖吧~ \r\n视频：",
+                                    "text": " 赞助，追觅智能洗地机H13 M12S）~\r\n感谢一直为我包月充电的观众们~\r\n活动开奖时间为3月10日24点，大家快来抽奖吧~ \r\n视频：",
+                                    "type": "RICH_TEXT_NODE_TYPE_TEXT"
+                                },
+                                {
+                                    "jump_url": "//www.bilibili.com/video/BV1dg4y177zX/",
+                                    "orig_text": "BV1dg4y177zX",
+                                    "rid": "BV1dg4y177zX",
+                                    "text": "★籽岷品鉴团★追觅智能洗地机H13 M12S",
+                                    "type": "RICH_TEXT_NODE_TYPE_BV"
+                                }
+                            ],
+                            "text": "[UPOWER_686127_开怀大笑]今天给大家奉上一波新福利，抽4人，总价值14000+元（感谢@追觅科技 赞助，追觅智能洗地机H13 M12S）~\r\n感谢一直为我包月充电的观众们~\r\n活动开奖时间为3月10日24点，大家快来抽奖吧~ \r\n视频：BV1dg4y177zX"
+                        },
+                        "major": {
+                            "draw": {
+                                "id": 227440804,
+                                "items": [
+                                    {
+                                        "height": 727,
+                                        "size": 245.26758,
+                                        "src": "https://i0.hdslb.com/bfs/new_dyn/e7db34c9b33d5010bc7f22c7c094a3c5686127.jpg",
+                                        "tags": [],
+                                        "width": 1246
+                                    }
+                                ]
+                            },
+                            "type": "MAJOR_TYPE_DRAW"
+                        },
+                        "topic": {
+                            "id": 1006239,
+                            "jump_url": "https://m.bilibili.com/topic-detail?topic_id=1006239\u0026topic_name=%E7%B1%BD%E5%B2%B7%E5%93%81%E9%89%B4%E5%9B%A2",
+                            "name": "籽岷品鉴团"
+                        }
+                    }
+                },
+                "type": "DYNAMIC_TYPE_DRAW",
+                "visible": true
+            },
+            "type": "DYNAMIC_TYPE_FORWARD",
+            "visible": true
+        }
+    }
+}
