@@ -28,12 +28,12 @@ mkdir -p $TARGET_DIR
 npm install
 
 if [[ "$1" == *"arm"* ]]; then
-	OUTFILE="$TARGET_DIR/lottery-auto-script-node18-$1"
+	OUTFILE="$TARGET_DIR/lottery-auto-script-$1"
 	sudo podman run --rm --privileged multiarch/qemu-user-static --reset -p yes
 	podman run -it \
 		--rm \
 		-v ${PWD}:/root/lottery \
-		shanmite/pkg-arm64 -t "node18.5.0-$1" -o "$OUTFILE" .
+		shanmite/pkg-arm64 -t "node18-$1" -o "$OUTFILE" .
 elif [[ "$1" == *"x64"* ]]; then
 	OUTFILE="$TARGET_DIR/lottery-auto-script-$1"
 	npx pkg -t "$1" -o "$OUTFILE" .

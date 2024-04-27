@@ -1,5 +1,23 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.8.19)
+* d9f6bf2 feat: 中奖检测屏蔽自动回复 (#381)
+* ded981e fix: 动态卡片解析出错导致程序停止
+* 93d3727 fix: searcher.js typo fix (#379)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
+## 主要变化(2.8.17)
+* 60e211e fix: 读取uid出错 (#369)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
+## 主要变化(2.8.17)
+* 5b33ae3 fix: 读取uid出错 (#369)
+* 7e4650c feat: env可自定义UA (#371)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.8.16)
 * 469a6dc fix: add getOneDynamicByDyid v1
 
