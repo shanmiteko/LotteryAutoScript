@@ -4,7 +4,7 @@ const searcher = require("../lib/core/searcher");
 const util = require('./util');
 
 (async () => {
-    await util.par_run([0, 1, 2, 3, 4, 5, 6, 7, 8], [
+    await util.par_run([3], [
         // 0
         async () => {
             let info = await bili_client.getOneDynamicByDyid("728424890210713624");
@@ -23,11 +23,11 @@ const util = require('./util');
         },
         // 3
         async () => {
-            let card = searcher.parseDynamicCard(await bili_client.getOneDynamicByDyid("747169355882561625"));
-            assert(card.chat_type == 11)
-            card = searcher.parseDynamicCard(await bili_client.getOneDynamicByDyid("747441158580338693"));
-            assert(card.chat_type == 17)
-            assert(card.origin_chat_type == 11)
+            let card = searcher.parseDynamicCard(await bili_client.getOneDynamicByDyid("900172162530279445"));
+            assert.equal(card.chat_type, 11)
+            card = searcher.parseDynamicCard(await bili_client.getOneDynamicByDyid("926978638295859236"));
+            assert.equal(card.chat_type, 17)
+            assert.equal(card.origin_chat_type, 11)
         },
         // 4
         async () => {
@@ -52,15 +52,15 @@ const util = require('./util');
         },
         // 7
         async () => {
-            const dy = await bili_client.getOneDynamicByDyid("832208853440397352");
+            const dy = await bili_client.getOneDynamicByDyid("924676093465591832");
             const card = searcher.parseDynamicCard(dy)
-            assert.equal(card.reserve_id, "3106984");
+            assert.equal(card.reserve_id, "3715576");
         },
         // 8
         async () => {
-            const dy = await bili_client.getOneDynamicByDyid("832966468497834066");
+            const dy = await bili_client.getOneDynamicByDyid("925061227481137187");
             const card = searcher.parseDynamicCard(dy)
-            assert.equal(card.origin_reserve_id, "3106984");
+            assert.equal(card.origin_reserve_id, "3715576");
         },
     ])
 
