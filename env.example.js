@@ -8,6 +8,7 @@ module.exports = Object.freeze({
      * - `ACCOUNT_UA` 账号UA, 可在浏览器控制台输入 navigator.userAgent 查看
      * ## 高级功能
      * - `ENABLE_CHAT_CAPTCHA_OCR` 开启评论验证码识别 使用方法见README
+     * - `CHAT_CAPTCHA_OCR_URL` 验证码识别接口 POST `url`->`code`
      * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
      * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式) <不推荐使用
      * ## 调试相关
@@ -28,7 +29,8 @@ module.exports = Object.freeze({
         CLEAR: true,
         ACCOUNT_UA: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
 
-        ENABLE_CHAT_CAPTCHA_OCR: "",
+        ENABLE_CHAT_CAPTCHA_OCR: false,
+        CHAT_CAPTCHA_OCR_URL: "http://127.0.0.1:9898/ocr/url/text",
         ENABLE_MULTIPLE_ACCOUNT: false,
 
         MULTIPLE_ACCOUNT_PARM: "",
