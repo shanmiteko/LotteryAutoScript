@@ -13,7 +13,9 @@
     "account": "node main.js account",
     "help": "node main.js help",
     "pkg": "bash script/build/pkg.sh",
-    "changelog": "bash script/build/changelog.sh"
+    "changelog": "bash script/build/changelog.sh",
+    "lint": "npx eslint lib/ test/ *.js",
+    "lint-fix": "npx eslint lib/ test/ *.js --fix"
   },
   "files": [
     "lib",

@@ -49,13 +49,13 @@ module.exports = Object.freeze({
          * @example
          * ["file://lottery_info_1.json"]
          */
-        APIs: ["file://lottery_info_1.json"],
+        APIs: ['file://lottery_info_1.json'],
 
         /**
          * lottery_dyids目录下抽奖动态文件名(如dyids.txt)
          * 一行一个dyids(非数字字符分割即可)
          */
-        TxT: ["dyids.txt"],
+        TxT: ['dyids.txt'],
 
         /**
          * 抽奖参与顺序组合
@@ -79,15 +79,15 @@ module.exports = Object.freeze({
          * API发送数据类型 {LotteryInfo[]}
          * 上传抽奖信息的链接字符串
          */
-        set_lottery_info_url: "",
+        set_lottery_info_url: '',
 
         /**
          * 动态中的关键词(表示须同时满足以下条件)
          * 符合js正则表达式的字符串
          */
         key_words: [
-            "[抽奖送揪]|福利",
-            "[转关评粉]|参与"
+            '[抽奖送揪]|福利',
+            '[转关评粉]|参与'
         ],
 
         /**
@@ -313,7 +313,7 @@ module.exports = Object.freeze({
         /**
          * 屏蔽词
          */
-        blockword: ["脚本", "抽奖号", "钓鱼"],
+        blockword: ['脚本', '抽奖号', '钓鱼'],
 
         /**
          * 转发并评论
@@ -349,7 +349,7 @@ module.exports = Object.freeze({
         /**
          * 热评屏蔽词
          */
-        copy_blockword: ["三不原则"],
+        copy_blockword: ['三不原则'],
 
         /**
          * - 抽奖UP用户分组id(网页端点击分区后地址栏中的tagid)
@@ -379,10 +379,10 @@ module.exports = Object.freeze({
          * - 优先级递增
          */
         notice_key_words: [
-            "~预约成功|预约主题",
-            "中奖|获得|填写|写上|提供|收货地址|支付宝账号|码|大会员",
-            "~你的账号在新设备或平台登录成功",
-            "~你预约的直播已开始"
+            '~预约成功|预约主题',
+            '中奖|获得|填写|写上|提供|收货地址|支付宝账号|码|大会员',
+            '~你的账号在新设备或平台登录成功',
+            '~你预约的直播已开始'
         ],
 
         /**
@@ -490,4 +490,4 @@ module.exports = Object.freeze({
     },
     config_2: {},
     config_3: {}
-})
+});
