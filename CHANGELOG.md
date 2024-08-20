@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.9.1)
+* 9b0f9bf fix: 仅屏蔽自动回复 (#401)
+* 74337ca fix: 账号转发动态途中被系统强制登出，任务直接终止 (#392)
+* 6c75d57 lint: eslint
+* e723136 feat:  可自定义验证码识别API
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.0)
 * 1e7d8b2 feat: 动态详情新老api共存
 * fc41750 fix: 源rid_str获取
