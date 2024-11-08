@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.9.2)
+* 4134190 fix: 分区移动失败继续运行 (#423)
+* 66fa06f fix: 源动态禁止转发
+* b1de122 fix: 验证码识别失败无限重试
+* d3475a5 feat(notify.js): QYWX推送变为图文消息 (#416)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.1)
 * 9b0f9bf fix: 仅屏蔽自动回复 (#401)
 * 74337ca fix: 账号转发动态途中被系统强制登出，任务直接终止 (#392)
