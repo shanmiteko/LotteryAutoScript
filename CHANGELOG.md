@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.9.3)
+* 1d4e8ea fix: 专栏获取为空 (#425)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.2)
 * 4134190 fix: 分区移动失败继续运行 (#423)
 * 66fa06f fix: 源动态禁止转发
