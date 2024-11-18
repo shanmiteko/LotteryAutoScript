@@ -4,7 +4,7 @@ const searcher = require('../lib/core/searcher');
 const util = require('./util');
 
 (async () => {
-    await util.par_run([0, 1, 2, 3, 4, 5, 6, 7, 8], [
+    await util.par_run([], [
         // 0
         async () => {
             let info = await bili_client.getOneDynamicByDyid('728424890210713624');

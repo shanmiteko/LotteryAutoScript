@@ -6,7 +6,7 @@ const { parseDynamicCard } = require('../lib/core/searcher');
 (async () => {
     assert.notEqual(await bili_client.getMyinfo(), null);
 
-    await util.par_run([0, 3], [
+    await util.par_run([], [
         // 0
         async () => {
             assert.equal((await bili_client.getTopRcmd()).length, 10);
