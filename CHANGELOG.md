@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.9.4)
+* 2f5990f fix: 动态ID字符串长度超过18
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.3)
 * 1d4e8ea fix: 专栏获取为空 (#425)
 
