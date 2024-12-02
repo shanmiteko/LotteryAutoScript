@@ -37,7 +37,7 @@ CONFIG_FILE=my_config.js
 # docker仓库
 DOCKER_REPO=shanmite/lottery_auto_docker
 # cdn
-CDN=https://cdn.staticaly.com/gh/shanmiteko/LotteryAutoScript/main
+CDN=https://gitlab.com/shanmiteko/LotteryAutoScript/-/raw/main
 # env.example.js文件
 ENV_EXAMPLE="$CDN/env.example.js"
 # my_config.example.js文件
