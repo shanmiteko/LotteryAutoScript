@@ -1,5 +1,17 @@
-const { version: ve, env_file, config_file, log, hasEnv, delay, hasFileOrDir, clearLotteryInfo } = require('./lib/utils');
+const {
+    version: ve,
+    env_file,
+    config_file,
+    log,
+    hasEnv,
+    delay,
+    hasFileOrDir,
+    clearLotteryInfo
+} = require('./lib/utils');
+const { getIpInfo } = require("./lib/net/bili");
 
+const { HttpsProxyAgent } = require("https-proxy-agent");
+const request = require("https");
 const metainfo = [
     '  _           _   _                   _____           _       _   ',
     ' | |         | | | |                 / ____|         (_)     | |  ',
@@ -23,6 +35,15 @@ let ck_flag = 0;
 /**
  * @returns {Promise<string>} 错误信息
  */
+async function printIpInfo(beforeProxy) {
+    const printMessage = beforeProxy ? '当前IP----->' : '代理后IP=======>';
+    await getIpInfo().then(res => {
+        console.log(printMessage + res);
+    }).catch((err) => {
+        console.error('获取' + printMessage + '地址失败', err);
+    });
+}
+
 async function main() {
     const { COOKIE, NUMBER, CLEAR, ENABLE_MULTIPLE_ACCOUNT, MULTIPLE_ACCOUNT_PARM } = process.env;
     if (ENABLE_MULTIPLE_ACCOUNT) {
@@ -32,12 +53,24 @@ async function main() {
 
         process.env.ENABLE_MULTIPLE_ACCOUNT = '';
 
+        const request = require('https');
         for (const acco of muti_acco) {
             process.env.COOKIE = acco.COOKIE;
             process.env.NUMBER = acco.NUMBER;
             process.env.CLEAR = acco.CLEAR;
             process.env.NOTE = acco.NOTE;
             process.env.ACCOUNT_UA = acco.ACCOUNT_UA;
+
+            if (acco.PROXY_HOST) {
+                await printIpInfo(true);
+                //http://ip:port
+                //http://user:pwd@ip:port'
+                const proxyUrl = acco.PROXY_USER
+                    ? 'http://' + acco.PROXY_USER + ':' + acco.PROXY_PASS + '@' + acco.PROXY_HOST + ':' + acco.PROXY_PORT
+                    : 'http://' + acco.PROXY_HOST + ':' + acco.PROXY_PORT;
+                request.globalAgent = new HttpsProxyAgent(proxyUrl);
+                await printIpInfo(false);
+            }
             const err_msg = await main();
             if (err_msg) {
                 return err_msg;
@@ -49,6 +82,7 @@ async function main() {
                 }
             }
         }
+
 
         /**多账号状态还原 */
         process.env.ENABLE_MULTIPLE_ACCOUNT = ENABLE_MULTIPLE_ACCOUNT;
@@ -65,7 +99,12 @@ async function main() {
         const mode = process.env.lottery_mode;
         const help_msg = '用法: lottery [OPTIONS]\n\nOPTIONS:\n\tstart  启动抽奖\n\tcheck  中奖检查\n\tacount 查看帐号信息\n\tclear  清理动态和关注\n\tlogin 扫码登录更新CK\n\tupdate 检查更新\n\thelp   帮助信息';
         if (await checkCookie(NUMBER)) {
-            const { lottery_loop_wait, check_loop_wait, clear_loop_wait, save_lottery_info_to_file } = require('./lib/data/config');
+            const {
+                lottery_loop_wait,
+                check_loop_wait,
+                clear_loop_wait,
+                save_lottery_info_to_file
+            } = require('./lib/data/config');
             ck_flag = 1;
             switch (mode) {
                 case 'start':

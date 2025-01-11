@@ -64,7 +64,11 @@ module.exports = Object.freeze({
             NUMBER: 1,
             CLEAR: true,
             WAIT: 60 * 1000,
-            ACCOUNT_UA: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
+            ACCOUNT_UA: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+            PROXY_HOST:'',//代理ip
+            PROXY_PORT:'',//代理ip端口
+            PROXY_USER:'',//代理ip账号
+            PROXY_PASS:'',//代理ip密码
         }
     ],
 
