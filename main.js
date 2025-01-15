@@ -43,7 +43,6 @@ async function main() {
         process.env.ENABLE_MULTIPLE_ACCOUNT = '';
         let localhost = request.globalAgent;
 
-        const request = require('https');
         for (const acco of muti_acco) {
             process.env.COOKIE = acco.COOKIE;
             process.env.NUMBER = acco.NUMBER;
