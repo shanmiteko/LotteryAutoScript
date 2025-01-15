@@ -6,12 +6,10 @@ const {
     hasEnv,
     delay,
     hasFileOrDir,
-    clearLotteryInfo
+    clearLotteryInfo, printIpInfo
 } = require('./lib/utils');
-const { getIpInfo } = require("./lib/net/bili");
-
-const { HttpsProxyAgent } = require("https-proxy-agent");
-const request = require("https");
+const { HttpsProxyAgent } = require('https-proxy-agent');
+const request = require('https');
 const metainfo = [
     '  _           _   _                   _____           _       _   ',
     ' | |         | | | |                 / ____|         (_)     | |  ',
@@ -35,15 +33,6 @@ let ck_flag = 0;
 /**
  * @returns {Promise<string>} 错误信息
  */
-async function printIpInfo(beforeProxy) {
-    const printMessage = beforeProxy ? '当前IP----->' : '代理后IP=======>';
-    await getIpInfo().then(res => {
-        console.log(printMessage + res);
-    }).catch((err) => {
-        console.error('获取' + printMessage + '地址失败', err);
-    });
-}
-
 async function main() {
     const { COOKIE, NUMBER, CLEAR, ENABLE_MULTIPLE_ACCOUNT, MULTIPLE_ACCOUNT_PARM } = process.env;
     if (ENABLE_MULTIPLE_ACCOUNT) {
@@ -52,6 +41,7 @@ async function main() {
             : JSON.parse(MULTIPLE_ACCOUNT_PARM);
 
         process.env.ENABLE_MULTIPLE_ACCOUNT = '';
+        let localhost = request.globalAgent;
 
         const request = require('https');
         for (const acco of muti_acco) {
@@ -60,16 +50,18 @@ async function main() {
             process.env.CLEAR = acco.CLEAR;
             process.env.NOTE = acco.NOTE;
             process.env.ACCOUNT_UA = acco.ACCOUNT_UA;
-
             if (acco.PROXY_HOST) {
-                await printIpInfo(true);
+                printIpInfo(true);
                 //http://ip:port
                 //http://user:pwd@ip:port'
                 const proxyUrl = acco.PROXY_USER
                     ? 'http://' + acco.PROXY_USER + ':' + acco.PROXY_PASS + '@' + acco.PROXY_HOST + ':' + acco.PROXY_PORT
                     : 'http://' + acco.PROXY_HOST + ':' + acco.PROXY_PORT;
                 request.globalAgent = new HttpsProxyAgent(proxyUrl);
-                await printIpInfo(false);
+                printIpInfo(false);
+            }else {
+                //未设置还原
+                request.globalAgent = localhost;
             }
             const err_msg = await main();
             if (err_msg) {
@@ -81,9 +73,8 @@ async function main() {
                     await delay(3 * 1000);
                 }
             }
+            request.globalAgent = localhost;
         }
-
-
         /**多账号状态还原 */
         process.env.ENABLE_MULTIPLE_ACCOUNT = ENABLE_MULTIPLE_ACCOUNT;
     } else if (COOKIE) {
