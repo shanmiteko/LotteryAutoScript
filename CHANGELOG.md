@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.9.5)
+* f5f63bc fix: 官方抽奖判断未获取到内容 (#445)
+* 1832f6d feat: 增加多账号的代理 (#433)
+* 717d8cf fix: 换源gitlab
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.4)
 * 2f5990f fix: 动态ID字符串长度超过18
 

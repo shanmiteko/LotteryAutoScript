@@ -1,6 +1,6 @@
 {
   "name": "lottery-auto-script",
-  "version": "2.9.4",
+  "version": "2.9.5",
   "description": "自动参与B站动态抽奖",
   "main": "main.js",
   "scripts": {
