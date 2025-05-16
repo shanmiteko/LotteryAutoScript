@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.9.6)
+* f261e91 fix: API.X_POLYMER_WEB_DYNAMIC_V1_DETAIL 缺少参数 (#452)
+* 5336068 fix: 修复通过uid监视转发抽奖动态 (#449)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.5)
 * f5f63bc fix: 官方抽奖判断未获取到内容 (#445)
 * 1832f6d feat: 增加多账号的代理 (#433)
