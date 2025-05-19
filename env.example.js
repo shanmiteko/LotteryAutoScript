@@ -12,7 +12,7 @@ module.exports = Object.freeze({
      * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
      * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式) <不推荐使用
      * ## 调试相关
-     * - `LOTTERY_LOG_LEVEL` 输出日志等级 Error<Warn<Info<Debug 1<2<3<4
+     * - `LOTTERY_LOG_LEVEL` 输出日志等级 Error<Warn<Notice<Info<Debug 0<1<2<3<4
      * - `NOT_GO_LOTTERY` 关闭抽奖行为
      *
      * ## 多账号
