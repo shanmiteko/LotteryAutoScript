@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.9.7)
+* bcf87a9 feat: 新增日志等级Notice (#454)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.6)
 * f261e91 fix: API.X_POLYMER_WEB_DYNAMIC_V1_DETAIL 缺少参数 (#452)
 * 5336068 fix: 修复通过uid监视转发抽奖动态 (#449)
