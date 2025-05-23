@@ -4,9 +4,7 @@ set -e
 NAME=LotteryAutoScript
 BRABCH=main
 
-# 视网络情况选择链接
-GIT_REPO=https://github.com/shanmiteko/${NAME}.git
-# GIT_REPO=https://ghproxy.com/https://github.com/shanmiteko/${NAME}.git
+GIT_REPO=https://gitlab.com/shanmiteko/${NAME}.git
 
 if [ -d "$NAME" ]; then
     cd $NAME
