@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.9.8)
+* c85c910 doc: 图片链接换源
+* c4d37ed fix: Dockerfile.pkg-arm64换源
+* ca1ea8c fix: 青龙换源gitlab
+* d007d8b feat: 更新换源及优化
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.7)
 * bcf87a9 feat: 新增日志等级Notice (#454)
 
