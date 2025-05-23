@@ -5,7 +5,7 @@ WORKDIR /root/lottery
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
     apk add --no-cache curl
 
-ENV DOWNLOAD_HOST=https://ghproxy.com/https://github.com \
+ENV DOWNLOAD_HOST=https://github.com \
     RELEASE_TAG=v3.4 \
     NODEV=18.5.0 \
     PKG_CACHE_PATH=/root/.pkg-cache \
