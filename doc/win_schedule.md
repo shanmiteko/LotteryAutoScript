@@ -16,13 +16,13 @@
 
 7.在`操作`页面中点击`新建`，选择操作为`启动程序`，在设置里点击浏览找到`start.bat`文件并选择，在`起始于(可选)(T)：`中的空白框里输入`start.bat`文件的目录地址，也就是`程序或脚本(P)：`里`start.bat`的前面那一串目录地址，最后是以`\`结尾的 ，填好东西后按下面`确认`              
 
-![点我加载步骤7结果图示](https://raw.githubusercontents.com/shanmiteko/LotteryAutoScript/main/doc/pic/step_menu.png)             
+![点我加载步骤7结果图示](pic/step_menu.png)             
 
 8.在`条件`页面中选择`网络`，设定启动条件为任何连接            
 
 9.在`设置`页面中选择如图示选项，或者不修改默认设置           
 
-![点我加载步骤9结果图示](https://raw.githubusercontents.com/shanmiteko/LotteryAutoScript/main/doc/pic/shezhi_renwu.png)            
+![点我加载步骤9结果图示](pic/shezhi_renwu.png)            
 
 10.最后按`确定`          
 
@@ -30,6 +30,6 @@
 
 最后你可以在任务列表中选择已有的任务，右边的操作框中选择`运行`点击，启动计划的任务，如下图所示
 
-![点我加载运行图示](https://raw.githubusercontents.com/shanmiteko/LotteryAutoScript/main/doc/pic/start_renwu.png)
+![点我加载运行图示](pic/start_renwu.png)
 
 具体看任务是否正常执行，你可以看看自己的账号动态的最新转发，运行成功每几分钟自动转发抽奖动态

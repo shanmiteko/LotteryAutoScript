@@ -4,7 +4,7 @@ step1: 下载代码到本地
 
 [点此下载](https://github.com/shanmiteko/LotteryAutoScript/archive/refs/heads/main.zip)或如图示下载↓
 
-![点我加载下载操作图示](https://raw.githubusercontents.com/shanmiteko/LotteryAutoScript/main/doc/pic/download.png)
+![点我加载下载操作图示](pic/download.png)
 
 下载的压缩包解压后修改env.example.js文件，详见step3
 
@@ -12,7 +12,7 @@ step2: 下载并安装Node.js
 
 [点此进入nodejs下载页面](http://nodejs.cn/download)
 
-![点我加载下载nodejs操作图示](https://raw.githubusercontents.com/shanmiteko/LotteryAutoScript/main/doc/pic/nodejs.png)
+![点我加载下载nodejs操作图示](pic/nodejs.png)
 
 step3：修改env.example.js文件及创建运行文件(打开扩展名显示)
 
