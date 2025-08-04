@@ -459,7 +459,14 @@ module.exports = Object.freeze({
          * 1
          * [1,2,4]
          */
-        clear_dynamic_type: [1]
+        clear_dynamic_type: [1],
+        /**
+         * 是否使用ai评论。
+         * true:使用
+         * false:不使用
+         * 如需使用需要再env.js配置ai_parm
+         */
+        use_ai_comments: false
     },
 
     /**
