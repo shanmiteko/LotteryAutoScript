@@ -104,5 +104,16 @@ module.exports = Object.freeze({
         SMTP_TO_USER: '',
         GOTIFY_URL: '',
         GOTIFY_APPKEY: ''
+    },
+
+    /**
+     * ai相关参数
+     */
+    ai_parm: {
+        //硅基流动apikey
+        SILICON_FLOW_API_KEY:'',
+        //提示词
+        PROMPT:''
+
     }
 });
