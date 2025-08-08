@@ -110,10 +110,9 @@ module.exports = Object.freeze({
      * ai相关参数
      */
     ai_parm: {
-        //硅基流动apikey
+        //[硅基流动](https://siliconflow.cn/) apikey
         SILICON_FLOW_API_KEY:'',
         //提示词
         PROMPT:''
-
     }
 });

@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.10.0)
+* b74bb02 feat: ai 评论 (#462)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.9.8)
 * c85c910 doc: 图片链接换源
 * c4d37ed fix: Dockerfile.pkg-arm64换源
