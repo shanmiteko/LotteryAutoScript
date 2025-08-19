@@ -6,16 +6,19 @@ module.exports = Object.freeze({
      * - `NUMBER` 表示是第几个账号
      * - `CLEAR` 是否启用清理功能
      * - `ACCOUNT_UA` 账号UA, 可在浏览器控制台输入 navigator.userAgent 查看
+     * 
      * ## 高级功能
      * - `ENABLE_CHAT_CAPTCHA_OCR` 开启评论验证码识别 使用方法见README
      * - `CHAT_CAPTCHA_OCR_URL` 验证码识别接口 POST `url`->`code`
-     * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
-     * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式) <不推荐使用
+     * - `ENABLE_AI_COMMENTS` 是否启用AI评论
+     * 
      * ## 调试相关
      * - `LOTTERY_LOG_LEVEL` 输出日志等级 Error<Warn<Notice<Info<Debug 0<1<2<3<4
      * - `NOT_GO_LOTTERY` 关闭抽奖行为
      *
      * ## 多账号
+     * - `ENABLE_MULTIPLE_ACCOUNT` 是否启用多账号
+     * - `MULTIPLE_ACCOUNT_PARM` 多账号参数(JSON格式) <不推荐使用
      * 1. 将 ENABLE_MULTIPLE_ACCOUNT 的值改为true
      * 2. 将账号信息依次填写于 multiple_account_parm 中, 参考例子类推
      * - `WAIT` 表示下一个账号运行等待时间(毫秒)
@@ -31,9 +34,11 @@ module.exports = Object.freeze({
 
         ENABLE_CHAT_CAPTCHA_OCR: false,
         CHAT_CAPTCHA_OCR_URL: 'http://127.0.0.1:9898/ocr/url/text',
-        ENABLE_MULTIPLE_ACCOUNT: false,
+        ENABLE_AI_COMMENTS: false,
 
+        ENABLE_MULTIPLE_ACCOUNT: false,
         MULTIPLE_ACCOUNT_PARM: '',
+
         LOTTERY_LOG_LEVEL: 3,
         NOT_GO_LOTTERY: ''
     },
@@ -65,10 +70,10 @@ module.exports = Object.freeze({
             CLEAR: true,
             WAIT: 60 * 1000,
             ACCOUNT_UA: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
-            PROXY_HOST:'',//代理ip
-            PROXY_PORT:'',//代理ip端口
-            PROXY_USER:'',//代理ip账号
-            PROXY_PASS:'',//代理ip密码
+            PROXY_HOST: '',//代理ip
+            PROXY_PORT: '',//代理ip端口
+            PROXY_USER: '',//代理ip账号
+            PROXY_PASS: '',//代理ip密码
         }
     ],
 
@@ -107,12 +112,12 @@ module.exports = Object.freeze({
     },
 
     /**
-     * ai相关参数
+     * AI Authentication(OpenAI 兼容的 API 格式)
+     * Chat completions
+     * 此处填写Key, 在my_config中的ai_comments_parm中填写API地址等信息
      */
     ai_parm: {
-        //[硅基流动](https://siliconflow.cn/) apikey
-        SILICON_FLOW_API_KEY:'',
-        //提示词
-        PROMPT:''
+        //apikey
+        AI_API_KEY: '',
     }
 });

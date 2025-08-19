@@ -342,6 +342,19 @@ module.exports = Object.freeze({
         ],
 
         /**
+         * AI Chat completions参数
+         * https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference#chat-completions
+         */
+        ai_comments_parm: {
+            /**
+             * /chat/completions
+             */
+            url: '',
+            body: {},
+            prompt: ''
+        },
+
+        /**
          * 是否抄热评
          */
         is_copy_chat: false,
@@ -460,13 +473,6 @@ module.exports = Object.freeze({
          * [1,2,4]
          */
         clear_dynamic_type: [1],
-        /**
-         * 是否使用ai评论。
-         * true:使用
-         * false:不使用
-         * 如需使用需要再env.js配置ai_parm
-         */
-        use_ai_comments: false
     },
 
     /**
@@ -492,6 +498,26 @@ module.exports = Object.freeze({
         ],
 
         APIs: [],
+
+        /**
+         * 默认为硅基流动，可以修改为其他AI服务
+         */
+        ai_comments_parm: {
+            url: 'https://api.siliconflow.cn/v1/chat/completions',
+            body: {
+                'model': 'Qwen/Qwen3-32B',
+                'max_tokens': 512,
+                'enable_thinking': true,
+                'thinking_budget': 4096,
+                'min_p': 0.05,
+                'temperature': 0.7,
+                'top_p': 0.7,
+                'top_k': 50,
+                'frequency_penalty': 0.5,
+                'n': 1,
+            },
+            prompt: '请根据以下内容直接生成一条简短评论，无需说明信息，且不包含任何敏感词汇。'
+        },
 
         save_lottery_info_to_file: true,
     },
