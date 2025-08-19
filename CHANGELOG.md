@@ -1,5 +1,11 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.10.1)
+* 30bf989 feat: ai评论支持所有兼容OpenAI API的平台 (#463)
+* 15c1d22 fix: 官方非官方抽奖类型判断 (#461)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.10.0)
 * b74bb02 feat: ai 评论 (#462)
 
