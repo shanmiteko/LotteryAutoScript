@@ -483,15 +483,12 @@ module.exports = Object.freeze({
         /**
          * 手动添加抽奖号UID
          * - 抽奖动态下的二级小号
+         * 
+         * 帐号1存储抽奖信息至文件
          */
         UIDs: [],
 
-        TAGs: [
-            '互动抽奖',
-            '转发抽奖',
-            '动态抽奖',
-            '抽奖',
-        ],
+        TAGs: [],
 
         Articles: [
             '抽奖合集'
@@ -507,7 +504,6 @@ module.exports = Object.freeze({
             body: {
                 'model': 'Qwen/Qwen3-32B',
                 'max_tokens': 512,
-                'enable_thinking': true,
                 'thinking_budget': 4096,
                 'min_p': 0.05,
                 'temperature': 0.7,
@@ -521,6 +517,9 @@ module.exports = Object.freeze({
 
         save_lottery_info_to_file: true,
     },
+    /**
+     * 后续帐号从文件提取抽奖信息转抽
+     */
     config_2: {},
     config_3: {}
 });
