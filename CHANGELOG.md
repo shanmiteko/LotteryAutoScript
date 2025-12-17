@@ -1,5 +1,12 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.10.2)
+* d0a0dd9 feat: 新增QMSG_SOCKET推送参数支持私有云 (#473)
+* d40daa2 docs: 注解默认设置
+* a0856fa fix: 风控导致动态内容为空 (#465)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.10.1)
 * 30bf989 feat: ai评论支持所有兼容OpenAI API的平台 (#463)
 * 15c1d22 fix: 官方非官方抽奖类型判断 (#461)
