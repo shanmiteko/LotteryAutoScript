@@ -100,6 +100,7 @@ module.exports = Object.freeze({
         IGOT_PUSH_KEY: '',
         PUSH_PLUS_TOKEN: '',
         PUSH_PLUS_USER: '',
+        QMSG_SOCKET: '',
         QMSG_KEY: '',
         QMSG_QQ: '',
         SMTP_HOST: '',
