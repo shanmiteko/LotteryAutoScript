@@ -4,15 +4,17 @@ const searcher = require('../lib/core/searcher');
 const util = require('./util');
 
 (async () => {
-    await util.par_run([], [
+    await util.par_run([0, 1], [
         // 0
         async () => {
             let info = await bili_client.getOneDynamicByDyid('728424890210713624');
             assert(searcher.parseDynamicCard(info).is_charge_lottery);
+            info = await bili_client.getOneDynamicByDyid('1143258210499559428');
+            assert(searcher.parseDynamicCard(info).is_charge_lottery);
         },
         // 1
         async () => {
-            let info = await bili_client.getOneDynamicByDyid('768874900850999300');
+            let info = await bili_client.getOneDynamicByDyid('1150096953788334085');
             assert(searcher.parseDynamicCard(info).origin_is_charge_lottery);
         },
         // 2

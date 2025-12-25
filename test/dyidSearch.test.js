@@ -3,7 +3,7 @@ const util = require('./util');
 const d_storage = require('../lib/helper/d_storage');
 
 (async () => {
-    await util.par_run([0], [
+    await util.par_run([], [
         // 0
         async () => {
             assert(await d_storage.searchDyid('1234567901234568'));
