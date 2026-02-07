@@ -109,7 +109,9 @@ module.exports = Object.freeze({
         SMTP_PASS: '',
         SMTP_TO_USER: '',
         GOTIFY_URL: '',
-        GOTIFY_APPKEY: ''
+        GOTIFY_APPKEY: '',
+        FS_BOT_WEBHOOK: '',
+        FS_BOT_SECRET: ''
     },
 
     /**
