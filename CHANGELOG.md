@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.10.3)
+* a2c461b fix: clear异常循环 (#484)
+* abe660b fix: prevent is_repost_then_chat from overriding AI-generated comments (#485)
+* 7aa82fe feat: Integrate Feishu for notification (#482)
+* 08a6359 fix: `is_charge_lottery`默认false
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.10.2)
 * d0a0dd9 feat: 新增QMSG_SOCKET推送参数支持私有云 (#473)
 * d40daa2 docs: 注解默认设置
