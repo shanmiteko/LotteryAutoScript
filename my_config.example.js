@@ -91,6 +91,19 @@ module.exports = Object.freeze({
         ],
 
         /**
+         * AI 判断抽奖
+         * https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference#chat-completions
+         */
+        ai_judge_parm: {
+            /**
+             * /chat/completions
+             */
+            url: '',
+            body: {},
+            prompt: ''
+        },
+
+        /**
          * - '00' 关闭自动抽奖
          * - '10' 只转发官方抽奖
          * - '01' 只转发非官方抽奖
@@ -496,23 +509,22 @@ module.exports = Object.freeze({
 
         APIs: [],
 
-        /**
-         * 默认为硅基流动，可以修改为其他AI服务
-         */
-        ai_comments_parm: {
-            url: 'https://api.siliconflow.cn/v1/chat/completions',
+        ai_judge_parm: {
+            url: 'https://api.deepseek.com/chat/completions',
             body: {
                 'model': 'Qwen/Qwen3-32B',
-                'max_tokens': 512,
-                'thinking_budget': 4096,
-                'min_p': 0.05,
-                'temperature': 0.7,
-                'top_p': 0.7,
-                'top_k': 50,
-                'frequency_penalty': 0.5,
-                'n': 1,
+                'enable_thinking': true,
             },
-            prompt: '请根据以下内容直接生成一条简短评论，无需说明信息，且不包含任何敏感词汇。'
+            prompt: '你是一个B站用户，需要判断动态内容是否是抽奖动态，以及参与条件，以json格式输出，仅需包含key:has_key_words(bool 是否是抽奖动态),needAt(bool 是否需要@),needTopic(bool 是否需要带话题),more(string 总结参与抽奖的条件).回答不要包含markdown标记文本,输出纯json文本'
+        },
+
+        ai_comments_parm: {
+            url: 'https://api.deepseek.com/chat/completions',
+            body: {
+                'model': 'Qwen/Qwen3-32B',
+                'enable_thinking': true,
+            },
+            prompt: '你是一个B站用户，请根据以下内容直接生成一条模拟真实用户的评论，不要使用表情，无需说明信息，且不包含任何敏感词汇。'
         },
 
         save_lottery_info_to_file: true,

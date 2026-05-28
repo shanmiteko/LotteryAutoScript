@@ -10,6 +10,7 @@ module.exports = Object.freeze({
      * ## 高级功能
      * - `ENABLE_CHAT_CAPTCHA_OCR` 开启评论验证码识别 使用方法见README
      * - `CHAT_CAPTCHA_OCR_URL` 验证码识别接口 POST `url`->`code`
+     * - `ENABLE_AI_JUDGE` 是否启用AI判断抽奖
      * - `ENABLE_AI_COMMENTS` 是否启用AI评论
      * 
      * ## 调试相关
@@ -34,6 +35,7 @@ module.exports = Object.freeze({
 
         ENABLE_CHAT_CAPTCHA_OCR: false,
         CHAT_CAPTCHA_OCR_URL: 'http://127.0.0.1:9898/ocr/url/text',
+        ENABLE_AI_JUDGE: false,
         ENABLE_AI_COMMENTS: false,
 
         ENABLE_MULTIPLE_ACCOUNT: false,
