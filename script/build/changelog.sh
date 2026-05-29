@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # version: <major.minor.patch>
-level=patch
+level=minor
 
 npm version $level \
-    --no-commit-hooks \
-    --no-git-tag-version
+	--no-commit-hooks \
+	--no-git-tag-version
 
 OLD_VERSION_ARRAY=($(npm view lottery-auto-script version | tr '.' ' '))
 major=${OLD_VERSION_ARRAY[0]}
@@ -14,17 +14,17 @@ patch=${OLD_VERSION_ARRAY[2]}
 
 case "${level}" in
 "major")
-    ((major += 1))
-    minor=0
-    patch=0
-    ;;
+	((major += 1))
+	minor=0
+	patch=0
+	;;
 "minor")
-    ((minor += 1))
-    patch=0
-    ;;
+	((minor += 1))
+	patch=0
+	;;
 *)
-    ((patch += 1))
-    ;;
+	((patch += 1))
+	;;
 esac
 
 NEW_VERSION="$major.$minor.$patch"
