@@ -24,8 +24,6 @@
 
 [![Build and push Docker images](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/docker.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/docker.yml)
 
-[![Publishing to NPM](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/npmp.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/npmp.yml)
-
 [![Mirror and run GitLab CI](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/mirror.yml/badge.svg)](https://github.com/shanmiteko/LotteryAutoScript/actions/workflows/mirror.yml)
 
 已实现功能:
