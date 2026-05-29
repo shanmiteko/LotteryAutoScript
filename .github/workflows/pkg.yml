@@ -26,31 +26,29 @@ jobs:
             nodev: 18
           - platform: win
             nodev: 18
-          # - platform: win
-          #   nodev: 12
     steps:
       - name: "Checkout codes"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: "Use Node.js"
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "*"
       - name: "Pkg this"
         run: |
           npm run pkg "node${{ matrix.nodev }}-${{ matrix.platform }}-x64"
       - name: "Upload to artifact"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: node${{ matrix.nodev }}-${{ matrix.platform }}-x64
           path: "dist/*.zip"
       - name: "Upload to release draft"
-        uses: xresloader/upload-to-github-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        uses: softprops/action-gh-release@v3
         with:
-          file: "dist/*.zip"
+          files: "dist/*.zip"
           tag_name: "v2"
-          overwrite: true
+          draft: true
+          overwrite_files: true
+          token: ${{ secrets.GH_TOKEN }}
   arm64:
     runs-on: ubuntu-latest
     name: node18-${{ matrix.platform }}-arm64
@@ -62,20 +60,20 @@ jobs:
           - platform: alpine
     steps:
       - name: "Checkout codes"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: "Pkg this"
         run: |
           npm run pkg "node18-${{ matrix.platform }}-arm64"
       - name: "Upload to artifact"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: node18-${{ matrix.platform }}-arm64
           path: "dist/*.zip"
       - name: "Upload to release draft"
-        uses: xresloader/upload-to-github-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        uses: softprops/action-gh-release@v3
         with:
-          file: "dist/*.zip"
+          files: "dist/*.zip"
           tag_name: "v2"
-          overwrite: true
+          draft: true
+          overwrite_files: true
+          token: ${{ secrets.GH_TOKEN }}
