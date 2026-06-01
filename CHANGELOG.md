@@ -1,5 +1,13 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.11.1)
+* 2294ad9 fix: ai返回增加类型检查
+* fe0258a feat: ai过滤过期抽奖
+* a14af8e fix: ai模式带话题和错误at好友
+* e0c18b0 chore: 更新action
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.11.0)
 * 1c36941 fix: origin is null
 * 2f4734c chore: 不再推送至npm
