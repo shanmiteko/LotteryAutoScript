@@ -515,7 +515,7 @@ module.exports = Object.freeze({
                 'model': 'Qwen/Qwen3-32B',
                 'enable_thinking': true,
             },
-            prompt: '你是一个B站用户，需要判断动态内容是否是抽奖动态，以及参与条件，以json格式输出，仅需包含key:has_key_words(bool 是否是抽奖动态),needAt(bool 是否需要@),needTopic(bool 是否需要带话题),more(string 总结参与抽奖的条件).回答不要包含markdown标记文本,输出纯json文本'
+            prompt: '你是一个B站用户，需要判断动态内容是否是抽奖动态，以及参与条件，以json格式输出，仅需包含key:has_key_words(bool 是否是抽奖动态),needAt(bool 是否需要@自己的好友),more(string 总结参与抽奖的条件).回答不要包含markdown标记文本,输出纯json文本'
         },
 
         ai_comments_parm: {
