@@ -3,7 +3,7 @@ const utils = require('../lib/utils.js');
 const config = require('../lib/data/config');
 
 (async () => {
-    await util.par_run([0], [
+    await util.par_run([], [
         // 0
         async () => {
             let msg = await utils.getAiContent(
