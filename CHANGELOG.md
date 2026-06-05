@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.11.2)
+* 51ec0a1 feat: 获取视频动态的简介以参与转发抽奖
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.11.1)
 * 2294ad9 fix: ai返回增加类型检查
 * fe0258a feat: ai过滤过期抽奖
