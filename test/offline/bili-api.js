@@ -14,6 +14,7 @@ const config = require('../../lib/data/config');
 const bili = require('../../lib/net/bili');
 const { Monitor } = require('../../lib/core/monitor');
 const eventBus = require('../../lib/helper/event_bus');
+const { log } = require('../../lib/utils');
 globals.set('cookie', 'SESSDATA=test');
 globals.set('csrf', 'csrf-test');
 globals.set('myUID', 123);
@@ -26,8 +27,15 @@ function setup(...values) {
 const page = (ids, total) => ({ code: 0, data: { total, list: ids.map(mid => ({ mid })) } });
 
 (async () => {
+    const originalInfo = log.info;
+    const logs = [];
+    log.info = (...args) => { logs.push(args); originalInfo.apply(log, args); };
     setup(page([12, 123], 3), page([456], 3));
     assert.strictEqual(await bili.getAttentionList(123), '12,123,456');
+    log.info = originalInfo;
+    assert(logs.some(([label, message]) => label === '获取关注列表' && message === '开始分页读取'));
+    assert(logs.some(([label, message]) => label === '获取关注列表' && message.includes('第1页') && message.includes('2/3')));
+    assert(logs.some(([label, message]) => label === '获取关注列表' && message.includes('第2页') && message.includes('3/3')));
     assert.strictEqual(requests.length, 2);
     assert.deepStrictEqual(requests.map(r => r.query), [
         { vmid: 123, pn: 1, ps: 50 }, { vmid: 123, pn: 2, ps: 50 }

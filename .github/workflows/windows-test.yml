@@ -23,9 +23,16 @@ jobs:
         run: npm run test:offline
       - name: Build Windows x64 package
         run: npm run pkg node18-win-x64
+      - name: Verify package contents
+        run: |
+          test -f dist/lottery-auto-script-node18-win-x64.d/lottery.exe
+          test -f dist/lottery-auto-script-node18-win-x64.d/start.bat
+          test -f dist/lottery-auto-script-node18-win-x64.d/env.js
+          test -f dist/lottery-auto-script-node18-win-x64.d/my_config.js
+          test -z "$(find dist/lottery-auto-script-node18-win-x64.d -name '*.zip' -print -quit)"
       - uses: actions/upload-artifact@v4
         with:
-          name: lottery-windows-x64-test
-          path: dist/*.zip
+          name: lottery-windows-x64-test-${{ github.run_number }}-${{ github.run_attempt }}
+          path: dist/lottery-auto-script-node18-win-x64.d/
           if-no-files-found: error
           retention-days: 14
