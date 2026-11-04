@@ -7,6 +7,7 @@
     "login": "node main.js login",
     "start": "node main.js start",
     "test": "node test/index.js",
+    "test:offline": "node test/offline/bili-api.js",
     "clear": "node main.js clear",
     "check": "node main.js check",
     "update": "node main.js update",

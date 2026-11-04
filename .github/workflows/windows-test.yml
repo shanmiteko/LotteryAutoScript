@@ -1,0 +1,31 @@
+name: Windows test build
+
+on:
+  push:
+    branches:
+      - 'arena/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Offline regression tests
+        run: npm run test:offline
+      - name: Build Windows x64 package
+        run: npm run pkg node18-win-x64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lottery-windows-x64-test
+          path: dist/*.zip
+          if-no-files-found: error
+          retention-days: 14
