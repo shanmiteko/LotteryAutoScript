@@ -1,0 +1,38 @@
+name: Windows test build
+
+on:
+  push:
+    branches:
+      - 'arena/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Offline regression tests
+        run: npm run test:offline
+      - name: Build Windows x64 package
+        run: npm run pkg node18-win-x64
+      - name: Verify package contents
+        run: |
+          test -f dist/lottery-auto-script-node18-win-x64.d/lottery.exe
+          test -f dist/lottery-auto-script-node18-win-x64.d/start.bat
+          test -f dist/lottery-auto-script-node18-win-x64.d/env.js
+          test -f dist/lottery-auto-script-node18-win-x64.d/my_config.js
+          test -z "$(find dist/lottery-auto-script-node18-win-x64.d -name '*.zip' -print -quit)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lottery-windows-x64-test-${{ github.run_number }}-${{ github.run_attempt }}
+          path: dist/lottery-auto-script-node18-win-x64.d/
+          if-no-files-found: error
+          retention-days: 14
