@@ -1,5 +1,10 @@
 <!-- markdownlint-disable MD036 MD024-->
 # CHANGELOG
+## 主要变化(2.11.3)
+* a49d2f2 fix: Bilibili follow and repost APIs and add Windows test build (#494)
+
+_如果之前版本小于上一版本,请查看[CHANGELOG](https://github.com/shanmiteko/LotteryAutoScript/blob/main/CHANGELOG.md)变更说明_
+
 ## 主要变化(2.11.2)
 * 51ec0a1 feat: 获取视频动态的简介以参与转发抽奖
 
